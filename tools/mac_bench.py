@@ -7,10 +7,12 @@
   python3.11 -m venv ~/cbx && source ~/cbx/bin/activate
   pip install torch torchaudio soundfile librosa
   pip install --no-deps "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git@5de7a54"
-  pip install s3tokenizer "conformer==0.3.2" "diffusers==0.29.0" resemble-perth pyloudnorm omegaconf einops
+  pip install s3tokenizer "conformer==0.3.2" "diffusers==0.29.0" resemble-perth pyloudnorm omegaconf einops \
+      transformers "setuptools<81"   # perth импортирует pkg_resources (убран в setuptools 81)
   python3 tools/mac_bench.py            # CPU и MPS; итог — mac_bench/results.md и WAV
 
-RTF < 1 — быстрее реального времени. Для сравнения (2026-09-28): Kaggle T4 ≈ 1.2, Kaggle CPU 4 ядра ≈ 10.
+RTF < 1 — быстрее реального времени. Для сравнения (2026-09-28): Kaggle T4 ≈ 1.2, Kaggle CPU 4 ядра ≈ 10;
+Mac mini M4 Pro 24 ГБ: CPU 2.34, MPS 1.04 (mac_bench/results.md).
 """
 import json
 import os
