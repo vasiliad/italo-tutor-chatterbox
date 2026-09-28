@@ -375,8 +375,13 @@ save_rows()
 code(r"""
 # 12. Скорость на CPU (все ядра машины Kaggle)
 mc = m3 if DEVICE == "cpu" else ChatterboxMultilingualTTS.from_pretrained("cpu", t3_model="v3")
+# Офлайн-учитель: на Mac 16 ГБ рядом будут жить ещё локальная LLM («мозг») и ASR («уши»),
+# поэтому важны и скорость, и память процесса.
+import resource
 synth(mc, "cpu", "short", IT_A1[3], "it", seed=7)
 synth(mc, "cpu", "long", IT_A1[6], "it", seed=7)
+synth(mc, "cpu", "he_short", HE_BASIC[0], "he", seed=7)
+print(f"пиковая RAM процесса: {resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2**20:.1f} ГБ")
 if mc is not m3:
     del mc; gc.collect()
 save_rows()
