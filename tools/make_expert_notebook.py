@@ -3,7 +3,7 @@ cells = []
 def md(s): cells.append({"cell_type": "markdown", "metadata": {}, "source": s.strip("\n")})
 def code(s): cells.append({"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [], "source": s.strip("\n")})
 md(r"""
-# Экспертиза записей Chatterbox на слух: Паоло (it, ru) и Хава (he), gemini-3.1-flash-live-preview
+# Экспертиза записей Chatterbox на слух: Паоло (it, ru) и Хава (he) — gemini-3.1-flash-live-preview (основная) и gemini-3.8-live (запасная)
 
 Вход — последний прогон из `results/` репозитория (или вывод `italo-tutor-chatterbox-eval`, подключённый как Input). Ключ Gemini — Kaggle Secret `GEMINI_API_KEY`
 (Add-ons → Secrets, галочка для этого ноутбука). GPU не нужен, Internet = On.
@@ -52,13 +52,18 @@ code(r"""
 !cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --per-min 20 --per-key
 """)
 code(r"""
+# Те же вопросы запасной модели gemini-3.8-live (на случай отключения 3.1-preview) — отдельный файл
+!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --per-min 20 --per-key --model models/gemini-3.8-live
+""")
+
+code(r"""
 import pandas as pd
-df = pd.read_csv("/kaggle/working/chatterbox_eval/expert_results.csv")
-print(open("/kaggle/working/chatterbox_eval/expert_summary.md").read())
 out = "/kaggle/working/expert_out"
 os.makedirs(out, exist_ok=True)
-for f in ["expert_results.csv", "expert_summary.md"]:
-    shutil.copy(f"/kaggle/working/chatterbox_eval/{f}", out)
+for f in glob.glob("/kaggle/working/chatterbox_eval/expert_*"):
+    shutil.copy(f, out)
+    if f.endswith(".md"):
+        print(open(f).read())
 shutil.rmtree("/kaggle/working/chatterbox_eval"); shutil.rmtree("/kaggle/working/task", ignore_errors=True)
 os.remove(os.path.expanduser("~/key/key"))
 """)

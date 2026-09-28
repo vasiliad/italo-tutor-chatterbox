@@ -29,6 +29,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.dirname(__file__))
 from paolo import load_keys, with_memory  # noqa: E402
+from paolo import MODEL  # noqa: E402
 from paolo_listen import listen  # noqa: E402
 
 HERE = os.path.dirname(__file__)
@@ -224,7 +225,7 @@ class Pacer:
         self.last = loop.time()
 
 
-async def run_one(task, audio, keys, pacers, start, timeout, use_memory, backoff=65, tries=3):
+async def run_one(task, audio, keys, pacers, start, timeout, use_memory, model=MODEL, backoff=65, tries=3):
     """Спрашивает эксперта, начиная с ключа start (ключи по кругу, у каждого свой темп).
     На «слишком часто» (1011 / quota) ждёт минуту и повторяет; потом — следующий ключ."""
     ex = EXPERTS[task["expert"]]
@@ -238,7 +239,7 @@ async def run_one(task, audio, keys, pacers, start, timeout, use_memory, backoff
         for attempt in range(tries):
             await pacers[idx].wait()
             try:
-                return await listen(key, system, ex["voice"], audio, task["question"], timeout)
+                return await listen(key, system, ex["voice"], audio, task["question"], timeout, model)
             except Exception as e:
                 err = str(e)[:300]
                 if not any(q.lower() in err.lower() for q in RATE):
@@ -256,6 +257,7 @@ async def main():
     ap.add_argument("--per-min", type=float, default=20, help="не чаще стольких запросов в минуту (всего; с --per-key — на ключ)")
     ap.add_argument("--per-key", action="store_true", help="ключи из разных проектов Google: темп на каждый ключ")
     ap.add_argument("--memory", action="store_true", help="подключить тетрадь-память Паоло")
+    ap.add_argument("--model", default=MODEL, help="основная — 3.1; запасная: models/gemini-3.8-live")
     ap.add_argument("--keys", default="~/key/key")
     ap.add_argument("--timeout", type=float, default=120)
     ap.add_argument("--seed", type=int, default=0)
@@ -285,7 +287,9 @@ async def main():
     pacers = [Pacer(a.per_min) for _ in keys] if a.per_key else [shared] * len(keys)
 
     # Продолжение: удачные ответы прошлых запусков сохраняем и не спрашиваем заново
-    path = os.path.join(a.root, "expert_results.csv")
+    # 3.1 — основная модель (expert_results.csv); запасная 3.8 и другие — в отдельных файлах
+    tag = "" if a.model == MODEL else "_" + a.model.split("/")[-1].replace("gemini-", "")
+    path = os.path.join(a.root, f"expert_results{tag}.csv")
     done = {}
     if os.path.exists(path):
         for o in csv.DictReader(open(path)):
@@ -306,7 +310,7 @@ async def main():
             out.append(done[(r["section"], r["name"])])
             continue
         audio = load_16k(os.path.join(a.root, r["file"]))
-        ans = await run_one(t, audio, keys, pacers, n % len(keys), a.timeout, a.memory)
+        ans = await run_one(t, audio, keys, pacers, n % len(keys), a.timeout, a.memory, a.model)
         got = parse(t["kind"], ans)
         ok = "" if t["expected"] is None or got is None else int(got == t["expected"])
         print(f"{n}/{len(jobs)} [{r['section']}] {r['name']}: {got} (ожидали {t['expected']}) {ans[:120]!r}",
@@ -336,7 +340,7 @@ async def main():
         acc = f"{g['ok']} / {g['judged']}" if g["judged"] else "—"
         rate = f"{sum(g['rates']) / len(g['rates']):.1f}" if g["rates"] else "—"
         lines.append(f"| {sec} | {ex} | {g['n']} | {acc} | {rate} |")
-    open(os.path.join(a.root, "expert_summary.md"), "w").write("\n".join(lines) + "\n")
+    open(os.path.join(a.root, f"expert_summary{tag}.md"), "w").write(f"Модель: {a.model}\n\n" + "\n".join(lines) + "\n")
     print("\n".join(lines))
 
 

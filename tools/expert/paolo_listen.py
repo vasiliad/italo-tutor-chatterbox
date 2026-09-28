@@ -45,13 +45,13 @@ def resample(samples, src, dst):
     return out
 
 
-async def listen(key, system, voice, audio_16k, question, timeout):
+async def listen(key, system, voice, audio_16k, question, timeout, model=MODEL):
     # key=None: ключ подставляет прокси окружения (API credential), сами заголовок не шлём
     headers = {"x-goog-api-key": key} if key else {}
     async with websockets.connect(URL, additional_headers=headers,
                                   max_size=None, open_timeout=30) as ws:
         setup = {"setup": {
-            "model": MODEL,
+            "model": model,
             "generationConfig": {
                 "responseModalities": ["AUDIO"],
                 "speechConfig": {"voiceConfig": {
