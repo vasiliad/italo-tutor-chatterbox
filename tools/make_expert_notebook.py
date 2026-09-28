@@ -28,7 +28,9 @@ for name in ["GEMINI_API_KEY"] + [f"GEMINI_API_KEY_{i}" for i in range(2, 10)]:
 import re
 if not keys:
     for f in glob.glob("/kaggle/input/**/*.txt", recursive=True):
-        keys += [k for k in re.findall(r"AIza[0-9A-Za-z_\-]{35}", open(f).read()) if k not in keys]
+        found = [k for k in re.findall(r"[A-Za-z0-9_.\-]{30,}", open(f).read()) if k not in keys]
+        print(os.path.basename(f), "— ключей:", len(found), "длины:", [len(k) for k in found])
+        keys += found
 print("ключей:", len(keys))
 assert keys, "Нет ключей: ни секрета GEMINI_API_KEY, ни .txt с ключами в подключённом Dataset"
 os.makedirs(os.path.expanduser("~/key"), exist_ok=True)
