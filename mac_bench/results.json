@@ -1,0 +1,90 @@
+[
+ {
+  "device": "cpu",
+  "load_s": 7.2,
+  "rows": [
+   {
+    "device": "cpu",
+    "phrase": "Ciao, mi chiamo Paolo. Come ti chiami?",
+    "audio_s": 2.28,
+    "gen_s": 9.01,
+    "rtf": 3.95
+   },
+   {
+    "device": "cpu",
+    "phrase": "Vorrei un caffè e un cornetto, per favore.",
+    "audio_s": 2.56,
+    "gen_s": 5.92,
+    "rtf": 2.31
+   },
+   {
+    "device": "cpu",
+    "phrase": "Mi piace la musica, ma non mi piacciono i film dell'orrore.",
+    "audio_s": 3.0,
+    "gen_s": 6.68,
+    "rtf": 2.23
+   },
+   {
+    "device": "cpu",
+    "phrase": "Scusi, a che ora parte il treno per Firenze?",
+    "audio_s": 2.44,
+    "gen_s": 5.68,
+    "rtf": 2.33
+   },
+   {
+    "device": "cpu",
+    "phrase": "Dico telèfonano adesso.",
+    "audio_s": 1.8,
+    "gen_s": 4.47,
+    "rtf": 2.48
+   }
+  ],
+  "rtf_mean_excl_first": 2.34,
+  "peak_rss_gb": 6.5,
+  "mps_driver_gb": null
+ },
+ {
+  "device": "mps",
+  "load_s": 8.5,
+  "rows": [
+   {
+    "device": "mps",
+    "phrase": "Ciao, mi chiamo Paolo. Come ti chiami?",
+    "audio_s": 2.08,
+    "gen_s": 7.69,
+    "rtf": 3.7
+   },
+   {
+    "device": "mps",
+    "phrase": "Vorrei un caffè e un cornetto, per favore.",
+    "audio_s": 2.48,
+    "gen_s": 3.07,
+    "rtf": 1.24
+   },
+   {
+    "device": "mps",
+    "phrase": "Mi piace la musica, ma non mi piacciono i film dell'orrore.",
+    "audio_s": 3.4,
+    "gen_s": 3.25,
+    "rtf": 0.96
+   },
+   {
+    "device": "mps",
+    "phrase": "Scusi, a che ora parte il treno per Firenze?",
+    "audio_s": 2.88,
+    "gen_s": 2.68,
+    "rtf": 0.93
+   },
+   {
+    "device": "mps",
+    "phrase": "Dico telèfonano adesso.",
+    "audio_s": 1.88,
+    "gen_s": 1.92,
+    "rtf": 1.02
+   }
+  ],
+  "rtf_mean_excl_first": 1.04,
+  "peak_rss_gb": 4.9,
+  "mps_driver_gb": 3.6
+ }
+]
