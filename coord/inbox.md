@@ -189,3 +189,10 @@ a domani, alla prossima, до свидания, на сегодня всё…) �
 `flutter analyze` чисто, `flutter test` зелёный, коммит + пуш в `claude/funny-thompson-nhd4kq`, строка в outbox.
 Живой урок A1 с владельцем — после этапа A (он даёт надёжность часового урока), не откладывать до конца B.
 Анимацию Паоло (906 JPEG, 27 МБ) при следующей переделке хранить компактнее (видео/спрайт-лист), чтобы не раздувать git.
+
+## №10 — СРОЧНО: analyze не чистый после 42ab05d (2026-09-28)
+`flutter analyze` (Flutter 3.35.5, как в CI) — 8 замечаний, CI упадёт на warning:
+`lib/core/gemini/gemini_live_client.dart:71-78` — `@override` стоят в объявлении интерфейса `LiveLink` (override_on_non_overriding_member ×4),
+а в `GeminiLiveClient` (`:110` events, `:111` connectionState, `:276` sendText, `:299` dispose) их нет (annotate_overrides ×4).
+Перенеси аннотации в класс. Проверь, почему у тебя analyze показал «чисто» (другой Flutter в PATH? `which flutter`,
+`flutter --version` — должен быть 3.35.5 из ~/flutter-3.35.5) и впредь запускай именно им.
