@@ -1,0 +1,476 @@
+section,name,text,lang,tag,file,expert,kind,choices,expected,answer,correct,transcript
+it_context,ancora_ancòra_plain,Vorrei ancora un caffè.,it,"контекст, без знака",wav/it_context__ancora_ancòra_plain.wav,paolo,choice,Вариант 1: ancòra (ещё) | Вариант 2: àncora (якорь),1,,,"Ответ:  with 1. Ударение было на второй слог, коротко и ясно. Ancòra! Как раз то, что нужно. Кофе? Perfetto! А что ещё хочешь узнать?"
+it_context,ancora_ancòra_mark,Vorrei ancòra un caffè.,it,со знаком,wav/it_context__ancora_ancòra_mark.wav,paolo,choice,Вариант 1: àncora (якорь) | Вариант 2: ancòra (ещё),2,,,"Ответ:  italo-tutor2. Ударный слог почему-то выделен нечётко, но по смыслу подходит ""ancòra"". Но на всякий случай, давай проверим ещё раз?"
+it_context,ancora_àncora_plain,La nave getta l'ancora in porto.,it,"контекст, без знака",wav/it_context__ancora_àncora_plain.wav,paolo,choice,Вариант 1: ancòra (ещё) | Вариант 2: àncora (якорь),2,2,1,"Ответ: 2 Ударение было на первом слоге, ""àncora"". Как якорь! Понятно?"
+it_context,ancora_àncora_mark,La nave getta l'àncora in porto.,it,со знаком,wav/it_context__ancora_àncora_mark.wav,paolo,choice,Вариант 1: ancòra (ещё) | Вариант 2: àncora (якорь),2,2,1,"Ответ: 2. Ударение было на первом слоге, чётко слышно ""àncora""."
+it_context,principi_princìpi_plain,I principi della fisica sono semplici.,it,"контекст, без знака",wav/it_context__principi_princìpi_plain.wav,paolo,choice,Вариант 1: prìncipi (принцы) | Вариант 2: princìpi (принципы),2,,,"Ответ:  they ударение падает на второй слог, princìpi. Это принципы, а не принцы."
+it_context,principi_princìpi_mark,I princìpi della fisica sono semplici.,it,со знаком,wav/it_context__principi_princìpi_mark.wav,paolo,choice,Вариант 1: prìncipi (принцы) | Вариант 2: princìpi (принципы),2,,,"Ответ:  they princìpi. Perché l'accento è chiaramente sulla seconda sillaba, non sulla prima. Chiaro, no?"
+it_context,principi_prìncipi_plain,Il re e la regina hanno due figli: sono principi.,it,"контекст, без знака",wav/it_context__principi_prìncipi_plain.wav,paolo,choice,Вариант 1: princìpi (принципы) | Вариант 2: prìncipi (принцы),2,0,0,"Ответ: ноль. Я не услышал ни одного, ни второго слова в этой фразе. Там совсем другое было. Может, проверим другую запись?"
+it_context,principi_prìncipi_mark,Il re e la regina hanno due figli: sono prìncipi.,it,со знаком,wav/it_context__principi_prìncipi_mark.wav,paolo,choice,Вариант 1: princìpi (принципы) | Вариант 2: prìncipi (принцы),2,0,0,"Ответ: ноль. Я просто не слышу этого слова на записи. Там только ""E lei la regina"". Мне нужно услышать полное предложение."
+it_context,capitano_capitàno_plain,Il capitano parla con i marinai.,it,"контекст, без знака",wav/it_context__capitano_capitàno_plain.wav,paolo,choice,Вариант 1: càpitano (случаются) | Вариант 2: capitàno (капитан),2,2,1,"Ответ: 2 Ударение падает на предпоследний слог, как в слове ""capitàno"". Слышно чётко."
+it_context,capitano_capitàno_mark,Il capitàno parla con i marinai.,it,со знаком,wav/it_context__capitano_capitàno_mark.wav,paolo,choice,Вариант 1: càpitano (случаются) | Вариант 2: capitàno (капитан),2,2,1,"Ответ: 2 Улыбка, ударение на предпоследнем слоге: capiTÀno. Как капитан корабля! Слышно хорошо!"
+it_context,capitano_càpitano_plain,Queste cose capitano spesso.,it,"контекст, без знака",wav/it_context__capitano_càpitano_plain.wav,paolo,choice,Вариант 1: capitàno (капитан) | Вариант 2: càpitano (случаются),2,2,1,"Ответ: 2. Потому что ударение было на первом слоге: ""càpitano"". Это глагол, ""случаются"". Понятно?"
+it_context,capitano_càpitano_mark,Queste cose càpitano spesso.,it,со знаком,wav/it_context__capitano_càpitano_mark.wav,paolo,choice,Вариант 1: càpitano (случаются) | Вариант 2: capitàno (капитан),1,,,"Ответ:  always zero. Запись прервалась и невозможно понять, какое слово. Mi dispiace."
+it_context,subito_sùbito_plain,Vieni subito qui!,it,"контекст, без знака",wav/it_context__subito_sùbito_plain.wav,paolo,choice,"Вариант 1: subìto (перенёс, пострадал от) | Вариант 2: sùbito (сразу)",2,,,"Ответ:  same_variant
+Ударение чётко падает на первый слог, на 'u'."
+it_context,subito_sùbito_mark,Vieni sùbito qui!,it,со знаком,wav/it_context__subito_sùbito_mark.wav,paolo,choice,"Вариант 1: sùbito (сразу) | Вариант 2: subìto (перенёс, пострадал от)",1,,,"Ответ:  same_as(1)
+Потому что ударение падает на первый слог. Sùbito!"
+it_context,subito_subìto_plain,Ha subito un furto ieri sera.,it,"контекст, без знака",wav/it_context__subito_subìto_plain.wav,paolo,choice,"Вариант 1: sùbito (сразу) | Вариант 2: subìto (перенёс, пострадал от)",2,,,"Ответ:  with 2. Ударение было на «i», subìto. Это форма глагола subire. Всё чётко. Что-то ещё нужно послушать?"
+it_context,subito_subìto_mark,Ha subìto un furto ieri sera.,it,со знаком,wav/it_context__subito_subìto_mark.wav,paolo,choice,"Вариант 1: sùbito (сразу) | Вариант 2: subìto (перенёс, пострадал от)",2,,,"Ответ:  him. Потому что неразборчиво сказано, ударение «проглочено». Непонятно, subìto or sùbito."
+he_context,boker_morning_plain,בוקר טוב!,he,без огласовок (как сейчас в Chatterbox),wav/he_context__boker_morning_plain.wav,hava,choice,"Вариант 1: בּוֹקֵר, бокéр — ковбой | Вариант 2: בֹּקֶר, бóкер — утро",2,0,0,"Ответ: 0. Звук очень неразборчивый, я не могу точно сказать, какое слово там было."
+he_context,boker_morning_dicta,בֹּוקֶר טוֹב!,he,Dicta (≠ вручную),wav/he_context__boker_morning_dicta.wav,hava,choice,"Вариант 1: בֹּקֶר, бóкер — утро | Вариант 2: בּוֹקֵר, бокéр — ковбой",1,,,"Ответ:  sameach1.
+Потому что ударение слышно на первом слоге: бóкер. Как мы и говорим по утрам! Бóкер тов!"
+he_context,boker_morning_manual,בֹּקֶר טוֹב!,he,огласовки вручную,wav/he_context__boker_morning_manual.wav,hava,choice,"Вариант 1: בּוֹקֵר, бокéр — ковбой | Вариант 2: בֹּקֶר, бóкер — утро",2,,,"Ответ:  with 2. Я слышу ""бóкер"", ударение на первый слог, как ""утро"". А ковбой будет ""бокéр""."
+he_context,boker_cowboy_plain,הבוקר רכב על סוס.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__boker_cowboy_plain.wav,hava,choice,"Вариант 1: בּוֹקֵר, бокéр — ковбой | Вариант 2: בֹּקֶר, бóкер — утро",1,0,0,"Ответ: ноль. Запись обрывается и звук нечёткий, не могу разобрать."
+he_context,boker_cowboy_dicta,הַבֹּוקֶר רָכַב עַל סוּס.,he,Dicta (≠ вручную),wav/he_context__boker_cowboy_dicta.wav,hava,choice,"Вариант 1: בּוֹקֵר, бокéр — ковбой | Вариант 2: בֹּקֶר, бóкер — утро",1,1,1,"Ответ: 1
+Потому что ударение на последнем слоге, ""бокéр"". На иврите это будет בּוֹקֵר, ковбой."
+he_context,boker_cowboy_manual,הַבּוֹקֵר רָכַב עַל סוּס.,he,огласовки вручную,wav/he_context__boker_cowboy_manual.wav,hava,choice,"Вариант 1: בֹּקֶר, бóкер — утро | Вариант 2: בּוֹקֵר, бокéр — ковбой",2,1,0,"Ответ: 1
+Звучало как бóкер, с ударением на первый слог."
+he_context,okhel_food_plain,האוכל על השולחן.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__okhel_food_plain.wav,hava,choice,"Вариант 1: אוֹכֵל, охéль — ест | Вариант 2: אֹכֶל, óхель — еда",2,0,0,"Ответ: ноль. Произношение смазанное, ударение вообще как на первом слоге, так что не пойму, то ли ""еда"", то ли ""ест""."
+he_context,okhel_food_dicta,הָאֹוכֶל עַל הַשֻּׁולְחָן.,he,Dicta (≠ вручную),wav/he_context__okhel_food_dicta.wav,hava,choice,"Вариант 1: אֹכֶל, óхель — еда | Вариант 2: אוֹכֵל, охéль — ест",1,,,"Ответ:  etc. 0.
+Произнесено было что-то вроде ""охала"", вообще не похоже ни на ""óхель"", ни на ""охéль""."
+he_context,okhel_food_manual,הָאֹכֶל עַל הַשֻּׁלְחָן.,he,огласовки вручную,wav/he_context__okhel_food_manual.wav,hava,choice,"Вариант 1: אוֹכֵל, охéль — ест | Вариант 2: אֹכֶל, óхель — еда",2,,,Ответ:  sameachI'm just a language model and can't help with that.
+he_context,okhel_eats_plain,הוא אוכל לחם.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__okhel_eats_plain.wav,hava,choice,"Вариант 1: אוֹכֵל, охéль — ест | Вариант 2: אֹכֶל, óхель — еда",1,,,"Ответ:  they said. אֹכֶל, еда. Ударение в начале, как и положено в варианте два."
+he_context,okhel_eats_dicta,הוּא אוֹכֵל לֶחֶם.,he,Dicta,wav/he_context__okhel_eats_dicta.wav,hava,choice,"Вариант 1: אוֹכֵל, охéль — ест | Вариант 2: אֹכֶל, óхель — еда",1,1,1,"Ответ: 1. Я явно слышу движение голоса на конце слова, как в глаголе ""охéль"". В слове ""óхель"" ударение на первый слог, и конец более отрывистый."
+he_context,okhel_eats_manual,הוּא אוֹכֵל לֶחֶם.,he,огласовки вручную,wav/he_context__okhel_eats_manual.wav,hava,choice,"Вариант 1: אֹכֶל, óхель — еда | Вариант 2: אוֹכֵל, охéль — ест",2,0,0,"Ответ: ноль. Я слышу вообще что-то на другом языке, на иврит не похоже."
+he_context,sefer_book_plain,אני קורא ספר.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__sefer_book_plain.wav,hava,choice,"Вариант 1: סֵפֶר, сэ́фер — книга | Вариант 2: סַפָּר, сапáр — парикмахер",1,2,0,"Ответ: 2. Я отчётливо слышу ""сапар"", ударение на второй слог, и звук ""а"" в обоих слогах. Никак не ""сэфер""."
+he_context,sefer_book_dicta,אֲנִי קוֹרֵא סֵפֶר.,he,Dicta,wav/he_context__sefer_book_dicta.wav,hava,choice,"Вариант 1: סֵפֶר, сэ́фер — книга | Вариант 2: סַפָּר, сапáр — парикмахер",1,0,0,"Ответ: ноль. Я не могу разобрать что прозвучало, звук очень смазанный."
+he_context,sefer_book_manual,אֲנִי קוֹרֵא סֵפֶר.,he,огласовки вручную,wav/he_context__sefer_book_manual.wav,hava,choice,"Вариант 1: סַפָּר, сапáр — парикмахер | Вариант 2: סֵפֶר, сэ́фер — книга",2,2,1,"Ответ: 2
+Ударение было на первом слоге, «сэ́фер», а не «сапáр». Это точно книга."
+he_context,sapar_barber_plain,הספר גזר לי את השיער.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__sapar_barber_plain.wav,hava,choice,"Вариант 1: סַפָּר, сапáр — парикмахер | Вариант 2: סֵפֶר, сэ́фер — книга",1,,,"Ответ:  always
+
+Я не услышала на записи звуков, похожих на иврит. Это звучало как английская фраза."
+he_context,sapar_barber_dicta,הַסֵּפֶר גָּזַר לִי אֶת הַשֵּׂיעָר.,he,Dicta (≠ вручную),wav/he_context__sapar_barber_dicta.wav,hava,choice,"Вариант 1: סֵפֶר, сэ́фер — книга | Вариант 2: סַפָּר, сапáр — парикмахер",2,0,0,"Ответ: 0. Это вообще не похоже ни на иврит, ни на одно из этих слов. Какой-то странный набор звуков."
+he_context,sapar_barber_manual,הַסַּפָּר גָּזַר לִי אֶת הַשֵּׂעָר.,he,огласовки вручную,wav/he_context__sapar_barber_manual.wav,hava,choice,"Вариант 1: סַפָּר, сапáр — парикмахер | Вариант 2: סֵפֶר, сэ́фер — книга",1,,,"Ответ:  it's a zero. Я слышу «саПАР», но это не звучит как слово само по себе. Будто вырвано из контекста и ударение какое-то странное."
+he_context,banu_built_plain,הם בנו בית חדש.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__banu_built_plain.wav,hava,choice,Вариант 1: банý — «построили» (ударение на последний) | Вариант 2: бáну — «в нас» (ударение на первый слог),1,1,1,"Ответ: 1
+
+Ударение чётко на последнем слоге, банý. Слышно, что «построили»."
+he_context,banu_built_dicta,הֵם בָּנוּ בַּיִת חָדָשׁ.,he,Dicta,wav/he_context__banu_built_dicta.wav,hava,choice,Вариант 1: бáну — «в нас» (ударение на первый слог) | Вариант 2: банý — «построили» (ударение на последний),2,2,1,"Ответ: два
+
+Ударение чётко на последнем слоге: банý. Слышится как «построили». Хотя фраза целиком «эм банý байт» (они построили дом) звучит как-то обрывисто. Но ударение понятное."
+he_context,banu_built_manual,הֵם בָּנוּ בַּיִת חָדָשׁ.,he,огласовки вручную,wav/he_context__banu_built_manual.wav,hava,choice,Вариант 1: банý — «построили» (ударение на последний) | Вариант 2: бáну — «в нас» (ударение на первый слог),1,2,0,"Ответ: 2 Услышала ""бану"", ударение на первый слог, так звучит ""в нас"". А ""построили"" будет ""банý"", с ударением на конце."
+he_context,banu_in_us_plain,הוא בוטח בנו.,he,без огласовок (как сейчас в Chatterbox),wav/he_context__banu_in_us_plain.wav,hava,choice,Вариант 1: бáну — «в нас» (ударение на первый слог) | Вариант 2: банý — «построили» (ударение на последний),,0,,"Ответ: ноль. Я слышу ""по-ба-бену"", это не похоже ни на одно из слов."
+he_context,banu_in_us_dicta,הוּא בּוֹטֵחַ בָּנוּ.,he,Dicta,wav/he_context__banu_in_us_dicta.wav,hava,choice,Вариант 1: бáну — «в нас» (ударение на первый слог) | Вариант 2: банý — «построили» (ударение на последний),,2,,"Ответ: 2
+Звук явно на конце, «бану́», значит «построили»."
+he_context,banu_in_us_manual,הוּא בּוֹטֵחַ בָּנוּ.,he,огласовки вручную,wav/he_context__banu_in_us_manual.wav,hava,choice,Вариант 1: бáну — «в нас» (ударение на первый слог) | Вариант 2: банý — «построили» (ударение на последний),,1,,"Ответ: 1 Услышала чёткое ударение на «ба», как в слове «ба́ну». Хотя произнесено немного быстро."
+he_context,shlomekh_fem_plain,"שלום, מה שלומך?",he,без огласовок (как сейчас в Chatterbox),wav/he_context__shlomekh_fem_plain.wav,hava,choice,Вариант 1: шломхá — обращение к мужчине | Вариант 2: шломéх — обращение к женщине,2,0,0,"Ответ: ноль. Я слышу только ""Шлум. Машлум?"", это не похоже ни на один из вариантов."
+he_context,shlomekh_fem_dicta,"שָׁלוֹם, מָה שְׁלוֹמְךָ?",he,Dicta (≠ вручную),wav/he_context__shlomekh_fem_dicta.wav,hava,choice,Вариант 1: шломхá — обращение к мужчине | Вариант 2: шломéх — обращение к женщине,2,,,"Ответ:  aдин.
+
+Я слышу отчётливое ""ха"" в конце, значит, обращение к мужчине."
+he_context,shlomekh_fem_manual,"שָׁלוֹם, מַה שְּׁלוֹמֵךְ?",he,огласовки вручную,wav/he_context__shlomekh_fem_manual.wav,hava,choice,Вариант 1: шломхá — обращение к мужчине | Вариант 2: шломéх — обращение к женщине,2,,,"Ответ:  it seemed to me that in the first phrase the stress was on the last syllable, like ""shlomchá"". Although it was a bit fast. What do you think?"
+stress,telefonano_telèfonano_none_solo,telefonano.,it,4-й от конца,wav/stress__telefonano_telèfonano_none_solo.wav,paolo,choice,Вариант 1: telèfonano — ударная гласная «telÈfonano» | Вариант 2: telefònano — ударная гласная «telefÒnano»,1,1,1,"Ответ: 1
+
+Я чётко слышу ударение на втором слоге: telÈfonano. В итальянском это именно так."
+stress,telefonano_telèfonano_none_frame,Dico telefonano adesso.,it,4-й от конца,wav/stress__telefonano_telèfonano_none_frame.wav,paolo,choice,Вариант 1: telèfonano — ударная гласная «telÈfonano» | Вариант 2: telefònano — ударная гласная «telefÒnano»,1,1,1,"Ответ: 1
+Потому что я ясно слышу ударение на втором слоге: te-LÈ-fo-na-no. Так и должно быть."
+stress,telefonano_telèfonano_grave_solo,telèfonano.,it,4-й от конца,wav/stress__telefonano_telèfonano_grave_solo.wav,paolo,choice,Вариант 1: telefònano — ударная гласная «telefÒnano» | Вариант 2: telèfonano — ударная гласная «telÈfonano»,2,2,1,"Ответ: 2
+Я ясно слышу ударение на втором слоге, telèfonano."
+stress,telefonano_telèfonano_grave_frame,Dico telèfonano adesso.,it,4-й от конца,wav/stress__telefonano_telèfonano_grave_frame.wav,paolo,choice,Вариант 1: telèfonano — ударная гласная «telÈfonano» | Вариант 2: telefònano — ударная гласная «telefÒnano»,1,1,1,"Ответ: 1
+
+Слышно чёткое ударение на втором слоге: te-LÈ-fo-na-no. Как и должно быть!"
+stress,telefonano_telèfonano_acute_solo,teléfonano.,it,4-й от конца,wav/stress__telefonano_telèfonano_acute_solo.wav,paolo,choice,Вариант 1: telèfonano — ударная гласная «telÈfonano» | Вариант 2: telefònano — ударная гласная «telefÒnano»,1,0,0,"Ответ: ноль. Я не слышу здесь чёткого ударения, слово просто обрывается. Не могу судить."
+stress,telefonano_telèfonano_acute_frame,Dico teléfonano adesso.,it,4-й от конца,wav/stress__telefonano_telèfonano_acute_frame.wav,paolo,choice,Вариант 1: telèfonano — ударная гласная «telÈfonano» | Вариант 2: telefònano — ударная гласная «telefÒnano»,1,,,"Ответ:  himmel, non l'ho sentito bene! Era troppo veloce e tagliato. Possiamo riascoltare, per favore? Non voglio tirare a indovinare."
+stress,parliamo_parliàmo_none_solo,parliamo.,it,,wav/stress__parliamo_parliàmo_none_solo.wav,paolo,choice,Вариант 1: parliàmo — ударная гласная «parliÀmo» | Вариант 2: pàrliamo — ударная гласная «pÀrliamo»,1,,,"Ответ:  however, ноль. Я слышу звук, который будто между двумя гласными, не могу точно определить. Извини!"
+stress,parliamo_parliàmo_none_frame,Dico parliamo adesso.,it,,wav/stress__parliamo_parliàmo_none_frame.wav,paolo,choice,Вариант 1: parliàmo — ударная гласная «parliÀmo» | Вариант 2: pàrliamo — ударная гласная «pÀrliamo»,1,1,1,"Ответ: 1
+Я слышу, что ударение падает на ""а"", как и должно быть."
+stress,parliamo_parliàmo_grave_solo,parliàmo.,it,,wav/stress__parliamo_parliàmo_grave_solo.wav,paolo,choice,Вариант 1: parliàmo — ударная гласная «parliÀmo» | Вариант 2: pàrliamo — ударная гласная «pÀrliamo»,1,,,"Ответ:  it, вариант 1. Я чётко слышу ударение на «а» — parliÀmo. Так и должно быть."
+stress,parliamo_parliàmo_grave_frame,Dico parliàmo adesso.,it,,wav/stress__parliamo_parliàmo_grave_frame.wav,paolo,choice,Вариант 1: pàrliamo — ударная гласная «pÀrliamo» | Вариант 2: parliàmo — ударная гласная «parliÀmo»,2,1,0,"Ответ: 1 Я слышу ударение на первом слоге, parliamo. Это неправильно. Должно быть parliàmo, на третьем. Понятно?"
+stress,parliamo_parliàmo_acute_solo,parliámo.,it,,wav/stress__parliamo_parliàmo_acute_solo.wav,paolo,choice,Вариант 1: pàrliamo — ударная гласная «pÀrliamo» | Вариант 2: parliàmo — ударная гласная «parliÀmo»,2,,,"Ответ:  however, zero.
+
+Il suono è strano, non riesco a distinguere bene l'accento."
+stress,parliamo_parliàmo_acute_frame,Dico parliámo adesso.,it,,wav/stress__parliamo_parliàmo_acute_frame.wav,paolo,choice,Вариант 1: parliàmo — ударная гласная «parliÀmo» | Вариант 2: pàrliamo — ударная гласная «pÀrliamo»,1,,,"Ответ:  with 1. Ясно слышу, что ударение падает на 'a' в середине: par - lià - mo. Компренде?"
+stress,desiderano_desìderano_none_solo,desiderano.,it,4-й от конца,wav/stress__desiderano_desìderano_none_solo.wav,paolo,choice,Вариант 1: desidèrano — ударная гласная «desidÈrano» | Вариант 2: desìderano — ударная гласная «desÌderano»,2,,,"Ответ:  same_index
+
+Ударение падает на второй слог, ""de-SÌ-de-ra-no"", я чётко слышу звук ""i""."
+stress,desiderano_desìderano_none_frame,Dico desiderano adesso.,it,4-й от конца,wav/stress__desiderano_desìderano_none_frame.wav,paolo,choice,Вариант 1: desidèrano — ударная гласная «desidÈrano» | Вариант 2: desìderano — ударная гласная «desÌderano»,2,,,"Ответ:  always due. Я чётко слышу ударение на «i», desìderano. Так и должно быть."
+stress,desiderano_desìderano_grave_solo,desìderano.,it,4-й от конца,wav/stress__desiderano_desìderano_grave_solo.wav,paolo,choice,Вариант 1: desìderano — ударная гласная «desÌderano» | Вариант 2: desidèrano — ударная гласная «desidÈrano»,1,1,1,"Ответ: 1. Я чётко слышу, что ударение падает на второй слог, на гласную «i». «Desìderano». Всё верно!"
+stress,desiderano_desìderano_grave_frame,Dico desìderano adesso.,it,4-й от конца,wav/stress__desiderano_desìderano_grave_frame.wav,paolo,choice,Вариант 1: desidèrano — ударная гласная «desidÈrano» | Вариант 2: desìderano — ударная гласная «desÌderano»,2,,,"Ответ:  same_voice_variant2
+
+Я четко слышу, что ударение падает на «i» — desìderano. Это правильно."
+stress,desiderano_desìderano_acute_solo,desíderano.,it,4-й от конца,wav/stress__desiderano_desìderano_acute_solo.wav,paolo,choice,Вариант 1: desìderano — ударная гласная «desÌderano» | Вариант 2: desidèrano — ударная гласная «desidÈrano»,1,,,"Ответ:  with 1. Ясно слышу ударение на i, как и должно быть."
+stress,desiderano_desìderano_acute_frame,Dico desíderano adesso.,it,4-й от конца,wav/stress__desiderano_desìderano_acute_frame.wav,paolo,choice,Вариант 1: desidèrano — ударная гласная «desidÈrano» | Вариант 2: desìderano — ударная гласная «desÌderano»,2,,,"Ответ:  stillatela 2. Я слышу ударение на втором слоге, ""deSIderano"". Это правильно."
+stress,capiscono_capìscono_none_solo,capiscono.,it,,wav/stress__capiscono_capìscono_none_solo.wav,paolo,choice,Вариант 1: capiscòno — ударная гласная «capiscÒno» | Вариант 2: capìscono — ударная гласная «capÌscono»,2,,,"Ответ:  stillo due.
+
+Я слышу, что ударная гласная — «i», а не «o». Слышно же, capìscono! Привет, дорогая! Ну, как тебе звук?
+
+
+"
+stress,capiscono_capìscono_none_frame,Dico capiscono adesso.,it,,wav/stress__capiscono_capìscono_none_frame.wav,paolo,choice,Вариант 1: capìscono — ударная гласная «capÌscono» | Вариант 2: capiscòno — ударная гласная «capiscÒno»,1,0,0,"Ответ: ноль. Аудио нечёткое, я не могу уверенно разобрать, на какой слог падает ударение."
+stress,capiscono_capìscono_grave_solo,capìscono.,it,,wav/stress__capiscono_capìscono_grave_solo.wav,paolo,choice,Вариант 1: capìscono — ударная гласная «capÌscono» | Вариант 2: capiscòno — ударная гласная «capiscÒno»,1,1,1,"Ответ: 1
+Потому что ударение чётко падает на «и», ca-PÌS-co-no."
+stress,capiscono_capìscono_grave_frame,Dico capìscono adesso.,it,,wav/stress__capiscono_capìscono_grave_frame.wav,paolo,choice,Вариант 1: capiscòno — ударная гласная «capiscÒno» | Вариант 2: capìscono — ударная гласная «capÌscono»,2,,,"Ответ:  they 1
+
+Я чётко слышу ударение на последнем слоге, «capiscÒno». Это неправильно, конечно, но мы же судим только по звуку!"
+stress,capiscono_capìscono_acute_solo,capíscono.,it,,wav/stress__capiscono_capìscono_acute_solo.wav,paolo,choice,Вариант 1: capìscono — ударная гласная «capÌscono» | Вариант 2: capiscòno — ударная гласная «capiscÒno»,1,,,"Ответ:  they 2. Ударная гласная очень чётко слышна на «о», как capiscòno. Это неправильно, мы так не говорим, правильно «capìscono», но на записи именно так."
+stress,capiscono_capìscono_acute_frame,Dico capíscono adesso.,it,,wav/stress__capiscono_capìscono_acute_frame.wav,paolo,choice,Вариант 1: capìscono — ударная гласная «capÌscono» | Вариант 2: capiscòno — ударная гласная «capiscÒno»,1,,,"Ответ: Вариант 1. Я слышу ударение на втором слоге, именно на «i», как capìscono. Это правильный вариант."
+stress,scrivono_scrìvono_none_solo,scrivono.,it,,wav/stress__scrivono_scrìvono_none_solo.wav,paolo,choice,Вариант 1: scrìvono — ударная гласная «scrÌvono» | Вариант 2: scrivòno — ударная гласная «scrivÒno»,1,1,1,"Ответ: 1 Потому что ударение падает на первый слог, на ""i"", как и должно быть. Слышно хорошо."
+stress,scrivono_scrìvono_none_frame,Dico scrivono adesso.,it,,wav/stress__scrivono_scrìvono_none_frame.wav,paolo,choice,Вариант 1: scrivòno — ударная гласная «scrivÒno» | Вариант 2: scrìvono — ударная гласная «scrÌvono»,2,2,1,"Ответ: 2
+Я слышу, что ударение падает на первый слог: ""scrÌvono"". Так, как и должно быть в итальянском."
+stress,scrivono_scrìvono_grave_solo,scrìvono.,it,,wav/stress__scrivono_scrìvono_grave_solo.wav,paolo,choice,Вариант 1: scrìvono — ударная гласная «scrÌvono» | Вариант 2: scrivòno — ударная гласная «scrivÒno»,1,1,1,"Ответ: 1
+Потому что я чётко слышу ударение на первом слоге: SCRI-vo-no. Так и должно быть."
+stress,scrivono_scrìvono_grave_frame,Dico scrìvono adesso.,it,,wav/stress__scrivono_scrìvono_grave_frame.wav,paolo,choice,Вариант 1: scrìvono — ударная гласная «scrÌvono» | Вариант 2: scrivòno — ударная гласная «scrivÒno»,1,1,1,"Ответ: 1
+Потому что я ясно слышу ударение на первом слоге: scrìvono! Слышишь? Не scrivòno. Как тебе, похоже?"
+stress,scrivono_scrìvono_acute_solo,scrívono.,it,,wav/stress__scrivono_scrìvono_acute_solo.wav,paolo,choice,Вариант 1: scrìvono — ударная гласная «scrÌvono» | Вариант 2: scrivòno — ударная гласная «scrivÒno»,1,,,"Ответ:  you're one Потому что я слышу, как ударение падает на ""о"". Как будто ""scrivòno"". Понятно?"
+stress,scrivono_scrìvono_acute_frame,Dico scrívono adesso.,it,,wav/stress__scrivono_scrìvono_acute_frame.wav,paolo,choice,Вариант 1: scrivòno — ударная гласная «scrivÒno» | Вариант 2: scrìvono — ударная гласная «scrÌvono»,2,2,1,Ответ: 2. Ясно слышу ударение на первом слоге: scrìvono.
+stress,farmacia_farmacìa_none_solo,farmacia.,it,,wav/stress__farmacia_farmacìa_none_solo.wav,paolo,choice,Вариант 1: farmàcia — ударная гласная «farmÀcia» | Вариант 2: farmacìa — ударная гласная «farmacÌa»,2,,,"Ответ:  it 2 Я слышу ударение на «i», farmcìa. Звучит так, как мы обычно произносим."
+stress,farmacia_farmacìa_none_frame,Dico farmacia adesso.,it,,wav/stress__farmacia_farmacìa_none_frame.wav,paolo,choice,Вариант 1: farmàcia — ударная гласная «farmÀcia» | Вариант 2: farmacìa — ударная гласная «farmacÌa»,2,2,1,"Ответ: 2
+Потому что я чётко слышу ударение на «i», farmacìa. Это правильное произношение."
+stress,farmacia_farmacìa_grave_solo,farmacìa.,it,,wav/stress__farmacia_farmacìa_grave_solo.wav,paolo,choice,Вариант 1: farmacìa — ударная гласная «farmacÌa» | Вариант 2: farmàcia — ударная гласная «farmÀcia»,1,,,"Ответ:  you2
+
+Ясно слышу, что ударение падает на «à», farmàcia, как мы говорим в Италии. Не farmacìa."
+stress,farmacia_farmacìa_grave_frame,Dico farmacìa adesso.,it,,wav/stress__farmacia_farmacìa_grave_frame.wav,paolo,choice,Вариант 1: farmàcia — ударная гласная «farmÀcia» | Вариант 2: farmacìa — ударная гласная «farmacÌa»,2,,,"Ответ:  with 2 Потому что ударение падает на «и», как положено. «Farmacìa»."
+stress,farmacia_farmacìa_acute_solo,farmacía.,it,,wav/stress__farmacia_farmacìa_acute_solo.wav,paolo,choice,Вариант 1: farmacìa — ударная гласная «farmacÌa» | Вариант 2: farmàcia — ударная гласная «farmÀcia»,1,1,1,"Ответ: 1. Я слышу отчётливое ударение на ""i"", farmacìa. Это правильно."
+stress,farmacia_farmacìa_acute_frame,Dico farmacía adesso.,it,,wav/stress__farmacia_farmacìa_acute_frame.wav,paolo,choice,Вариант 1: farmacìa — ударная гласная «farmacÌa» | Вариант 2: farmàcia — ударная гласная «farmÀcia»,1,1,1,"Ответ: 1 Я ясно слышу ударение на «i», farmacìa. Так и должно быть."
+stress,psicologia_psicologìa_none_solo,psicologia.,it,,wav/stress__psicologia_psicologìa_none_solo.wav,paolo,choice,Вариант 1: psicològia — ударная гласная «psicolÒgia» | Вариант 2: psicologìa — ударная гласная «psicologÌa»,2,2,1,"Ответ: 2 Я слышу, как подчёркивается буква ""i"", psicologìa. Это правильное произношение."
+stress,psicologia_psicologìa_none_frame,Dico psicologia adesso.,it,,wav/stress__psicologia_psicologìa_none_frame.wav,paolo,choice,Вариант 1: psicologìa — ударная гласная «psicologÌa» | Вариант 2: psicològia — ударная гласная «psicolÒgia»,1,1,1,"Ответ: 1
+Я ясно слышу ударение на «и», психологи́я. Второй вариант звучал бы по-другому."
+stress,psicologia_psicologìa_grave_solo,psicologìa.,it,,wav/stress__psicologia_psicologìa_grave_solo.wav,paolo,choice,Вариант 1: psicològia — ударная гласная «psicolÒgia» | Вариант 2: psicologìa — ударная гласная «psicologÌa»,2,2,1,"Ответ: 2
+Я слышу ударение на «i» в конце, «psicologìa». Это правильный вариант."
+stress,psicologia_psicologìa_grave_frame,Dico psicologìa adesso.,it,,wav/stress__psicologia_psicologìa_grave_frame.wav,paolo,choice,Вариант 1: psicològia — ударная гласная «psicolÒgia» | Вариант 2: psicologìa — ударная гласная «psicologÌa»,2,,,"Ответ:  stilla. Я слышу ударную «i», как в «psicologìa»."
+stress,psicologia_psicologìa_acute_solo,psicología.,it,,wav/stress__psicologia_psicologìa_acute_solo.wav,paolo,choice,Вариант 1: psicològia — ударная гласная «psicolÒgia» | Вариант 2: psicologìa — ударная гласная «psicologÌa»,2,2,1,"Ответ: 2
+
+Я слышу ударение на «i», как и должно быть в итальянском. Все остальные звуки тоже верные."
+stress,psicologia_psicologìa_acute_frame,Dico psicología adesso.,it,,wav/stress__psicologia_psicologìa_acute_frame.wav,paolo,choice,Вариант 1: psicològia — ударная гласная «psicolÒgia» | Вариант 2: psicologìa — ударная гласная «psicologÌa»,2,,,"Ответ:  you2 Я чётко слышу ударение на «и» в конце слова, как «gìa». Это правильное произношение."
+stress,Brindisi_Brìndisi_none_solo,Brindisi.,it,,wav/stress__Brindisi_Brìndisi_none_solo.wav,paolo,choice,Вариант 1: brindìsi — ударная гласная «brindÌsi» | Вариант 2: brìndisi — ударная гласная «brÌndisi»,2,,,Ответ: Вариант 2. Ударная гласная «i» в первом слоге. Слышно чётко: brìndisi.
+stress,Brindisi_Brìndisi_none_frame,Dico Brindisi adesso.,it,,wav/stress__Brindisi_Brìndisi_none_frame.wav,paolo,choice,Вариант 1: brìndisi — ударная гласная «brÌndisi» | Вариант 2: brindìsi — ударная гласная «brindÌsi»,1,,,"Ответ:  they Вариант 2
+
+Я слышу, что ударение падает на второй слог: brindÌsi. Так я услышал."
+stress,Brindisi_Brìndisi_grave_solo,Brìndisi.,it,,wav/stress__Brindisi_Brìndisi_grave_solo.wav,paolo,choice,Вариант 1: brindìsi — ударная гласная «brindÌsi» | Вариант 2: brìndisi — ударная гласная «brÌndisi»,2,2,1,"Ответ: 2. Слышу, ударная гласная «brìndisi», на первом слоге. А как же иначе? Это же слово такое праздничное! Cin cin!"
+stress,Brindisi_Brìndisi_grave_frame,Dico Brìndisi adesso.,it,,wav/stress__Brindisi_Brìndisi_grave_frame.wav,paolo,choice,Вариант 1: brindìsi — ударная гласная «brindÌsi» | Вариант 2: brìndisi — ударная гласная «brÌndisi»,2,1,0,"Ответ: 1 Потому что я слышу ударение на предпоследнем слоге: brinDÌsi. Это неправильно, правильно BRÌNdisi. Capito?"
+stress,Brindisi_Brìndisi_acute_solo,Bríndisi.,it,,wav/stress__Brindisi_Brìndisi_acute_solo.wav,paolo,choice,Вариант 1: brìndisi — ударная гласная «brÌndisi» | Вариант 2: brindìsi — ударная гласная «brindÌsi»,1,,,"Ответ:  you're welcome! Раз уж на то пошло, я слышу ударение на первом слоге. ""B r Ì n d i s i"", как полагается. Всё чётко! А как оно тебе?"
+stress,Brindisi_Brìndisi_acute_frame,Dico Bríndisi adesso.,it,,wav/stress__Brindisi_Brìndisi_acute_frame.wav,paolo,choice,Вариант 1: brìndisi — ударная гласная «brÌndisi» | Вариант 2: brindìsi — ударная гласная «brindÌsi»,1,1,1,"Ответ: 1. Я слышу ударение на первом слоге, на «i». Это звучит как «brìndisi». Всё верно!"
+stress,famiglia_famìglia_none_solo,famiglia.,it,,wav/stress__famiglia_famìglia_none_solo.wav,paolo,choice,Вариант 1: famiglìa — ударная гласная «famiglÌa» | Вариант 2: famìglia — ударная гласная «famÌglia»,2,2,1,"Ответ: 2
+Потому что я чётко слышу ударение на «i» - fa-mì-glia. Как и должно быть!"
+stress,famiglia_famìglia_none_frame,Dico famiglia adesso.,it,,wav/stress__famiglia_famìglia_none_frame.wav,paolo,choice,Вариант 1: famìglia — ударная гласная «famÌglia» | Вариант 2: famiglìa — ударная гласная «famiglÌa»,1,0,0,"Ответ: ноль. Я, честно говоря, вообще не слышу этого слова в записи, только ""dico adesso""."
+stress,famiglia_famìglia_grave_solo,famìglia.,it,,wav/stress__famiglia_famìglia_grave_solo.wav,paolo,choice,Вариант 1: famìglia — ударная гласная «famÌglia» | Вариант 2: famiglìa — ударная гласная «famiglÌa»,1,2,0,"Ответ: 2
+Я слышу, что ударение падает на последнюю гласную, «famiglÌa»."
+stress,famiglia_famìglia_grave_frame,Dico famìglia adesso.,it,,wav/stress__famiglia_famìglia_grave_frame.wav,paolo,choice,Вариант 1: famiglìa — ударная гласная «famiglÌa» | Вариант 2: famìglia — ударная гласная «famÌglia»,2,2,1,"Ответ: 2. Я слышу ударение на «i», как «famìglia»."
+stress,famiglia_famìglia_acute_solo,famíglia.,it,,wav/stress__famiglia_famìglia_acute_solo.wav,paolo,choice,Вариант 1: famìglia — ударная гласная «famÌglia» | Вариант 2: famiglìa — ударная гласная «famiglÌa»,1,,,"Ответ:  always 1. Я чётко слышу ударение на втором слоге, на «i» — «famìglia». Всё верно."
+stress,famiglia_famìglia_acute_frame,Dico famíglia adesso.,it,,wav/stress__famiglia_famìglia_acute_frame.wav,paolo,choice,Вариант 1: famiglìa — ударная гласная «famiglÌa» | Вариант 2: famìglia — ударная гласная «famÌglia»,2,2,1,"Ответ: 2
+Потому что ясно слышу ударение на «ми», fa-MÌ-glia. Прочитано правильно! Perfetto!"
+stress,subito_sùbito_none_solo,subito.,it,,wav/stress__subito_sùbito_none_solo.wav,paolo,choice,"Вариант 1: sùbito — ударная гласная «sÙbito», «сразу» | Вариант 2: subìto — ударная гласная «subÌto», «перенёс, пострадал от»",1,1,1,"Ответ: 1
+
+Я слышу чёткое ударение на первом слоге: sùbito. Вариант два звучал бы subìto."
+stress,subito_sùbito_none_frame,Dico subito adesso.,it,,wav/stress__subito_sùbito_none_frame.wav,paolo,choice,"Вариант 1: sùbito — ударная гласная «sÙbito», «сразу» | Вариант 2: subìto — ударная гласная «subÌto», «перенёс, пострадал от»",1,,,"Ответ:  with oneЯ слышу ударение на «би» — subìto, как «перенёс». Но во фразе должно быть «sùbito», «сразу». Немного странно."
+stress,subito_sùbito_grave_solo,sùbito.,it,,wav/stress__subito_sùbito_grave_solo.wav,paolo,choice,"Вариант 1: subìto — ударная гласная «subÌto», «перенёс, пострадал от» | Вариант 2: sùbito — ударная гласная «sÙbito», «сразу»",2,2,1,"Ответ: 2
+
+Я чётко слышу ударение на первом слоге, ""сУбито""."
+stress,subito_sùbito_grave_frame,Dico sùbito adesso.,it,,wav/stress__subito_sùbito_grave_frame.wav,paolo,choice,"Вариант 1: sùbito — ударная гласная «sÙbito», «сразу» | Вариант 2: subìto — ударная гласная «subÌto», «перенёс, пострадал от»",1,0,0,"Ответ: ноль. Я слышу, что ударение падает на первый слог, но сама запись очень короткая и нечёткая, трудно сказать точно."
+stress,subito_sùbito_acute_solo,súbito.,it,,wav/stress__subito_sùbito_acute_solo.wav,paolo,choice,"Вариант 1: sùbito — ударная гласная «sÙbito», «сразу» | Вариант 2: subìto — ударная гласная «subÌto», «перенёс, пострадал от»",1,,,"Ответ:  always 1. Я ясно слышу ударение на первом слоге, è l'accento sulla 'U'. Как мы и говорим, subito! Всё верно."
+stress,subito_sùbito_acute_frame,Dico súbito adesso.,it,,wav/stress__subito_sùbito_acute_frame.wav,paolo,choice,"Вариант 1: subìto — ударная гласная «subÌto», «перенёс, пострадал от» | Вариант 2: sùbito — ударная гласная «sÙbito», «сразу»",2,,,"Ответ:  forzando un po' la mano, direi il numero due. Ho sentito più l'accento sulla prima U. Anche se, da solo, è difficile essere sicuri al cento per cento. Ti è servito?"
+stress,ancora_àncora_none_solo,ancora.,it,якорь,wav/stress__ancora_àncora_none_solo.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",,,,Ответ:  they
+stress,ancora_àncora_none_frame,Dico ancora adesso.,it,якорь,wav/stress__ancora_àncora_none_frame.wav,paolo,choice,"Вариант 1: ancòra — ударная гласная «ancÒra», «ещё» | Вариант 2: àncora — ударная гласная «Àncora», «якорь»",,,,"Ответ:  you decide. Я слышу ударение на первом слоге, àncora. Хотя в этой фразе должно быть ancòra, «ещё»."
+stress,ancora_àncora_grave_solo,àncora.,it,якорь,wav/stress__ancora_àncora_grave_solo.wav,paolo,choice,"Вариант 1: ancòra — ударная гласная «ancÒra», «ещё» | Вариант 2: àncora — ударная гласная «Àncora», «якорь»",2,,,"Ответ:  himena, я слышу ударение на последнем слоге. Это неправильно! Должно быть *ancòra* (ещё) или *àncora* (якорь)."
+stress,ancora_àncora_grave_frame,Dico àncora adesso.,it,якорь,wav/stress__ancora_àncora_grave_frame.wav,paolo,choice,"Вариант 1: ancòra — ударная гласная «ancÒra», «ещё» | Вариант 2: àncora — ударная гласная «Àncora», «якорь»",2,,,"Ответ:  you0Вариант 1. Слышу ударение на втором слоге: ancòra. Точно как ""ещё""."
+stress,ancora_àncora_acute_solo,áncora.,it,якорь,wav/stress__ancora_àncora_acute_solo.wav,paolo,choice,"Вариант 1: ancòra — ударная гласная «ancÒra», «ещё» | Вариант 2: àncora — ударная гласная «Àncora», «якорь»",2,,,"Ответ:  they said strictly on the sound, l'accento è sulla prima sillaba. Sento ""Àncora"". Как якорь."
+stress,ancora_àncora_acute_frame,Dico áncora adesso.,it,якорь,wav/stress__ancora_àncora_acute_frame.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",1,2,0,"Ответ: 2
+
+Я ясно слышу ударение на второй слог: ancòra. Это значит «ещё»."
+stress,ancora_ancòra_none_solo,ancora.,it,ещё,wav/stress__ancora_ancòra_none_solo.wav,paolo,choice,"Вариант 1: ancòra — ударная гласная «ancÒra», «ещё» | Вариант 2: àncora — ударная гласная «Àncora», «якорь»",,,,Ответ:  it's variant 1. Я слышу ударение на втором слоге. Ancòra! È chiaro?
+stress,ancora_ancòra_none_frame,Dico ancora adesso.,it,ещё,wav/stress__ancora_ancòra_none_frame.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",,,,"Ответ:  with 2». Потому что ударение падает на «о», ancòra, как «ещё». Всё правильно! Как тебе звук?"
+stress,ancora_ancòra_grave_solo,ancòra.,it,ещё,wav/stress__ancora_ancòra_grave_solo.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",2,,,"Ответ:  you decide?
+
+Я, Паоло, не слышу никакой записи! Тишина. Как я могу судить по звуку, если ничего не слышал? Давай попробуем ещё раз."
+stress,ancora_ancòra_grave_frame,Dico ancòra adesso.,it,ещё,wav/stress__ancora_ancòra_grave_frame.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",2,,,"Ответ:  always 2 Я слышу ударение на второй слог, как ""ancòra"", что значит ""ещё"". Звук чёткий."
+stress,ancora_ancòra_acute_solo,ancóra.,it,ещё,wav/stress__ancora_ancòra_acute_solo.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",2,,,"Ответ:  with numero due. Ho sentito chiaramente l'accento sulla seconda sillaba, come in ""ancòra"". Bene, andiamo avanti!"
+stress,ancora_ancòra_acute_frame,Dico ancóra adesso.,it,ещё,wav/stress__ancora_ancòra_acute_frame.wav,paolo,choice,"Вариант 1: àncora — ударная гласная «Àncora», «якорь» | Вариант 2: ancòra — ударная гласная «ancÒra», «ещё»",2,0,0,"Ответ: ноль. В этой фразе слово ""ancora"" прозвучало как-то смазанно, и я не могу точно определить, где ударение."
+stress,capitano_càpitano_none_solo,capitano.,it,случаются,wav/stress__capitano_càpitano_none_solo.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",,,,"Ответ: Вариант 2
+
+Я слышу ударение на первом слоге: ""кАпитано"". Это глагол ""случаются""."
+stress,capitano_càpitano_none_frame,Dico capitano adesso.,it,случаются,wav/stress__capitano_càpitano_none_frame.wav,paolo,choice,"Вариант 1: càpitano — ударная гласная «cÀpitano», «случаются» | Вариант 2: capitàno — ударная гласная «capitÀno», «капитан»",,2,,"Ответ: 2
+
+Я слышу ударение на «а» в середине, capitàno. Это «капитан»."
+stress,capitano_càpitano_grave_solo,càpitano.,it,случаются,wav/stress__capitano_càpitano_grave_solo.wav,paolo,choice,"Вариант 1: càpitano — ударная гласная «cÀpitano», «случаются» | Вариант 2: capitàno — ударная гласная «capitÀno», «капитан»",1,,,"Ответ:  always0. Произнесено как-то смазанно, ни то, ни сё, ударение не ясно."
+stress,capitano_càpitano_grave_frame,Dico càpitano adesso.,it,случаются,wav/stress__capitano_càpitano_grave_frame.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",2,2,1,"Ответ: 2
+Ударение чётко на первый слог: càpitano. Как глагол «случаются». В слове «capitàno» ударение должно быть на предпоследнем."
+stress,capitano_càpitano_acute_solo,cápitano.,it,случаются,wav/stress__capitano_càpitano_acute_solo.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",2,,,"Ответ:  with 2
+
+Потому что я слышу ударение на первом слоге."
+stress,capitano_càpitano_acute_frame,Dico cápitano adesso.,it,случаются,wav/stress__capitano_càpitano_acute_frame.wav,paolo,choice,"Вариант 1: càpitano — ударная гласная «cÀpitano», «случаются» | Вариант 2: capitàno — ударная гласная «capitÀno», «капитан»",1,,,Ответ:  it's-a 2. Ясно слышу ударение на «а» — capitÀno. Как командир корабля! Готов слушать дальше!
+stress,capitano_capitàno_none_solo,capitano.,it,капитан,wav/stress__capitano_capitàno_none_solo.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",,,,"Ответ:  with variant 2. Наголос падає на перший склад, я чітко чую ""cÀpitano"". Che è successo?"
+stress,capitano_capitàno_none_frame,Dico capitano adesso.,it,капитан,wav/stress__capitano_capitàno_none_frame.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",,2,,"Ответ: 2
+Я чётко слышу ударение на первом слоге: ""cÀpitano"". Это глагол, ""случаются""."
+stress,capitano_capitàno_grave_solo,capitàno.,it,капитан,wav/stress__capitano_capitàno_grave_solo.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",1,,,Ответ:  with number due. Я ясно слышу ударение на первом слоге: cÀpitano. Это глагол.
+stress,capitano_capitàno_grave_frame,Dico capitàno adesso.,it,капитан,wav/stress__capitano_capitàno_grave_frame.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",1,1,1,"Ответ: 1Я слышу ударную гласную на «та», capitÀno. Это «капитан»."
+stress,capitano_capitàno_acute_solo,capitáno.,it,капитан,wav/stress__capitano_capitàno_acute_solo.wav,paolo,choice,"Вариант 1: càpitano — ударная гласная «cÀpitano», «случаются» | Вариант 2: capitàno — ударная гласная «capitÀno», «капитан»",2,,,"Ответ:  stillo zero. Non c'è l'audio! Прости, я ничего не слышу. Давай попробуем ещё раз?"
+stress,capitano_capitàno_acute_frame,Dico capitáno adesso.,it,капитан,wav/stress__capitano_capitàno_acute_frame.wav,paolo,choice,"Вариант 1: capitàno — ударная гласная «capitÀno», «капитан» | Вариант 2: càpitano — ударная гласная «cÀpitano», «случаются»",1,2,0,"Ответ: 2
+
+Я слышу, что ударение падает на первый слог, ""cÀpitano"", как в слове ""случаются""."
+stress,principi_prìncipi_none_solo,principi.,it,принцы,wav/stress__principi_prìncipi_none_solo.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",,,,"Ответ:  it's variant 2. Я слышу ударение на первом слоге, prìncipi. Чисто как ""принцы"". Понятно?"
+stress,principi_prìncipi_none_frame,Dico principi adesso.,it,принцы,wav/stress__principi_prìncipi_none_frame.wav,paolo,choice,"Вариант 1: prìncipi — ударная гласная «prÌncipi», «принцы» | Вариант 2: princìpi — ударная гласная «princÌpi», «принципы»",,,,"Ответ:  with 2
+
+Я слышу ударную ""и"" посередине, princìpi. Это как раз ""принципы"". Для ""принцев"" ударение должно быть в начале: prìncipi."
+stress,principi_prìncipi_grave_solo,prìncipi.,it,принцы,wav/stress__principi_prìncipi_grave_solo.wav,paolo,choice,"Вариант 1: prìncipi — ударная гласная «prÌncipi», «принцы» | Вариант 2: princìpi — ударная гласная «princÌpi», «принципы»",1,1,1,"Ответ: 1 Я чётко слышу ударение на первом слоге, ""prìn-ci-pi"". Come stai? Готова заниматься?"
+stress,principi_prìncipi_grave_frame,Dico prìncipi adesso.,it,принцы,wav/stress__principi_prìncipi_grave_frame.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",2,2,1,"Ответ: 2
+
+Я ясно слышу ударение на первом слоге. *Prìncipi*."
+stress,principi_prìncipi_acute_solo,príncipi.,it,принцы,wav/stress__principi_prìncipi_acute_solo.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",2,,,"Ответ:  always 2
+Я чётко слышу ударение на первый слог: ""prÌncipi"". Так я сразу и понял, что речь идёт о принцах, а не о принципах."
+stress,principi_prìncipi_acute_frame,Dico príncipi adesso.,it,принцы,wav/stress__principi_prìncipi_acute_frame.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",2,0,0,"Ответ: ноль. В этой фразе нет слова ""principi"", я слышу ""mi copri? Ci vado io""."
+stress,principi_princìpi_none_solo,principi.,it,принципы,wav/stress__principi_princìpi_none_solo.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",,,,"Ответ:  same_варианта 2 Я слышу ударение на первом слоге, ""prìncipi"". Это значит ""принцы"". Как раз то, что нужно! А ты как считаешь?"
+stress,principi_princìpi_none_frame,Dico principi adesso.,it,принципы,wav/stress__principi_princìpi_none_frame.wav,paolo,choice,"Вариант 1: prìncipi — ударная гласная «prÌncipi», «принцы» | Вариант 2: princìpi — ударная гласная «princÌpi», «принципы»",,1,,Ответ: 1 Ясно слышу ударение на первом слоге.
+stress,principi_princìpi_grave_solo,princìpi.,it,принципы,wav/stress__principi_princìpi_grave_solo.wav,paolo,choice,"Вариант 1: prìncipi — ударная гласная «prÌncipi», «принцы» | Вариант 2: princìpi — ударная гласная «princÌpi», «принципы»",2,,,"Ответ:  always 1. Ясно слышу ударение на первой ""i"": prìncipi. Это ""принцы"". А вот ""принципы"" были бы princìpi, capisci?"
+stress,principi_princìpi_grave_frame,Dico princìpi adesso.,it,принципы,wav/stress__principi_princìpi_grave_frame.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",1,,,"Ответ:  they variant 2. Я чётко слышу ударение на первом слоге: prìncipi. Как ""принцы"". Capisci?"
+stress,principi_princìpi_acute_solo,princípi.,it,принципы,wav/stress__principi_princìpi_acute_solo.wav,paolo,choice,"Вариант 1: prìncipi — ударная гласная «prÌncipi», «принцы» | Вариант 2: princìpi — ударная гласная «princÌpi», «принципы»",2,,,Ответ:  you0 2. Я слышу ударение на втором слоге.
+stress,principi_princìpi_acute_frame,Dico princípi adesso.,it,принципы,wav/stress__principi_princìpi_acute_frame.wav,paolo,choice,"Вариант 1: princìpi — ударная гласная «princÌpi», «принципы» | Вариант 2: prìncipi — ударная гласная «prÌncipi», «принцы»",1,1,1,Ответ: 1 Я слышу ударение на «i» в середине: princìpi. Это значит «принципы».
+geminates,pala_palla,Pala. Palla.,it,,wav/geminates__pala_palla.wav,paolo,choice,"Вариант 1: оба раза palla | Вариант 2: оба раза pala | Вариант 3: сначала palla, потом pala | Вариант 4: сначала pala, потом palla",4,,,"Ответ:  you're one
+
+Оба раза я слышал чёткое ""palla"", с длинной ""l"". Ты же не заставляешь меня работать в тишине, правда? Может, включим какую-нибудь музыку?"
+geminates,pala_palla_sent,"Ho detto pala, non palla.",it,,wav/geminates__pala_palla_sent.wav,paolo,choice,"Вариант 1: сначала pala, потом palla | Вариант 2: сначала palla, потом pala | Вариант 3: оба раза palla | Вариант 4: оба раза pala",1,0,0,"Ciao! Allora, ascolto subito.
+
+Ответ: ноль. Я sento solo una volta, e dice ""Paola"", con la 'o'. Non riesco proprio a distinguere pala o palla da questo suono. Riprova, dai!"
+geminates,caro_carro,Caro. Carro.,it,,wav/geminates__caro_carro.wav,paolo,choice,"Вариант 1: сначала caro, потом carro | Вариант 2: сначала carro, потом caro | Вариант 3: оба раза caro | Вариант 4: оба раза carro",1,3,0,Ответ: 3 Оба раза caro. Не слышу здесь по-настоящему двойной согласной.
+geminates,caro_carro_sent,"Ho detto caro, non carro.",it,,wav/geminates__caro_carro_sent.wav,paolo,choice,"Вариант 1: оба раза carro | Вариант 2: сначала caro, потом carro | Вариант 3: оба раза caro | Вариант 4: сначала carro, потом caro",2,3,0,"Ответ: 3
+В обоих случаях я слышу короткое ""r"". Не слышу сдвоенной ""rr""."
+geminates,sete_sette,Sete. Sette.,it,,wav/geminates__sete_sette.wav,paolo,choice,"Вариант 1: сначала sette, потом sete | Вариант 2: сначала sete, потом sette | Вариант 3: оба раза sete | Вариант 4: оба раза sette",2,,,"Ответ:  for scenario zero. Non riesco a distinguere bene, mi sembra pronunciato nello stesso modo. Forse un piccolo difetto nel suono?"
+geminates,sete_sette_sent,"Ho detto sete, non sette.",it,,wav/geminates__sete_sette_sent.wav,paolo,choice,"Вариант 1: сначала sette, потом sete | Вариант 2: сначала sete, потом sette | Вариант 3: оба раза sette | Вариант 4: оба раза sete",2,0,0,"Ответ: ноль. Я слышу только одну фразу, ""Ho detto sette"", сравнить не с чем."
+geminates,nono_nonno,Nono. Nonno.,it,,wav/geminates__nono_nonno.wav,paolo,choice,"Вариант 1: сначала nonno, потом nono | Вариант 2: оба раза nonno | Вариант 3: сначала nono, потом nonno | Вариант 4: оба раза nono",3,3,1,"Ответ: 3 Сначала было коротко, nono, а потом с длинной N, nonno. Чувствуется разница!"
+geminates,nono_nonno_sent,"Ho detto nono, non nonno.",it,,wav/geminates__nono_nonno_sent.wav,paolo,choice,"Вариант 1: сначала nono, потом nonno | Вариант 2: оба раза nono | Вариант 3: сначала nonno, потом nono | Вариант 4: оба раза nonno",1,3,0,Ответ: 3I'm just a language model and can't help with that.
+geminates,papa_papà,Papa. Papà.,it,,wav/geminates__papa_papà.wav,paolo,choice,"Вариант 1: сначала papà, потом papa | Вариант 2: сначала papa, потом papà | Вариант 3: оба раза papà | Вариант 4: оба раза papa",2,,,Ответ:  you're not providing any sound. Не слышу записи! Попробуй ещё раз. Что там должно быть?
+geminates,papa_papà_sent,"Ho detto papa, non papà.",it,,wav/geminates__papa_papà_sent.wav,paolo,choice,"Вариант 1: сначала papa, потом papà | Вариант 2: оба раза papà | Вариант 3: сначала papà, потом papa | Вариант 4: оба раза papa",1,,,"Ответ: Вариант 3. Сначала ""papà"" с ударением на конце, потом ""papa"". È chiaro!"
+geminates,camino_cammino,Camino. Cammino.,it,,wav/geminates__camino_cammino.wav,paolo,choice,"Вариант 1: сначала cammino, потом camino | Вариант 2: оба раза camino | Вариант 3: оба раза cammino | Вариант 4: сначала camino, потом cammino",4,2,0,"Ответ: 2 Оба раза я слышу короткую ""м"", как в слове ""камин"". ""Cammino"" должно звучать более протяжно. Мы же хотим научить говорить красиво!"
+geminates,camino_cammino_sent,"Ho detto camino, non cammino.",it,,wav/geminates__camino_cammino_sent.wav,paolo,choice,"Вариант 1: сначала cammino, потом camino | Вариант 2: оба раза cammino | Вариант 3: сначала camino, потом cammino | Вариант 4: оба раза camino",3,0,0,"Ответ: ноль. Я слышу только ""camino"", второго слова просто нет."
+it_ambiguous,plain,Ho visto i principi.,it,,wav/it_ambiguous__plain.wav,paolo,choice,Вариант 1: princìpi (принципы) | Вариант 2: prìncipi (принцы),,2,,Ответ: 2. Чётко слышу ударение на первом слоге: prìncipi. Для принцев так и надо! Как тебе такой звук?
+it_ambiguous,princes,Ho visto i prìncipi.,it,,wav/it_ambiguous__princes.wav,paolo,choice,Вариант 1: princìpi (принципы) | Вариант 2: prìncipi (принцы),2,,,"Ответ:  same_pronunciation. Увы, звук нечёткий, я не расслышал разницу. Давай попробуем ещё раз?"
+it_ambiguous,principles,Ho visto i princìpi.,it,,wav/it_ambiguous__principles.wav,paolo,choice,Вариант 1: princìpi (принципы) | Вариант 2: prìncipi (принцы),1,,,"Ответ:  always_different
+
+Потому что последнее слово произнесено неразборчиво, как «pinki». Непонятно, что именно сказано."
+he_ambiguous,plain,הבוקר היה נחמד.,he,,wav/he_ambiguous__plain.wav,hava,choice,"Вариант 1: בּוֹקֵר, бокéр — ковбой | Вариант 2: בֹּקֶר, бóкер — утро",,1,,"Ответ: 1. Я отчётливо слышу ударение на последнем слоге: бокЕр. А это значит ""ковбой""."
+he_ambiguous,morning,הַבֹּקֶר הָיָה נֶחְמָד.,he,,wav/he_ambiguous__morning.wav,hava,choice,"Вариант 1: בּוֹקֵר, бокéр — ковбой | Вариант 2: בֹּקֶר, бóкер — утро",2,1,0,"Ответ: 1
+Я четко слышу ударение на последний слог: בּוֹקֵר, бокéр. Значит, ковбой."
+he_ambiguous,cowboy,הַבּוֹקֵר הָיָה נֶחְמָד.,he,,wav/he_ambiguous__cowboy.wav,hava,choice,"Вариант 1: בֹּקֶר, бóкер — утро | Вариант 2: בּוֹקֵר, бокéр — ковбой",2,1,0,"שָׁלוֹם! קָשֶׁה לִי לָפְרוֹן לְגַמְרֵי בְּבִטָּחוֹן, אֲבָל לְפִי הַנִּגּוּן וְהַהֶקְשֵׁר, זֶה נִשְׁמָע כְּמוֹ «בֹּקֶר». הַדָּגֵשׁ הוּא בִּתְחִלַּת הַמִּלָּה.
+
+Ответ: 1 Ударение, кажется, на первом слоге. שֶׁיִּהְיֶה יוֹם נִפְלָא!"
+he_stress,banu_plain,בָּנוּ.,he,,wav/he_stress__banu_plain.wav,hava,choice,Вариант 1: бáну — «в нас» (ударение на первый слог) | Вариант 2: банý — «построили» (ударение на последний),,1,,"Ответ: 1
+Ударение чётко на первом слоге, «бáну». Слышно, как в слове «в нас»."
+he_stress,banu_ole_first,בָּ֫נוּ.,he,,wav/he_stress__banu_ole_first.wav,hava,choice,Вариант 1: банý — «построили» (ударение на последний) | Вариант 2: бáну — «в нас» (ударение на первый слог),2,,,"Ответ:  always ударение вообще не поняла, как-то проглочено. И звук «в», а не «б»."
+he_stress,shalom_plain,שָׁלוֹם.,he,,wav/he_stress__shalom_plain.wav,hava,choice,Вариант 1: шалóм — ударение на последний слог | Вариант 2: шáлом — ударение на первый слог,1,,,"Ответ:  you're 1
+
+Я слышу стандартное, правильное произношение «шалóм» с ударением на второй слог. Никакого варианта «шáлом» я там не слышу."
+he_stress,shalom_ole_wrong,שָׁ֫לוֹם.,he,,wav/he_stress__shalom_ole_wrong.wav,hava,choice,Вариант 1: шáлом — ударение на первый слог | Вариант 2: шалóм — ударение на последний слог,1,2,0,"Ответ: 2
+Я чётко слышу, что ударение на последнем слоге, ""шаЛОМ""."
+ru,nostress_plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru__nostress_plain.wav,paolo,rate,,,2,,"Оценка: 2.
+
+Ударение неверное, звуки ""с"" и ""г"" произнесены нечётко, сильный акцент. Непонятно, что за слово. Cosa volevi dire? Что ты хотел сказать?"
+ru,nostress_zamok_plain,Это старый замок.,ru,,wav/ru__nostress_zamok_plain.wav,paolo,choice,Вариант 1: замóк — на двери | Вариант 2: зáмок — крепость,,,,"Ответ:  alwaysПотому что чётко слышно ударение на первом слоге, зáмок."
+ru,nostress_zamok_1,Это старый за́мок.,ru,,wav/ru__nostress_zamok_1.wav,paolo,choice,Вариант 1: зáмок — крепость | Вариант 2: замóк — на двери,1,1,1,"Ответ: 1
+Потому что ударение было на первом слоге, чётко слышно ""зáмок"". Как будто про крепость говорят."
+ru,nostress_zamok_2,Это старый замо́к.,ru,,wav/ru__nostress_zamok_2.wav,paolo,choice,Вариант 1: зáмок — крепость | Вариант 2: замóк — на двери,2,1,0,"Ответ: 1. Ударèние чётко падает на первый слог, как в слове ""крепость""."
+ru,nostress_plachu_1,"Я пла́чу, когда слушаю эту песню.",ru,,wav/ru__nostress_plachu_1.wav,paolo,choice,Вариант 1: плáчу — от слёз | Вариант 2: плачý — деньги,1,,,Ответ:  with ударение на последнем слоге. Ясно слышно «плачý».
+ru,nostress_plachu_2,Я плачу́ за кофе.,ru,,wav/ru__nostress_plachu_2.wav,paolo,choice,Вариант 1: плачý — деньги | Вариант 2: плáчу — от слёз,1,,,"Ответ:  it's difficult. Я слышу как ""плачý"", ударение в конце, но фраза прерывается, поэтому не уверен полностью. По звуку скорее вариант один. Что скажешь, доверяешь мне?"
+ru,nostress_muka_1,Это была настоящая му́ка.,ru,,wav/ru__nostress_muka_1.wav,paolo,choice,Вариант 1: мýка — страдание | Вариант 2: мукá — для теста (муку),1,,,"Ответ:  always_different
+
+Слышно чёткое ударение на первом слоге."
+ru,nostress_muka_2,Купи муку́ для пиццы.,ru,,wav/ru__nostress_muka_2.wav,paolo,choice,Вариант 1: мýка — страдание | Вариант 2: мукá — для теста (муку),2,0,0,"Ответ: ноль. Я не услышал здесь слово «мука» вообще, только какой-то другой звук, не по-русски."
+stress_v2,telefonano_none,Dico telefonano adesso.,it,4-й от конца,wav/stress_v2__telefonano_none.wav,paolo,choice,Вариант 1: telefònano — ударная гласная «telefÒnano» | Вариант 2: telèfonano — ударная гласная «telÈfonano»,2,1,0,"Ответ: 1
+Я слышу ударение на «о», telefònano. Это, конечно, неправильно, но мы же судим по звуку."
+stress_v2,telefonano_grave,Dico telèfonano adesso.,it,4-й от конца,wav/stress_v2__telefonano_grave.wav,paolo,choice,Вариант 1: telefònano — ударная гласная «telefÒnano» | Вариант 2: telèfonano — ударная гласная «telÈfonano»,2,,,"Ответ:  they
+Я слышу ударение на «è», telèfonano. Это правильно."
+stress_v2,parliamo_none,Dico parliamo adesso.,it,,wav/stress_v2__parliamo_none.wav,paolo,choice,Вариант 1: parliàmo — ударная гласная «parliÀmo» | Вариант 2: pàrliamo — ударная гласная «pÀrliamo»,1,,,"Ответ:  same_as_1
+
+Я слышу ударение на ""а"", как в ""parliàmo"". Так должно быть."
+stress_v2,parliamo_grave,Dico parliàmo adesso.,it,,wav/stress_v2__parliamo_grave.wav,paolo,choice,Вариант 1: pàrliamo — ударная гласная «pÀrliamo» | Вариант 2: parliàmo — ударная гласная «parliÀmo»,2,,,"Ответ:  same 1»
+
+Я слышу ударение на последнюю гласную, «parliàmo». Хотя в стандартном итальянском правильно «parliamo». Но в записи именно так. Что скажешь?"
+stress_v2,desiderano_none,Dico desiderano adesso.,it,4-й от конца,wav/stress_v2__desiderano_none.wav,paolo,choice,Вариант 1: desìderano — ударная гласная «desÌderano» | Вариант 2: desidèrano — ударная гласная «desidÈrano»,1,,,"Ответ:  same 1. Ударная гласная была на ""i"", как в слове ""desiderano"". А что, не так должно быть? Я что-то засомневался... Давай проверим!"
+stress_v2,desiderano_grave,Dico desìderano adesso.,it,4-й от конца,wav/stress_v2__desiderano_grave.wav,paolo,choice,Вариант 1: desidèrano — ударная гласная «desidÈrano» | Вариант 2: desìderano — ударная гласная «desÌderano»,2,2,1,"Ответ: 2
+Потому что ударение чётко падает на ""ì""."
+stress_v2,capiscono_none,Dico capiscono adesso.,it,,wav/stress_v2__capiscono_none.wav,paolo,choice,Вариант 1: capìscono — ударная гласная «capÌscono» | Вариант 2: capiscòno — ударная гласная «capiscÒno»,1,,,"Ответ:  same_варианта Я слышу, как ударение падает на второй слог, то есть на «pi»."
+stress_v2,capiscono_grave,Dico capìscono adesso.,it,,wav/stress_v2__capiscono_grave.wav,paolo,choice,Вариант 1: capìscono — ударная гласная «capÌscono» | Вариант 2: capiscòno — ударная гласная «capiscÒno»,1,1,1,"Ответ: 1
+
+Я слышу ударение на «пи», как «capìscono». Это правильное произношение."
+stress_v2,scrivono_none,Dico scrivono adesso.,it,,wav/stress_v2__scrivono_none.wav,paolo,choice,Вариант 1: scrivòno — ударная гласная «scrivÒno» | Вариант 2: scrìvono — ударная гласная «scrÌvono»,2,2,1,"Ответ: 2. В записи слышно, что ударение падает на первую «i»: scrìvono. Это правильно."
+stress_v2,scrivono_grave,Dico scrìvono adesso.,it,,wav/stress_v2__scrivono_grave.wav,paolo,choice,Вариант 1: scrivòno — ударная гласная «scrivÒno» | Вариант 2: scrìvono — ударная гласная «scrÌvono»,2,,,Ответ:  same_вариантscrìvono. Я чётко слышу ударение на первом слоге.
+stress_v2,farmacia_none,Dico farmacia adesso.,it,,wav/stress_v2__farmacia_none.wav,paolo,choice,Вариант 1: farmacìa — ударная гласная «farmacÌa» | Вариант 2: farmàcia — ударная гласная «farmÀcia»,1,1,1,"Ответ: 1
+
+Я чётко слышу ударение на последнем слоге, farmcìa. А в варианте два farmàcia оно было бы раньше. Вот вся разница! Продолжаем?"
+stress_v2,farmacia_grave,Dico farmacìa adesso.,it,,wav/stress_v2__farmacia_grave.wav,paolo,choice,Вариант 1: farmacìa — ударная гласная «farmacÌa» | Вариант 2: farmàcia — ударная гласная «farmÀcia»,1,1,1,Ответ: 1 Я чётко слышу ударение на «и». Farmacìa. Так и должно быть. Прекрасно прочитано!
+stress_v2,psicologia_none,Dico psicologia adesso.,it,,wav/stress_v2__psicologia_none.wav,paolo,choice,Вариант 1: psicologìa — ударная гласная «psicologÌa» | Вариант 2: psicològia — ударная гласная «psicolÒgia»,1,1,1,Ответ: 1 Я чётко слышу ударную «i» в конце слова. Psicologìa! Как у нас в Италии и говорят!
+stress_v2,psicologia_grave,Dico psicologìa adesso.,it,,wav/stress_v2__psicologia_grave.wav,paolo,choice,Вариант 1: psicologìa — ударная гласная «psicologÌa» | Вариант 2: psicològia — ударная гласная «psicolÒgia»,1,,,"Ответ:  it.
+
+Я слышу ударную гласную «ì» в конце, «psicologìa». Это правильно."
+stress_v2,Brindisi_none,Dico Brindisi adesso.,it,,wav/stress_v2__Brindisi_none.wav,paolo,choice,Вариант 1: brindìsi — ударная гласная «brindÌsi» | Вариант 2: brìndisi — ударная гласная «brÌndisi»,2,,,"Ответ:  himer, я слышу ударную ""i"" в начале. По-русски будет ""брИндизи"". Ударный первый слог."
+stress_v2,Brindisi_grave,Dico Brìndisi adesso.,it,,wav/stress_v2__Brindisi_grave.wav,paolo,choice,Вариант 1: brìndisi — ударная гласная «brÌndisi» | Вариант 2: brindìsi — ударная гласная «brindÌsi»,1,,,"Ответ:  you2 Я слышу ударение на вторую «i», brindìsi. По-моему, так."
+stress_v2,famiglia_none,Dico famiglia adesso.,it,,wav/stress_v2__famiglia_none.wav,paolo,choice,Вариант 1: famiglìa — ударная гласная «famiglÌa» | Вариант 2: famìglia — ударная гласная «famÌglia»,2,1,0,"Ответ: 1
+Я слышу, как ударение падает на последнюю «a»: famiglìa. Хотя в итальянском, конечно, правильно famìglia. Ох уж этот синтезатор! Что скажешь?"
+stress_v2,famiglia_grave,Dico famìglia adesso.,it,,wav/stress_v2__famiglia_grave.wav,paolo,choice,Вариант 1: famiglìa — ударная гласная «famiglÌa» | Вариант 2: famìglia — ударная гласная «famÌglia»,2,,,"Ответ:  himmelia
+Потому что я слышу ударение на ""и"", как в варианте два. ""Famìglia""."
+stress_v2,subito_none,Dico subito adesso.,it,,wav/stress_v2__subito_none.wav,paolo,choice,"Вариант 1: subìto — ударная гласная «subÌto», «перенёс, пострадал от» | Вариант 2: sùbito — ударная гласная «sÙbito», «сразу»",2,,,"Ответ: Вариант 2
+
+Я слышу, что ударение падает на «Ù», как в слове «sùbito». Чистое произношение!"
+stress_v2,subito_grave,Dico sùbito adesso.,it,,wav/stress_v2__subito_grave.wav,paolo,choice,"Вариант 1: subìto — ударная гласная «subÌto», «перенёс, пострадал от» | Вариант 2: sùbito — ударная гласная «sÙbito», «сразу»",2,,,"Ответ:  italo-tutor: sùbito. Я слышу ударение на первом слоге, звук 'u'."
+it_a1,v3_00,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/it_a1__v3_00.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Perfetto! Произношение прямо как у носителя, никаких ошибок. Bravo!"
+it_a1,v3_01,"Piacere! Sono russa, di Mosca.",it,,wav/it_a1__v3_01.wav,paolo,rate,,,4,,"Оценка: 4
+
+Произношение довольно чистое, но звук ""р"" в слове ""piacere"" прозвучал немного плоско, не так раскатисто, как у нас, и ударение во втором слове ""sono"" чуть смазалось. А так – bravo! Направление правильное. Что проверяем дальше?"
+it_a1,v3_02,"Vorrei un caffè e un cornetto, per favore.",it,,wav/it_a1__v3_02.wav,paolo,rate,,,5,,"Оценка: 5. Прононшаменте perfetto! Чисто, с правильным ударением. Браво! Как настоящий итальянец. Что скажешь, продолжаем в том же духе?"
+it_a1,v3_03,Quanto costa questo libro?,it,,wav/it_a1__v3_03.wav,paolo,rate,,,3,,"Оценка: 3.
+Произношение понятное, но акцент сильный. Звуки 'сто' звучат слишком твёрдо, и интонация в конце какая-то... не итальянская. Как будто обрывается. Есть над чем поработать! Кто это говорил?"
+it_a1,v3_04,Dov'è la stazione? È lontana da qui?,it,,wav/it_a1__v3_04.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, как у носителя. Ударение, звуки — всё правильно. Браво! Чего ещё проверяем?"
+it_a1,v3_05,C'è una farmacia vicino all'albergo?,it,,wav/it_a1__v3_05.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, прямо как у носителя! Всё чётко, интонация правильная, молодец! Никаких ошибок не слышу. Продолжай в том же духе!"
+it_a1,v3_06,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,,wav/it_a1__v3_06.wav,paolo,rate,,,5,,"Оценка: 5
+
+Произношение отличное, как у носителя, придраться не к чему. Браво! Кто это говорит?"
+it_a1,v3_07,Ho ventitré anni e abito a Mosca.,it,,wav/it_a1__v3_07.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Произношение: Слишком роботизированное, нет мелодики итальянского языка. Звуки 'o' и 'e' звучат плосковато. Ударения вроде правильные, но фраза целиком не течёт. Есть над чем работать!"
+it_a1,v3_08,Ieri ho mangiato la pizza con i miei amici.,it,,wav/it_a1__v3_08.wav,paolo,rate,,,4,,"Оценка: 4. В целом, понятно, но ударение в слове ""pizza"" было немного смазанным, и звук ""zeta"" мог быть более чётким, как у носителя. Есть над чем поработать! Что ещё проверим?"
+it_a1,v3_09,"Scusi, a che ora parte il treno per Firenze?",it,,wav/it_a1__v3_09.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, всё чётко и понятно. Никаких ошибок не слышу. Браво! Готов к уроку?"
+it_a1,v3_10,Mia sorella lavora in un ospedale.,it,,wav/it_a1__v3_10.wav,paolo,rate,,,3,,"Оценка: 3. Звучит немного роботизированно, есть ошибки в ударениях и звуках. Но в целом понятно. Что именно ты хочешь проверить?"
+it_a1,v3_11,"Domani andiamo al mare, se non piove.",it,,wav/it_a1__v3_11.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Perfetto! Произношение отличное, как у носителя. Никаких ошибок не слышу. Браво!"
+it_a1,v2_00,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/it_a1__v2_00.wav,paolo,rate,,,4,,"Оценка: 4
+
+Голос приятный, фраза понятная. Но ударение в слове ""mi chiamo"" было немного неестественным, как-то смазано. И звук ""o"" в конце мог быть почётче. А так – molto bene!"
+it_a1,v2_01,"Piacere! Sono russa, di Mosca.",it,,wav/it_a1__v2_01.wav,paolo,rate,,,4,,"Оценка: 4.
+
+В целом понятно, но есть нюансы. Звук ""r"" в слове ""russa"" слишком твёрдый, и в ""Mosca"" окончание ""a"" не совсем чёткое, больше похоже на "" Mosca "". Акцент слышен. Но для понимания годится! Что скажешь?"
+it_a1,v2_02,"Vorrei un caffè e un cornetto, per favore.",it,,wav/it_a1__v2_02.wav,paolo,rate,,,5,,"Оценка: 5. Произношение очень хорошее, звучит как у носителя. Молодец! Даже придраться не к чему. Perfetto! Продолжаем в том же духе?"
+it_a1,v2_03,Quanto costa questo libro?,it,,wav/it_a1__v2_03.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Произношение довольно чёткое, но есть акцент. Звук ""c"" в слове ""costa"" прозвучал немного глуховато, как ""х"", и интонация не совсем натуральная для вопроса. Maestro, что скажешь? Как по твоему мнению?"
+it_a1,v2_04,Dov'è la stazione? È lontana da qui?,it,,wav/it_a1__v2_04.wav,paolo,rate,,,5,,"Оценка: 5. Perfetto! Настоящий носитель говорит. Никаких замечаний, всё чётко."
+it_a1,v2_05,C'è una farmacia vicino all'albergo?,it,,wav/it_a1__v2_05.wav,paolo,rate,,,,,"Oценка: 4. Pronuncia abbastanza buona, però l'accento non è proprio naturale e il suono delle ""c"" potrebbe essere più chiaro. Sembrava un po' contratto, capisci? Manca la fluidità di un madrelingua. C'è altro da ascoltare?"
+it_a1,v2_06,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,,wav/it_a1__v2_06.wav,paolo,rate,,,5,,"Оценка: 5. Произношение прекрасное, как у носителя! Звуки чёткие, интонация верная. Молодец! Что скажешь, продолжаем урок?"
+it_a1,v2_07,Ho ventitré anni e abito a Mosca.,it,,wav/it_a1__v2_07.wav,paolo,rate,,,4,,"Оценка: 4.
+
+В целом хорошо, но есть над чем поработать. Звук ""Ho"" был немного глуховат, и ""abito"" — ударение на первый слог, а прозвучало как ""abìto"". И в слове ""Mosca"" ""s"" должна быть помягче. Будем практиковаться! Ещё раз послушаем?"
+it_a1,v2_08,Ieri ho mangiato la pizza con i miei amici.,it,,wav/it_a1__v2_08.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Произношение довольно хорошее, но есть нюансы. Звук ""gli"" в слове ""magliato"" немного твёрдый, и интонация в конце фразы немного неестественная, как будто обрывается. А в целом понятно! Что дальше проверяем?"
+it_a1,v2_09,"Scusi, a che ora parte il treno per Firenze?",it,,wav/it_a1__v2_09.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Ударение в слове ""scusi"" немного смещено, и звук 's' слишком твёрдый, как русское 'с'. В ""ora"" не совсем точный звук 'r'. Акцент заметен. Есть над чем поработать! Что скажешь?"
+it_a1,v2_10,Mia sorella lavora in un ospedale.,it,,wav/it_a1__v2_10.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Что не так: ""sorella"" - ударение на ""е"", а не на ""о"", и звук ""s"" в начале должен быть твёрже. ""Lavora"" - ударение на ""о"", а не на ""a"". Акцент чувствуется, но фраза понятна."
+it_a1,v2_11,"Domani andiamo al mare, se non piove.",it,,wav/it_a1__v2_11.wav,paolo,rate,,,5,,"Оценка: 5. Браво! Произношение отличное, как у носителя. Интонация верная, ударения все на месте. Замечательно! Будем продолжать в том же духе? Что скажешь?"
+he_basic,00,"שלום, מה שלומך?",he,,wav/he_basic__00.wav,hava,rate,,,3,,"Оценка: 3.
+
+Звучит как ""Шлум машлюм"", что-то непонятное. Ударение неправильное, звуки искажены. Должно быть ""Шалом, ма шломха?"" или ""ма шломех?"" Видимо, пытались сказать ""Привет, как дела?"", но получилось совсем не то."
+he_basic,01,קוראים לי פאולו.,he,,wav/he_basic__01.wav,hava,rate,,,3,,"Оценка: 3.
+
+Звучит так, как будто говорят ""Курэйнли Поло"". Ударение в первом слове неправильное, должно быть ""Кор'им"", и звук ""р"" слишком твёрдый, не как у носителя. И второе слово не совсем чётко. Акцент есть."
+he_basic,02,"אני רוצה כוס קפה, בבקשה.",he,,wav/he_basic__02.wav,hava,rate,,,3,,"Оценка: 3.
+
+Ударение совсем не там, ""ани"" прозвучало как ""эни"", и ""роцэ"" очень смазано, с сильным акцентом. Понятно, но не носитель."
+he_basic,03,איפה התחנה?,he,,wav/he_basic__03.wav,hava,rate,,,2,,"Оценка: 2.
+
+Ударение совсем не там, звучит как ""эпхэ́ трене"", а должно быть ""инфэ́нтэне"". И звуки перепутаны, особенно в конце. Сильный акцент."
+he_basic,04,כמה זה עולה?,he,,wav/he_basic__04.wav,hava,rate,,,3,,"Оценка: 3 балла.
+
+Слово ""кума"" произнесено с сильным акцентом, ударение не там, и звуки не совсем правильные. Должно быть ""кома"". И ""зе"" прозвучало как ""се"". ""Ола"" более-менее. В общем, понятно, но не чисто. Кто это говорит?"
+he_basic,05,אני גר בתל אביב.,he,,wav/he_basic__05.wav,hava,rate,,,1,,"Оценка: 1.
+
+Вообще непонятно, что сказано. Ни одного звука или слова, которые напоминали бы иврит. Похоже просто на набор букв. Это точно иврит был?"
+clone,ru_plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/clone__ru_plain.wav,paolo,rate,,,3,,"Оценка: 3
+
+Русский язык: Понятно, но сильный акцент, ""р"" очень раскатистое, и интонация не совсем естественная. Итальянских слов не было. В целом, для общения на уроке пойдёт, но для примера носителя далеко. Что скажешь?"
+clone,mix_whole,"В прошедшем времени мы всегда говорим «ho mangiato», а не «io mangiato».",ru,,wav/clone__mix_whole.wav,paolo,rate,,,3,,"Оценка: 3.
+
+По-русски: ударения немного странные, и звук ""ы"" в слове ""мы"" не совсем чёткий. А по-итальянски вообще акцент сильный: ""ho mangiato"" звучит прямо как ""хо манжиато"" с русским акцентом. Есть над чем работать! Что дальше тестируем?"
+clone,it_00_cfg0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/clone__it_00_cfg0.5.wav,paolo,rate,,,4,,"Оценка: 4. Произношение в целом хорошее, но звук ""r"" немного не дотягивает до итальянского, и интонация могла бы быть более плавной. А так, bravo! Что скажешь?"
+clone,it_00_cfg0.0,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/clone__it_00_cfg0.0.wav,paolo,rate,,,4,,"Оценка: 4. Ударéние на ""mi"" было лишним, и звук ""ci"" в ""Ciao"" немного смазан. В остальном хорошо! Продолжаем?"
+clone,it_02_cfg0.5,"Vorrei un caffè e un cornetto, per favore.",it,,wav/clone__it_02_cfg0.5.wav,paolo,rate,,,4,,"Ciao! Allora, l'audio è buono! Ma sento un paio di cose. La doppia 'f' in ""caffè"" non è abbastanza forte, e anche la 'r' in ""cornetto"" potrebbe essere più vibrante. L'intonazione poi mi sembra un pochino piatta, ecco.
+
+Оценка: 4.
+
+Doppie quasi assenti e intonazione piatta. Как-то так!"
+clone,it_02_cfg0.0,"Vorrei un caffè e un cornetto, per favore.",it,,wav/clone__it_02_cfg0.0.wav,paolo,rate,,,5,,"Оценка: 5. Фраза произнесена чётко, ударения на месте, звуки правильные. Как настоящий итальянец! Молодец! Что скажешь?"
+clone,it_06_cfg0.5,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,,wav/clone__it_06_cfg0.5.wav,paolo,rate,,,4,,"Оценка: 4. Произношение хорошее, но ударение в слове ""piacciono"" смещено, и звук ""r"" в ""orrore"" мог бы быть более чётким, раскатистым. В целом понятно. Что скажешь?"
+clone,it_06_cfg0.0,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,,wav/clone__it_06_cfg0.0.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Произношение неплохое, но есть ошибки. Ударение в слове ""piace"" было не совсем точным, и звук ""r"" в ""orrore"" прозвучал слабовато, не по-итальянски. И в целом, интонация могла бы быть более выразительной. Но, молодец, продолжай заниматься! Что скажешь?"
+clone,it_09_cfg0.5,"Scusi, a che ora parte il treno per Firenze?",it,,wav/clone__it_09_cfg0.5.wav,paolo,rate,,,4,,"Ciao! Allora, ascolto.
+
+Оценка: 4.
+
+L'accentazione è corretta, ma i suoni sono un po' piatti, manca quella melodia tipica dell'italiano. E la ""r"" finale non si sente quasi. Però, si capisce bene! Chi era?"
+clone,it_09_cfg0.0,"Scusi, a che ora parte il treno per Firenze?",it,,wav/clone__it_09_cfg0.0.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, интонация естественная, как у носителя. Никаких ошибок не слышу. Браво!"
+clone,stress_telèfonano,Dico telèfonano adesso.,it,,wav/clone__stress_telèfonano.wav,paolo,rate,,,3,,"Оценка: 3. Звучит плосковато, и, кажется, ударение было не совсем точным на слове ""dico"", да и в целом интонация немного механическая. Не хватает живости, понимаешь? Спрашивай, если ещё что-то нужно!"
+clone,stress_àncora,Dico àncora adesso.,it,,wav/clone__stress_àncora.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Звучит в целом понятно, но произношение немного неестественное, как будто механическое. Ударение на ""Dico"" правильное, но ""ancora"" прозвучало слишком коротко, и звук ""c"" немного смазан. Акцент заметен. Что скажешь?"
+clone,stress_ancòra,Dico ancòra adesso.,it,,wav/clone__stress_ancòra.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Звучит неестественно, как робот. Ударение в слове ""dico"" не совсем точное, и открытый звук ""o"" в конце не звучит по-итальянски. Есть акцент. Ещё раз послушаем?"
+slow,00_cfg0.5_ex0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/slow__00_cfg0.5_ex0.5.wav,paolo,rate,,,4,,"Оценка: 4. Pronuncia decente, ma l'accento straniero è forte. In ""mi chiamo"", l'accento sulla ""i"" era un po' troppo marcato e la ""o"" finale non era ben chiusa. Ci lavoriamo!"
+slow,00_cfg0.3_ex0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/slow__00_cfg0.3_ex0.5.wav,paolo,rate,,,,,"Ciao ciao! Allora, per quanto riguarda la voce... non posso sentirla direttamente, sai? Sono un'intelligenza artificiale, leggo il testo.
+
+Ma se mi scrivi la frase, posso dirti se è grammatica corretta! Quella che hai scritto, ""Ciao, mi chiamo Paolo. Come ti chiami?"", è perfetta!
+
+Se vuoi, possiamo fare un esercizio sulla pronuncia — tu provi a parlare, e io ti do un feedback sul testo, va bene?"
+slow,00_cfg0.3_ex0.3,"Ciao, mi chiamo Paolo. Come ti chiami?",it,,wav/slow__00_cfg0.3_ex0.3.wav,paolo,rate,,,5,,"Оценка: 5
+
+Произношение отличное, как носитель. Звучит натурально, чётко. Молодец! Были вопросы по интонации, но это мелочи. Что дальше, тестируем дальше?"
+slow,00_stretch0.8,"Ciao, mi chiamo Paolo. Come ti chiami?",it,librosa x0.8,wav/slow__00_stretch0.8.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Ударение верное, но звук ""o"" на конце слов немного смазан, как русское ""а"". И ""ch"" в ""chiamo"" звучит грубовато. А так, в целом, понятно! Что ещё проверить?"
+slow,02_cfg0.5_ex0.5,"Vorrei un caffè e un cornetto, per favore.",it,,wav/slow__02_cfg0.5_ex0.5.wav,paolo,rate,,,5,,"Оценка: 5
+
+Произношение отличное, как у носителя. Всё чётко, ударения на месте, звуки верные. Браво! Что дальше?"
+slow,02_cfg0.3_ex0.5,"Vorrei un caffè e un cornetto, per favore.",it,,wav/slow__02_cfg0.3_ex0.5.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Il suono ""v"" all'inizio era un po' debole, e la ""r"" non era abbastanza rotolata. L'accento su ""caffè"" poteva essere un po' più chiaro. Ma nel complesso, molto comprensibile! Chi l'ha detto?"
+slow,02_cfg0.3_ex0.3,"Vorrei un caffè e un cornetto, per favore.",it,,wav/slow__02_cfg0.3_ex0.3.wav,paolo,rate,,,,,"Принято! Жду запись, готовь её, оценю строго, но справедливо!"
+slow,02_stretch0.8,"Vorrei un caffè e un cornetto, per favore.",it,librosa x0.8,wav/slow__02_stretch0.8.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Perfetto! Произношение прямо как у носителя. Никаких ошибок не слышу, молодец! Готова продолжать?"
+slow,09_cfg0.5_ex0.5,"Scusi, a che ora parte il treno per Firenze?",it,,wav/slow__09_cfg0.5_ex0.5.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, прямо как у носителя! Интонация правильная, ударения на месте. Даже придраться не к чему. Кто это говорил? Молодец!"
+slow,09_cfg0.3_ex0.5,"Scusi, a che ora parte il treno per Firenze?",it,,wav/slow__09_cfg0.3_ex0.5.wav,paolo,rate,,,,,"Прекрасно, давай послушаем. Я готов! Включай запись."
+slow,09_cfg0.3_ex0.3,"Scusi, a che ora parte il treno per Firenze?",it,,wav/slow__09_cfg0.3_ex0.3.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, как у носителя! Напряжение в нужных местах, интонация естественная. Никаких замечаний! Браво!"
+slow,09_stretch0.8,"Scusi, a che ora parte il treno per Firenze?",it,librosa x0.8,wav/slow__09_stretch0.8.wav,paolo,rate,,,5,,"Оценка: 5.
+
+Произношение отличное, как у носителя! Интонация, ударения, звуки – всё на месте. Браво! Нет никаких замечаний. Что скажешь, можем продолжать?"
+mix,whole_ru,"В прошедшем времени мы всегда говорим «ho mangiato», а не «io mangiato».",ru,,wav/mix__whole_ru.wav,paolo,rate,,,3,,"Оценка: 3.
+
+По-русски: ""Прошедшее"" - ударение не там, ""время"" тоже звучит немного странно. По-итальянски слово ""коммандо"" произнесено нечётко, с сильным акцентом, и удвоенная ""mm"" не слышна. В целом понятно, но над произношением надо работать. Есть вопросы?"
+mix,split_ru_it,"В прошедшем времени мы всегда говорим, | ho mangiato, | а не | io mangiato.",ru+it,склейка,wav/mix__split.wav,paolo,rate,,,3,,"Оценка: 3
+
+В русской фразе ударения немного плавают, а в итальянских словах акцент сильный, звуки не совсем точные. Например, ""ho"" звучит почти как ""о"", и в ""mangiato"" ударение не на месте. C'è da lavorare! Будем практиковаться."
+ru_repeat,0,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__0.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Произношение довольно хорошее, но есть акцент. В слове ""времени"" ударение немного смазано, и звук ""ч"" в ""прошедшем"" звучит твердовато. В целом понятно, но не совсем как у носителя. Что скажешь, будем практиковаться?"
+ru_repeat,1,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__1.wav,paolo,rate,,,3,,"Оценка: 3
+
+Ударения: в слове ""времени"" ударение на ""е"", а не на ""и"".
+Звуки: звук ""р"" немного твердоват, ""ч"" в ""прошедшем"" тоже, и ""с"" в ""совсем"" звучит как-то странно, как будто призвук ""ш"".
+Акцент: чувствуется сильный иностранный акцент, интонация не совсем естественная для русского."
+ru_repeat,2,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__2.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Произношение не чёткое, сильный акцент, ударения «сегодня», например, неправильные, «говорим» звучит как «говорим». Но фраза понятна. В целом, есть над чем работать. Жду следующую!"
+ru_repeat,3,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__3.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Произношение не как у носителя, есть сильный акцент. Звук ""р"" очень твёрдый, некоторые гласные смазаны, и ударение в слове ""прошедшем"" не совсем верное. Понятно, но звучит неестественно."
+ru_repeat,4,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__4.wav,paolo,rate,,,4,,"Оценка: 4.
+
+Есть небольшой акцент, особенно в звуках ""р"" и ""л"", они получились мягковаты. И ударение в слове ""времени"" немного смещено. А так, всё понятно.
+
+Чего скажешь, продолжаем проверку?"
+ru_repeat,5,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__5.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Голос звучит неестественно, как робот. Ударения в словах немного ""скачут"", и нет плавности речи, характерной для носителя. Акцент заметный. Что скажешь?"
+ru_repeat,6,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__6.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Акцент сильный, ударение в слове ""сегодня"" неправильное, звук ""г"" произнесён как ""х"", и в целом звуки больше похожи на итальянские, чем на русские. Есть над чем поработать! Что скажешь?"
+ru_repeat,7,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,,wav/ru_repeat__7.wav,paolo,rate,,,3,,"Оценка: 3.
+
+Голос чёткий, но акцент сильный. Ударения не совсем верные, особенно в слове ""времени"", и звуки ""ч"" и ""ж"" звучат немного неестественно для русского. Интонация тоже выдаёт иностранца.
+
+
+Как учитель, я бы сказал, что понятно, но над произношением надо поработать! Что скажешь? 😉"
