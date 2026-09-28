@@ -93,3 +93,12 @@ CPU облачного контейнера 4 ядра ≈ 4.5 (пик RAM 6.9 �
 «рот» (TTS: Chatterbox — запасной кандидат; ищем модель с управляемым произношением — фонемы/IPA из нашего словаря
 ударений), «уши» (ASR) и «мозг» (локальная LLM), либо одна omni-модель. Цель — Mac ученицы 16 ГБ (эталон — Mac mini
 M4 Pro 24 ГБ). Сравнение — тем же набором тестов (омографы, ударение, двойные, ru, he, A1, скорость/память).
+
+## Сравнение локальных TTS (2026-09-29, идёт)
+- `tts_eval/`: testset.json (68 пунктов, `testset.py` генерирует IPA через espeak-ng), адаптеры `models/*.py`,
+  `run_model.py` (свой venv на модель, продолжение после обрыва), `asr.py` (Whisper CER), `report.py` → out/summary.md.
+- Ноутбук `tts_eval.ipynb` (генератор `tools/make_tts_notebook.py`), Kaggle-задача `--task tts`
+  (vasiliadi911/italo-tutor-local-tts-eval, T4 x2). v1 упала: в venv нет ensurepip → v2 через uv.
+- Модели: Piper, Kokoro (контроль, фонемы выполняют — проверено локально на CPU), Qwen3-TTS 1.7B (голос и клон, без IPA),
+  MOSS v1.0 (1.7B, для Mac) и v1.5 (4B, he), Magpie 357M (для it фонем НЕТ — byt5, ru/he нет).
+- Дальше: слушание Паоло/Хава на 3.8-live (≤20/мин на ключ), Mac-замер топ-2–3.
