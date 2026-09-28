@@ -1,0 +1,1 @@
+{"model": "piper", "device": "cuda", "load_s": 3.0, "peak_rss_gb": 0.85, "peak_gpu_gb": 0.0, "new_rows": 195}

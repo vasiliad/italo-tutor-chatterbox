@@ -1,0 +1,285 @@
+model,id,section,lang,variant,text,expected,wav,audio_s,gen_s,rtf,error,asr,cer
+moss,it_context__ancora_ancora,it_context,it,plain,Vorrei ancora un caffè.,ancóra — ещё,it_context__ancora_ancora__plain.wav,2.64,3.8,1.44,,Vorrei ancora un caffè.,0.0
+moss,it_context__ancora_ancora,it_context,it,accent,Vorrei ancóra un caffè.,ancóra — ещё,it_context__ancora_ancora__accent.wav,2.32,2.76,1.188,,Vorrei ancora un caffè.,0.0
+moss,it_context__ancora_ancora,it_context,it,ipa,vorɾˈɛi ankˈora ʊn kaffˈɛ,ancóra — ещё,it_context__ancora_ancora__ipa.wav,4.64,5.32,1.147,,Vorverdi ancora un caff.,0.182
+moss,it_context__ancora_ancora,it_context,it,ipa_word,"['ancora', 'ankˈora']",ancóra — ещё,it_context__ancora_ancora__ipa_word.wav,3.12,3.6,1.154,,Vorrei ancora un caffè.,0.0
+moss,it_context__ancora_ancora2,it_context,it,plain,La nave getta l'ancora in porto.,àncora — якорь,it_context__ancora_ancora2__plain.wav,1.76,2.06,1.169,,la nave gettala ancora in porto,0.097
+moss,it_context__ancora_ancora2,it_context,it,accent,La nave getta l'àncora in porto.,àncora — якорь,it_context__ancora_ancora2__accent.wav,1.76,2.04,1.157,,la nave getta l'ancora in porto,0.0
+moss,it_context__ancora_ancora2,it_context,it,ipa,la nˈave dʒˈɛtːa lˈankora in pˈɔrto,àncora — якорь,it_context__ancora_ancora2__ipa.wav,5.36,6.06,1.13,,"La a nava, jetea all'ancora in porto.",0.226
+moss,it_context__ancora_ancora2,it_context,it,ipa_word,"['ancora', 'ˈankora']",àncora — якорь,it_context__ancora_ancora2__ipa_word.wav,3.92,4.52,1.153,,La nave getta l'Inca ancora in porto.,0.161
+moss,it_context__principi_principles,it_context,it,plain,I principi della fisica sono semplici.,princìpi — принципы,it_context__principi_principles__plain.wav,1.92,2.4,1.252,,I principi della fisica sono semplici.,0.0
+moss,it_context__principi_principles,it_context,it,accent,I princìpi della fìsica sono sèmplici.,princìpi — принципы,it_context__principi_principles__accent.wav,3.2,3.73,1.165,,I principi della fisica sono semplici.,0.0
+moss,it_context__principi_principles,it_context,it,ipa,i printʃˈipɪ dˌella fˈizika sˌono sˈɛmplitʃɪ,princìpi — принципы,it_context__principi_principles__ipa.wav,6.16,7.08,1.149,,i princci satipi della e fisica sano semplici,0.243
+moss,it_context__principi_principles,it_context,it,ipa_word,"['principi', 'printʃˈipɪ']",princìpi — принципы,it_context__principi_principles__ipa_word.wav,3.68,4.22,1.146,,I principi della fisica sono semplici.,0.0
+moss,it_context__principi_princes,it_context,it,plain,Il re e la regina hanno due figli: sono principi.,prìncipi — принцы,it_context__principi_princes__plain.wav,5.6,6.43,1.148,,Il re e la regina hanno due figli. Sono principi,0.0
+moss,it_context__principi_princes,it_context,it,accent,Il re e la regina hanno due figli: sono prìncipi.,prìncipi — принцы,it_context__principi_princes__accent.wav,4.08,4.71,1.155,,Il re e la regina hanno due figli. Sono principi.,0.0
+moss,it_context__principi_princes,it_context,it,ipa,il rˈɛ e la redʒˈina ˌanno dˈue fˈiʎɪ sˌono prˈintʃipɪ,prìncipi — принцы,it_context__principi_princes__ipa.wav,9.76,11.34,1.162,,"Il ri e la reggina ser hanno due feiliegi, serre sono principi.",0.362
+moss,it_context__principi_princes,it_context,it,ipa_word,"['principi', 'prˈintʃipɪ']",prìncipi — принцы,it_context__principi_princes__ipa_word.wav,6.24,7.35,1.177,,"Il re e la regina hanno due figli, sono principi.",0.0
+moss,it_context__capitano_captain,it_context,it,plain,Il capitano parla con i marinai.,capitàno — капитан,it_context__capitano_captain__plain.wav,2.24,2.72,1.214,,Il capitano parla con i marinai.,0.0
+moss,it_context__capitano_captain,it_context,it,accent,Il capitàno parla con i marinài.,capitàno — капитан,it_context__capitano_captain__accent.wav,3.04,3.66,1.203,,Il capitano parla con i marinai.,0.0
+moss,it_context__capitano_captain,it_context,it,ipa,il kapitˈano pˈarla kon i marinˈaɪ,capitàno — капитан,it_context__capitano_captain__ipa.wav,3.12,3.7,1.185,,Il capitano parla con i marini nai.,0.097
+moss,it_context__capitano_captain,it_context,it,ipa_word,"['capitano', 'kapitˈano']",capitàno — капитан,it_context__capitano_captain__ipa_word.wav,4.4,5.19,1.18,,Il capitano parla con i marinai.,0.0
+moss,it_context__capitano_happen,it_context,it,plain,Queste cose capitano spesso.,càpitano — случаются,it_context__capitano_happen__plain.wav,1.68,2.07,1.231,,Queste cose capitano spesso.,0.0
+moss,it_context__capitano_happen,it_context,it,accent,Queste cose càpitano spesso.,càpitano — случаются,it_context__capitano_happen__accent.wav,2.16,2.74,1.271,,Queste cose capitano spesso.,0.0
+moss,it_context__capitano_happen,it_context,it,ipa,kwˌeste kˈɔze kˈapitano spˈesso,càpitano — случаются,it_context__capitano_happen__ipa.wav,4.0,4.81,1.203,,Questi cazze capitano spesso...,0.148
+moss,it_context__capitano_happen,it_context,it,ipa_word,"['capitano', 'kˈapitano']",càpitano — случаются,it_context__capitano_happen__ipa_word.wav,3.52,4.16,1.181,,Queste cose capitano spesso.,0.0
+moss,it_context__subito_soon,it_context,it,plain,Vieni subito qui!,sùbito — сразу,it_context__subito_soon__plain.wav,2.0,2.48,1.241,,Vieni subito qui!,0.0
+moss,it_context__subito_soon,it_context,it,accent,Vieni sùbito qui!,sùbito — сразу,it_context__subito_soon__accent.wav,2.08,2.57,1.235,,Vieni subito qui.,0.0
+moss,it_context__subito_soon,it_context,it,ipa,vjˈɛnɪ sˈubito kwˈi,sùbito — сразу,it_context__subito_soon__ipa.wav,3.36,3.99,1.188,,"vision, forse isto qua cli.",0.875
+moss,it_context__subito_soon,it_context,it,ipa_word,"['subito', 'sˈubito']",sùbito — сразу,it_context__subito_soon__ipa_word.wav,2.0,2.45,1.227,,"Vieni, subito qui.",0.0
+moss,it_context__subito_suffered,it_context,it,plain,Ha subito un furto ieri sera.,subìto — пострадал,it_context__subito_suffered__plain.wav,1.92,2.35,1.226,,Ha subito un furto ieri sera.,0.0
+moss,it_context__subito_suffered,it_context,it,accent,Ha subìto un furto ieri sera.,subìto — пострадал,it_context__subito_suffered__accent.wav,1.76,2.21,1.254,,Ha subito un furto ieri sera.,0.0
+moss,it_context__subito_suffered,it_context,it,ipa,a sʊbˈito ʊn fˈurto jˈɛrɪ sˈera,subìto — пострадал,it_context__subito_suffered__ipa.wav,5.12,6.1,1.192,,Asub it on e farto jari sera.,0.357
+moss,it_context__subito_suffered,it_context,it,ipa_word,"['subito', 'sʊbˈito']",subìto — пострадал,it_context__subito_suffered__ipa_word.wav,3.6,4.47,1.241,,ha subito un furto ieri sera.,0.0
+moss,it_solo__ancora_якорь,it_solo,it,plain,Dico ancora adesso.,àncora,it_solo__ancora_якорь__plain.wav,1.12,1.5,1.336,,Dico ancora adesso.,0.0
+moss,it_solo__ancora_якорь,it_solo,it,accent,Dico àncora adesso.,àncora,it_solo__ancora_якорь__accent.wav,1.12,1.48,1.319,,Dico ancora adesso...,0.0
+moss,it_solo__ancora_якорь,it_solo,it,ipa,dˈiko ˈankora adˈɛsso,àncora,it_solo__ancora_якорь__ipa.wav,6.24,7.43,1.191,,Di di co di ancora ad esso.,0.444
+moss,it_solo__ancora_якорь,it_solo,it,ipa_word,"['ancora', 'ˈankora']",àncora,it_solo__ancora_якорь__ipa_word.wav,5.12,6.01,1.173,,"Ma dico, ancora adesso.",0.167
+moss,it_solo__ancora_ещё,it_solo,it,plain,Dico ancora adesso.,ancóra,it_solo__ancora_ещё__plain.wav,1.36,1.77,1.301,,dico ancora adesso.,0.0
+moss,it_solo__ancora_ещё,it_solo,it,accent,Dico ancóra adesso.,ancóra,it_solo__ancora_ещё__accent.wav,1.2,1.51,1.256,,dico ancora adesso,0.0
+moss,it_solo__ancora_ещё,it_solo,it,ipa,dˈiko ankˈora adˈɛsso,ancóra,it_solo__ancora_ещё__ipa.wav,2.8,3.41,1.217,,Dito lì che ancora adesso?,0.444
+moss,it_solo__ancora_ещё,it_solo,it,ipa_word,"['ancora', 'ankˈora']",ancóra,it_solo__ancora_ещё__ipa_word.wav,2.24,2.8,1.252,,Dico ancora adesso.,0.0
+moss,it_solo__principi_принцы,it_solo,it,plain,Dico principi adesso.,prìncipi,it_solo__principi_принцы__plain.wav,1.52,1.9,1.25,,Dico principi adesso.,0.0
+moss,it_solo__principi_принцы,it_solo,it,accent,Dico prìncipi adesso.,prìncipi,it_solo__principi_принцы__accent.wav,3.12,3.62,1.161,,"Dico, principi, adesso.",0.0
+moss,it_solo__principi_принцы,it_solo,it,ipa,dˈiko prˈintʃipɪ adˈɛsso,prìncipi,it_solo__principi_принцы__ipa.wav,4.4,5.0,1.135,,Dedue qui. Pricey qui. Addisse qui.,1.05
+moss,it_solo__principi_принцы,it_solo,it,ipa_word,"['principi', 'prˈintʃipɪ']",prìncipi,it_solo__principi_принцы__ipa_word.wav,2.32,2.8,1.207,,Dico principi adesso...,0.0
+moss,it_solo__principi_принципы,it_solo,it,plain,Dico principi adesso.,princìpi,it_solo__principi_принципы__plain.wav,81.92,91.7,1.119,,Grazie.,0.85
+moss,it_solo__principi_принципы,it_solo,it,accent,Dico princìpi adesso.,princìpi,it_solo__principi_принципы__accent.wav,2.32,2.79,1.204,,Dico principi adesso.,0.0
+moss,it_solo__principi_принципы,it_solo,it,ipa,dˈiko printʃˈipɪ adˈɛsso,princìpi,it_solo__principi_принципы__ipa.wav,3.68,4.24,1.152,,"Dù tico, principi, adissa.",0.25
+moss,it_solo__principi_принципы,it_solo,it,ipa_word,"['principi', 'printʃˈipɪ']",princìpi,it_solo__principi_принципы__ipa_word.wav,5.92,6.65,1.123,,Dico French Shoals. E adesso...,0.6
+moss,it_solo__capitano_случаются,it_solo,it,plain,Dico capitano adesso.,càpitano,it_solo__capitano_случаются__plain.wav,1.36,1.69,1.246,,capitano adesso,0.25
+moss,it_solo__capitano_случаются,it_solo,it,accent,Dico càpitano adesso.,càpitano,it_solo__capitano_случаются__accent.wav,2.32,2.83,1.218,,capitano di sua,0.5
+moss,it_solo__capitano_случаются,it_solo,it,ipa,dˈiko kˈapitano adˈɛsso,càpitano,it_solo__capitano_случаются__ipa.wav,3.68,4.17,1.133,,"Ducere, haico capitano ad adesso.",0.55
+moss,it_solo__capitano_случаются,it_solo,it,ipa_word,"['capitano', 'kˈapitano']",càpitano,it_solo__capitano_случаются__ipa_word.wav,2.72,3.15,1.158,,"Dico capitano, adesso...",0.0
+moss,it_solo__capitano_капитан,it_solo,it,plain,Dico capitano adesso.,capitàno,it_solo__capitano_капитан__plain.wav,3.68,4.26,1.156,,capitano adesso,0.25
+moss,it_solo__capitano_капитан,it_solo,it,accent,Dico capitàno adesso.,capitàno,it_solo__capitano_капитан__accent.wav,2.08,2.47,1.188,,dico capitano adesso,0.0
+moss,it_solo__capitano_капитан,it_solo,it,ipa,dˈiko kapitˈano adˈɛsso,capitàno,it_solo__capitano_капитан__ipa.wav,2.08,2.51,1.207,,Devo dire che il capitano è stato un capitano.,1.5
+moss,it_solo__capitano_капитан,it_solo,it,ipa_word,"['capitano', 'kapitˈano']",capitàno,it_solo__capitano_капитан__ipa_word.wav,2.96,3.49,1.18,,dico capitano adesso.,0.0
+moss,it_solo__subito_сразу,it_solo,it,plain,Dico subito adesso.,sùbito,it_solo__subito_сразу__plain.wav,1.52,1.81,1.192,,Dico subito adesso,0.0
+moss,it_solo__subito_сразу,it_solo,it,accent,Dico sùbito adesso.,sùbito,it_solo__subito_сразу__accent.wav,1.28,1.57,1.228,,dico subito adesso,0.0
+moss,it_solo__subito_сразу,it_solo,it,ipa,dˈiko sˈubito adˈɛsso,sùbito,it_solo__subito_сразу__ipa.wav,2.56,3.01,1.177,,di dico subito a Draes o,0.389
+moss,it_solo__subito_сразу,it_solo,it,ipa_word,"['subito', 'sˈubito']",sùbito,it_solo__subito_сразу__ipa_word.wav,2.64,3.13,1.185,,"Dico subito, adesso».",0.0
+moss,it_solo__subito_пострадал,it_solo,it,plain,Dico subito adesso.,subìto,it_solo__subito_пострадал__plain.wav,2.72,3.24,1.192,,subito adesso,0.278
+moss,it_solo__subito_пострадал,it_solo,it,accent,Dico subìto adesso.,subìto,it_solo__subito_пострадал__accent.wav,2.08,2.49,1.199,,Dico subito adesso.,0.0
+moss,it_solo__subito_пострадал,it_solo,it,ipa,dˈiko sʊbˈito adˈɛsso,subìto,it_solo__subito_пострадал__ipa.wav,2.16,2.55,1.181,,"Vedico subito, adesso.",0.111
+moss,it_solo__subito_пострадал,it_solo,it,ipa_word,"['subito', 'sʊbˈito']",subìto,it_solo__subito_пострадал__ipa_word.wav,2.88,3.43,1.19,,subito adesso,0.278
+moss,it_solo__indice_указатель,it_solo,it,plain,Dico indice adesso.,ìndice,it_solo__indice_указатель__plain.wav,2.32,2.76,1.189,,Dico indice adesso.,0.0
+moss,it_solo__indice_указатель,it_solo,it,accent,Dico ìndice adesso.,ìndice,it_solo__indice_указатель__accent.wav,3.12,3.59,1.15,,Dico andice adesso.,0.056
+moss,it_solo__indice_указатель,it_solo,it,ipa,dˈiko ˈinditʃe adˈɛsso,ìndice,it_solo__indice_указатель__ipa.wav,7.12,8.04,1.13,,Do dico dove indici adesso.,0.5
+moss,it_solo__indice_указатель,it_solo,it,ipa_word,"['indice', 'ˈinditʃe']",ìndice,it_solo__indice_указатель__ipa_word.wav,2.56,3.03,1.185,,Dico e dice adesso.,0.111
+moss,it_solo__arbitro_судья,it_solo,it,plain,Dico arbitro adesso.,àrbitro,it_solo__arbitro_судья__plain.wav,1.92,2.28,1.187,,vi dico arbitro adesso,0.158
+moss,it_solo__arbitro_судья,it_solo,it,accent,Dico àrbitro adesso.,àrbitro,it_solo__arbitro_судья__accent.wav,1.12,1.36,1.218,,"guardate, bro,",0.737
+moss,it_solo__arbitro_судья,it_solo,it,ipa,dˈiko ˈarbitro adˈɛsso,àrbitro,it_solo__arbitro_судья__ipa.wav,4.8,5.43,1.132,,Dicai. Dicai arbitro ad siassin.,0.737
+moss,it_solo__arbitro_судья,it_solo,it,ipa_word,"['arbitro', 'ˈarbitro']",àrbitro,it_solo__arbitro_судья__ipa_word.wav,2.0,2.47,1.237,,Dico «d'orbitro» adesso.,0.158
+moss,it_stress__telefonano,it_stress,it,plain,Dico telefonano adesso.,telèfonano,it_stress__telefonano__plain.wav,10.8,12.1,1.121,,dico telefonano adesso,0.0
+moss,it_stress__telefonano,it_stress,it,accent,Dico telèfonano adesso.,telèfonano,it_stress__telefonano__accent.wav,2.0,2.4,1.201,,Dico telefonano. Adesso.,0.0
+moss,it_stress__telefonano,it_stress,it,ipa,dˈiko telˈɛfonano adˈɛsso,telèfonano,it_stress__telefonano__ipa.wav,3.92,4.55,1.16,,D. Dico il telefonano. Adesso...,0.227
+moss,it_stress__telefonano,it_stress,it,ipa_word,"['telefonano', 'telˈɛfonano']",telèfonano,it_stress__telefonano__ipa_word.wav,3.92,4.44,1.134,,Adesso...,0.727
+moss,it_stress__desiderano,it_stress,it,plain,Dico desiderano adesso.,desìderano,it_stress__desiderano__plain.wav,2.16,2.59,1.2,,Dico desiderano adesso.,0.0
+moss,it_stress__desiderano,it_stress,it,accent,Dico desìderano adesso.,desìderano,it_stress__desiderano__accent.wav,1.2,1.5,1.251,,desiderano adesso,0.227
+moss,it_stress__desiderano,it_stress,it,ipa,dˈiko dezˈiderˌano adˈɛsso,desìderano,it_stress__desiderano__ipa.wav,6.72,7.65,1.138,,"Dico desider, serrano, adduandesso.",0.455
+moss,it_stress__desiderano,it_stress,it,ipa_word,"['desiderano', 'dezˈiderˌano']",desìderano,it_stress__desiderano__ipa_word.wav,5.36,6.2,1.157,,Dicot da svidere settea anno. Adesso.,0.636
+moss,it_stress__capiscono,it_stress,it,plain,Dico capiscono adesso.,capìscono,it_stress__capiscono__plain.wav,2.08,2.49,1.198,,capiscono adesso,0.238
+moss,it_stress__capiscono,it_stress,it,accent,Dico capìscono adesso.,capìscono,it_stress__capiscono__accent.wav,4.96,5.73,1.154,,Dico... capiscono adesso.,0.0
+moss,it_stress__capiscono,it_stress,it,ipa,dˈiko kapˈiskono adˈɛsso,capìscono,it_stress__capiscono__ipa.wav,4.56,5.16,1.131,,DITCO CAPOTISCUNO ADESSO,0.19
+moss,it_stress__capiscono,it_stress,it,ipa_word,"['capiscono', 'kapˈiskono']",capìscono,it_stress__capiscono__ipa_word.wav,3.04,3.58,1.178,,Dico CAP PRO ISCONO ADESSO,0.238
+moss,it_stress__scrivono,it_stress,it,plain,Dico scrivono adesso.,scrìvono,it_stress__scrivono__plain.wav,1.76,2.14,1.218,,Dico scrivono adesso.,0.0
+moss,it_stress__scrivono,it_stress,it,accent,Dico scrìvono adesso.,scrìvono,it_stress__scrivono__accent.wav,1.2,1.44,1.202,,che scrivono adesso,0.2
+moss,it_stress__scrivono,it_stress,it,ipa,dˈiko skrˈivono adˈɛsso,scrìvono,it_stress__scrivono__ipa.wav,4.32,4.91,1.136,,"D. Dico, scrivono, adesso.",0.1
+moss,it_stress__scrivono,it_stress,it,ipa_word,"['scrivono', 'skrˈivono']",scrìvono,it_stress__scrivono__ipa_word.wav,2.88,3.53,1.225,,"Dico, scrivono adesso.",0.0
+moss,it_stress__farmacia,it_stress,it,plain,Dico farmacia adesso.,farmacìa,it_stress__farmacia__plain.wav,2.24,2.79,1.247,,Dico farmacia adesso?,0.0
+moss,it_stress__farmacia,it_stress,it,accent,Dico farmacìa adesso.,farmacìa,it_stress__farmacia__accent.wav,1.76,2.22,1.26,,«Dico farmacia adesso?»,0.0
+moss,it_stress__farmacia,it_stress,it,ipa,dˈiko farmatʃˈia adˈɛsso,farmacìa,it_stress__farmacia__ipa.wav,4.24,5.17,1.218,,"Dantidico, farmacch, codia, addeser,",0.7
+moss,it_stress__farmacia,it_stress,it,ipa_word,"['farmacia', 'farmatʃˈia']",farmacìa,it_stress__farmacia__ipa_word.wav,3.44,4.02,1.17,,Dico farmacciare adesso.,0.15
+moss,it_stress__psicologia,it_stress,it,plain,Dico psicologia adesso.,psicologìa,it_stress__psicologia__plain.wav,1.84,2.32,1.258,,dico psicologia adesso,0.0
+moss,it_stress__psicologia,it_stress,it,accent,Dico psicologìa adesso.,psicologìa,it_stress__psicologia__accent.wav,1.92,2.43,1.266,,Dico psicologia adesso.,0.0
+moss,it_stress__psicologia,it_stress,it,ipa,dˈiko psikolodʒˈia adˈɛsso,psicologìa,it_stress__psicologia__ipa.wav,6.16,7.16,1.162,,di duche o psicologi dia adesso,0.409
+moss,it_stress__psicologia,it_stress,it,ipa_word,"['psicologia', 'psikolodʒˈia']",psicologìa,it_stress__psicologia__ipa_word.wav,3.28,4.01,1.223,,Dico psico-igi adesso.,0.136
+moss,it_stress__brindisi,it_stress,it,plain,Dico Brindisi adesso.,Brìndisi,it_stress__brindisi__plain.wav,1.12,1.49,1.33,,Pico Brindisi adesso,0.05
+moss,it_stress__brindisi,it_stress,it,accent,Dico Brìndisi adesso.,Brìndisi,it_stress__brindisi__accent.wav,1.28,1.68,1.314,,Dico brindisi adesso.,0.0
+moss,it_stress__brindisi,it_stress,it,ipa,dˈiko brˈindizɪ adˈɛsso,Brìndisi,it_stress__brindisi__ipa.wav,2.56,3.16,1.234,,"Gita ricco, brindizzi adesso.",0.45
+moss,it_stress__brindisi,it_stress,it,ipa_word,"['Brindisi', 'brˈindizɪ']",Brìndisi,it_stress__brindisi__ipa_word.wav,1.92,2.54,1.323,,Dico branded Z adesso,0.25
+moss,it_stress__zucchero,it_stress,it,plain,Dico zucchero adesso.,zùcchero,it_stress__zucchero__plain.wav,1.68,2.08,1.237,,Dico zucchero adesso.,0.0
+moss,it_stress__zucchero,it_stress,it,accent,Dico zùcchero adesso.,zùcchero,it_stress__zucchero__accent.wav,1.04,1.38,1.33,,di Codrucciro Ade,0.4
+moss,it_stress__zucchero,it_stress,it,ipa,dˈiko dzˈukːero adˈɛsso,zùcchero,it_stress__zucchero__ipa.wav,3.52,4.13,1.172,,"Di, duco, giuchero, adesso.",0.3
+moss,it_stress__zucchero,it_stress,it,ipa_word,"['zucchero', 'dzˈukːero']",zùcchero,it_stress__zucchero__ipa_word.wav,1.76,2.27,1.288,,Dico Ducaro adesso.,0.2
+moss,it_stress__tavolo,it_stress,it,plain,Dico tavolo adesso.,tàvolo,it_stress__tavolo__plain.wav,2.88,3.45,1.199,,tavolo adesso,0.278
+moss,it_stress__tavolo,it_stress,it,accent,Dico tàvolo adesso.,tàvolo,it_stress__tavolo__accent.wav,1.76,2.15,1.223,,Dico tavolo adesso,0.0
+moss,it_stress__tavolo,it_stress,it,ipa,dˈiko tˈavolo adˈɛsso,tàvolo,it_stress__tavolo__ipa.wav,3.04,3.59,1.182,,D'antricota vola adesso...,0.444
+moss,it_stress__tavolo,it_stress,it,ipa_word,"['tavolo', 'tˈavolo']",tàvolo,it_stress__tavolo__ipa_word.wav,2.48,2.93,1.182,,«Tavolo adesso».,0.278
+moss,it_stress__piroscafo,it_stress,it,plain,Dico piroscafo adesso.,piròscafo,it_stress__piroscafo__plain.wav,5.04,5.79,1.148,,Dico piroscafo adesso...,0.0
+moss,it_stress__piroscafo,it_stress,it,accent,Dico piròscafo adesso.,piròscafo,it_stress__piroscafo__accent.wav,2.4,2.91,1.213,,Dico piroscavo adesso...,0.048
+moss,it_stress__piroscafo,it_stress,it,ipa,dˈiko pirˈɔskafo adˈɛsso,piròscafo,it_stress__piroscafo__ipa.wav,4.88,5.51,1.129,,Dicchio pirbure oscofo ades.,0.524
+moss,it_stress__piroscafo,it_stress,it,ipa_word,"['piroscafo', 'pirˈɔskafo']",piròscafo,it_stress__piroscafo__ipa_word.wav,4.24,4.87,1.149,,Dico per io ascafo adesso.,0.238
+moss,it_stress__leggere,it_stress,it,plain,Dico leggere adesso.,leggère,it_stress__leggere__plain.wav,2.32,2.81,1.212,,Dico leggere adesso.,0.0
+moss,it_stress__leggere,it_stress,it,accent,Dico leggère adesso.,leggère,it_stress__leggere__accent.wav,81.92,91.7,1.119,,Grazie.,0.842
+moss,it_stress__leggere,it_stress,it,ipa,dˈiko ledʒːˈɛre adˈɛsso,leggère,it_stress__leggere__ipa.wav,4.08,4.77,1.169,,Dù qui o lì covere adesso?,0.526
+moss,it_stress__leggere,it_stress,it,ipa_word,"['leggere', 'ledʒːˈɛre']",leggère,it_stress__leggere__ipa_word.wav,2.72,3.21,1.179,,"Dico, legge, creere, adesso...",0.263
+moss,it_stress__leggere_2,it_stress,it,plain,Dico leggere adesso.,lèggere,it_stress__leggere_2__plain.wav,2.48,2.93,1.18,,Dico «leggere adesso».,0.0
+moss,it_stress__leggere_2,it_stress,it,accent,Dico lèggere adesso.,lèggere,it_stress__leggere_2__accent.wav,2.56,3.08,1.205,,Dico leggere adesso.,0.0
+moss,it_stress__leggere_2,it_stress,it,ipa,dˈiko lˈɛdʒːere adˈɛsso,lèggere,it_stress__leggere_2__ipa.wav,81.92,92.14,1.125,,Grazie.,0.842
+moss,it_stress__leggere_2,it_stress,it,ipa_word,"['leggere', 'lˈɛdʒːere']",lèggere,it_stress__leggere_2__ipa_word.wav,2.16,2.6,1.204,,Dico leggere adesso.,0.0
+moss,it_gem__caro_carro__caro,it_gem,it,plain,Dico caro adesso.,single,it_gem__caro_carro__caro__plain.wav,1.28,1.55,1.214,,Dico caro des.,0.188
+moss,it_gem__caro_carro__caro,it_gem,it,accent,Dico caro adesso.,single,it_gem__caro_carro__caro__accent.wav,1.28,1.57,1.23,,Dico caro adesso.,0.0
+moss,it_gem__caro_carro__caro,it_gem,it,ipa,dˈiko kˈaro adˈɛsso,single,it_gem__caro_carro__caro__ipa.wav,3.92,4.49,1.145,,di talico caro ed esso,0.438
+moss,it_gem__caro_carro__caro,it_gem,it,ipa_len,dˈiko kˈaro adˈɛsːo,single,it_gem__caro_carro__caro__ipa_len.wav,5.36,6.14,1.145,,da di cor cor caro adesso,0.562
+moss,it_gem__caro_carro__caro,it_gem,it,ipa_word,"['caro', 'kˈaro']",single,it_gem__caro_carro__caro__ipa_word.wav,1.92,2.36,1.227,,dico caro adesso.,0.0
+moss,it_gem__caro_carro__caro,it_gem,it,ipa_len_word,"['caro', 'kˈaro']",single,it_gem__caro_carro__caro__ipa_len_word.wav,2.4,2.84,1.184,,"Dico, caro, adesso.",0.0
+moss,it_gem__caro_carro__carro,it_gem,it,plain,Dico carro adesso.,double,it_gem__caro_carro__carro__plain.wav,1.84,2.2,1.198,,Dico carro adesso.,0.0
+moss,it_gem__caro_carro__carro,it_gem,it,accent,Dico carro adesso.,double,it_gem__caro_carro__carro__accent.wav,2.72,3.24,1.193,,Dico carro adesso.,0.0
+moss,it_gem__caro_carro__carro,it_gem,it,ipa,dˈiko kˈarɾo adˈɛsso,double,it_gem__caro_carro__carro__ipa.wav,5.2,5.96,1.147,,Di? Delvico che io i araro adesso.,0.882
+moss,it_gem__caro_carro__carro,it_gem,it,ipa_len,dˈiko kˈarːo adˈɛsːo,double,it_gem__caro_carro__carro__ipa_len.wav,5.44,6.17,1.133,,di di di di di di di di di di di di che ora adessa,2.294
+moss,it_gem__caro_carro__carro,it_gem,it,ipa_word,"['carro', 'kˈarɾo']",double,it_gem__caro_carro__carro__ipa_word.wav,2.72,3.18,1.169,,"Dico, caroro adesso.",0.059
+moss,it_gem__caro_carro__carro,it_gem,it,ipa_len_word,"['carro', 'kˈarːo']",double,it_gem__caro_carro__carro__ipa_len_word.wav,1.76,2.13,1.211,,Dico cacoro adesso.,0.118
+moss,it_gem__pala_palla__pala,it_gem,it,plain,Dico pala adesso.,single,it_gem__pala_palla__pala__plain.wav,1.6,1.97,1.232,,che ho parla adesso eh,0.562
+moss,it_gem__pala_palla__pala,it_gem,it,accent,Dico pala adesso.,single,it_gem__pala_palla__pala__accent.wav,1.12,1.4,1.246,,io ho parlato adesso,0.438
+moss,it_gem__pala_palla__pala,it_gem,it,ipa,dˈiko pˈala adˈɛsso,single,it_gem__pala_palla__pala__ipa.wav,4.64,5.3,1.142,,Digitico. Pala. A. Dessus.,0.438
+moss,it_gem__pala_palla__pala,it_gem,it,ipa_len,dˈiko pˈala adˈɛsːo,single,it_gem__pala_palla__pala__ipa_len.wav,2.24,2.69,1.201,,Bordù che copala a desezza.,0.875
+moss,it_gem__pala_palla__pala,it_gem,it,ipa_word,"['pala', 'pˈala']",single,it_gem__pala_palla__pala__ipa_word.wav,2.32,2.78,1.196,,"Dico, pala adesso!",0.0
+moss,it_gem__pala_palla__pala,it_gem,it,ipa_len_word,"['pala', 'pˈala']",single,it_gem__pala_palla__pala__ipa_len_word.wav,1.84,2.21,1.2,,Dico Pala adesso.,0.0
+moss,it_gem__pala_palla__palla,it_gem,it,plain,Dico palla adesso.,double,it_gem__pala_palla__palla__plain.wav,2.0,2.44,1.22,,"Dico, parla adesso",0.059
+moss,it_gem__pala_palla__palla,it_gem,it,accent,Dico palla adesso.,double,it_gem__pala_palla__palla__accent.wav,0.88,1.15,1.305,,Vivo parla di esso.,0.353
+moss,it_gem__pala_palla__palla,it_gem,it,ipa,dˈiko pˈalla adˈɛsso,double,it_gem__pala_palla__palla__ipa.wav,3.04,3.58,1.178,,"Di di copò, palla ad prendesso.",0.706
+moss,it_gem__pala_palla__palla,it_gem,it,ipa_len,dˈiko pˈalːa adˈɛsːo,double,it_gem__pala_palla__palla__ipa_len.wav,4.56,5.22,1.145,,"Do di capri, ella è di turno, ella...",1.353
+moss,it_gem__pala_palla__palla,it_gem,it,ipa_word,"['palla', 'pˈalla']",double,it_gem__pala_palla__palla__ipa_word.wav,2.48,2.94,1.186,,Dico palla adesso.,0.0
+moss,it_gem__pala_palla__palla,it_gem,it,ipa_len_word,"['palla', 'pˈalːa']",double,it_gem__pala_palla__palla__ipa_len_word.wav,2.16,2.59,1.197,,"Dico, palà adesso.",0.059
+moss,it_gem__sete_sette__sete,it_gem,it,plain,Dico sete adesso.,single,it_gem__sete_sette__sete__plain.wav,2.32,2.8,1.206,,Siete adesso.,0.312
+moss,it_gem__sete_sette__sete,it_gem,it,accent,Dico séte adesso.,single,it_gem__sete_sette__sete__accent.wav,0.96,1.25,1.306,,Dico 7 adesso.,0.25
+moss,it_gem__sete_sette__sete,it_gem,it,ipa,dˈiko sˈete adˈɛsso,single,it_gem__sete_sette__sete__ipa.wav,3.92,4.54,1.159,,"Bandeko, si te ha done, dandeas.",1.188
+moss,it_gem__sete_sette__sete,it_gem,it,ipa_len,dˈiko sˈete adˈɛsːo,single,it_gem__sete_sette__sete__ipa_len.wav,3.44,3.96,1.151,,di darico sette ad adesso,0.562
+moss,it_gem__sete_sette__sete,it_gem,it,ipa_word,"['sete', 'sˈete']",single,it_gem__sete_sette__sete__ipa_word.wav,2.0,2.44,1.219,,"Dico sete, adesso.",0.0
+moss,it_gem__sete_sette__sete,it_gem,it,ipa_len_word,"['sete', 'sˈete']",single,it_gem__sete_sette__sete__ipa_len_word.wav,2.48,2.97,1.197,,Bico. Sette adesso.,0.125
+moss,it_gem__sete_sette__sette,it_gem,it,plain,Dico sette adesso.,double,it_gem__sete_sette__sette__plain.wav,1.2,1.49,1.245,,dico 7 adesso,0.294
+moss,it_gem__sete_sette__sette,it_gem,it,accent,Dico sètte adesso.,double,it_gem__sete_sette__sette__accent.wav,77.92,87.9,1.128,,Grazie.,0.941
+moss,it_gem__sete_sette__sette,it_gem,it,ipa,dˈiko sˈɛtːe adˈɛsso,double,it_gem__sete_sette__sette__ipa.wav,5.52,6.34,1.149,,DG Call Sete Ad TGSTP,0.647
+moss,it_gem__sete_sette__sette,it_gem,it,ipa_len,dˈiko sˈɛtːe adˈɛsːo,double,it_gem__sete_sette__sette__ipa_len.wav,4.64,5.29,1.141,,Dio di te seti ed pravno è di al,1.294
+moss,it_gem__sete_sette__sette,it_gem,it,ipa_word,"['sette', 'sˈɛtːe']",double,it_gem__sete_sette__sette__ipa_word.wav,2.16,2.53,1.173,,Dico sette adesso.,0.0
+moss,it_gem__sete_sette__sette,it_gem,it,ipa_len_word,"['sette', 'sˈɛtːe']",double,it_gem__sete_sette__sette__ipa_len_word.wav,1.52,1.79,1.179,,7 adesso,0.588
+moss,it_gem__capello_cappello__capello,it_gem,it,plain,Dico capello adesso.,single,it_gem__capello_cappello__capello__plain.wav,1.36,1.67,1.225,,Dico capello adesso.,0.0
+moss,it_gem__capello_cappello__capello,it_gem,it,accent,Dico capéllo adesso.,single,it_gem__capello_cappello__capello__accent.wav,1.6,1.88,1.177,,dico capello adesso,0.0
+moss,it_gem__capello_cappello__capello,it_gem,it,ipa,dˈiko kapˈello adˈɛsso,single,it_gem__capello_cappello__capello__ipa.wav,3.28,3.95,1.205,,Ti dico cappello adesso.,0.211
+moss,it_gem__capello_cappello__capello,it_gem,it,ipa_len,dˈiko kapˈelːo adˈɛsːo,single,it_gem__capello_cappello__capello__ipa_len.wav,2.88,3.39,1.176,,"Di dottico capello, adesso.",0.316
+moss,it_gem__capello_cappello__capello,it_gem,it,ipa_word,"['capello', 'kapˈello']",single,it_gem__capello_cappello__capello__ipa_word.wav,2.4,2.83,1.18,,Dico cap bello adesso.,0.105
+moss,it_gem__capello_cappello__capello,it_gem,it,ipa_len_word,"['capello', 'kapˈelːo']",single,it_gem__capello_cappello__capello__ipa_len_word.wav,1.6,1.92,1.198,,Dico capelo adesso.,0.053
+moss,it_gem__capello_cappello__cappello,it_gem,it,plain,Dico cappello adesso.,double,it_gem__capello_cappello__cappello__plain.wav,1.76,2.18,1.237,,Dico cappello adesso?,0.0
+moss,it_gem__capello_cappello__cappello,it_gem,it,accent,Dico cappèllo adesso.,double,it_gem__capello_cappello__cappello__accent.wav,1.52,1.85,1.215,,«Dico cappello adesso».,0.0
+moss,it_gem__capello_cappello__cappello,it_gem,it,ipa,dˈiko kapːˈɛllo adˈɛsso,double,it_gem__capello_cappello__cappello__ipa.wav,3.04,3.59,1.18,,Ludico cap proghello adesso.,0.35
+moss,it_gem__capello_cappello__cappello,it_gem,it,ipa_len,dˈiko kapːˈɛlːo adˈɛsːo,double,it_gem__capello_cappello__cappello__ipa_len.wav,2.08,2.56,1.232,,già che co-cap col gold adesso,0.7
+moss,it_gem__capello_cappello__cappello,it_gem,it,ipa_word,"['cappello', 'kapːˈɛllo']",double,it_gem__capello_cappello__cappello__ipa_word.wav,2.4,2.87,1.196,,Dico Cap Bruello adesso.,0.2
+moss,it_gem__capello_cappello__cappello,it_gem,it,ipa_len_word,"['cappello', 'kapːˈɛlːo']",double,it_gem__capello_cappello__cappello__ipa_len_word.wav,3.12,3.63,1.165,,Cap frutile adesso,0.55
+moss,it_gem__fato_fatto__fato,it_gem,it,plain,Dico fato adesso.,single,it_gem__fato_fatto__fato__plain.wav,1.76,2.19,1.244,,Dico fato desu.,0.188
+moss,it_gem__fato_fatto__fato,it_gem,it,accent,Dico fàto adesso.,single,it_gem__fato_fatto__fato__accent.wav,2.56,2.97,1.159,,Dico «fato adesso».,0.0
+moss,it_gem__fato_fatto__fato,it_gem,it,ipa,dˈiko fˈato adˈɛsso,single,it_gem__fato_fatto__fato__ipa.wav,3.92,4.56,1.163,,GIT DO ICO FATO ADESSO,0.375
+moss,it_gem__fato_fatto__fato,it_gem,it,ipa_len,dˈiko fˈato adˈɛsːo,single,it_gem__fato_fatto__fato__ipa_len.wav,7.76,8.84,1.139,,Vi di khot fato a di desot,0.812
+moss,it_gem__fato_fatto__fato,it_gem,it,ipa_word,"['fato', 'fˈato']",single,it_gem__fato_fatto__fato__ipa_word.wav,2.0,2.45,1.227,,Dico fatto adesso.,0.062
+moss,it_gem__fato_fatto__fato,it_gem,it,ipa_len_word,"['fato', 'fˈato']",single,it_gem__fato_fatto__fato__ipa_len_word.wav,1.28,1.62,1.264,,Dico Fato adesso.,0.0
+moss,it_gem__fato_fatto__fatto,it_gem,it,plain,Dico fatto adesso.,double,it_gem__fato_fatto__fatto__plain.wav,1.12,1.4,1.254,,Dico fatto adesso.,0.0
+moss,it_gem__fato_fatto__fatto,it_gem,it,accent,Dico fàtto adesso.,double,it_gem__fato_fatto__fatto__accent.wav,2.96,3.42,1.156,,"Dico, fatto adesso?",0.0
+moss,it_gem__fato_fatto__fatto,it_gem,it,ipa,dˈiko fˈatːo adˈɛsso,double,it_gem__fato_fatto__fatto__ipa.wav,3.84,4.41,1.148,,DQ of for Fittaro Adesu.,0.706
+moss,it_gem__fato_fatto__fatto,it_gem,it,ipa_len,dˈiko fˈatːo adˈɛsːo,double,it_gem__fato_fatto__fatto__ipa_len.wav,3.6,4.11,1.142,,Tico Poi Fatal Adezo,0.529
+moss,it_gem__fato_fatto__fatto,it_gem,it,ipa_word,"['fatto', 'fˈatːo']",double,it_gem__fato_fatto__fatto__ipa_word.wav,1.76,2.14,1.218,,Dico fratta adesso.,0.118
+moss,it_gem__fato_fatto__fatto,it_gem,it,ipa_len_word,"['fatto', 'fˈatːo']",double,it_gem__fato_fatto__fatto__ipa_len_word.wav,1.6,1.92,1.199,,di confrontato adesso,0.353
+moss,it_gem__papa_pappa__papa,it_gem,it,plain,Dico papa adesso.,single,it_gem__papa_pappa__papa__plain.wav,2.0,2.49,1.243,,Papa adesso,0.312
+moss,it_gem__papa_pappa__papa,it_gem,it,accent,Dico pàpa adesso.,single,it_gem__papa_pappa__papa__accent.wav,1.12,1.39,1.244,,Dico pappa adesso.,0.062
+moss,it_gem__papa_pappa__papa,it_gem,it,ipa,dˈiko pˈapa adˈɛsso,single,it_gem__papa_pappa__papa__ipa.wav,15.68,17.66,1.126,,Adesso.,0.625
+moss,it_gem__papa_pappa__papa,it_gem,it,ipa_len,dˈiko pˈapa adˈɛsːo,single,it_gem__papa_pappa__papa__ipa_len.wav,3.68,4.26,1.157,,K-A-A-D-A-S-A,0.688
+moss,it_gem__papa_pappa__papa,it_gem,it,ipa_word,"['papa', 'pˈapa']",single,it_gem__papa_pappa__papa__ipa_word.wav,1.68,2.14,1.273,,Dico pappa adesso.,0.062
+moss,it_gem__papa_pappa__papa,it_gem,it,ipa_len_word,"['papa', 'pˈapa']",single,it_gem__papa_pappa__papa__ipa_len_word.wav,2.48,2.89,1.164,,Dico Papa adesso.,0.0
+moss,it_gem__papa_pappa__pappa,it_gem,it,plain,Dico pappa adesso.,double,it_gem__papa_pappa__pappa__plain.wav,1.2,1.53,1.276,,Dico pappa adesso.,0.0
+moss,it_gem__papa_pappa__pappa,it_gem,it,accent,Dico pàppa adesso.,double,it_gem__papa_pappa__pappa__accent.wav,81.92,91.99,1.123,,Grazie.,0.882
+moss,it_gem__papa_pappa__pappa,it_gem,it,ipa,dˈiko pˈapːa adˈɛsso,double,it_gem__papa_pappa__pappa__ipa.wav,3.6,4.22,1.172,,"Buone dico, papappa ad essesso.",0.706
+moss,it_gem__papa_pappa__pappa,it_gem,it,ipa_len,dˈiko pˈapːa adˈɛsːo,double,it_gem__papa_pappa__pappa__ipa_len.wav,5.76,6.64,1.152,,Dite copro papà ad dicci so.,0.824
+moss,it_gem__papa_pappa__pappa,it_gem,it,ipa_word,"['pappa', 'pˈapːa']",double,it_gem__papa_pappa__pappa__ipa_word.wav,2.88,3.37,1.17,,"Dico, papà, adesso.",0.059
+moss,it_gem__papa_pappa__pappa,it_gem,it,ipa_len_word,"['pappa', 'pˈapːa']",double,it_gem__papa_pappa__pappa__ipa_len_word.wav,3.04,3.59,1.181,,Dico papà adesso...,0.059
+moss,it_gem__nono_nonno__nono,it_gem,it,plain,Dico nono adesso.,single,it_gem__nono_nonno__nono__plain.wav,1.28,1.55,1.215,,dico nono adesso,0.0
+moss,it_gem__nono_nonno__nono,it_gem,it,accent,Dico nòno adesso.,single,it_gem__nono_nonno__nono__accent.wav,1.52,1.83,1.202,,Dico nono adesso,0.0
+moss,it_gem__nono_nonno__nono,it_gem,it,ipa,dˈiko nˈɔno adˈɛsso,single,it_gem__nono_nonno__nono__ipa.wav,2.48,2.95,1.191,,Piddukianne da letta.,0.938
+moss,it_gem__nono_nonno__nono,it_gem,it,ipa_len,dˈiko nˈɔno adˈɛsːo,single,it_gem__nono_nonno__nono__ipa_len.wav,1.92,2.36,1.23,,"Verico nonno, adesso.",0.25
+moss,it_gem__nono_nonno__nono,it_gem,it,ipa_word,"['nono', 'nˈɔno']",single,it_gem__nono_nonno__nono__ipa_word.wav,3.36,3.94,1.172,,Dico nouno adesso.,0.062
+moss,it_gem__nono_nonno__nono,it_gem,it,ipa_len_word,"['nono', 'nˈɔno']",single,it_gem__nono_nonno__nono__ipa_len_word.wav,1.84,2.27,1.232,,Dico nono adesso...,0.0
+moss,it_gem__nono_nonno__nonno,it_gem,it,plain,Dico nonno adesso.,double,it_gem__nono_nonno__nonno__plain.wav,1.28,1.59,1.245,,Dico nonno adesso.,0.0
+moss,it_gem__nono_nonno__nonno,it_gem,it,accent,Dico nònno adesso.,double,it_gem__nono_nonno__nonno__accent.wav,2.24,2.73,1.219,,Adesso.,0.647
+moss,it_gem__nono_nonno__nonno,it_gem,it,ipa,dˈiko nˈɔnno adˈɛsso,double,it_gem__nono_nonno__nonno__ipa.wav,2.32,2.78,1.2,,Dorico nonno adesso.,0.118
+moss,it_gem__nono_nonno__nonno,it_gem,it,ipa_len,dˈiko nˈɔnːo adˈɛsːo,double,it_gem__nono_nonno__nonno__ipa_len.wav,2.48,2.97,1.197,,Di du ico nonono adesso.,0.353
+moss,it_gem__nono_nonno__nonno,it_gem,it,ipa_word,"['nonno', 'nˈɔnno']",double,it_gem__nono_nonno__nonno__ipa_word.wav,3.44,4.01,1.165,,Dico nonno adesso,0.0
+moss,it_gem__nono_nonno__nonno,it_gem,it,ipa_len_word,"['nonno', 'nˈɔnːo']",double,it_gem__nono_nonno__nonno__ipa_len_word.wav,2.24,2.68,1.196,,"Lico? No no, adesso?",0.118
+moss,it_a1__00,it_a1,it,plain,"Ciao, mi chiamo Paolo. Come ti chiami?",,it_a1__00__plain.wav,2.88,3.33,1.156,,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+moss,it_a1__00,it_a1,it,accent,"Ciào, mi chiàmo Pàolo. Come ti chiàmi?",,it_a1__00__accent.wav,5.2,5.89,1.133,,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+moss,it_a1__00,it_a1,it,ipa,tʃˈao mɪ kjˈamo pˈaolo kˌome tɪ kjˈamɪ,,it_a1__00__ipa.wav,4.8,5.41,1.127,,"Ciao, mi chiamo Pravolocchi, letter come ti chiedi me.",0.514
+moss,it_a1__00,it_a1,it,clone,"Ciao, mi chiamo Paolo. Come ti chiami?",,it_a1__00__clone.wav,2.4,5.1,2.124,,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+moss,it_a1__01,it_a1,it,plain,"Piacere! Sono russa, di Mosca.",,it_a1__01__plain.wav,3.84,4.4,1.146,,"Piacere, sono russa, di mosca.",0.0
+moss,it_a1__01,it_a1,it,accent,"Piacére! Sono russa, di Mosca.",,it_a1__01__accent.wav,2.48,3.01,1.215,,"Piacere, sono russa di Mosca.",0.0
+moss,it_a1__01,it_a1,it,ipa,pjatʃˈere sˌono rˈussa dɪ mˈoska,,it_a1__01__ipa.wav,4.0,4.58,1.144,,Piacere. Sono rossa di mosca.,0.037
+moss,it_a1__01,it_a1,it,clone,"Piacere! Sono russa, di Mosca.",,it_a1__01__clone.wav,2.08,3.62,1.74,,"«Piacere, sono russa di Mosca».",0.0
+moss,it_a1__02,it_a1,it,plain,"Vorrei un caffè e un cornetto, per favore.",,it_a1__02__plain.wav,4.4,5.01,1.139,,"Vorrei un caffè e un cornetto, per favore.",0.0
+moss,it_a1__02,it_a1,it,accent,"Vorrèi un caffè e un cornétto, per favóre.",,it_a1__02__accent.wav,4.24,4.82,1.137,,"Vorrei un caffè e un cornetto, per favore.",0.0
+moss,it_a1__02,it_a1,it,ipa,vorɾˈɛj ʊn kaffˈɛ e ʊn kornˈetːo per favˈore,,it_a1__02__ipa.wav,6.56,7.5,1.143,,Vorrò dareggi un cafco bere e un cornetto per favore.,0.325
+moss,it_a1__02,it_a1,it,clone,"Vorrei un caffè e un cornetto, per favore.",,it_a1__02__clone.wav,2.72,4.42,1.624,,"Vorrei un caffè e un cornetto, per favore.",0.0
+moss,it_a1__03,it_a1,it,plain,Quanto costa questo libro?,,it_a1__03__plain.wav,1.76,2.18,1.237,,quanto costa questo libro?,0.0
+moss,it_a1__03,it_a1,it,accent,Quanto còsta questo libro?,,it_a1__03__accent.wav,2.0,2.37,1.185,,Quanto costa questo libro?,0.0
+moss,it_a1__03,it_a1,it,ipa,kwˈanto kˈɔsta kwˌesto lˈibro,,it_a1__03__ipa.wav,3.44,3.93,1.141,,"Quanto costa, quanto costa libro.",0.32
+moss,it_a1__03,it_a1,it,clone,Quanto costa questo libro?,,it_a1__03__clone.wav,1.52,2.98,1.959,,Quanto costa questo libro?,0.0
+moss,it_a1__04,it_a1,it,plain,Dov'è la stazione? È lontana da qui?,,it_a1__04__plain.wav,3.76,4.32,1.148,,Dove la stazione è lontana da qui?,0.029
+moss,it_a1__04,it_a1,it,accent,Dov'è la stazióne? È lontàna da qui?,,it_a1__04__accent.wav,2.64,3.33,1.263,,Dov'è la stazione? È lontana da qui?,0.0
+moss,it_a1__04,it_a1,it,ipa,dovˈɛ la statsjˈone e lontˈana da kwˈi,,it_a1__04__ipa.wav,5.68,6.75,1.189,,"Dovdove la stacch, wonen, e, lontosana, da qui qui.",0.441
+moss,it_a1__04,it_a1,it,clone,Dov'è la stazione? È lontana da qui?,,it_a1__04__clone.wav,2.48,4.14,1.67,,Dov'è la stazione? È lontana da qui?,0.0
+moss,it_a1__05,it_a1,it,plain,C'è una farmacia vicino all'albergo?,,it_a1__05__plain.wav,3.04,3.58,1.179,,«C'è una farmacia vicino all'albergo?»,0.0
+moss,it_a1__05,it_a1,it,accent,C'è una farmacìa vicino all'albèrgo?,,it_a1__05__accent.wav,2.64,3.09,1.172,,C'è una farmacia vicino all'albergo?,0.0
+moss,it_a1__05,it_a1,it,ipa,tʃe ˌʊna farmatʃˈia vitʃˈino allalbˈɛrɡo,,it_a1__05__ipa.wav,7.84,9.02,1.15,,Si è set a riunar far macch quantia vicino al albergo,0.657
+moss,it_a1__05,it_a1,it,clone,C'è una farmacia vicino all'albergo?,,it_a1__05__clone.wav,2.72,4.32,1.589,,C'è una farmacia vicino all'albergo?,0.0
+moss,it_a1__06,it_a1,it,plain,Ho ventitré anni e abito a Mosca.,,it_a1__06__plain.wav,3.04,3.51,1.155,,Ho 23 anni e abito a Mosca.,0.25
+moss,it_a1__06,it_a1,it,accent,Ho ventitré anni e àbito a Mosca.,,it_a1__06__accent.wav,3.2,3.69,1.152,,Ho 23 anni e abito a Mosca.,0.25
+moss,it_a1__06,it_a1,it,ipa,o ventitrˈe ˈannɪ e ˈabito a mˈoska,,it_a1__06__ipa.wav,5.68,6.53,1.15,,"Oventit, kruca, ani e, grieca, abeto a mosca.",0.5
+moss,it_a1__06,it_a1,it,clone,Ho ventitré anni e abito a Mosca.,,it_a1__06__clone.wav,2.96,4.6,1.554,,Ho 23 anni e abito a Mosca.,0.25
+moss,it_a1__07,it_a1,it,plain,Ieri ho mangiato la pizza con i miei amici.,,it_a1__07__plain.wav,3.2,3.81,1.191,,Ieri ho mangiato la pizza con i miei amici.,0.0
+moss,it_a1__07,it_a1,it,accent,Ièri ho mangiàto la pizza con i miei amìci.,,it_a1__07__accent.wav,3.04,3.54,1.163,,Ieri ho mangiato la pizza con i miei amici.,0.0
+moss,it_a1__07,it_a1,it,ipa,jˈɛrɪ o mandʒˈato la pˈitsːa kon i mjˌɛi amˈitʃɪ,,it_a1__07__ipa.wav,8.0,9.13,1.142,,Io li ho mangiato la pepizza con i miei lettervi amici.,0.333
+moss,it_a1__07,it_a1,it,clone,Ieri ho mangiato la pizza con i miei amici.,,it_a1__07__clone.wav,3.28,4.95,1.508,,Ieri ho mangiato la pizza con i miei amici.,0.0
+moss,it_a1__08,it_a1,it,plain,"Scusi, a che ora parte il treno per Firenze?",,it_a1__08__plain.wav,4.32,4.88,1.129,,"Scusi, a che ora parte il treno per Firenze?",0.0
+moss,it_a1__08,it_a1,it,accent,"Scusi, a che óra parte il treno per Firènze?",,it_a1__08__accent.wav,4.56,5.2,1.14,,"Scusi, a che ora parte il treno per Firenze?",0.0
+moss,it_a1__08,it_a1,it,ipa,skˈuzɪ a ke ˈora pˈarte il trˈɛno per firˈɛntse,,it_a1__08__ipa.wav,6.24,7.03,1.126,,Ska scogge a che ora pa parte il treno per fir Firenze.,0.357
+moss,it_a1__08,it_a1,it,clone,"Scusi, a che ora parte il treno per Firenze?",,it_a1__08__clone.wav,3.04,4.76,1.567,,"Scusi, a che ora parte il treno per Firenze?",0.0
+moss,it_a1__09,it_a1,it,plain,"Domani andiamo al mare, se non piove.",,it_a1__09__plain.wav,3.68,4.16,1.13,,Domani andiamo al mare se non piove.,0.0
+moss,it_a1__09,it_a1,it,accent,"Domàni andiàmo al mare, se non piòve.",,it_a1__09__accent.wav,2.32,2.77,1.195,,domani andiamo al mare se non piove,0.0
+moss,it_a1__09,it_a1,it,ipa,domˈanɪ andjˈamo al mˈare se non pjˈɔve,,it_a1__09__ipa.wav,9.28,10.66,1.149,,Do monte anni angiamo al mare se non piogo?,0.286
+moss,it_a1__09,it_a1,it,clone,"Domani andiamo al mare, se non piove.",,it_a1__09__clone.wav,2.24,3.83,1.711,,"Domani andiamo al mare, se non piove.",0.0
+moss,ru__zamok_castle,ru,ru,plain,Это старый замок.,за́мок — крепость,ru__zamok_castle__plain.wav,1.12,1.42,1.264,,Это старый замок.,0.0
+moss,ru__zamok_castle,ru,ru,accent,Это старый за́мок.,за́мок — крепость,ru__zamok_castle__accent.wav,1.44,1.77,1.227,,Это старый замок,0.0
+moss,ru__zamok_castle,ru,ru,ipa_word,"['замок', 'ˈzamək']",за́мок — крепость,ru__zamok_castle__ipa_word.wav,1.84,2.22,1.204,,Это старый замок,0.0
+moss,ru__zamok_castle,ru,ru,clone,Это старый замок.,за́мок — крепость,ru__zamok_castle__clone.wav,1.2,2.57,2.141,,Это старый замок.,0.0
+moss,ru__zamok_lock,ru,ru,plain,Это старый замок.,замо́к — на двери,ru__zamok_lock__plain.wav,1.28,1.53,1.192,,Это старый замок.,0.0
+moss,ru__zamok_lock,ru,ru,accent,Это старый замо́к.,замо́к — на двери,ru__zamok_lock__accent.wav,1.2,1.45,1.21,,Это старый замок.,0.0
+moss,ru__zamok_lock,ru,ru,ipa_word,"['замок', 'zɐˈmok']",замо́к — на двери,ru__zamok_lock__ipa_word.wav,2.48,2.89,1.164,,Это старый запредмог.,0.312
+moss,ru__zamok_lock,ru,ru,clone,Это старый замок.,замо́к — на двери,ru__zamok_lock__clone.wav,1.52,2.95,1.939,,Это старый замок.,0.0
+moss,ru__plachu_cry,ru,ru,plain,"Я плачу, когда слушаю эту песню.",пла́чу — от слёз,ru__plachu_cry__plain.wav,2.08,2.44,1.173,,"Я плачу, когда слушаю эту песню.",0.0
+moss,ru__plachu_cry,ru,ru,accent,"Я пла́чу, когда слушаю эту песню.",пла́чу — от слёз,ru__plachu_cry__accent.wav,2.16,2.58,1.193,,"Я плачу, когда слушаю эту песню.",0.0
+moss,ru__plachu_cry,ru,ru,ipa_word,"['плачу', 'ˈplat͡ɕʊ']",пла́чу — от слёз,ru__plachu_cry__ipa_word.wav,1.84,2.19,1.192,,"Я полотенчик, когда слушаю эту песню.",0.233
+moss,ru__plachu_cry,ru,ru,clone,"Я плачу, когда слушаю эту песню.",пла́чу — от слёз,ru__plachu_cry__clone.wav,2.4,4.05,1.687,,"Я плачу, когда слушаю эту песню.",0.0
+moss,ru__plachu_pay,ru,ru,plain,Я плачу за кофе.,плачу́ — деньги,ru__plachu_pay__plain.wav,1.12,1.39,1.241,,Я плачу за кофе.,0.0
+moss,ru__plachu_pay,ru,ru,accent,Я плачу́ за кофе.,плачу́ — деньги,ru__plachu_pay__accent.wav,2.16,2.6,1.206,,Я плачу за кофе.,0.0
+moss,ru__plachu_pay,ru,ru,ipa_word,"['плачу', 'plɐˈt͡ɕu']",плачу́ — деньги,ru__plachu_pay__ipa_word.wav,2.08,2.49,1.198,,Я плакал кэндер-чудлус за кофе.,1.0
+moss,ru__plachu_pay,ru,ru,clone,Я плачу за кофе.,плачу́ — деньги,ru__plachu_pay__clone.wav,1.12,2.57,2.29,,Я плачу за кофе.,0.0
+moss,ru__muka_pain,ru,ru,plain,Это была настоящая мука.,му́ка — страдание,ru__muka_pain__plain.wav,1.92,2.33,1.213,,Это была настоящая мука.,0.0
+moss,ru__muka_pain,ru,ru,accent,Это была настоящая му́ка.,му́ка — страдание,ru__muka_pain__accent.wav,1.76,2.07,1.177,,Это была настоящая мука.,0.0
+moss,ru__muka_pain,ru,ru,ipa_word,"['мука', 'ˈmukə']",му́ка — страдание,ru__muka_pain__ipa_word.wav,1.92,2.32,1.208,,Это была настоящая мока?,0.043
+moss,ru__muka_pain,ru,ru,clone,Это была настоящая мука.,му́ка — страдание,ru__muka_pain__clone.wav,2.24,3.85,1.719,,Это была настоящая мука.,0.0
+moss,ru__muka_flour,ru,ru,plain,Купи муку для пиццы.,муку́ — для теста,ru__muka_flour__plain.wav,1.28,1.58,1.231,,Купи муку для пиццы.,0.0
+moss,ru__muka_flour,ru,ru,accent,Купи муку́ для пиццы.,муку́ — для теста,ru__muka_flour__accent.wav,2.08,2.46,1.18,,"Купи муку для пиццы,",0.0
+moss,ru__muka_flour,ru,ru,ipa_word,"['муку', 'mʊˈku']",муку́ — для теста,ru__muka_flour__ipa_word.wav,1.76,2.03,1.153,,Купи муку для пиццы.,0.0
+moss,ru__muka_flour,ru,ru,clone,Купи муку для пиццы.,муку́ — для теста,ru__muka_flour__clone.wav,1.84,3.37,1.829,,Купи муку для пиццы.,0.0
+moss,ru__phrase,ru,ru,plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,,ru__phrase__plain.wav,3.92,4.45,1.135,,Сегодня мы говорим о прошедшем времени. Это совсем несложно.,0.017
+moss,ru__phrase,ru,ru,clone,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,,ru__phrase__clone.wav,3.6,5.31,1.474,,Сегодня мы говорим о прошедшем времени. Это совсем несложно.,0.017
+moss,he__boker_morning,he,he,plain,בוקר טוב!,бóкер — утро,he__boker_morning__plain.wav,1.04,1.32,1.269,,בוקר טוב.,0.0
+moss,he__boker_morning,he,he,niqqud,בֹּקֶר טוֹב!,бóкер — утро,he__boker_morning__niqqud.wav,0.72,0.98,1.367,,בוקר טוב.,0.0
+moss,he__boker_cowboy,he,he,plain,הבוקר רכב על סוס.,бокéр — ковбой,he__boker_cowboy__plain.wav,2.0,2.39,1.194,,הבוקר. הרכב על סוס.,0.062
+moss,he__boker_cowboy,he,he,niqqud,הַבּוֹקֵר רָכַב עַל סוּס.,бокéр — ковбой,he__boker_cowboy__niqqud.wav,1.12,1.39,1.24,,הבוקר הקבלסוס.,0.312
+moss,he__okhel_food,he,he,plain,האוכל על השולחן.,óхель — еда,he__okhel_food__plain.wav,1.76,2.08,1.183,,החול על השולחן...,0.133
+moss,he__okhel_food,he,he,niqqud,הָאֹכֶל עַל הַשֻּׁלְחָן.,óхель — еда,he__okhel_food__niqqud.wav,0.96,1.22,1.27,,הוקה על השולחן.,0.2
+moss,he__okhel_eats,he,he,plain,הוא אוכל לחם.,охéль — ест,he__okhel_eats__plain.wav,0.72,1.02,1.418,,ואוכל לכם.,0.333
+moss,he__okhel_eats,he,he,niqqud,הוּא אוֹכֵל לֶחֶם.,охéль — ест,he__okhel_eats__niqqud.wav,1.44,1.78,1.235,,"וואו, כאלה חם.",0.583
+moss,he__sefer_book,he,he,plain,אני קורא ספר.,сэ́фер — книга,he__sefer_book__plain.wav,0.72,0.97,1.354,,אני גרוב ספר.,0.333
+moss,he__sefer_book,he,he,niqqud,אֲנִי קוֹרֵא סֵפֶר.,сэ́фер — книга,he__sefer_book__niqqud.wav,2.0,2.38,1.188,,אני קורא ספר.,0.0
+moss,he__sapar_barber,he,he,plain,הספר גזר לי את השיער.,сапáр — парикмахер,he__sapar_barber__plain.wav,1.6,1.86,1.164,,"הספר גזר לי את השער,",0.05
+moss,he__sapar_barber,he,he,niqqud,הַסַּפָּר גָּזַר לִי אֶת הַשֵּׂעָר.,сапáр — парикмахер,he__sapar_barber__niqqud.wav,1.76,2.14,1.216,,"הסב גזר לי, התאשר,",0.35
+moss,he__shalom,he,he,plain,"שלום, מה שלומך?",шломéх — к женщине,he__shalom__plain.wav,1.52,1.79,1.177,,שלום. מה שלומך?,0.0
+moss,he__shalom,he,he,niqqud,"שָׁלוֹם, מַה שְּׁלוֹמֵךְ?",шломéх — к женщине,he__shalom__niqqud.wav,2.48,2.91,1.173,,שלום. מה שלומק?,0.077

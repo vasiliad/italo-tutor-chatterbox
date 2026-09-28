@@ -1,0 +1,1 @@
+{"model": "qwen3", "device": "cuda", "load_s": 61.3, "peak_rss_gb": 7.75, "peak_gpu_gb": 8.66, "new_rows": 121}
