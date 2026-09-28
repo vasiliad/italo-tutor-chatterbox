@@ -24,6 +24,7 @@ subprocess.run("apt-get -qq -y install espeak-ng > /dev/null 2>&1; espeak-ng --v
 TASK = "/kaggle/working/task"; OUT = "/kaggle/working/out"; ENVS = "/tmp/envs"
 os.makedirs(OUT, exist_ok=True); os.makedirs(ENVS, exist_ok=True)
 os.environ["HF_HOME"] = "/tmp/hf"
+subprocess.run("pip install -q uv", shell=True, check=True)  # в venv на Kaggle нет ensurepip
 # образец голоса для клона: 10 с из refs/paolo_offline_keys.wav
 import soundfile as sf
 y, sr = sf.read(f"{TASK}/refs/paolo_offline_keys.wav")
@@ -51,7 +52,7 @@ def model(name, pip, env=None, pre="", timeout=5400):
     t = time.time()
     venv = f"{ENVS}/{name}"
     py = f"{venv}/bin/python"
-    rc = sh(f"python3 -m venv --system-site-packages {venv} && {py} -m pip install -q {pip} 2>&1 | grep -v -E 'notice|already' | tail -15", timeout=1800)
+    rc = sh(f"uv venv -q --system-site-packages {venv} && uv pip install -q --python {py} {pip} 2>&1 | tail -15", timeout=1800)
     if rc == 0 and pre:
         rc = sh(pre.replace("{py}", py), env=env)
     if rc == 0:
@@ -69,7 +70,7 @@ CELLS = [
     ("md", "## Контроль: Piper (ONNX, CPU) и Kokoro-82M — фонемы выполняют буквально"),
     ("code", 'model("piper", "piper-tts soundfile", env={"PIPER_VOICES": "/tmp/piper"},\n'
              '      pre="{py} -m piper.download_voices --download-dir /tmp/piper it_IT-paola-medium ru_RU-irina-medium")'),
-    ("code", 'model("kokoro", "\\"kokoro>=0.9.4\\" soundfile")'),
+    ("code", 'model("kokoro", "\\"kokoro>=0.9.4\\" soundfile pip")'),
     ("md", "## Qwen3-TTS 1.7B: готовый голос и клон по образцу (без IPA)"),
     ("code", 'QW = "qwen-tts soundfile"\n'
              'model("qwen3@voice", QW, env={"QWEN_MODE": "voice"})\n'
@@ -81,7 +82,7 @@ CELLS = [
     ("md", "## MagpieTTS Multilingual 357M (NeMo main): только итальянский, без фонемного ввода"),
     ("code", 'model("magpie", "\\"nemo_toolkit[tts] @ git+https://github.com/NVIDIA-NeMo/Speech.git@cf724ac337d1ebc7d0dda1e23fb80916f52927a5\\" kaldialign soundfile", timeout=3600)'),
     ("md", "## Whisper: разборчивость (CER) и сводка"),
-    ("code", 'model_rc = sh(f"python3 -m venv --system-site-packages {ENVS}/asr && {ENVS}/asr/bin/python -m pip install -q \\"transformers>=4.57,<5\\" jiwer librosa && {ENVS}/asr/bin/python tts_eval/asr.py {OUT}")\n'
+    ("code", 'model_rc = sh(f"uv venv -q --system-site-packages {ENVS}/asr && uv pip install -q --python {ENVS}/asr/bin/python \\"transformers>=4.57,<5\\" jiwer librosa && {ENVS}/asr/bin/python tts_eval/asr.py {OUT}")\n'
              'sh(f"python3 tts_eval/report.py {OUT}")\n'
              'print(STATUS)'),
     ("code", 'import json\n'
@@ -89,6 +90,7 @@ CELLS = [
              'for d in sorted(glob.glob(f"{OUT}/*/")):\n'
              '    m = os.path.basename(d.rstrip("/"))\n'
              '    sh(f"cd {d} && zip -q -r /kaggle/working/wav_{m}.zip *.wav && rm -f *.wav")\n'
+             'shutil.rmtree(TASK, ignore_errors=True)  # клон репозитория не нужен в выводе\n'
              'print(subprocess.run("du -sh /kaggle/working/*", shell=True, capture_output=True, text=True).stdout)'),
 ]
 
