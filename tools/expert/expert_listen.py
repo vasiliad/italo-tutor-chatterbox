@@ -253,7 +253,8 @@ async def main():
     ap.add_argument("--root", required=True)
     ap.add_argument("--only", default="")
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--per-min", type=float, default=20, help="не чаще стольких запросов в минуту на ключ (лимит 30; токенов — 65 тыс./мин)")
+    ap.add_argument("--per-min", type=float, default=20, help="не чаще стольких запросов в минуту (всего; с --per-key — на ключ)")
+    ap.add_argument("--per-key", action="store_true", help="ключи из разных проектов Google: темп на каждый ключ")
     ap.add_argument("--memory", action="store_true", help="подключить тетрадь-память Паоло")
     ap.add_argument("--keys", default="~/key/key")
     ap.add_argument("--timeout", type=float, default=120)
@@ -278,7 +279,10 @@ async def main():
     if a.limit:
         jobs = jobs[:a.limit]
     print(f"заданий: {len(jobs)}", file=sys.stderr)
-    pacers = [Pacer(a.per_min) for _ in keys]   # темп на каждый ключ: 3 ключа = втрое быстрее
+    # Лимиты Gemini считаются на проект, а не на ключ (docs/research/gemini_live_api.md §8):
+    # по умолчанию темп общий на все ключи; --per-key — только если ключи из разных проектов.
+    shared = Pacer(a.per_min)
+    pacers = [Pacer(a.per_min) for _ in keys] if a.per_key else [shared] * len(keys)
 
     # Продолжение: удачные ответы прошлых запусков сохраняем и не спрашиваем заново
     path = os.path.join(a.root, "expert_results.csv")
