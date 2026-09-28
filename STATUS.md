@@ -18,10 +18,9 @@
   ещё и картинкой. Контекст помогает не всегда.
 
 ## Следующие шаги
-1. **Запустить `chatterbox_eval.ipynb` на Kaggle через API**: `tools/kaggle_run.sh push`, затем `status`,
-   затем `output`. Нужны `KAGGLE_USERNAME`, `KAGGLE_KEY` в окружении и доступ к `kaggle.com`, `*.kaggle.com`.
-   Владелец выбрал этот путь (запуск силами Claude). Если `--accelerator` не поддерживается CLI, скрипт
-   запускает с GPU по умолчанию.
+1. **Запуск на Kaggle через API** — `tools/kaggle_api.py push|status|output|quota` (без kaggle CLI: ключ хранится
+   как API credential окружения, прокси подставляет заголовок Authorization на *.kaggle.com; CLI так не умеет).
+   Аккаунт Kaggle: `vasiliadi911`. Первый запуск 2026-09-28: https://www.kaggle.com/code/vasiliadi911/italo-tutor-chatterbox-eval (v1, T4).
 2. Разобрать `report.html`/`results.csv`: CER, скорость и RAM на CPU, на слух — ударения (it/ru), омографы (it/he),
    ole, двойные согласные, клон Паоло. Записать выводы в `docs/research/chatterbox_tts.md`.
 3. Отчёт по omni-моделям (картинка + текст → речь в одной модели, как Gemini Live): Qwen3.5-Omni Light,
