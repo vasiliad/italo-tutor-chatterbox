@@ -24,7 +24,9 @@ subprocess.run("apt-get -qq -y install espeak-ng > /dev/null 2>&1; espeak-ng --v
 TASK = "/kaggle/working/task"; OUT = "/kaggle/working/out"; ENVS = "/tmp/envs"
 os.makedirs(OUT, exist_ok=True); os.makedirs(ENVS, exist_ok=True)
 os.environ["HF_HOME"] = "/tmp/hf"
-subprocess.run("pip install -q uv", shell=True, check=True)  # в venv на Kaggle нет ensurepip
+subprocess.run("pip install -q uv", shell=True, check=True)  # в venv на Kaggle нет ensurepip → uv venv
+# ставим pip'ом Kaggle (--python): он видит системные пакеты; uv их не видит и тянет свой torch (ломает torchvision)
+subprocess.run("pip freeze | grep -E '^(torch|torchvision|torchaudio)==' > /tmp/torch_pin.txt; cat /tmp/torch_pin.txt", shell=True)
 # образец голоса для клона: 10 с из refs/paolo_offline_keys.wav
 import soundfile as sf
 y, sr = sf.read(f"{TASK}/refs/paolo_offline_keys.wav")
@@ -52,7 +54,7 @@ def model(name, pip, env=None, pre="", timeout=5400):
     t = time.time()
     venv = f"{ENVS}/{name}"
     py = f"{venv}/bin/python"
-    rc = sh(f"uv venv -q --system-site-packages {venv} && uv pip install -q --python {py} {pip} 2>&1 | tail -15", timeout=1800)
+    rc = sh(f"uv venv -q --system-site-packages {venv} && python3 -m pip --python {py} install -q -c /tmp/torch_pin.txt {pip} 2>&1 | grep -v -E 'WARN|notice' | tail -15", timeout=1800)
     if rc == 0 and pre:
         rc = sh(pre.replace("{py}", py), env=env)
     if rc == 0:
@@ -82,7 +84,7 @@ CELLS = [
     ("md", "## MagpieTTS Multilingual 357M (NeMo main): только итальянский, без фонемного ввода"),
     ("code", 'model("magpie", "\\"nemo_toolkit[tts] @ git+https://github.com/NVIDIA-NeMo/Speech.git@cf724ac337d1ebc7d0dda1e23fb80916f52927a5\\" kaldialign soundfile", timeout=3600)'),
     ("md", "## Whisper: разборчивость (CER) и сводка"),
-    ("code", 'model_rc = sh(f"uv venv -q --system-site-packages {ENVS}/asr && uv pip install -q --python {ENVS}/asr/bin/python \\"transformers>=4.57,<5\\" jiwer librosa && {ENVS}/asr/bin/python tts_eval/asr.py {OUT}")\n'
+    ("code", 'model_rc = sh(f"uv venv -q --system-site-packages {ENVS}/asr && python3 -m pip --python {ENVS}/asr/bin/python install -q -c /tmp/torch_pin.txt \\"transformers>=4.57,<5\\" jiwer librosa && {ENVS}/asr/bin/python tts_eval/asr.py {OUT}")\n'
              'sh(f"python3 tts_eval/report.py {OUT}")\n'
              'print(STATUS)'),
     ("code", 'import json\n'
