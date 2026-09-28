@@ -11,6 +11,7 @@ kaggle CLI так работать не может: он проверяет то
   python3 tools/kaggle_api.py push [--accelerator NvidiaTeslaT4]
   python3 tools/kaggle_api.py status
   python3 tools/kaggle_api.py output        # в ./kaggle_output/
+  --task expert — второй ноутбук: экспертиза на слух (Паоло/Хава, Gemini Live), вход — вывод eval
 """
 import argparse
 import json
@@ -22,8 +23,15 @@ import requests
 
 API = "https://api.kaggle.com/v1"
 ROOT = Path(__file__).resolve().parent.parent
-SLUG = "italo-tutor-chatterbox-eval"
-STATE = ROOT / "kaggle_output" / "kernel.json"   # сюда запоминаем ref после push
+TASKS = {  # задача -> (ноутбук, slug на Kaggle, GPU, входы — другие ноутбуки)
+    "eval": ("chatterbox_eval.ipynb", "italo-tutor-chatterbox-eval", True, []),
+    "expert": ("expert_review.ipynb", "italo-tutor-chatterbox-expert", False, ["italo-tutor-chatterbox-eval"]),
+}
+TASK = "eval"
+
+
+def state_file():
+    return ROOT / "kaggle_output" / ("kernel.json" if TASK == "eval" else f"kernel_{TASK}.json")
 
 
 def call(service, method, body):
@@ -37,10 +45,13 @@ def call(service, method, body):
 
 
 def kernel_ref():
-    if STATE.exists():
-        return json.loads(STATE.read_text())["ref"]
-    if user := os.environ.get("KAGGLE_USERNAME"):
-        return f"{user}/{SLUG}"
+    if state_file().exists():
+        return json.loads(state_file().read_text())["ref"]
+    eval_state = ROOT / "kaggle_output" / "kernel.json"
+    user = os.environ.get("KAGGLE_USERNAME") or (
+        json.loads(eval_state.read_text())["ref"].split("/")[-2] if eval_state.exists() else None)
+    if user:
+        return f"{user}/{TASKS[TASK][1]}"
     sys.exit("Неизвестен владелец ноутбука: сначала push или задайте KAGGLE_USERNAME")
 
 
@@ -48,33 +59,41 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["quota", "push", "status", "output"])
     ap.add_argument("--accelerator", default="NvidiaTeslaT4")
+    ap.add_argument("--task", choices=list(TASKS), default="eval")
     a = ap.parse_args()
+    global TASK
+    TASK = a.task
+    nb_file, slug, gpu, sources = TASKS[TASK]
 
     if a.cmd == "quota":
         print(json.dumps(call("kernels.KernelsApiService", "GetAcceleratorQuotaStatistics", {}), indent=1))
 
     elif a.cmd == "push":
         user = os.environ.get("KAGGLE_USERNAME")
-        if not user and STATE.exists():  # логин из прошлого push
-            user = kernel_ref().split("/")[-2]
+        try:
+            user = user or kernel_ref().split("/")[-2]   # логин из прошлого push
+        except SystemExit:
+            pass
         body = {
-            "newTitle": SLUG,   # без slug Kaggle сам создаёт/обновляет ноутбук текущего пользователя
-            "text": (ROOT / "chatterbox_eval.ipynb").read_text(),
+            "newTitle": slug,   # без slug Kaggle сам создаёт/обновляет ноутбук текущего пользователя
+            "text": (ROOT / nb_file).read_text(),
             "language": "python",
             "kernelType": "notebook",
             "isPrivate": True,
-            "enableGpu": True,
+            "enableGpu": gpu,
             "enableInternet": True,
-            "machineShape": a.accelerator,
         }
+        if gpu:
+            body["machineShape"] = a.accelerator
         if user:
-            body["slug"] = f"{user}/{SLUG}"
+            body["slug"] = f"{user}/{slug}"
+            body["kernelDataSources"] = [f"{user}/{k}" for k in sources]
         res = call("kernels.KernelsApiService", "SaveKernel", body)
         print(json.dumps(res, indent=1, ensure_ascii=False))
         if res.get("error"):
             sys.exit(1)
-        STATE.parent.mkdir(exist_ok=True)
-        STATE.write_text(json.dumps({"ref": res["ref"].strip("/"), "url": res.get("url"),
+        state_file().parent.mkdir(exist_ok=True)
+        state_file().write_text(json.dumps({"ref": res["ref"].strip("/"), "url": res.get("url"),
                                      "version": res.get("versionNumber")}))
 
     elif a.cmd == "status":
@@ -84,7 +103,7 @@ def main():
 
     elif a.cmd == "output":
         user, slug = kernel_ref().split("/")[-2:]
-        out = ROOT / "kaggle_output"
+        out = ROOT / "kaggle_output" / ("" if TASK == "eval" else TASK)
         out.mkdir(exist_ok=True)
         token = None
         while True:
