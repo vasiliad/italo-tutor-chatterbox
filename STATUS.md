@@ -49,3 +49,7 @@ gemini-3.1-flash-live-preview. Ключ Gemini — API credential окружен
 `tools/mac_bench.py` — Chatterbox v3 на CPU и MPS, 5 итальянских фраз, RTF и память, итог в `mac_bench/results.md`
 (инструкция установки — в шапке скрипта). Для сравнения: Kaggle T4 ≈ 1.2, CPU Kaggle 4 ядра ≈ 10,
 CPU облачного контейнера 4 ядра ≈ 4.5 (пик RAM 6.9 ГБ).
+
+## Связь с Mac mini
+Напрямую (SendMessage/ListAgents) облачная сессия и сессия на Mac друг друга не видят — связь через
+почтовый ящик `coord/` (см. coord/README.md): задания в `inbox.md`, ответы в `outbox.md`.
