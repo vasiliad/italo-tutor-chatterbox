@@ -20,9 +20,17 @@
 ## Следующие шаги
 1. **Запуск на Kaggle через API** — `tools/kaggle_api.py push|status|output|quota` (без kaggle CLI: ключ хранится
    как API credential окружения, прокси подставляет заголовок Authorization на *.kaggle.com; CLI так не умеет).
-   Аккаунт Kaggle: `vasiliadi911`. Первый запуск 2026-09-28: https://www.kaggle.com/code/vasiliadi911/italo-tutor-chatterbox-eval (v1, T4).
+   Аккаунт Kaggle: `vasiliadi911`. Первый запуск 2026-09-28: https://www.kaggle.com/code/vasiliadi911/italo-tutor-chatterbox-eval (v1) — ERROR:
+   ноутбук получил CPU без сети, хотя enableInternet/enableGpu = true. Вероятно, аккаунт не подтверждён по телефону.
+   После подтверждения — `push` заново.
 2. Разобрать `report.html`/`results.csv`: CER, скорость и RAM на CPU, на слух — ударения (it/ru), омографы (it/he),
    ole, двойные согласные, клон Паоло. Записать выводы в `docs/research/chatterbox_tts.md`.
 3. Отчёт по omni-моделям (картинка + текст → речь в одной модели, как Gemini Live): Qwen3.5-Omni Light,
    MiniCPM-o 4.5, Qwen3-Omni-30B-A3B — размер, языки озвучки (итальянский, иврит), Mac 16 ГБ, лицензия;
    затем такой же ноутбук Kaggle для лучшей.
+
+## Экспертиза на слух
+`tools/expert_listen.py` в italo-tutor: слепые вопросы Паоло (итальянский, русский) и Хаве (иврит) на
+gemini-3.1-flash-live-preview. Ключ Gemini — API credential окружения (заголовок `x-goog-api-key`,
+сайт `generativelanguage.googleapis.com`). Запуск после `kaggle_api.py output`:
+`python3 tools/expert_listen.py --root ../italo-tutor-chatterbox/kaggle_output/chatterbox_eval`.
