@@ -116,3 +116,8 @@ generativelanguage.googleapis.com отвечает 403 «нужен ключ»).
 запас, ревизия раз в 6 уроков, гвард мастерства ≥3; OneShot через Live (ответ из транскрипта) + FakePaoloModel;
 drift v2 (course_goals, goal_evidence, syllabus_revisions, learner_errors, course_state). Тестов 35 (новых 10),
 analyze чисто. Коммит в ветке — см. git log.
+
+## №7 — этап 2 ГОТОВ (план и дрилл до приветствия)
+system_lesson.txt с плейсхолдерами уровня + metodo.txt; prepareLesson (цель дня кодом, ошибки с затуханием,
+повтор, запас, план+DRILL от Паоло с дедлайном 120 с, запасной план, DRILL вторым вызовом); первый ход одним
+служебным сообщением; глушение звука при эхе служебного. Тестов 43 (новых 8), analyze чисто. Позы Паоло за столом — в assets.
