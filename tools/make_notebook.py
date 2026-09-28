@@ -14,6 +14,8 @@ md(r"""
 Записи Паоло для клонирования ноутбук берёт из репозитория
 [vasiliad/italo-tutor-chatterbox](https://github.com/vasiliad/italo-tutor-chatterbox) (`refs/*.wav`) и из подключённых Datasets.
 
+Иврит и итальянские омографы Whisper не различит (бóкер и бокéр пишутся одинаково) — их слушаем.
+
 В конце: `/kaggle/working/chatterbox_eval/report.html` и архив `chatterbox_eval.zip`. Скачайте архив, распакуйте
 и откройте `report.html`: там все записи с плеером, распознанный текст (Whisper) и CER.
 """)
@@ -24,6 +26,9 @@ code(r"""
 !pip install -q "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git@5de7a54" jiwer
 # Необязательно: русская расстановка ударений, которую Chatterbox вызывает сам для language_id="ru".
 !pip install -q russian-text-stresser || echo "russian-text-stresser не установился — тест 5в пропустим"
+# Иврит: огласовки (никуд) через Dicta. Chatterbox вызывает Dicta() без пути к модели — это падает,
+# и текст уходит без огласовок. Поэтому ставим сами и вызываем явно.
+!pip install -q dicta-onnx && wget -q -nc -P /kaggle/working https://github.com/thewh1teagle/dicta-onnx/releases/download/model-files-v1.0/dicta-1.0.int8.onnx || echo "Dicta не установилась — вариант he_dicta пропустим"
 # Образцы голоса Паоло и свежая версия задачи — из публичного репозитория
 !rm -rf /kaggle/working/task && git clone -q --depth 1 https://github.com/vasiliad/italo-tutor-chatterbox /kaggle/working/task && ls /kaggle/working/task/refs
 """)
@@ -165,6 +170,78 @@ for w, note in (STRESS[:1] + STRESS[10:14] if QUICK else STRESS):
         form = with_mark(w, mark)
         synth(m3, "stress", f"{base}_{w}_{mark}_solo", f"{form}.", "it", seed=1, tag=note)
         synth(m3, "stress", f"{base}_{w}_{mark}_frame", f"Dico {form} adesso.", "it", seed=1, tag=note)
+save_rows()
+""")
+
+code(r"""
+# 5б. Итальянские омографы: выбирает ли модель слово по контексту (без знака) и слушается ли знака.
+# Последняя группа — фраза, неоднозначная по-настоящему: без знака её не разберёт никто.
+IT_CTX = [  # (имя, фраза без знака, та же фраза со знаком на ударной гласной)
+    ("ancora_ancòra",     "Vorrei ancora un caffè.",                          "Vorrei ancòra un caffè."),
+    ("ancora_àncora",     "La nave getta l'ancora in porto.",                 "La nave getta l'àncora in porto."),
+    ("principi_princìpi", "I principi della fisica sono semplici.",           "I princìpi della fisica sono semplici."),
+    ("principi_prìncipi", "Il re e la regina hanno due figli: sono principi.", "Il re e la regina hanno due figli: sono prìncipi."),
+    ("capitano_capitàno", "Il capitano parla con i marinai.",                 "Il capitàno parla con i marinai."),
+    ("capitano_càpitano", "Queste cose capitano spesso.",                     "Queste cose càpitano spesso."),
+    ("subito_sùbito",     "Vieni subito qui!",                                "Vieni sùbito qui!"),
+    ("subito_subìto",     "Ha subito un furto ieri sera.",                    "Ha subìto un furto ieri sera."),
+]
+for name, plain, marked in IT_CTX:
+    synth(m3, "it_context", f"{name}_plain", plain, "it", seed=8, tag="контекст, без знака")
+    synth(m3, "it_context", f"{name}_mark", marked, "it", seed=8, tag="со знаком")
+for name, t in [("plain", "Ho visto i principi."), ("princes", "Ho visto i prìncipi."), ("principles", "Ho visto i princìpi.")]:
+    synth(m3, "it_ambiguous", name, t, "it", seed=8)
+save_rows()
+""")
+
+code(r"""
+# 5в. Иврит — те же вопросы, что для итальянского:
+#   базовые фразы; выбор слова по контексту без огласовок; огласовки Dicta (автомат); огласовки вручную (верные);
+#   неоднозначная фраза; знак ударения ole (U+05AB), которого модель, судя по коду, при обучении не видела.
+import chatterbox.models.tokenizers.tokenizer as cbtok
+cbtok.add_hebrew_diacritics = lambda text: text   # огласовки подаём сами, чтобы сравнивать варианты
+try:
+    from dicta_onnx import Dicta
+    DICTA = Dicta("/kaggle/working/dicta-1.0.int8.onnx")
+except Exception as e:
+    DICTA = None; print("Dicta недоступна:", e)
+
+HE_BASIC = ["שלום, מה שלומך?", "קוראים לי פאולו.", "אני רוצה כוס קפה, בבקשה.",
+            "איפה התחנה?", "כמה זה עולה?", "אני גר בתל אביב."]
+for i, t in enumerate(HE_BASIC):
+    synth(m3, "he_basic", f"{i:02d}", t, "he", seed=9)
+
+HE_CTX = [  # (имя, без огласовок, огласовки вручную — верное слово)
+    ("boker_morning",  "בוקר טוב!",               "בֹּקֶר טוֹב!"),
+    ("boker_cowboy",   "הבוקר רכב על סוס.",       "הַבּוֹקֵר רָכַב עַל סוּס."),
+    ("okhel_food",     "האוכל על השולחן.",        "הָאֹכֶל עַל הַשֻּׁלְחָן."),
+    ("okhel_eats",     "הוא אוכל לחם.",           "הוּא אוֹכֵל לֶחֶם."),
+    ("sefer_book",     "אני קורא ספר.",           "אֲנִי קוֹרֵא סֵפֶר."),
+    ("sapar_barber",   "הספר גזר לי את השיער.",   "הַסַּפָּר גָּזַר לִי אֶת הַשֵּׂעָר."),
+    ("banu_built",     "הם בנו בית חדש.",         "הֵם בָּנוּ בַּיִת חָדָשׁ."),
+    ("banu_in_us",     "הוא בוטח בנו.",           "הוּא בּוֹטֵחַ בָּנוּ."),
+    ("shlomekh_fem",   "שלום, מה שלומך?",         "שָׁלוֹם, מַה שְּׁלוֹמֵךְ?"),
+]
+for name, plain, manual in HE_CTX:
+    synth(m3, "he_context", f"{name}_plain", plain, "he", seed=9, tag="без огласовок (как сейчас в Chatterbox)")
+    if DICTA:
+        auto = DICTA.add_diacritics(plain)
+        synth(m3, "he_context", f"{name}_dicta", auto, "he", seed=9,
+              tag="Dicta" + ("" if unicodedata.normalize("NFC", auto) == unicodedata.normalize("NFC", manual) else " (≠ вручную)"))
+    synth(m3, "he_context", f"{name}_manual", manual, "he", seed=9, tag="огласовки вручную")
+
+for name, t in [("plain", "הבוקר היה נחמד."), ("morning", "הַבֹּקֶר הָיָה נֶחְמָד."), ("cowboy", "הַבּוֹקֵר הָיָה נֶחְמָד.")]:
+    synth(m3, "he_ambiguous", name, t, "he", seed=9)
+
+OLE = "\u05AB"
+HE_STRESS = [  # (имя, текст) — одинаковые буквы и огласовки, разница только в знаке ударения
+    ("banu_plain",      "בָּנוּ."),
+    ("banu_ole_first",  "בָּ" + OLE + "נוּ."),          # bánu «в нас»
+    ("shalom_plain",    "שָׁלוֹם."),
+    ("shalom_ole_wrong", "שָׁ" + OLE + "לוֹם."),         # нарочно неверное: шáлом — послушается ли модель?
+]
+for name, t in HE_STRESS:
+    synth(m3, "he_stress", name, t, "he", seed=9)
 save_rows()
 """)
 
@@ -329,7 +406,7 @@ import jiwer
 from transformers import pipeline
 asr = pipeline("automatic-speech-recognition", model="openai/whisper-large-v3-turbo",
                dtype=torch.float16 if DEVICE == "cuda" else torch.float32, device=DEVICE)
-LANG = {"it": "italian", "ru": "russian", "ru+it": "russian"}
+LANG = {"it": "italian", "ru": "russian", "ru+it": "russian", "he": "hebrew"}
 
 def norm(s):
     s = unicodedata.normalize("NFD", s.lower())
@@ -360,6 +437,10 @@ TITLES = {
     "stress_v2": "Ударение (v2)", "geminates": "Двойные согласные", "ru": "Русский",
     "ru_repeat": "Русский: 8 повторов подряд (issue #360)", "mix": "Смешанная фраза Паоло",
     "clone": "Клон голоса Паоло", "slow": "Медленное чтение", "cpu": "CPU",
+    "it_context": "Итальянские омографы: контекст без знака / со знаком",
+    "it_ambiguous": "Итальянский: неоднозначная фраза", "he_basic": "Иврит: базовые фразы",
+    "he_context": "Иврит: выбор слова по контексту / Dicta / огласовки вручную",
+    "he_ambiguous": "Иврит: неоднозначная фраза", "he_stress": "Иврит: знак ударения ole",
 }
 summary = df.groupby("section").agg(n=("name", "count"), cer=("cer", "mean"), rtf=("rtf", "mean"),
                                     vram=("vram_gb", "max")).round(3)
