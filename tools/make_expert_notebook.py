@@ -5,7 +5,7 @@ def code(s): cells.append({"cell_type": "code", "metadata": {}, "execution_count
 md(r"""
 # Экспертиза записей Chatterbox на слух: Паоло (it, ru) и Хава (he), gemini-3.1-flash-live-preview
 
-Вход — вывод ноутбука `italo-tutor-chatterbox-eval` (подключён как Input). Ключ Gemini — Kaggle Secret `GEMINI_API_KEY`
+Вход — последний прогон из `results/` репозитория (или вывод `italo-tutor-chatterbox-eval`, подключённый как Input). Ключ Gemini — Kaggle Secret `GEMINI_API_KEY`
 (Add-ons → Secrets, галочка для этого ноутбука). GPU не нужен, Internet = On.
 Вопросы слепые: эксперт выбирает из вариантов в случайном порядке, что прозвучало; ответ сравнивается с задуманным.
 """)
@@ -20,9 +20,11 @@ key = UserSecretsClient().get_secret("GEMINI_API_KEY")
 os.makedirs(os.path.expanduser("~/key"), exist_ok=True)
 open(os.path.expanduser("~/key/key"), "w").write(key)
 
-src = glob.glob("/kaggle/input/**/results.csv", recursive=True)
+# Записи: подключённый Input или последний прогон в репозитории (results/<дата>_<версия>/)
+src = glob.glob("/kaggle/input/**/results.csv", recursive=True) or \
+      sorted(glob.glob("/kaggle/working/task/results/*/results.csv"))[-1:]
 print("найдено:", src)
-assert src, "Нет входа: подключите вывод ноутбука italo-tutor-chatterbox-eval (Add Input → Notebooks)"
+assert src, "Нет записей: ни Input, ни results/ в репозитории"
 ROOT = "/kaggle/working/chatterbox_eval"
 shutil.copytree(os.path.dirname(src[0]), ROOT, dirs_exist_ok=True)
 """)

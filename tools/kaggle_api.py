@@ -25,7 +25,7 @@ API = "https://api.kaggle.com/v1"
 ROOT = Path(__file__).resolve().parent.parent
 TASKS = {  # задача -> (ноутбук, slug на Kaggle, GPU, входы — другие ноутбуки)
     "eval": ("chatterbox_eval.ipynb", "italo-tutor-chatterbox-eval", True, []),
-    "expert": ("expert_review.ipynb", "italo-tutor-chatterbox-expert", False, ["italo-tutor-chatterbox-eval"]),
+    "expert": ("expert_review.ipynb", "italo-tutor-chatterbox-expert", False, []),
 }
 TASK = "eval"
 
