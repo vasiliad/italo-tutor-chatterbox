@@ -55,6 +55,8 @@ def main():
 
     elif a.cmd == "push":
         user = os.environ.get("KAGGLE_USERNAME")
+        if not user and STATE.exists():  # логин из прошлого push
+            user = kernel_ref().split("/")[-2]
         body = {
             "newTitle": SLUG,   # без slug Kaggle сам создаёт/обновляет ноутбук текущего пользователя
             "text": (ROOT / "chatterbox_eval.ipynb").read_text(),
