@@ -224,16 +224,19 @@ class Pacer:
         self.last = loop.time()
 
 
-async def run_one(task, audio, keys, pacer, timeout, use_memory, backoff=65, tries=3):
-    """Спрашивает эксперта. На «слишком часто» (1011 / quota) ждёт минуту и повторяет; потом — следующий ключ."""
+async def run_one(task, audio, keys, pacers, start, timeout, use_memory, backoff=65, tries=3):
+    """Спрашивает эксперта, начиная с ключа start (ключи по кругу, у каждого свой темп).
+    На «слишком часто» (1011 / quota) ждёт минуту и повторяет; потом — следующий ключ."""
     ex = EXPERTS[task["expert"]]
     system = open(ex["system"]).read()
     if use_memory:
         system = with_memory(system, ex["memory"])
     err = ""
-    for key in keys:
+    for k in range(len(keys)):
+        idx = (start + k) % len(keys)
+        key = keys[idx]
         for attempt in range(tries):
-            await pacer.wait()
+            await pacers[idx].wait()
             try:
                 return await listen(key, system, ex["voice"], audio, task["question"], timeout)
             except Exception as e:
@@ -250,7 +253,7 @@ async def main():
     ap.add_argument("--root", required=True)
     ap.add_argument("--only", default="")
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--per-min", type=float, default=20, help="не чаще стольких запросов в минуту (лимит 30)")
+    ap.add_argument("--per-min", type=float, default=20, help="не чаще стольких запросов в минуту на ключ (лимит 30; токенов — 65 тыс./мин)")
     ap.add_argument("--memory", action="store_true", help="подключить тетрадь-память Паоло")
     ap.add_argument("--keys", default="~/key/key")
     ap.add_argument("--timeout", type=float, default=120)
@@ -275,7 +278,7 @@ async def main():
     if a.limit:
         jobs = jobs[:a.limit]
     print(f"заданий: {len(jobs)}", file=sys.stderr)
-    pacer = Pacer(a.per_min)
+    pacers = [Pacer(a.per_min) for _ in keys]   # темп на каждый ключ: 3 ключа = втрое быстрее
 
     # Продолжение: удачные ответы прошлых запусков сохраняем и не спрашиваем заново
     path = os.path.join(a.root, "expert_results.csv")
@@ -299,7 +302,7 @@ async def main():
             out.append(done[(r["section"], r["name"])])
             continue
         audio = load_16k(os.path.join(a.root, r["file"]))
-        ans = await run_one(t, audio, keys, pacer, a.timeout, a.memory)
+        ans = await run_one(t, audio, keys, pacers, n % len(keys), a.timeout, a.memory)
         got = parse(t["kind"], ans)
         ok = "" if t["expected"] is None or got is None else int(got == t["expected"])
         print(f"{n}/{len(jobs)} [{r['section']}] {r['name']}: {got} (ожидали {t['expected']}) {ans[:120]!r}",

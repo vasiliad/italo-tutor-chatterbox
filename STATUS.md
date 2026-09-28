@@ -34,3 +34,10 @@
 gemini-3.1-flash-live-preview. Ключ Gemini — API credential окружения (заголовок `x-goog-api-key`,
 сайт `generativelanguage.googleapis.com`). Запуск после `kaggle_api.py output`:
 `python3 tools/expert_listen.py --root ../italo-tutor-chatterbox/kaggle_output/chatterbox_eval`.
+
+## Ключи Gemini (со слов владельца, 2026-09-28)
+- 3 ключа, по нашим моделям без дневного лимита. Ограничения: 65 тыс. токенов в минуту на ключ,
+  Live-сессия обрывается раз в 10 минут (у нас сессия = один вопрос, это не мешает), не чаще ~30 запросов/мин.
+- На Kaggle — отдельные секреты `GEMINI_API_KEY`, `GEMINI_API_KEY_2`, `GEMINI_API_KEY_3` (в один секрет
+  через пробел не сохраняются). `expert_listen.py` ходит по ключам по кругу, темп `--per-min` — на каждый ключ.
+- Запуск через API видит секреты только после того, как версию один раз сохранили из редактора (Save Version).
