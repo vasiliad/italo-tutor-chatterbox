@@ -28,6 +28,7 @@ TASKS = {  # задача -> (ноутбук, slug на Kaggle, GPU, входы 
     "expert": ("expert_review.ipynb", "italo-tutor-chatterbox-expert", False, []),
     "expert38": ("expert_review_38.ipynb", "italo-tutor-chatterbox-expert38", False, []),
     "tts": ("tts_eval.ipynb", "italo-tutor-local-tts-eval", True, []),
+    "expert_tts": ("expert_tts.ipynb", "italo-tutor-local-tts-expert", False, ["italo-tutor-local-tts-eval"]),
 }
 TASK = "eval"
 
