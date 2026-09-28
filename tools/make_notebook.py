@@ -413,32 +413,15 @@ for pkg in ["torch", "transformers", "chatterbox", "librosa", "diffusers", "nvid
 """)
 
 code(r"""
-# 13. Распознавание Whisper large-v3-turbo и CER (ударение ASR не видит — его слушаем)
-import jiwer
-from transformers import pipeline
-asr = pipeline("automatic-speech-recognition", model="openai/whisper-large-v3-turbo",
-               dtype=torch.float16 if DEVICE == "cuda" else torch.float32, device=DEVICE)
-LANG = {"it": "italian", "ru": "russian", "ru+it": "russian", "he": "hebrew"}
-
-def norm(s):
-    s = unicodedata.normalize("NFD", s.lower())
-    s = "".join(c for c in s if unicodedata.category(c) != "Mn")  # убираем знаки ударения
-    s = s.replace("ё", "е").replace("’", "'")
-    s = re.sub(r"[^\w' ]+", " ", s)
-    return " ".join(s.split())
-
-for r in ROWS:
-    if r["name"] == "_reference":
-        continue
-    y, _ = librosa.load(f"{OUT}/{r['file']}", sr=16000)
-    out = asr({"raw": y, "sampling_rate": 16000},
-              generate_kwargs={"language": LANG[r["lang"]], "task": "transcribe"})
-    r["asr"] = out["text"].strip()
-    ref = r["text"].replace(" | ", " ")
-    r["cer"] = round(jiwer.cer(norm(ref), norm(r["asr"])), 3) if norm(ref) else None
+# 13. Распознавание Whisper large-v3-turbo и CER (ударение ASR не видит — его слушаем).
+# Отдельный скрипт из репозитория: pipeline() в transformers 5 падает на входе-словаре.
 save_rows()
-df = pd.DataFrame(ROWS)
-print(df.groupby("section")[["cer", "rtf", "dur_s"]].mean(numeric_only=True))
+del m3; gc.collect()
+if DEVICE == "cuda": torch.cuda.empty_cache()
+!python3 /kaggle/working/task/tools/asr_whisper.py {OUT} | tail -3
+df = pd.read_csv(f"{OUT}/results.csv").fillna("")
+ROWS = df.to_dict("records")
+print(pd.to_numeric(df.cer, errors="coerce").groupby(df.section).mean())
 """)
 
 code(r"""
@@ -454,6 +437,8 @@ TITLES = {
     "he_context": "Иврит: выбор слова по контексту / Dicta / огласовки вручную",
     "he_ambiguous": "Иврит: неоднозначная фраза", "he_stress": "Иврит: знак ударения ole",
 }
+for c in ["cer", "rtf", "vram_gb", "dur_s"]:
+    df[c] = pd.to_numeric(df[c], errors="coerce")
 summary = df.groupby("section").agg(n=("name", "count"), cer=("cer", "mean"), rtf=("rtf", "mean"),
                                     vram=("vram_gb", "max")).round(3)
 parts = ["<!doctype html><meta charset='utf-8'><title>Chatterbox eval</title>",
