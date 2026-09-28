@@ -1,259 +1,259 @@
-section,name,text,lang,seed,tag,params,file,dur_s,gen_s,rtf,vram_gb
-it_a1,v3_00,"Ciao, mi chiamo Paolo. Come ti chiami?",it,0,,{},wav/it_a1__v3_00.wav,2.08,12.88,6.192,3.12
-it_a1,v3_01,"Piacere! Sono russa, di Mosca.",it,1,,{},wav/it_a1__v3_01.wav,2.6,2.84,1.094,3.13
-it_a1,v3_02,"Vorrei un caffè e un cornetto, per favore.",it,2,,{},wav/it_a1__v3_02.wav,2.64,2.79,1.057,3.14
-it_a1,v3_03,Quanto costa questo libro?,it,3,,{},wav/it_a1__v3_03.wav,1.72,2.16,1.253,3.12
-it_a1,v3_04,Dov'è la stazione? È lontana da qui?,it,4,,{},wav/it_a1__v3_04.wav,2.28,2.5,1.098,3.13
-it_a1,v3_05,C'è una farmacia vicino all'albergo?,it,5,,{},wav/it_a1__v3_05.wav,2.12,2.41,1.139,3.12
-it_a1,v3_06,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,6,,{},wav/it_a1__v3_06.wav,2.96,3.12,1.054,3.14
-it_a1,v3_07,Ho ventitré anni e abito a Mosca.,it,7,,{},wav/it_a1__v3_07.wav,2.12,2.43,1.148,3.12
-it_a1,v3_08,Ieri ho mangiato la pizza con i miei amici.,it,8,,{},wav/it_a1__v3_08.wav,2.32,2.53,1.092,3.14
-it_a1,v3_09,"Scusi, a che ora parte il treno per Firenze?",it,9,,{},wav/it_a1__v3_09.wav,2.72,2.94,1.08,3.14
-it_a1,v3_10,Mia sorella lavora in un ospedale.,it,10,,{},wav/it_a1__v3_10.wav,2.2,2.52,1.148,3.12
-it_a1,v3_11,"Domani andiamo al mare, se non piove.",it,11,,{},wav/it_a1__v3_11.wav,2.44,2.71,1.109,3.13
-stress,telefonano_telèfonano_none_solo,telefonano.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_none_solo.wav,1.52,1.94,1.278,3.12
-stress,telefonano_telèfonano_none_frame,Dico telefonano adesso.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_none_frame.wav,1.84,2.17,1.177,3.12
-stress,telefonano_telèfonano_grave_solo,telèfonano.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_grave_solo.wav,1.52,1.94,1.278,3.12
-stress,telefonano_telèfonano_grave_frame,Dico telèfonano adesso.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_grave_frame.wav,1.72,2.09,1.214,3.12
-stress,telefonano_telèfonano_acute_solo,teléfonano.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_acute_solo.wav,1.52,1.92,1.265,3.12
-stress,telefonano_telèfonano_acute_frame,Dico teléfonano adesso.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_acute_frame.wav,1.72,2.11,1.226,3.12
-stress,parliamo_parliàmo_none_solo,parliamo.,it,1,,{},wav/stress__parliamo_parliàmo_none_solo.wav,1.04,1.54,1.479,3.12
-stress,parliamo_parliàmo_none_frame,Dico parliamo adesso.,it,1,,{},wav/stress__parliamo_parliàmo_none_frame.wav,1.52,1.91,1.257,3.12
-stress,parliamo_parliàmo_grave_solo,parliàmo.,it,1,,{},wav/stress__parliamo_parliàmo_grave_solo.wav,1.08,1.55,1.435,3.12
-stress,parliamo_parliàmo_grave_frame,Dico parliàmo adesso.,it,1,,{},wav/stress__parliamo_parliàmo_grave_frame.wav,1.6,2.07,1.293,3.12
-stress,parliamo_parliàmo_acute_solo,parliámo.,it,1,,{},wav/stress__parliamo_parliàmo_acute_solo.wav,1.08,1.53,1.412,3.12
-stress,parliamo_parliàmo_acute_frame,Dico parliámo adesso.,it,1,,{},wav/stress__parliamo_parliàmo_acute_frame.wav,1.68,2.06,1.226,3.12
-stress,desiderano_desìderano_none_solo,desiderano.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_none_solo.wav,1.24,1.68,1.358,3.12
-stress,desiderano_desìderano_none_frame,Dico desiderano adesso.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_none_frame.wav,1.76,2.11,1.198,3.12
-stress,desiderano_desìderano_grave_solo,desìderano.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_grave_solo.wav,1.6,2.02,1.265,3.12
-stress,desiderano_desìderano_grave_frame,Dico desìderano adesso.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_grave_frame.wav,1.84,2.17,1.18,3.12
-stress,desiderano_desìderano_acute_solo,desíderano.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_acute_solo.wav,1.28,1.71,1.336,3.12
-stress,desiderano_desìderano_acute_frame,Dico desíderano adesso.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_acute_frame.wav,1.84,2.15,1.17,3.12
-stress,capiscono_capìscono_none_solo,capiscono.,it,1,,{},wav/stress__capiscono_capìscono_none_solo.wav,1.2,1.67,1.395,3.12
-stress,capiscono_capìscono_none_frame,Dico capiscono adesso.,it,1,,{},wav/stress__capiscono_capìscono_none_frame.wav,1.68,2.09,1.247,3.12
-stress,capiscono_capìscono_grave_solo,capìscono.,it,1,,{},wav/stress__capiscono_capìscono_grave_solo.wav,1.32,1.76,1.335,3.12
-stress,capiscono_capìscono_grave_frame,Dico capìscono adesso.,it,1,,{},wav/stress__capiscono_capìscono_grave_frame.wav,1.72,2.07,1.206,3.12
-stress,capiscono_capìscono_acute_solo,capíscono.,it,1,,{},wav/stress__capiscono_capìscono_acute_solo.wav,1.32,1.76,1.332,3.12
-stress,capiscono_capìscono_acute_frame,Dico capíscono adesso.,it,1,,{},wav/stress__capiscono_capìscono_acute_frame.wav,1.56,1.99,1.278,3.12
-stress,scrivono_scrìvono_none_solo,scrivono.,it,1,,{},wav/stress__scrivono_scrìvono_none_solo.wav,0.92,1.47,1.602,3.12
-stress,scrivono_scrìvono_none_frame,Dico scrivono adesso.,it,1,,{},wav/stress__scrivono_scrìvono_none_frame.wav,1.84,2.25,1.223,3.12
-stress,scrivono_scrìvono_grave_solo,scrìvono.,it,1,,{},wav/stress__scrivono_scrìvono_grave_solo.wav,0.92,1.44,1.564,3.12
-stress,scrivono_scrìvono_grave_frame,Dico scrìvono adesso.,it,1,,{},wav/stress__scrivono_scrìvono_grave_frame.wav,1.68,2.04,1.214,3.12
-stress,scrivono_scrìvono_acute_solo,scrívono.,it,1,,{},wav/stress__scrivono_scrìvono_acute_solo.wav,0.96,1.49,1.551,3.12
-stress,scrivono_scrìvono_acute_frame,Dico scrívono adesso.,it,1,,{},wav/stress__scrivono_scrìvono_acute_frame.wav,1.6,2.1,1.312,3.12
-stress,farmacia_farmacìa_none_solo,farmacia.,it,1,,{},wav/stress__farmacia_farmacìa_none_solo.wav,1.08,1.59,1.469,3.12
-stress,farmacia_farmacìa_none_frame,Dico farmacia adesso.,it,1,,{},wav/stress__farmacia_farmacìa_none_frame.wav,1.72,2.1,1.22,3.12
-stress,farmacia_farmacìa_grave_solo,farmacìa.,it,1,,{},wav/stress__farmacia_farmacìa_grave_solo.wav,1.16,1.65,1.425,3.12
-stress,farmacia_farmacìa_grave_frame,Dico farmacìa adesso.,it,1,,{},wav/stress__farmacia_farmacìa_grave_frame.wav,1.88,2.27,1.207,3.12
-stress,farmacia_farmacìa_acute_solo,farmacía.,it,1,,{},wav/stress__farmacia_farmacìa_acute_solo.wav,1.16,1.72,1.48,3.12
-stress,farmacia_farmacìa_acute_frame,Dico farmacía adesso.,it,1,,{},wav/stress__farmacia_farmacìa_acute_frame.wav,1.88,2.25,1.199,3.12
-stress,psicologia_psicologìa_none_solo,psicologia.,it,1,,{},wav/stress__psicologia_psicologìa_none_solo.wav,1.12,1.64,1.464,3.12
-stress,psicologia_psicologìa_none_frame,Dico psicologia adesso.,it,1,,{},wav/stress__psicologia_psicologìa_none_frame.wav,1.76,2.17,1.231,3.12
-stress,psicologia_psicologìa_grave_solo,psicologìa.,it,1,,{},wav/stress__psicologia_psicologìa_grave_solo.wav,1.12,1.71,1.524,3.12
-stress,psicologia_psicologìa_grave_frame,Dico psicologìa adesso.,it,1,,{},wav/stress__psicologia_psicologìa_grave_frame.wav,1.76,2.18,1.238,3.12
-stress,psicologia_psicologìa_acute_solo,psicología.,it,1,,{},wav/stress__psicologia_psicologìa_acute_solo.wav,1.12,1.68,1.498,3.12
-stress,psicologia_psicologìa_acute_frame,Dico psicología adesso.,it,1,,{},wav/stress__psicologia_psicologìa_acute_frame.wav,1.76,2.23,1.267,3.12
-stress,Brindisi_Brìndisi_none_solo,Brindisi.,it,1,,{},wav/stress__Brindisi_Brìndisi_none_solo.wav,1.24,1.78,1.436,3.12
-stress,Brindisi_Brìndisi_none_frame,Dico Brindisi adesso.,it,1,,{},wav/stress__Brindisi_Brìndisi_none_frame.wav,1.72,2.2,1.277,3.12
-stress,Brindisi_Brìndisi_grave_solo,Brìndisi.,it,1,,{},wav/stress__Brindisi_Brìndisi_grave_solo.wav,1.24,1.71,1.377,3.12
-stress,Brindisi_Brìndisi_grave_frame,Dico Brìndisi adesso.,it,1,,{},wav/stress__Brindisi_Brìndisi_grave_frame.wav,1.84,2.27,1.235,3.12
-stress,Brindisi_Brìndisi_acute_solo,Bríndisi.,it,1,,{},wav/stress__Brindisi_Brìndisi_acute_solo.wav,1.24,1.7,1.372,3.12
-stress,Brindisi_Brìndisi_acute_frame,Dico Bríndisi adesso.,it,1,,{},wav/stress__Brindisi_Brìndisi_acute_frame.wav,1.6,2.0,1.251,3.12
-stress,famiglia_famìglia_none_solo,famiglia.,it,1,,{},wav/stress__famiglia_famìglia_none_solo.wav,0.96,1.52,1.586,3.12
-stress,famiglia_famìglia_none_frame,Dico famiglia adesso.,it,1,,{},wav/stress__famiglia_famìglia_none_frame.wav,1.84,2.2,1.196,3.12
-stress,famiglia_famìglia_grave_solo,famìglia.,it,1,,{},wav/stress__famiglia_famìglia_grave_solo.wav,0.96,1.51,1.576,3.12
-stress,famiglia_famìglia_grave_frame,Dico famìglia adesso.,it,1,,{},wav/stress__famiglia_famìglia_grave_frame.wav,1.68,2.13,1.27,3.12
-stress,famiglia_famìglia_acute_solo,famíglia.,it,1,,{},wav/stress__famiglia_famìglia_acute_solo.wav,1.0,1.56,1.561,3.12
-stress,famiglia_famìglia_acute_frame,Dico famíglia adesso.,it,1,,{},wav/stress__famiglia_famìglia_acute_frame.wav,1.68,2.13,1.268,3.12
-stress,subito_sùbito_none_solo,subito.,it,1,,{},wav/stress__subito_sùbito_none_solo.wav,0.84,1.46,1.734,3.12
-stress,subito_sùbito_none_frame,Dico subito adesso.,it,1,,{},wav/stress__subito_sùbito_none_frame.wav,1.52,1.96,1.291,3.12
-stress,subito_sùbito_grave_solo,sùbito.,it,1,,{},wav/stress__subito_sùbito_grave_solo.wav,0.88,1.49,1.698,3.12
-stress,subito_sùbito_grave_frame,Dico sùbito adesso.,it,1,,{},wav/stress__subito_sùbito_grave_frame.wav,1.52,1.98,1.304,3.12
-stress,subito_sùbito_acute_solo,súbito.,it,1,,{},wav/stress__subito_sùbito_acute_solo.wav,0.84,1.4,1.673,3.12
-stress,subito_sùbito_acute_frame,Dico súbito adesso.,it,1,,{},wav/stress__subito_sùbito_acute_frame.wav,1.64,2.05,1.252,3.12
-stress,ancora_àncora_none_solo,ancora.,it,1,якорь,{},wav/stress__ancora_àncora_none_solo.wav,1.12,1.6,1.431,3.12
-stress,ancora_àncora_none_frame,Dico ancora adesso.,it,1,якорь,{},wav/stress__ancora_àncora_none_frame.wav,1.6,2.03,1.267,3.12
-stress,ancora_àncora_grave_solo,àncora.,it,1,якорь,{},wav/stress__ancora_àncora_grave_solo.wav,1.16,1.72,1.481,3.12
-stress,ancora_àncora_grave_frame,Dico àncora adesso.,it,1,якорь,{},wav/stress__ancora_àncora_grave_frame.wav,1.68,2.16,1.287,3.12
-stress,ancora_àncora_acute_solo,áncora.,it,1,якорь,{},wav/stress__ancora_àncora_acute_solo.wav,1.08,1.57,1.451,3.12
-stress,ancora_àncora_acute_frame,Dico áncora adesso.,it,1,якорь,{},wav/stress__ancora_àncora_acute_frame.wav,1.6,2.07,1.293,3.12
-stress,ancora_ancòra_none_solo,ancora.,it,1,ещё,{},wav/stress__ancora_ancòra_none_solo.wav,1.12,1.59,1.419,3.12
-stress,ancora_ancòra_none_frame,Dico ancora adesso.,it,1,ещё,{},wav/stress__ancora_ancòra_none_frame.wav,1.6,2.06,1.288,3.12
-stress,ancora_ancòra_grave_solo,ancòra.,it,1,ещё,{},wav/stress__ancora_ancòra_grave_solo.wav,1.24,1.71,1.381,3.12
-stress,ancora_ancòra_grave_frame,Dico ancòra adesso.,it,1,ещё,{},wav/stress__ancora_ancòra_grave_frame.wav,1.72,2.2,1.28,3.12
-stress,ancora_ancòra_acute_solo,ancóra.,it,1,ещё,{},wav/stress__ancora_ancòra_acute_solo.wav,1.2,1.69,1.409,3.12
-stress,ancora_ancòra_acute_frame,Dico ancóra adesso.,it,1,ещё,{},wav/stress__ancora_ancòra_acute_frame.wav,1.52,2.07,1.359,3.12
-stress,capitano_càpitano_none_solo,capitano.,it,1,случаются,{},wav/stress__capitano_càpitano_none_solo.wav,1.12,1.66,1.485,3.12
-stress,capitano_càpitano_none_frame,Dico capitano adesso.,it,1,случаются,{},wav/stress__capitano_càpitano_none_frame.wav,1.8,2.25,1.25,3.12
-stress,capitano_càpitano_grave_solo,càpitano.,it,1,случаются,{},wav/stress__capitano_càpitano_grave_solo.wav,1.04,1.55,1.486,3.12
-stress,capitano_càpitano_grave_frame,Dico càpitano adesso.,it,1,случаются,{},wav/stress__capitano_càpitano_grave_frame.wav,1.68,2.1,1.248,3.12
-stress,capitano_càpitano_acute_solo,cápitano.,it,1,случаются,{},wav/stress__capitano_càpitano_acute_solo.wav,1.04,1.54,1.481,3.12
-stress,capitano_càpitano_acute_frame,Dico cápitano adesso.,it,1,случаются,{},wav/stress__capitano_càpitano_acute_frame.wav,1.8,2.22,1.235,3.12
-stress,capitano_capitàno_none_solo,capitano.,it,1,капитан,{},wav/stress__capitano_capitàno_none_solo.wav,1.12,1.67,1.488,3.12
-stress,capitano_capitàno_none_frame,Dico capitano adesso.,it,1,капитан,{},wav/stress__capitano_capitàno_none_frame.wav,1.8,2.23,1.24,3.12
-stress,capitano_capitàno_grave_solo,capitàno.,it,1,капитан,{},wav/stress__capitano_capitàno_grave_solo.wav,1.12,1.62,1.447,3.12
-stress,capitano_capitàno_grave_frame,Dico capitàno adesso.,it,1,капитан,{},wav/stress__capitano_capitàno_grave_frame.wav,1.72,2.15,1.252,3.12
-stress,capitano_capitàno_acute_solo,capitáno.,it,1,капитан,{},wav/stress__capitano_capitàno_acute_solo.wav,1.2,1.64,1.368,3.12
-stress,capitano_capitàno_acute_frame,Dico capitáno adesso.,it,1,капитан,{},wav/stress__capitano_capitàno_acute_frame.wav,1.72,2.12,1.234,3.12
-stress,principi_prìncipi_none_solo,principi.,it,1,принцы,{},wav/stress__principi_prìncipi_none_solo.wav,1.08,1.63,1.511,3.12
-stress,principi_prìncipi_none_frame,Dico principi adesso.,it,1,принцы,{},wav/stress__principi_prìncipi_none_frame.wav,1.8,2.17,1.205,3.12
-stress,principi_prìncipi_grave_solo,prìncipi.,it,1,принцы,{},wav/stress__principi_prìncipi_grave_solo.wav,0.88,1.45,1.644,3.12
-stress,principi_prìncipi_grave_frame,Dico prìncipi adesso.,it,1,принцы,{},wav/stress__principi_prìncipi_grave_frame.wav,1.72,2.13,1.241,3.12
-stress,principi_prìncipi_acute_solo,príncipi.,it,1,принцы,{},wav/stress__principi_prìncipi_acute_solo.wav,0.88,1.42,1.61,3.12
-stress,principi_prìncipi_acute_frame,Dico príncipi adesso.,it,1,принцы,{},wav/stress__principi_prìncipi_acute_frame.wav,1.6,2.07,1.292,3.12
-stress,principi_princìpi_none_solo,principi.,it,1,принципы,{},wav/stress__principi_princìpi_none_solo.wav,1.08,1.7,1.573,3.12
-stress,principi_princìpi_none_frame,Dico principi adesso.,it,1,принципы,{},wav/stress__principi_princìpi_none_frame.wav,1.8,2.14,1.191,3.12
-stress,principi_princìpi_grave_solo,princìpi.,it,1,принципы,{},wav/stress__principi_princìpi_grave_solo.wav,0.92,1.43,1.555,3.12
-stress,principi_princìpi_grave_frame,Dico princìpi adesso.,it,1,принципы,{},wav/stress__principi_princìpi_grave_frame.wav,1.72,2.07,1.206,3.12
-stress,principi_princìpi_acute_solo,princípi.,it,1,принципы,{},wav/stress__principi_princìpi_acute_solo.wav,0.96,1.53,1.59,3.12
-stress,principi_princìpi_acute_frame,Dico princípi adesso.,it,1,принципы,{},wav/stress__principi_princìpi_acute_frame.wav,2.04,2.42,1.189,3.12
-it_context,ancora_ancòra_plain,Vorrei ancora un caffè.,it,8,"контекст, без знака",{},wav/it_context__ancora_ancòra_plain.wav,1.36,1.81,1.334,3.12
-it_context,ancora_ancòra_mark,Vorrei ancòra un caffè.,it,8,со знаком,{},wav/it_context__ancora_ancòra_mark.wav,1.6,2.05,1.284,3.12
-it_context,ancora_àncora_plain,La nave getta l'ancora in porto.,it,8,"контекст, без знака",{},wav/it_context__ancora_àncora_plain.wav,2.28,2.55,1.118,3.13
-it_context,ancora_àncora_mark,La nave getta l'àncora in porto.,it,8,со знаком,{},wav/it_context__ancora_àncora_mark.wav,2.36,2.67,1.133,3.13
-it_context,principi_princìpi_plain,I principi della fisica sono semplici.,it,8,"контекст, без знака",{},wav/it_context__principi_princìpi_plain.wav,2.68,2.99,1.115,3.14
-it_context,principi_princìpi_mark,I princìpi della fisica sono semplici.,it,8,со знаком,{},wav/it_context__principi_princìpi_mark.wav,2.68,2.95,1.102,3.14
-it_context,principi_prìncipi_plain,Il re e la regina hanno due figli: sono principi.,it,8,"контекст, без знака",{},wav/it_context__principi_prìncipi_plain.wav,3.04,3.4,1.117,3.14
-it_context,principi_prìncipi_mark,Il re e la regina hanno due figli: sono prìncipi.,it,8,со знаком,{},wav/it_context__principi_prìncipi_mark.wav,3.16,3.43,1.086,3.14
-it_context,capitano_capitàno_plain,Il capitano parla con i marinai.,it,8,"контекст, без знака",{},wav/it_context__capitano_capitàno_plain.wav,2.2,2.47,1.123,3.12
-it_context,capitano_capitàno_mark,Il capitàno parla con i marinai.,it,8,со знаком,{},wav/it_context__capitano_capitàno_mark.wav,2.04,2.41,1.181,3.12
-it_context,capitano_càpitano_plain,Queste cose capitano spesso.,it,8,"контекст, без знака",{},wav/it_context__capitano_càpitano_plain.wav,2.08,2.38,1.146,3.12
-it_context,capitano_càpitano_mark,Queste cose càpitano spesso.,it,8,со знаком,{},wav/it_context__capitano_càpitano_mark.wav,2.0,2.35,1.176,3.12
-it_context,subito_sùbito_plain,Vieni subito qui!,it,8,"контекст, без знака",{},wav/it_context__subito_sùbito_plain.wav,1.4,1.9,1.357,3.12
-it_context,subito_sùbito_mark,Vieni sùbito qui!,it,8,со знаком,{},wav/it_context__subito_sùbito_mark.wav,1.4,1.89,1.347,3.12
-it_context,subito_subìto_plain,Ha subito un furto ieri sera.,it,8,"контекст, без знака",{},wav/it_context__subito_subìto_plain.wav,1.88,2.25,1.199,3.12
-it_context,subito_subìto_mark,Ha subìto un furto ieri sera.,it,8,со знаком,{},wav/it_context__subito_subìto_mark.wav,2.04,2.39,1.173,3.12
-it_ambiguous,plain,Ho visto i principi.,it,8,,{},wav/it_ambiguous__plain.wav,1.64,2.05,1.252,3.12
-it_ambiguous,princes,Ho visto i prìncipi.,it,8,,{},wav/it_ambiguous__princes.wav,1.64,2.06,1.255,3.12
-it_ambiguous,principles,Ho visto i princìpi.,it,8,,{},wav/it_ambiguous__principles.wav,1.64,2.14,1.305,3.12
-he_basic,00,"שלום, מה שלומך?",he,9,,{},wav/he_basic__00.wav,1.44,1.92,1.333,3.12
-he_basic,01,קוראים לי פאולו.,he,9,,{},wav/he_basic__01.wav,1.16,1.7,1.467,3.12
-he_basic,02,"אני רוצה כוס קפה, בבקשה.",he,9,,{},wav/he_basic__02.wav,2.32,2.59,1.118,3.13
-he_basic,03,איפה התחנה?,he,9,,{},wav/he_basic__03.wav,1.32,1.86,1.406,3.12
-he_basic,04,כמה זה עולה?,he,9,,{},wav/he_basic__04.wav,1.16,1.74,1.499,3.12
-he_basic,05,אני גר בתל אביב.,he,9,,{},wav/he_basic__05.wav,1.6,2.0,1.248,3.12
-he_context,boker_morning_plain,בוקר טוב!,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__boker_morning_plain.wav,3.44,3.54,1.029,3.14
-he_context,boker_morning_dicta,בֹּוקֶר טוֹב!,he,9,Dicta (≠ вручную),{},wav/he_context__boker_morning_dicta.wav,1.16,1.62,1.399,3.12
-he_context,boker_morning_manual,בֹּקֶר טוֹב!,he,9,огласовки вручную,{},wav/he_context__boker_morning_manual.wav,1.16,1.66,1.434,3.12
-he_context,boker_cowboy_plain,הבוקר רכב על סוס.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__boker_cowboy_plain.wav,1.56,2.0,1.284,3.12
-he_context,boker_cowboy_dicta,הַבֹּוקֶר רָכַב עַל סוּס.,he,9,Dicta (≠ вручную),{},wav/he_context__boker_cowboy_dicta.wav,2.24,2.54,1.135,3.13
-he_context,boker_cowboy_manual,הַבּוֹקֵר רָכַב עַל סוּס.,he,9,огласовки вручную,{},wav/he_context__boker_cowboy_manual.wav,1.72,2.05,1.193,3.12
-he_context,okhel_food_plain,האוכל על השולחן.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__okhel_food_plain.wav,1.48,2.03,1.371,3.12
-he_context,okhel_food_dicta,הָאֹוכֶל עַל הַשֻּׁולְחָן.,he,9,Dicta (≠ вручную),{},wav/he_context__okhel_food_dicta.wav,1.68,2.03,1.21,3.12
-he_context,okhel_food_manual,הָאֹכֶל עַל הַשֻּׁלְחָן.,he,9,огласовки вручную,{},wav/he_context__okhel_food_manual.wav,1.44,1.88,1.304,3.12
-he_context,okhel_eats_plain,הוא אוכל לחם.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__okhel_eats_plain.wav,1.32,1.77,1.34,3.12
-he_context,okhel_eats_dicta,הוּא אוֹכֵל לֶחֶם.,he,9,Dicta,{},wav/he_context__okhel_eats_dicta.wav,1.04,1.51,1.448,3.12
-he_context,okhel_eats_manual,הוּא אוֹכֵל לֶחֶם.,he,9,огласовки вручную,{},wav/he_context__okhel_eats_manual.wav,1.04,1.51,1.449,3.12
-he_context,sefer_book_plain,אני קורא ספר.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__sefer_book_plain.wav,1.48,1.98,1.341,3.12
-he_context,sefer_book_dicta,אֲנִי קוֹרֵא סֵפֶר.,he,9,Dicta,{},wav/he_context__sefer_book_dicta.wav,1.36,1.91,1.406,3.12
-he_context,sefer_book_manual,אֲנִי קוֹרֵא סֵפֶר.,he,9,огласовки вручную,{},wav/he_context__sefer_book_manual.wav,1.36,1.77,1.303,3.12
-he_context,sapar_barber_plain,הספר גזר לי את השיער.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__sapar_barber_plain.wav,2.0,2.28,1.142,3.12
-he_context,sapar_barber_dicta,הַסֵּפֶר גָּזַר לִי אֶת הַשֵּׂיעָר.,he,9,Dicta (≠ вручную),{},wav/he_context__sapar_barber_dicta.wav,1.92,2.25,1.174,3.12
-he_context,sapar_barber_manual,הַסַּפָּר גָּזַר לִי אֶת הַשֵּׂעָר.,he,9,огласовки вручную,{},wav/he_context__sapar_barber_manual.wav,2.08,2.38,1.144,3.12
-he_context,banu_built_plain,הם בנו בית חדש.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__banu_built_plain.wav,1.64,2.02,1.232,3.12
-he_context,banu_built_dicta,הֵם בָּנוּ בַּיִת חָדָשׁ.,he,9,Dicta,{},wav/he_context__banu_built_dicta.wav,1.44,1.91,1.323,3.12
-he_context,banu_built_manual,הֵם בָּנוּ בַּיִת חָדָשׁ.,he,9,огласовки вручную,{},wav/he_context__banu_built_manual.wav,1.44,1.94,1.344,3.12
-he_context,banu_in_us_plain,הוא בוטח בנו.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__banu_in_us_plain.wav,1.2,1.65,1.375,3.12
-he_context,banu_in_us_dicta,הוּא בּוֹטֵחַ בָּנוּ.,he,9,Dicta,{},wav/he_context__banu_in_us_dicta.wav,1.04,1.51,1.448,3.12
-he_context,banu_in_us_manual,הוּא בּוֹטֵחַ בָּנוּ.,he,9,огласовки вручную,{},wav/he_context__banu_in_us_manual.wav,1.04,1.62,1.558,3.12
-he_context,shlomekh_fem_plain,"שלום, מה שלומך?",he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__shlomekh_fem_plain.wav,1.44,1.89,1.316,3.12
-he_context,shlomekh_fem_dicta,"שָׁלוֹם, מָה שְׁלוֹמְךָ?",he,9,Dicta (≠ вручную),{},wav/he_context__shlomekh_fem_dicta.wav,1.2,1.63,1.361,3.12
-he_context,shlomekh_fem_manual,"שָׁלוֹם, מַה שְּׁלוֹמֵךְ?",he,9,огласовки вручную,{},wav/he_context__shlomekh_fem_manual.wav,1.4,1.85,1.325,3.12
-he_ambiguous,plain,הבוקר היה נחמד.,he,9,,{},wav/he_ambiguous__plain.wav,1.04,1.54,1.482,3.12
-he_ambiguous,morning,הַבֹּקֶר הָיָה נֶחְמָד.,he,9,,{},wav/he_ambiguous__morning.wav,1.52,2.04,1.343,3.12
-he_ambiguous,cowboy,הַבּוֹקֵר הָיָה נֶחְמָד.,he,9,,{},wav/he_ambiguous__cowboy.wav,1.72,2.15,1.25,3.12
-he_stress,banu_plain,בָּנוּ.,he,9,,{},wav/he_stress__banu_plain.wav,0.88,1.46,1.664,3.12
-he_stress,banu_ole_first,בָּ֫נוּ.,he,9,,{},wav/he_stress__banu_ole_first.wav,0.88,1.41,1.599,3.12
-he_stress,shalom_plain,שָׁלוֹם.,he,9,,{},wav/he_stress__shalom_plain.wav,0.92,1.47,1.602,3.12
-he_stress,shalom_ole_wrong,שָׁ֫לוֹם.,he,9,,{},wav/he_stress__shalom_ole_wrong.wav,0.92,1.43,1.555,3.12
-geminates,pala_palla,Pala. Palla.,it,2,,{},wav/geminates__pala_palla.wav,1.64,2.08,1.267,3.12
-geminates,pala_palla_sent,"Ho detto pala, non palla.",it,2,,{},wav/geminates__pala_palla_sent.wav,1.92,2.24,1.165,3.12
-geminates,caro_carro,Caro. Carro.,it,2,,{},wav/geminates__caro_carro.wav,1.8,2.26,1.254,3.12
-geminates,caro_carro_sent,"Ho detto caro, non carro.",it,2,,{},wav/geminates__caro_carro_sent.wav,1.88,2.23,1.189,3.12
-geminates,sete_sette,Sete. Sette.,it,2,,{},wav/geminates__sete_sette.wav,1.92,2.28,1.187,3.12
-geminates,sete_sette_sent,"Ho detto sete, non sette.",it,2,,{},wav/geminates__sete_sette_sent.wav,1.96,2.33,1.187,3.12
-geminates,nono_nonno,Nono. Nonno.,it,2,,{},wav/geminates__nono_nonno.wav,1.92,2.23,1.161,3.12
-geminates,nono_nonno_sent,"Ho detto nono, non nonno.",it,2,,{},wav/geminates__nono_nonno_sent.wav,2.0,2.31,1.155,3.12
-geminates,papa_papà,Papa. Papà.,it,2,,{},wav/geminates__papa_papà.wav,1.36,1.75,1.287,3.12
-geminates,papa_papà_sent,"Ho detto papa, non papà.",it,2,,{},wav/geminates__papa_papà_sent.wav,1.8,2.28,1.267,3.12
-geminates,camino_cammino,Camino. Cammino.,it,2,,{},wav/geminates__camino_cammino.wav,2.0,2.28,1.142,3.12
-geminates,camino_cammino_sent,"Ho detto camino, non cammino.",it,2,,{},wav/geminates__camino_cammino_sent.wav,2.08,2.44,1.175,3.12
-ru,nostress_plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,3,,{},wav/ru__nostress_plain.wav,3.68,3.75,1.02,3.15
-ru,nostress_zamok_plain,Это старый замок.,ru,3,,{},wav/ru__nostress_zamok_plain.wav,1.52,1.97,1.297,3.12
-ru,nostress_zamok_1,Это старый за́мок.,ru,3,,{},wav/ru__nostress_zamok_1.wav,1.6,1.98,1.239,3.12
-ru,nostress_zamok_2,Это старый замо́к.,ru,3,,{},wav/ru__nostress_zamok_2.wav,1.6,2.0,1.25,3.12
-ru,nostress_plachu_1,"Я пла́чу, когда слушаю эту песню.",ru,3,,{},wav/ru__nostress_plachu_1.wav,2.48,2.72,1.098,3.14
-ru,nostress_plachu_2,Я плачу́ за кофе.,ru,3,,{},wav/ru__nostress_plachu_2.wav,1.64,2.11,1.284,3.12
-ru,nostress_muka_1,Это была настоящая му́ка.,ru,3,,{},wav/ru__nostress_muka_1.wav,1.92,2.27,1.184,3.12
-ru,nostress_muka_2,Купи муку́ для пиццы.,ru,3,,{},wav/ru__nostress_muka_2.wav,1.8,2.26,1.254,3.12
-ru_repeat,0,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,100,,{},wav/ru_repeat__0.wav,3.64,3.7,1.018,3.14
-ru_repeat,1,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,101,,{},wav/ru_repeat__1.wav,3.92,3.93,1.004,3.15
-ru_repeat,2,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,102,,{},wav/ru_repeat__2.wav,3.96,3.94,0.995,3.15
-ru_repeat,3,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,103,,{},wav/ru_repeat__3.wav,3.8,3.84,1.011,3.15
-ru_repeat,4,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,104,,{},wav/ru_repeat__4.wav,3.52,3.62,1.028,3.14
-ru_repeat,5,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,105,,{},wav/ru_repeat__5.wav,3.48,3.58,1.03,3.14
-ru_repeat,6,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,106,,{},wav/ru_repeat__6.wav,4.04,4.03,0.997,3.15
-ru_repeat,7,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,107,,{},wav/ru_repeat__7.wav,3.48,3.57,1.025,3.14
-mix,whole_ru,"В прошедшем времени мы всегда говорим «ho mangiato», а не «io mangiato».",ru,4,,{},wav/mix__whole_ru.wav,4.08,3.98,0.976,3.15
-mix,split_ru_it,"В прошедшем времени мы всегда говорим, | ho mangiato, | а не | io mangiato.",ru+it,4,склейка,{},wav/mix__split.wav,5.96,7.23,,
-clone,_reference,paolo_offline_vpn.wav,ru,0,образец,{},wav/_ref_10s.wav,10.0,,,
-clone,ru_plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,5,,{},wav/clone__ru_plain.wav,4.48,8.21,1.833,3.45
-clone,mix_whole,"В прошедшем времени мы всегда говорим «ho mangiato», а не «io mangiato».",ru,5,,{},wav/clone__mix_whole.wav,5.36,5.88,1.097,3.62
-clone,it_00_cfg0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_00_cfg0.5.wav,2.96,3.75,1.267,3.63
-clone,it_00_cfg0.0,"Ciao, mi chiamo Paolo. Come ti chiami?",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_00_cfg0.0.wav,3.36,4.31,1.283,3.63
-clone,it_02_cfg0.5,"Vorrei un caffè e un cornetto, per favore.",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_02_cfg0.5.wav,2.88,3.77,1.309,3.63
-clone,it_02_cfg0.0,"Vorrei un caffè e un cornetto, per favore.",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_02_cfg0.0.wav,2.88,3.68,1.277,3.63
-clone,it_06_cfg0.5,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_06_cfg0.5.wav,3.76,4.46,1.186,3.63
-clone,it_06_cfg0.0,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_06_cfg0.0.wav,4.56,5.06,1.11,3.63
-clone,it_09_cfg0.5,"Scusi, a che ora parte il treno per Firenze?",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_09_cfg0.5.wav,3.28,4.01,1.224,3.63
-clone,it_09_cfg0.0,"Scusi, a che ora parte il treno per Firenze?",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_09_cfg0.0.wav,3.2,4.0,1.25,3.63
-clone,stress_telèfonano,Dico telèfonano adesso.,it,5,,"{""cfg_weight"": 0.0}",wav/clone__stress_telèfonano.wav,2.32,3.1,1.337,3.63
-clone,stress_àncora,Dico àncora adesso.,it,5,,"{""cfg_weight"": 0.0}",wav/clone__stress_àncora.wav,1.84,2.65,1.441,3.63
-clone,stress_ancòra,Dico ancòra adesso.,it,5,,"{""cfg_weight"": 0.0}",wav/clone__stress_ancòra.wav,1.84,2.62,1.422,3.63
-slow,00_cfg0.5_ex0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,,"{""cfg_weight"": 0.5, ""exaggeration"": 0.5}",wav/slow__00_cfg0.5_ex0.5.wav,2.36,2.7,1.143,5.08
-slow,00_cfg0.3_ex0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.5}",wav/slow__00_cfg0.3_ex0.5.wav,2.56,2.85,1.115,5.08
-slow,00_cfg0.3_ex0.3,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__00_cfg0.3_ex0.3.wav,2.48,2.73,1.101,5.08
-slow,00_stretch0.8,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,librosa x0.8,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__00_stretch0.8.wav,3.1,,,
-slow,02_cfg0.5_ex0.5,"Vorrei un caffè e un cornetto, per favore.",it,6,,"{""cfg_weight"": 0.5, ""exaggeration"": 0.5}",wav/slow__02_cfg0.5_ex0.5.wav,2.72,3.11,1.143,5.08
-slow,02_cfg0.3_ex0.5,"Vorrei un caffè e un cornetto, per favore.",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.5}",wav/slow__02_cfg0.3_ex0.5.wav,2.48,2.91,1.173,5.08
-slow,02_cfg0.3_ex0.3,"Vorrei un caffè e un cornetto, per favore.",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__02_cfg0.3_ex0.3.wav,2.48,3.34,1.348,5.06
-slow,02_stretch0.8,"Vorrei un caffè e un cornetto, per favore.",it,6,librosa x0.8,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__02_stretch0.8.wav,3.1,,,
-slow,09_cfg0.5_ex0.5,"Scusi, a che ora parte il treno per Firenze?",it,6,,"{""cfg_weight"": 0.5, ""exaggeration"": 0.5}",wav/slow__09_cfg0.5_ex0.5.wav,2.84,3.14,1.106,3.14
-slow,09_cfg0.3_ex0.5,"Scusi, a che ora parte il treno per Firenze?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.5}",wav/slow__09_cfg0.3_ex0.5.wav,2.72,3.07,1.129,3.14
-slow,09_cfg0.3_ex0.3,"Scusi, a che ora parte il treno per Firenze?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__09_cfg0.3_ex0.3.wav,2.96,3.29,1.111,3.14
-slow,09_stretch0.8,"Scusi, a che ora parte il treno per Firenze?",it,6,librosa x0.8,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__09_stretch0.8.wav,3.7,,,
-it_a1,v2_00,"Ciao, mi chiamo Paolo. Come ti chiami?",it,0,,{},wav/it_a1__v2_00.wav,2.0,2.4,1.202,3.12
-it_a1,v2_01,"Piacere! Sono russa, di Mosca.",it,1,,{},wav/it_a1__v2_01.wav,2.2,2.56,1.162,3.12
-it_a1,v2_02,"Vorrei un caffè e un cornetto, per favore.",it,2,,{},wav/it_a1__v2_02.wav,2.72,3.04,1.117,3.15
-it_a1,v2_03,Quanto costa questo libro?,it,3,,{},wav/it_a1__v2_03.wav,1.72,2.13,1.24,3.12
-it_a1,v2_04,Dov'è la stazione? È lontana da qui?,it,4,,{},wav/it_a1__v2_04.wav,2.4,2.9,1.208,3.15
-it_a1,v2_05,C'è una farmacia vicino all'albergo?,it,5,,{},wav/it_a1__v2_05.wav,2.12,2.51,1.185,3.12
-it_a1,v2_06,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,6,,{},wav/it_a1__v2_06.wav,2.84,3.11,1.096,3.15
-it_a1,v2_07,Ho ventitré anni e abito a Mosca.,it,7,,{},wav/it_a1__v2_07.wav,2.0,2.48,1.242,3.12
-it_a1,v2_08,Ieri ho mangiato la pizza con i miei amici.,it,8,,{},wav/it_a1__v2_08.wav,2.36,2.82,1.195,3.15
-it_a1,v2_09,"Scusi, a che ora parte il treno per Firenze?",it,9,,{},wav/it_a1__v2_09.wav,2.64,2.96,1.122,3.15
-it_a1,v2_10,Mia sorella lavora in un ospedale.,it,10,,{},wav/it_a1__v2_10.wav,2.28,2.63,1.152,3.12
-it_a1,v2_11,"Domani andiamo al mare, se non piove.",it,11,,{},wav/it_a1__v2_11.wav,2.28,2.62,1.15,3.12
-stress_v2,telefonano_none,Dico telefonano adesso.,it,1,4-й от конца,{},wav/stress_v2__telefonano_none.wav,1.52,1.98,1.304,3.12
-stress_v2,telefonano_grave,Dico telèfonano adesso.,it,1,4-й от конца,{},wav/stress_v2__telefonano_grave.wav,2.04,2.46,1.205,3.12
-stress_v2,parliamo_none,Dico parliamo adesso.,it,1,,{},wav/stress_v2__parliamo_none.wav,1.6,2.05,1.28,3.12
-stress_v2,parliamo_grave,Dico parliàmo adesso.,it,1,,{},wav/stress_v2__parliamo_grave.wav,1.56,2.03,1.304,3.12
-stress_v2,desiderano_none,Dico desiderano adesso.,it,1,4-й от конца,{},wav/stress_v2__desiderano_none.wav,1.84,2.24,1.215,3.12
-stress_v2,desiderano_grave,Dico desìderano adesso.,it,1,4-й от конца,{},wav/stress_v2__desiderano_grave.wav,2.04,2.42,1.187,3.12
-stress_v2,capiscono_none,Dico capiscono adesso.,it,1,,{},wav/stress_v2__capiscono_none.wav,1.72,2.1,1.224,3.12
-stress_v2,capiscono_grave,Dico capìscono adesso.,it,1,,{},wav/stress_v2__capiscono_grave.wav,1.8,2.2,1.221,3.12
-stress_v2,scrivono_none,Dico scrivono adesso.,it,1,,{},wav/stress_v2__scrivono_none.wav,1.56,2.0,1.283,3.12
-stress_v2,scrivono_grave,Dico scrìvono adesso.,it,1,,{},wav/stress_v2__scrivono_grave.wav,1.6,2.11,1.32,3.12
-stress_v2,farmacia_none,Dico farmacia adesso.,it,1,,{},wav/stress_v2__farmacia_none.wav,1.72,2.21,1.286,3.12
-stress_v2,farmacia_grave,Dico farmacìa adesso.,it,1,,{},wav/stress_v2__farmacia_grave.wav,1.72,2.2,1.279,3.12
-stress_v2,psicologia_none,Dico psicologia adesso.,it,1,,{},wav/stress_v2__psicologia_none.wav,1.6,2.02,1.264,3.12
-stress_v2,psicologia_grave,Dico psicologìa adesso.,it,1,,{},wav/stress_v2__psicologia_grave.wav,1.6,2.13,1.332,3.12
-stress_v2,Brindisi_none,Dico Brindisi adesso.,it,1,,{},wav/stress_v2__Brindisi_none.wav,1.8,2.25,1.251,3.12
-stress_v2,Brindisi_grave,Dico Brìndisi adesso.,it,1,,{},wav/stress_v2__Brindisi_grave.wav,1.6,2.11,1.316,3.12
-stress_v2,famiglia_none,Dico famiglia adesso.,it,1,,{},wav/stress_v2__famiglia_none.wav,1.52,1.97,1.297,3.12
-stress_v2,famiglia_grave,Dico famìglia adesso.,it,1,,{},wav/stress_v2__famiglia_grave.wav,1.52,2.03,1.335,3.12
-stress_v2,subito_none,Dico subito adesso.,it,1,,{},wav/stress_v2__subito_none.wav,1.44,1.93,1.338,3.12
-stress_v2,subito_grave,Dico sùbito adesso.,it,1,,{},wav/stress_v2__subito_grave.wav,1.52,1.97,1.299,3.12
-cpu,short,Quanto costa questo libro?,it,7,,{},wav/cpu__short.wav,1.76,18.31,10.401,
-cpu,long,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,7,,{},wav/cpu__long.wav,3.44,27.52,8.0,
-cpu,he_short,"שלום, מה שלומך?",he,7,,{},wav/cpu__he_short.wav,1.4,16.61,11.861,
+section,name,text,lang,seed,tag,params,file,dur_s,gen_s,rtf,vram_gb,asr,cer
+it_a1,v3_00,"Ciao, mi chiamo Paolo. Come ti chiami?",it,0,,{},wav/it_a1__v3_00.wav,2.08,12.88,6.192,3.12,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+it_a1,v3_01,"Piacere! Sono russa, di Mosca.",it,1,,{},wav/it_a1__v3_01.wav,2.6,2.84,1.094,3.13,"«Piacere, sono Russa, di Mosca!»",0.0
+it_a1,v3_02,"Vorrei un caffè e un cornetto, per favore.",it,2,,{},wav/it_a1__v3_02.wav,2.64,2.79,1.057,3.14,"Vorrei un caffè e un cormitto, per favore.",0.05
+it_a1,v3_03,Quanto costa questo libro?,it,3,,{},wav/it_a1__v3_03.wav,1.72,2.16,1.253,3.12,Quanto costa questo libro?,0.0
+it_a1,v3_04,Dov'è la stazione? È lontana da qui?,it,4,,{},wav/it_a1__v3_04.wav,2.28,2.5,1.098,3.13,Dove è la stazione? È lontana da qui.,0.059
+it_a1,v3_05,C'è una farmacia vicino all'albergo?,it,5,,{},wav/it_a1__v3_05.wav,2.12,2.41,1.139,3.12,«C'è una farmacia vicino all'albergo?»,0.0
+it_a1,v3_06,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,6,,{},wav/it_a1__v3_06.wav,2.96,3.12,1.054,3.14,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",0.0
+it_a1,v3_07,Ho ventitré anni e abito a Mosca.,it,7,,{},wav/it_a1__v3_07.wav,2.12,2.43,1.148,3.12,A venti tre anni è abito Moscav.,0.188
+it_a1,v3_08,Ieri ho mangiato la pizza con i miei amici.,it,8,,{},wav/it_a1__v3_08.wav,2.32,2.53,1.092,3.14,Ieri ho mangiato la pizza con i miei amici.,0.0
+it_a1,v3_09,"Scusi, a che ora parte il treno per Firenze?",it,9,,{},wav/it_a1__v3_09.wav,2.72,2.94,1.08,3.14,"Scusi, a che ora parte il treno per Firenze?",0.0
+it_a1,v3_10,Mia sorella lavora in un ospedale.,it,10,,{},wav/it_a1__v3_10.wav,2.2,2.52,1.148,3.12,Satale lavora in un ospedale.,0.273
+it_a1,v3_11,"Domani andiamo al mare, se non piove.",it,11,,{},wav/it_a1__v3_11.wav,2.44,2.71,1.109,3.13,Domani andiamo al mare se non piove.,0.0
+stress,telefonano_telèfonano_none_solo,telefonano.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_none_solo.wav,1.52,1.94,1.278,3.12,Telefonano.,0.0
+stress,telefonano_telèfonano_none_frame,Dico telefonano adesso.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_none_frame.wav,1.84,2.17,1.177,3.12,Bico telefonano adesso.,0.045
+stress,telefonano_telèfonano_grave_solo,telèfonano.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_grave_solo.wav,1.52,1.94,1.278,3.12,telefonano.,0.0
+stress,telefonano_telèfonano_grave_frame,Dico telèfonano adesso.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_grave_frame.wav,1.72,2.09,1.214,3.12,Bico telefonano adesso.,0.045
+stress,telefonano_telèfonano_acute_solo,teléfonano.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_acute_solo.wav,1.52,1.92,1.265,3.12,Telefonano.,0.0
+stress,telefonano_telèfonano_acute_frame,Dico teléfonano adesso.,it,1,4-й от конца,{},wav/stress__telefonano_telèfonano_acute_frame.wav,1.72,2.11,1.226,3.12,Bico telefonano adesso.,0.045
+stress,parliamo_parliàmo_none_solo,parliamo.,it,1,,{},wav/stress__parliamo_parliàmo_none_solo.wav,1.04,1.54,1.479,3.12,Parliamo.,0.0
+stress,parliamo_parliàmo_none_frame,Dico parliamo adesso.,it,1,,{},wav/stress__parliamo_parliàmo_none_frame.wav,1.52,1.91,1.257,3.12,Vi coparliamo adesso.,0.15
+stress,parliamo_parliàmo_grave_solo,parliàmo.,it,1,,{},wav/stress__parliamo_parliàmo_grave_solo.wav,1.08,1.55,1.435,3.12,Parliamo!,0.0
+stress,parliamo_parliàmo_grave_frame,Dico parliàmo adesso.,it,1,,{},wav/stress__parliamo_parliàmo_grave_frame.wav,1.6,2.07,1.293,3.12,Dico parliamo adesso.,0.0
+stress,parliamo_parliàmo_acute_solo,parliámo.,it,1,,{},wav/stress__parliamo_parliàmo_acute_solo.wav,1.08,1.53,1.412,3.12,Parliamo.,0.0
+stress,parliamo_parliàmo_acute_frame,Dico parliámo adesso.,it,1,,{},wav/stress__parliamo_parliàmo_acute_frame.wav,1.68,2.06,1.226,3.12,Vi coparliamo adesso.,0.15
+stress,desiderano_desìderano_none_solo,desiderano.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_none_solo.wav,1.24,1.68,1.358,3.12,desiderano.,0.0
+stress,desiderano_desìderano_none_frame,Dico desiderano adesso.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_none_frame.wav,1.76,2.11,1.198,3.12,Bico desidero o no adesso?,0.227
+stress,desiderano_desìderano_grave_solo,desìderano.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_grave_solo.wav,1.6,2.02,1.265,3.12,Dizieterna.,0.6
+stress,desiderano_desìderano_grave_frame,Dico desìderano adesso.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_grave_frame.wav,1.84,2.17,1.18,3.12,Dico desiderano adesso.,0.0
+stress,desiderano_desìderano_acute_solo,desíderano.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_acute_solo.wav,1.28,1.71,1.336,3.12,Desiderano.,0.0
+stress,desiderano_desìderano_acute_frame,Dico desíderano adesso.,it,1,4-й от конца,{},wav/stress__desiderano_desìderano_acute_frame.wav,1.84,2.15,1.17,3.12,Dico desiderano adesso.,0.0
+stress,capiscono_capìscono_none_solo,capiscono.,it,1,,{},wav/stress__capiscono_capìscono_none_solo.wav,1.2,1.67,1.395,3.12,Capiscono,0.0
+stress,capiscono_capìscono_none_frame,Dico capiscono adesso.,it,1,,{},wav/stress__capiscono_capìscono_none_frame.wav,1.68,2.09,1.247,3.12,Bico capiscono adesso.,0.048
+stress,capiscono_capìscono_grave_solo,capìscono.,it,1,,{},wav/stress__capiscono_capìscono_grave_solo.wav,1.32,1.76,1.335,3.12,Capiscono.,0.0
+stress,capiscono_capìscono_grave_frame,Dico capìscono adesso.,it,1,,{},wav/stress__capiscono_capìscono_grave_frame.wav,1.72,2.07,1.206,3.12,Bico capiscono adesso?,0.048
+stress,capiscono_capìscono_acute_solo,capíscono.,it,1,,{},wav/stress__capiscono_capìscono_acute_solo.wav,1.32,1.76,1.332,3.12,Capiscono.,0.0
+stress,capiscono_capìscono_acute_frame,Dico capíscono adesso.,it,1,,{},wav/stress__capiscono_capìscono_acute_frame.wav,1.56,1.99,1.278,3.12,Dico capiscono adesso.,0.0
+stress,scrivono_scrìvono_none_solo,scrivono.,it,1,,{},wav/stress__scrivono_scrìvono_none_solo.wav,0.92,1.47,1.602,3.12,scrivo no,0.125
+stress,scrivono_scrìvono_none_frame,Dico scrivono adesso.,it,1,,{},wav/stress__scrivono_scrìvono_none_frame.wav,1.84,2.25,1.223,3.12,"Dico, scrivono adesso.",0.0
+stress,scrivono_scrìvono_grave_solo,scrìvono.,it,1,,{},wav/stress__scrivono_scrìvono_grave_solo.wav,0.92,1.44,1.564,3.12,scrivo no,0.125
+stress,scrivono_scrìvono_grave_frame,Dico scrìvono adesso.,it,1,,{},wav/stress__scrivono_scrìvono_grave_frame.wav,1.68,2.04,1.214,3.12,"Dico, scrivono adesso.",0.0
+stress,scrivono_scrìvono_acute_solo,scrívono.,it,1,,{},wav/stress__scrivono_scrìvono_acute_solo.wav,0.96,1.49,1.551,3.12,Scrivono,0.0
+stress,scrivono_scrìvono_acute_frame,Dico scrívono adesso.,it,1,,{},wav/stress__scrivono_scrìvono_acute_frame.wav,1.6,2.1,1.312,3.12,Dico scrivono adesso.,0.0
+stress,farmacia_farmacìa_none_solo,farmacia.,it,1,,{},wav/stress__farmacia_farmacìa_none_solo.wav,1.08,1.59,1.469,3.12,Farma Gia.,0.25
+stress,farmacia_farmacìa_none_frame,Dico farmacia adesso.,it,1,,{},wav/stress__farmacia_farmacìa_none_frame.wav,1.72,2.1,1.22,3.12,Bicofarmagia adesso!,0.15
+stress,farmacia_farmacìa_grave_solo,farmacìa.,it,1,,{},wav/stress__farmacia_farmacìa_grave_solo.wav,1.16,1.65,1.425,3.12,Farmacia,0.0
+stress,farmacia_farmacìa_grave_frame,Dico farmacìa adesso.,it,1,,{},wav/stress__farmacia_farmacìa_grave_frame.wav,1.88,2.27,1.207,3.12,Dico farmacia adesso.,0.0
+stress,farmacia_farmacìa_acute_solo,farmacía.,it,1,,{},wav/stress__farmacia_farmacìa_acute_solo.wav,1.16,1.72,1.48,3.12,Farmacia,0.0
+stress,farmacia_farmacìa_acute_frame,Dico farmacía adesso.,it,1,,{},wav/stress__farmacia_farmacìa_acute_frame.wav,1.88,2.25,1.199,3.12,Dico farmacia adesso.,0.0
+stress,psicologia_psicologìa_none_solo,psicologia.,it,1,,{},wav/stress__psicologia_psicologìa_none_solo.wav,1.12,1.64,1.464,3.12,Psicologia.,0.0
+stress,psicologia_psicologìa_none_frame,Dico psicologia adesso.,it,1,,{},wav/stress__psicologia_psicologìa_none_frame.wav,1.76,2.17,1.231,3.12,Bicopsicologia adesso.,0.091
+stress,psicologia_psicologìa_grave_solo,psicologìa.,it,1,,{},wav/stress__psicologia_psicologìa_grave_solo.wav,1.12,1.71,1.524,3.12,Psicologia.,0.0
+stress,psicologia_psicologìa_grave_frame,Dico psicologìa adesso.,it,1,,{},wav/stress__psicologia_psicologìa_grave_frame.wav,1.76,2.18,1.238,3.12,Bicopsicologia adesso.,0.091
+stress,psicologia_psicologìa_acute_solo,psicología.,it,1,,{},wav/stress__psicologia_psicologìa_acute_solo.wav,1.12,1.68,1.498,3.12,Psicologia.,0.0
+stress,psicologia_psicologìa_acute_frame,Dico psicología adesso.,it,1,,{},wav/stress__psicologia_psicologìa_acute_frame.wav,1.76,2.23,1.267,3.12,Bicopsicologia adesso.,0.091
+stress,Brindisi_Brìndisi_none_solo,Brindisi.,it,1,,{},wav/stress__Brindisi_Brìndisi_none_solo.wav,1.24,1.78,1.436,3.12,Brindisi.,0.0
+stress,Brindisi_Brìndisi_none_frame,Dico Brindisi adesso.,it,1,,{},wav/stress__Brindisi_Brìndisi_none_frame.wav,1.72,2.2,1.277,3.12,Dico brindisi adesso.,0.0
+stress,Brindisi_Brìndisi_grave_solo,Brìndisi.,it,1,,{},wav/stress__Brindisi_Brìndisi_grave_solo.wav,1.24,1.71,1.377,3.12,Brindisi.,0.0
+stress,Brindisi_Brìndisi_grave_frame,Dico Brìndisi adesso.,it,1,,{},wav/stress__Brindisi_Brìndisi_grave_frame.wav,1.84,2.27,1.235,3.12,Dico prindisi adesso.,0.05
+stress,Brindisi_Brìndisi_acute_solo,Bríndisi.,it,1,,{},wav/stress__Brindisi_Brìndisi_acute_solo.wav,1.24,1.7,1.372,3.12,Brindisi!,0.0
+stress,Brindisi_Brìndisi_acute_frame,Dico Bríndisi adesso.,it,1,,{},wav/stress__Brindisi_Brìndisi_acute_frame.wav,1.6,2.0,1.251,3.12,Bico brindisi adesso?,0.05
+stress,famiglia_famìglia_none_solo,famiglia.,it,1,,{},wav/stress__famiglia_famìglia_none_solo.wav,0.96,1.52,1.586,3.12,Famiglia.,0.0
+stress,famiglia_famìglia_none_frame,Dico famiglia adesso.,it,1,,{},wav/stress__famiglia_famìglia_none_frame.wav,1.84,2.2,1.196,3.12,Dico famiglia adesso.,0.0
+stress,famiglia_famìglia_grave_solo,famìglia.,it,1,,{},wav/stress__famiglia_famìglia_grave_solo.wav,0.96,1.51,1.576,3.12,Famiglia.,0.0
+stress,famiglia_famìglia_grave_frame,Dico famìglia adesso.,it,1,,{},wav/stress__famiglia_famìglia_grave_frame.wav,1.68,2.13,1.27,3.12,Bico famiglia adesso!,0.05
+stress,famiglia_famìglia_acute_solo,famíglia.,it,1,,{},wav/stress__famiglia_famìglia_acute_solo.wav,1.0,1.56,1.561,3.12,Famiglia.,0.0
+stress,famiglia_famìglia_acute_frame,Dico famíglia adesso.,it,1,,{},wav/stress__famiglia_famìglia_acute_frame.wav,1.68,2.13,1.268,3.12,Bico famiglia adesso!,0.05
+stress,subito_sùbito_none_solo,subito.,it,1,,{},wav/stress__subito_sùbito_none_solo.wav,0.84,1.46,1.734,3.12,Subito.,0.0
+stress,subito_sùbito_none_frame,Dico subito adesso.,it,1,,{},wav/stress__subito_sùbito_none_frame.wav,1.52,1.96,1.291,3.12,Dico subito adesso.,0.0
+stress,subito_sùbito_grave_solo,sùbito.,it,1,,{},wav/stress__subito_sùbito_grave_solo.wav,0.88,1.49,1.698,3.12,Subito.,0.0
+stress,subito_sùbito_grave_frame,Dico sùbito adesso.,it,1,,{},wav/stress__subito_sùbito_grave_frame.wav,1.52,1.98,1.304,3.12,Dico subito adesso.,0.0
+stress,subito_sùbito_acute_solo,súbito.,it,1,,{},wav/stress__subito_sùbito_acute_solo.wav,0.84,1.4,1.673,3.12,Subito!,0.0
+stress,subito_sùbito_acute_frame,Dico súbito adesso.,it,1,,{},wav/stress__subito_sùbito_acute_frame.wav,1.64,2.05,1.252,3.12,Dico subito adesso.,0.0
+stress,ancora_àncora_none_solo,ancora.,it,1,якорь,{},wav/stress__ancora_àncora_none_solo.wav,1.12,1.6,1.431,3.12,ancora.,0.0
+stress,ancora_àncora_none_frame,Dico ancora adesso.,it,1,якорь,{},wav/stress__ancora_àncora_none_frame.wav,1.6,2.03,1.267,3.12,Dico ancora adesso.,0.0
+stress,ancora_àncora_grave_solo,àncora.,it,1,якорь,{},wav/stress__ancora_àncora_grave_solo.wav,1.16,1.72,1.481,3.12,Ancora!,0.0
+stress,ancora_àncora_grave_frame,Dico àncora adesso.,it,1,якорь,{},wav/stress__ancora_àncora_grave_frame.wav,1.68,2.16,1.287,3.12,Bico ancora adesso.,0.056
+stress,ancora_àncora_acute_solo,áncora.,it,1,якорь,{},wav/stress__ancora_àncora_acute_solo.wav,1.08,1.57,1.451,3.12,Ancora.,0.0
+stress,ancora_àncora_acute_frame,Dico áncora adesso.,it,1,якорь,{},wav/stress__ancora_àncora_acute_frame.wav,1.6,2.07,1.293,3.12,Dico ancora adesso.,0.0
+stress,ancora_ancòra_none_solo,ancora.,it,1,ещё,{},wav/stress__ancora_ancòra_none_solo.wav,1.12,1.59,1.419,3.12,ancora.,0.0
+stress,ancora_ancòra_none_frame,Dico ancora adesso.,it,1,ещё,{},wav/stress__ancora_ancòra_none_frame.wav,1.6,2.06,1.288,3.12,Dico ancora adesso.,0.0
+stress,ancora_ancòra_grave_solo,ancòra.,it,1,ещё,{},wav/stress__ancora_ancòra_grave_solo.wav,1.24,1.71,1.381,3.12,Ancora.,0.0
+stress,ancora_ancòra_grave_frame,Dico ancòra adesso.,it,1,ещё,{},wav/stress__ancora_ancòra_grave_frame.wav,1.72,2.2,1.28,3.12,Dico ancora adesso.,0.0
+stress,ancora_ancòra_acute_solo,ancóra.,it,1,ещё,{},wav/stress__ancora_ancòra_acute_solo.wav,1.2,1.69,1.409,3.12,Ancora.,0.0
+stress,ancora_ancòra_acute_frame,Dico ancóra adesso.,it,1,ещё,{},wav/stress__ancora_ancòra_acute_frame.wav,1.52,2.07,1.359,3.12,Dico ancora adesso.,0.0
+stress,capitano_càpitano_none_solo,capitano.,it,1,случаются,{},wav/stress__capitano_càpitano_none_solo.wav,1.12,1.66,1.485,3.12,Capitano.,0.0
+stress,capitano_càpitano_none_frame,Dico capitano adesso.,it,1,случаются,{},wav/stress__capitano_càpitano_none_frame.wav,1.8,2.25,1.25,3.12,Vico capitano adesso.,0.05
+stress,capitano_càpitano_grave_solo,càpitano.,it,1,случаются,{},wav/stress__capitano_càpitano_grave_solo.wav,1.04,1.55,1.486,3.12,Capitano.,0.0
+stress,capitano_càpitano_grave_frame,Dico càpitano adesso.,it,1,случаются,{},wav/stress__capitano_càpitano_grave_frame.wav,1.68,2.1,1.248,3.12,Bicocapitano adesso.,0.1
+stress,capitano_càpitano_acute_solo,cápitano.,it,1,случаются,{},wav/stress__capitano_càpitano_acute_solo.wav,1.04,1.54,1.481,3.12,Capitano.,0.0
+stress,capitano_càpitano_acute_frame,Dico cápitano adesso.,it,1,случаются,{},wav/stress__capitano_càpitano_acute_frame.wav,1.8,2.22,1.235,3.12,Bicocapitano adesso?,0.1
+stress,capitano_capitàno_none_solo,capitano.,it,1,капитан,{},wav/stress__capitano_capitàno_none_solo.wav,1.12,1.67,1.488,3.12,Capitano.,0.0
+stress,capitano_capitàno_none_frame,Dico capitano adesso.,it,1,капитан,{},wav/stress__capitano_capitàno_none_frame.wav,1.8,2.23,1.24,3.12,Vico capitano adesso.,0.05
+stress,capitano_capitàno_grave_solo,capitàno.,it,1,капитан,{},wav/stress__capitano_capitàno_grave_solo.wav,1.12,1.62,1.447,3.12,Capitano.,0.0
+stress,capitano_capitàno_grave_frame,Dico capitàno adesso.,it,1,капитан,{},wav/stress__capitano_capitàno_grave_frame.wav,1.72,2.15,1.252,3.12,Dico capitano adesso.,0.0
+stress,capitano_capitàno_acute_solo,capitáno.,it,1,капитан,{},wav/stress__capitano_capitàno_acute_solo.wav,1.2,1.64,1.368,3.12,Capitano.,0.0
+stress,capitano_capitàno_acute_frame,Dico capitáno adesso.,it,1,капитан,{},wav/stress__capitano_capitàno_acute_frame.wav,1.72,2.12,1.234,3.12,Dico capitano adesso.,0.0
+stress,principi_prìncipi_none_solo,principi.,it,1,принцы,{},wav/stress__principi_prìncipi_none_solo.wav,1.08,1.63,1.511,3.12,Principi.,0.0
+stress,principi_prìncipi_none_frame,Dico principi adesso.,it,1,принцы,{},wav/stress__principi_prìncipi_none_frame.wav,1.8,2.17,1.205,3.12,Dico principi adesso?,0.0
+stress,principi_prìncipi_grave_solo,prìncipi.,it,1,принцы,{},wav/stress__principi_prìncipi_grave_solo.wav,0.88,1.45,1.644,3.12,Principe.,0.125
+stress,principi_prìncipi_grave_frame,Dico prìncipi adesso.,it,1,принцы,{},wav/stress__principi_prìncipi_grave_frame.wav,1.72,2.13,1.241,3.12,Bico Principi adesso.,0.05
+stress,principi_prìncipi_acute_solo,príncipi.,it,1,принцы,{},wav/stress__principi_prìncipi_acute_solo.wav,0.88,1.42,1.61,3.12,Pincipi.,0.125
+stress,principi_prìncipi_acute_frame,Dico príncipi adesso.,it,1,принцы,{},wav/stress__principi_prìncipi_acute_frame.wav,1.6,2.07,1.292,3.12,Dico principi adesso.,0.0
+stress,principi_princìpi_none_solo,principi.,it,1,принципы,{},wav/stress__principi_princìpi_none_solo.wav,1.08,1.7,1.573,3.12,Principi.,0.0
+stress,principi_princìpi_none_frame,Dico principi adesso.,it,1,принципы,{},wav/stress__principi_princìpi_none_frame.wav,1.8,2.14,1.191,3.12,Dico principi adesso?,0.0
+stress,principi_princìpi_grave_solo,princìpi.,it,1,принципы,{},wav/stress__principi_princìpi_grave_solo.wav,0.92,1.43,1.555,3.12,Pingchipi.,0.375
+stress,principi_princìpi_grave_frame,Dico princìpi adesso.,it,1,принципы,{},wav/stress__principi_princìpi_grave_frame.wav,1.72,2.07,1.206,3.12,Bico principi adesso.,0.05
+stress,principi_princìpi_acute_solo,princípi.,it,1,принципы,{},wav/stress__principi_princìpi_acute_solo.wav,0.96,1.53,1.59,3.12,Pincipi.,0.125
+stress,principi_princìpi_acute_frame,Dico princípi adesso.,it,1,принципы,{},wav/stress__principi_princìpi_acute_frame.wav,2.04,2.42,1.189,3.12,Dico principi adesso?,0.0
+it_context,ancora_ancòra_plain,Vorrei ancora un caffè.,it,8,"контекст, без знака",{},wav/it_context__ancora_ancòra_plain.wav,1.36,1.81,1.334,3.12,Vorrei ancora un caffè.,0.0
+it_context,ancora_ancòra_mark,Vorrei ancòra un caffè.,it,8,со знаком,{},wav/it_context__ancora_ancòra_mark.wav,1.6,2.05,1.284,3.12,Vorrei ancora un caffè.,0.0
+it_context,ancora_àncora_plain,La nave getta l'ancora in porto.,it,8,"контекст, без знака",{},wav/it_context__ancora_àncora_plain.wav,2.28,2.55,1.118,3.13,La nave getta l'ancora in porto.,0.0
+it_context,ancora_àncora_mark,La nave getta l'àncora in porto.,it,8,со знаком,{},wav/it_context__ancora_àncora_mark.wav,2.36,2.67,1.133,3.13,La nave getta l'ancora in porto.,0.0
+it_context,principi_princìpi_plain,I principi della fisica sono semplici.,it,8,"контекст, без знака",{},wav/it_context__principi_princìpi_plain.wav,2.68,2.99,1.115,3.14,I principi della fisica sono semplici.,0.0
+it_context,principi_princìpi_mark,I princìpi della fisica sono semplici.,it,8,со знаком,{},wav/it_context__principi_princìpi_mark.wav,2.68,2.95,1.102,3.14,I principi della fisica sono semplici.,0.0
+it_context,principi_prìncipi_plain,Il re e la regina hanno due figli: sono principi.,it,8,"контекст, без знака",{},wav/it_context__principi_prìncipi_plain.wav,3.04,3.4,1.117,3.14,Il lei e la regina hanno due figli e sono principi.,0.085
+it_context,principi_prìncipi_mark,Il re e la regina hanno due figli: sono prìncipi.,it,8,со знаком,{},wav/it_context__principi_prìncipi_mark.wav,3.16,3.43,1.086,3.14,"E lei e la regina hanno due figli, sono principi.",0.085
+it_context,capitano_capitàno_plain,Il capitano parla con i marinai.,it,8,"контекст, без знака",{},wav/it_context__capitano_capitàno_plain.wav,2.2,2.47,1.123,3.12,Il capitano parla con i marinai.,0.0
+it_context,capitano_capitàno_mark,Il capitàno parla con i marinai.,it,8,со знаком,{},wav/it_context__capitano_capitàno_mark.wav,2.04,2.41,1.181,3.12,Il capitano parla con i marinai.,0.0
+it_context,capitano_càpitano_plain,Queste cose capitano spesso.,it,8,"контекст, без знака",{},wav/it_context__capitano_càpitano_plain.wav,2.08,2.38,1.146,3.12,Queste cose capitano spesso.,0.0
+it_context,capitano_càpitano_mark,Queste cose càpitano spesso.,it,8,со знаком,{},wav/it_context__capitano_càpitano_mark.wav,2.0,2.35,1.176,3.12,Queste cose capitano spesso.,0.0
+it_context,subito_sùbito_plain,Vieni subito qui!,it,8,"контекст, без знака",{},wav/it_context__subito_sùbito_plain.wav,1.4,1.9,1.357,3.12,Vieni subito qui.,0.0
+it_context,subito_sùbito_mark,Vieni sùbito qui!,it,8,со знаком,{},wav/it_context__subito_sùbito_mark.wav,1.4,1.89,1.347,3.12,Vieni subito qui.,0.0
+it_context,subito_subìto_plain,Ha subito un furto ieri sera.,it,8,"контекст, без знака",{},wav/it_context__subito_subìto_plain.wav,1.88,2.25,1.199,3.12,Ha subito un furto ieri sera».,0.0
+it_context,subito_subìto_mark,Ha subìto un furto ieri sera.,it,8,со знаком,{},wav/it_context__subito_subìto_mark.wav,2.04,2.39,1.173,3.12,Ha subito un furto ieri sera.,0.0
+it_ambiguous,plain,Ho visto i principi.,it,8,,{},wav/it_ambiguous__plain.wav,1.64,2.05,1.252,3.12,Ho visto i principi.,0.0
+it_ambiguous,princes,Ho visto i prìncipi.,it,8,,{},wav/it_ambiguous__princes.wav,1.64,2.06,1.255,3.12,Ho visto i principi.,0.0
+it_ambiguous,principles,Ho visto i princìpi.,it,8,,{},wav/it_ambiguous__principles.wav,1.64,2.14,1.305,3.12,Ho visto i principi.,0.0
+he_basic,00,"שלום, מה שלומך?",he,9,,{},wav/he_basic__00.wav,1.44,1.92,1.333,3.12,"תלום, מה שלוח?",0.231
+he_basic,01,קוראים לי פאולו.,he,9,,{},wav/he_basic__01.wav,1.16,1.7,1.467,3.12,כוחיים ליפולו.,0.333
+he_basic,02,"אני רוצה כוס קפה, בבקשה.",he,9,,{},wav/he_basic__02.wav,2.32,2.59,1.118,3.13,וכן יורד שכוש כבר בוקש.,0.591
+he_basic,03,איפה התחנה?,he,9,,{},wav/he_basic__03.wav,1.32,1.86,1.406,3.12,איפה אתכנה?,0.2
+he_basic,04,כמה זה עולה?,he,9,,{},wav/he_basic__04.wav,1.16,1.74,1.499,3.12,כמה זה אולה?,0.091
+he_basic,05,אני גר בתל אביב.,he,9,,{},wav/he_basic__05.wav,1.6,2.0,1.248,3.12,גרבטלאביג,0.533
+he_context,boker_morning_plain,בוקר טוב!,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__boker_morning_plain.wav,3.44,3.54,1.029,3.14,בכתב! בוקר דב!,0.875
+he_context,boker_morning_dicta,בֹּוקֶר טוֹב!,he,9,Dicta (≠ вручную),{},wav/he_context__boker_morning_dicta.wav,1.16,1.62,1.399,3.12,בוקר טוב!,0.0
+he_context,boker_morning_manual,בֹּקֶר טוֹב!,he,9,огласовки вручную,{},wav/he_context__boker_morning_manual.wav,1.16,1.66,1.434,3.12,בוקר טוב!,0.143
+he_context,boker_cowboy_plain,הבוקר רכב על סוס.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__boker_cowboy_plain.wav,1.56,2.0,1.284,3.12,"הבוקר רב אל הסוס,",0.188
+he_context,boker_cowboy_dicta,הַבֹּוקֶר רָכַב עַל סוּס.,he,9,Dicta (≠ вручную),{},wav/he_context__boker_cowboy_dicta.wav,2.24,2.54,1.135,3.13,הבוקר לחבל סוסץ,0.312
+he_context,boker_cowboy_manual,הַבּוֹקֵר רָכַב עַל סוּס.,he,9,огласовки вручную,{},wav/he_context__boker_cowboy_manual.wav,1.72,2.05,1.193,3.12,הבוקר רחב על סוס.,0.062
+he_context,okhel_food_plain,האוכל על השולחן.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__okhel_food_plain.wav,1.48,2.03,1.371,3.12,או כלל השולחן.,0.267
+he_context,okhel_food_dicta,הָאֹוכֶל עַל הַשֻּׁולְחָן.,he,9,Dicta (≠ вручную),{},wav/he_context__okhel_food_dicta.wav,1.68,2.03,1.21,3.12,הווה ללשולחן,0.4
+he_context,okhel_food_manual,הָאֹכֶל עַל הַשֻּׁלְחָן.,he,9,огласовки вручную,{},wav/he_context__okhel_food_manual.wav,1.44,1.88,1.304,3.12,האוכל על השומחן.,0.231
+he_context,okhel_eats_plain,הוא אוכל לחם.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__okhel_eats_plain.wav,1.32,1.77,1.34,3.12,ואוכל אלחם.,0.333
+he_context,okhel_eats_dicta,הוּא אוֹכֵל לֶחֶם.,he,9,Dicta,{},wav/he_context__okhel_eats_dicta.wav,1.04,1.51,1.448,3.12,וכה לכם,0.583
+he_context,okhel_eats_manual,הוּא אוֹכֵל לֶחֶם.,he,9,огласовки вручную,{},wav/he_context__okhel_eats_manual.wav,1.04,1.51,1.449,3.12,וכה לכם,0.583
+he_context,sefer_book_plain,אני קורא ספר.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__sefer_book_plain.wav,1.48,1.98,1.341,3.12,אני חור סПАר,0.333
+he_context,sefer_book_dicta,אֲנִי קוֹרֵא סֵפֶר.,he,9,Dicta,{},wav/he_context__sefer_book_dicta.wav,1.36,1.91,1.406,3.12,אני חולש תפל,0.417
+he_context,sefer_book_manual,אֲנִי קוֹרֵא סֵפֶר.,he,9,огласовки вручную,{},wav/he_context__sefer_book_manual.wav,1.36,1.77,1.303,3.12,אני חולש תפל,0.417
+he_context,sapar_barber_plain,הספר גזר לי את השיער.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__sapar_barber_plain.wav,2.0,2.28,1.142,3.12,היסב גזל לי תאי על?,0.5
+he_context,sapar_barber_dicta,הַסֵּפֶר גָּזַר לִי אֶת הַשֵּׂיעָר.,he,9,Dicta (≠ вручную),{},wav/he_context__sapar_barber_dicta.wav,1.92,2.25,1.174,3.12,אספן קזן לי תסיעה,0.45
+he_context,sapar_barber_manual,הַסַּפָּר גָּזַר לִי אֶת הַשֵּׂעָר.,he,9,огласовки вручную,{},wav/he_context__sapar_barber_manual.wav,2.08,2.38,1.144,3.12,"הספא גזל לי את הסאל,",0.263
+he_context,banu_built_plain,הם בנו בית חדש.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__banu_built_plain.wav,1.64,2.02,1.232,3.12,הם בנובי כחדש,0.214
+he_context,banu_built_dicta,הֵם בָּנוּ בַּיִת חָדָשׁ.,he,9,Dicta,{},wav/he_context__banu_built_dicta.wav,1.44,1.91,1.323,3.12,הם בנו בית חדש.,0.0
+he_context,banu_built_manual,הֵם בָּנוּ בַּיִת חָדָשׁ.,he,9,огласовки вручную,{},wav/he_context__banu_built_manual.wav,1.44,1.94,1.344,3.12,הם בנו בית חדש.,0.0
+he_context,banu_in_us_plain,הוא בוטח בנו.,he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__banu_in_us_plain.wav,1.2,1.65,1.375,3.12,ובוד תחבי נו.,0.667
+he_context,banu_in_us_dicta,הוּא בּוֹטֵחַ בָּנוּ.,he,9,Dicta,{},wav/he_context__banu_in_us_dicta.wav,1.04,1.51,1.448,3.12,תרבנו.,0.75
+he_context,banu_in_us_manual,הוּא בּוֹטֵחַ בָּנוּ.,he,9,огласовки вручную,{},wav/he_context__banu_in_us_manual.wav,1.04,1.62,1.558,3.12,תרבנו.,0.75
+he_context,shlomekh_fem_plain,"שלום, מה שלומך?",he,9,без огласовок (как сейчас в Chatterbox),{},wav/he_context__shlomekh_fem_plain.wav,1.44,1.89,1.316,3.12,"תלום, מה שלוח?",0.231
+he_context,shlomekh_fem_dicta,"שָׁלוֹם, מָה שְׁלוֹמְךָ?",he,9,Dicta (≠ вручную),{},wav/he_context__shlomekh_fem_dicta.wav,1.2,1.63,1.361,3.12,שלום מסבום חאר,0.615
+he_context,shlomekh_fem_manual,"שָׁלוֹם, מַה שְּׁלוֹמֵךְ?",he,9,огласовки вручную,{},wav/he_context__shlomekh_fem_manual.wav,1.4,1.85,1.325,3.12,"שלום, משלום אך.",0.385
+he_ambiguous,plain,הבוקר היה נחמד.,he,9,,{},wav/he_ambiguous__plain.wav,1.04,1.54,1.482,3.12,בוקה מרחת,0.643
+he_ambiguous,morning,הַבֹּקֶר הָיָה נֶחְמָד.,he,9,,{},wav/he_ambiguous__morning.wav,1.52,2.04,1.343,3.12,הפוקד היה נחמד.,0.231
+he_ambiguous,cowboy,הַבּוֹקֵר הָיָה נֶחְמָד.,he,9,,{},wav/he_ambiguous__cowboy.wav,1.72,2.15,1.25,3.12,הבוקר היה נחמד.,0.0
+he_stress,banu_plain,בָּנוּ.,he,9,,{},wav/he_stress__banu_plain.wav,0.88,1.46,1.664,3.12,בנו,0.0
+he_stress,banu_ole_first,בָּ֫נוּ.,he,9,,{},wav/he_stress__banu_ole_first.wav,0.88,1.41,1.599,3.12,בנו.,0.0
+he_stress,shalom_plain,שָׁלוֹם.,he,9,,{},wav/he_stress__shalom_plain.wav,0.92,1.47,1.602,3.12,שלום!,0.0
+he_stress,shalom_ole_wrong,שָׁ֫לוֹם.,he,9,,{},wav/he_stress__shalom_ole_wrong.wav,0.92,1.43,1.555,3.12,שלום.,0.0
+geminates,pala_palla,Pala. Palla.,it,2,,{},wav/geminates__pala_palla.wav,1.64,2.08,1.267,3.12,"Bala, Bala.",0.3
+geminates,pala_palla_sent,"Ho detto pala, non palla.",it,2,,{},wav/geminates__pala_palla_sent.wav,1.92,2.24,1.165,3.12,"Ho detto palla, non palla.",0.043
+geminates,caro_carro,Caro. Carro.,it,2,,{},wav/geminates__caro_carro.wav,1.8,2.26,1.254,3.12,"Caro, caro.",0.1
+geminates,caro_carro_sent,"Ho detto caro, non carro.",it,2,,{},wav/geminates__caro_carro_sent.wav,1.88,2.23,1.189,3.12,"Ho detto caro, non caro.",0.043
+geminates,sete_sette,Sete. Sette.,it,2,,{},wav/geminates__sete_sette.wav,1.92,2.28,1.187,3.12,777.,1.0
+geminates,sete_sette_sent,"Ho detto sete, non sette.",it,2,,{},wav/geminates__sete_sette_sent.wav,1.96,2.33,1.187,3.12,"Ho detto sete, non sette.",0.0
+geminates,nono_nonno,Nono. Nonno.,it,2,,{},wav/geminates__nono_nonno.wav,1.92,2.23,1.161,3.12,"Nono, nonno.",0.0
+geminates,nono_nonno_sent,"Ho detto nono, non nonno.",it,2,,{},wav/geminates__nono_nonno_sent.wav,2.0,2.31,1.155,3.12,"«Ho detto nono, non nonno».",0.0
+geminates,papa_papà,Papa. Papà.,it,2,,{},wav/geminates__papa_papà.wav,1.36,1.75,1.287,3.12,Pa pa pa pa.,0.222
+geminates,papa_papà_sent,"Ho detto papa, non papà.",it,2,,{},wav/geminates__papa_papà_sent.wav,1.8,2.28,1.267,3.12,"Ho detto papa, non papà.",0.0
+geminates,camino_cammino,Camino. Cammino.,it,2,,{},wav/geminates__camino_cammino.wav,2.0,2.28,1.142,3.12,"Cammino, cammino.",0.071
+geminates,camino_cammino_sent,"Ho detto camino, non cammino.",it,2,,{},wav/geminates__camino_cammino_sent.wav,2.08,2.44,1.175,3.12,"Ho detto cammino, non cammino.",0.037
+ru,nostress_plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,3,,{},wav/ru__nostress_plain.wav,3.68,3.75,1.02,3.15,Сегодня мы говорим о прошедшем времени. Это совсем несложно.,0.017
+ru,nostress_zamok_plain,Это старый замок.,ru,3,,{},wav/ru__nostress_zamok_plain.wav,1.52,1.97,1.297,3.12,Это старый замок.,0.0
+ru,nostress_zamok_1,Это старый за́мок.,ru,3,,{},wav/ru__nostress_zamok_1.wav,1.6,1.98,1.239,3.12,Это старый замок.,0.0
+ru,nostress_zamok_2,Это старый замо́к.,ru,3,,{},wav/ru__nostress_zamok_2.wav,1.6,2.0,1.25,3.12,Это старый замок.,0.0
+ru,nostress_plachu_1,"Я пла́чу, когда слушаю эту песню.",ru,3,,{},wav/ru__nostress_plachu_1.wav,2.48,2.72,1.098,3.14,"Я плачу, когда слушаю эту песню.",0.0
+ru,nostress_plachu_2,Я плачу́ за кофе.,ru,3,,{},wav/ru__nostress_plachu_2.wav,1.64,2.11,1.284,3.12,«Я плачу за кофе».,0.0
+ru,nostress_muka_1,Это была настоящая му́ка.,ru,3,,{},wav/ru__nostress_muka_1.wav,1.92,2.27,1.184,3.12,Это была настоящая мука.,0.0
+ru,nostress_muka_2,Купи муку́ для пиццы.,ru,3,,{},wav/ru__nostress_muka_2.wav,1.8,2.26,1.254,3.12,Купи муку для пиццы.,0.0
+ru_repeat,0,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,100,,{},wav/ru_repeat__0.wav,3.64,3.7,1.018,3.14,Сегодня мы говорим о прошедшем времени. Это совсем несложно.,0.017
+ru_repeat,1,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,101,,{},wav/ru_repeat__1.wav,3.92,3.93,1.004,3.15,"Сегодня мы говорим о прошедшем времени, это совсем не сложно.",0.0
+ru_repeat,2,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,102,,{},wav/ru_repeat__2.wav,3.96,3.94,0.995,3.15,"Секодня мы говорим о прошедшем времени, это совсем не сложно.",0.017
+ru_repeat,3,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,103,,{},wav/ru_repeat__3.wav,3.8,3.84,1.011,3.15,Сегодня мы говорим о прошедшем времени. Это совсем несложно.,0.017
+ru_repeat,4,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,104,,{},wav/ru_repeat__4.wav,3.52,3.62,1.028,3.14,Тихо дня мы говорим о прошедшем времени. Это совсем несложно.,0.085
+ru_repeat,5,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,105,,{},wav/ru_repeat__5.wav,3.48,3.58,1.03,3.14,"Сегодня мы говорим о прошедшем времени, это совсем несложно.",0.017
+ru_repeat,6,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,106,,{},wav/ru_repeat__6.wav,4.04,4.03,0.997,3.15,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,0.0
+ru_repeat,7,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,107,,{},wav/ru_repeat__7.wav,3.48,3.57,1.025,3.14,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,0.0
+mix,whole_ru,"В прошедшем времени мы всегда говорим «ho mangiato», а не «io mangiato».",ru,4,,{},wav/mix__whole_ru.wav,4.08,3.98,0.976,3.15,"В прошедшем времени мы всегда говорим «хо манджату», а не «ио манджату».",0.303
+mix,split_ru_it,"В прошедшем времени мы всегда говорим, | ho mangiato, | а не | io mangiato.",ru+it,4,склейка,{},wav/mix__split.wav,5.96,7.23,,,"В прошедшем времени мы все договорим о манджато, а не, и о манджато.",0.364
+clone,_reference,paolo_offline_vpn.wav,ru,0,образец,{},wav/_ref_10s.wav,10.0,,,,,
+clone,ru_plain,Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,ru,5,,{},wav/clone__ru_plain.wav,4.48,8.21,1.833,3.45,«Сегодня мы говорим о прошедшем времени. Это совсем не сложно.,0.0
+clone,mix_whole,"В прошедшем времени мы всегда говорим «ho mangiato», а не «io mangiato».",ru,5,,{},wav/clone__mix_whole.wav,5.36,5.88,1.097,3.62,"В прошедшем времени мы всегда говорим «ho mangiato», а не «iho mangiato».",0.015
+clone,it_00_cfg0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_00_cfg0.5.wav,2.96,3.75,1.267,3.63,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+clone,it_00_cfg0.0,"Ciao, mi chiamo Paolo. Come ti chiami?",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_00_cfg0.0.wav,3.36,4.31,1.283,3.63,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+clone,it_02_cfg0.5,"Vorrei un caffè e un cornetto, per favore.",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_02_cfg0.5.wav,2.88,3.77,1.309,3.63,"Vorrei un caffè e un cornetto, per favore.",0.0
+clone,it_02_cfg0.0,"Vorrei un caffè e un cornetto, per favore.",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_02_cfg0.0.wav,2.88,3.68,1.277,3.63,"Vorrei un caffè e un cornito, per favore.",0.05
+clone,it_06_cfg0.5,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_06_cfg0.5.wav,3.76,4.46,1.186,3.63,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",0.0
+clone,it_06_cfg0.0,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_06_cfg0.0.wav,4.56,5.06,1.11,3.63,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",0.0
+clone,it_09_cfg0.5,"Scusi, a che ora parte il treno per Firenze?",it,5,,"{""cfg_weight"": 0.5}",wav/clone__it_09_cfg0.5.wav,3.28,4.01,1.224,3.63,"Scusi, a che ora parte il treno per Firenze?",0.0
+clone,it_09_cfg0.0,"Scusi, a che ora parte il treno per Firenze?",it,5,,"{""cfg_weight"": 0.0}",wav/clone__it_09_cfg0.0.wav,3.2,4.0,1.25,3.63,"«Scusi, a che ora parte il treno per Firenze?»",0.0
+clone,stress_telèfonano,Dico telèfonano adesso.,it,5,,"{""cfg_weight"": 0.0}",wav/clone__stress_telèfonano.wav,2.32,3.1,1.337,3.63,"Dico, telefonano adesso.",0.0
+clone,stress_àncora,Dico àncora adesso.,it,5,,"{""cfg_weight"": 0.0}",wav/clone__stress_àncora.wav,1.84,2.65,1.441,3.63,Dico ancora adesso...,0.0
+clone,stress_ancòra,Dico ancòra adesso.,it,5,,"{""cfg_weight"": 0.0}",wav/clone__stress_ancòra.wav,1.84,2.62,1.422,3.63,Dico ancora adesso.,0.0
+slow,00_cfg0.5_ex0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,,"{""cfg_weight"": 0.5, ""exaggeration"": 0.5}",wav/slow__00_cfg0.5_ex0.5.wav,2.36,2.7,1.143,5.08,"«Ciao, mi chiamo Paolo. Come ti chiami?»",0.0
+slow,00_cfg0.3_ex0.5,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.5}",wav/slow__00_cfg0.3_ex0.5.wav,2.56,2.85,1.115,5.08,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+slow,00_cfg0.3_ex0.3,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__00_cfg0.3_ex0.3.wav,2.48,2.73,1.101,5.08,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+slow,00_stretch0.8,"Ciao, mi chiamo Paolo. Come ti chiami?",it,6,librosa x0.8,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__00_stretch0.8.wav,3.1,,,,"Ciao, mi chiamo Paolo. Come ti chiami?",0.0
+slow,02_cfg0.5_ex0.5,"Vorrei un caffè e un cornetto, per favore.",it,6,,"{""cfg_weight"": 0.5, ""exaggeration"": 0.5}",wav/slow__02_cfg0.5_ex0.5.wav,2.72,3.11,1.143,5.08,"Vorrei un caffè e un cornetto, per favore.",0.0
+slow,02_cfg0.3_ex0.5,"Vorrei un caffè e un cornetto, per favore.",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.5}",wav/slow__02_cfg0.3_ex0.5.wav,2.48,2.91,1.173,5.08,"«Vorrei un caffè e un cornetto, per favore».",0.0
+slow,02_cfg0.3_ex0.3,"Vorrei un caffè e un cornetto, per favore.",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__02_cfg0.3_ex0.3.wav,2.48,3.34,1.348,5.06,"«Vorrei un caffè e un cornetto, per favore».",0.0
+slow,02_stretch0.8,"Vorrei un caffè e un cornetto, per favore.",it,6,librosa x0.8,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__02_stretch0.8.wav,3.1,,,,"«Vorrei un caffè e un cornetto, per favore».",0.0
+slow,09_cfg0.5_ex0.5,"Scusi, a che ora parte il treno per Firenze?",it,6,,"{""cfg_weight"": 0.5, ""exaggeration"": 0.5}",wav/slow__09_cfg0.5_ex0.5.wav,2.84,3.14,1.106,3.14,"Scusi, a che ora parte il treno per Firenze?",0.0
+slow,09_cfg0.3_ex0.5,"Scusi, a che ora parte il treno per Firenze?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.5}",wav/slow__09_cfg0.3_ex0.5.wav,2.72,3.07,1.129,3.14,"Scusi, a che ora parte il treno per Firenze?",0.0
+slow,09_cfg0.3_ex0.3,"Scusi, a che ora parte il treno per Firenze?",it,6,,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__09_cfg0.3_ex0.3.wav,2.96,3.29,1.111,3.14,"«Scusi, a che ora parte il treno per Firenze?»",0.0
+slow,09_stretch0.8,"Scusi, a che ora parte il treno per Firenze?",it,6,librosa x0.8,"{""cfg_weight"": 0.3, ""exaggeration"": 0.3}",wav/slow__09_stretch0.8.wav,3.7,,,,"«Scusi, a che ora parte il treno per Firenze?»",0.0
+it_a1,v2_00,"Ciao, mi chiamo Paolo. Come ti chiami?",it,0,,{},wav/it_a1__v2_00.wav,2.0,2.4,1.202,3.12,"Ciao, mi chiamo Paolo, come ti chiami.",0.0
+it_a1,v2_01,"Piacere! Sono russa, di Mosca.",it,1,,{},wav/it_a1__v2_01.wav,2.2,2.56,1.162,3.12,"Piacere, sono Russa, di Mosca.",0.0
+it_a1,v2_02,"Vorrei un caffè e un cornetto, per favore.",it,2,,{},wav/it_a1__v2_02.wav,2.72,3.04,1.117,3.15,"Vorrei un caffè e un cornetto, per favore.",0.0
+it_a1,v2_03,Quanto costa questo libro?,it,3,,{},wav/it_a1__v2_03.wav,1.72,2.13,1.24,3.12,Quanto costa questo libro?,0.0
+it_a1,v2_04,Dov'è la stazione? È lontana da qui?,it,4,,{},wav/it_a1__v2_04.wav,2.4,2.9,1.208,3.15,«Dov'è la stazione? È lontana da qui?»,0.0
+it_a1,v2_05,C'è una farmacia vicino all'albergo?,it,5,,{},wav/it_a1__v2_05.wav,2.12,2.51,1.185,3.12,C'è una farmacia vicino al l'albergo?,0.029
+it_a1,v2_06,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,6,,{},wav/it_a1__v2_06.wav,2.84,3.11,1.096,3.15,Mi piace la musica ma non mi piacciono i film dell'orrore.,0.0
+it_a1,v2_07,Ho ventitré anni e abito a Mosca.,it,7,,{},wav/it_a1__v2_07.wav,2.0,2.48,1.242,3.12,O ventitré anni abitò Mosca.,0.156
+it_a1,v2_08,Ieri ho mangiato la pizza con i miei amici.,it,8,,{},wav/it_a1__v2_08.wav,2.36,2.82,1.195,3.15,Ieri ho mangiato la pizza con i miei amici.,0.0
+it_a1,v2_09,"Scusi, a che ora parte il treno per Firenze?",it,9,,{},wav/it_a1__v2_09.wav,2.64,2.96,1.122,3.15,"«Scusi, a che ora parte il treno per Firenze?»",0.0
+it_a1,v2_10,Mia sorella lavora in un ospedale.,it,10,,{},wav/it_a1__v2_10.wav,2.28,2.63,1.152,3.12,Mia sorella lavora in un ospedale.,0.0
+it_a1,v2_11,"Domani andiamo al mare, se non piove.",it,11,,{},wav/it_a1__v2_11.wav,2.28,2.62,1.15,3.12,"Domani andiamo al mare, se non piove.",0.0
+stress_v2,telefonano_none,Dico telefonano adesso.,it,1,4-й от конца,{},wav/stress_v2__telefonano_none.wav,1.52,1.98,1.304,3.12,Dico telefono adesso.,0.091
+stress_v2,telefonano_grave,Dico telèfonano adesso.,it,1,4-й от конца,{},wav/stress_v2__telefonano_grave.wav,2.04,2.46,1.205,3.12,"Dico, telefonano adesso.",0.0
+stress_v2,parliamo_none,Dico parliamo adesso.,it,1,,{},wav/stress_v2__parliamo_none.wav,1.6,2.05,1.28,3.12,Dico parliamo adesso.,0.0
+stress_v2,parliamo_grave,Dico parliàmo adesso.,it,1,,{},wav/stress_v2__parliamo_grave.wav,1.56,2.03,1.304,3.12,Bicco parliamo adesso.,0.1
+stress_v2,desiderano_none,Dico desiderano adesso.,it,1,4-й от конца,{},wav/stress_v2__desiderano_none.wav,1.84,2.24,1.215,3.12,Dico desiderano adesso.,0.0
+stress_v2,desiderano_grave,Dico desìderano adesso.,it,1,4-й от конца,{},wav/stress_v2__desiderano_grave.wav,2.04,2.42,1.187,3.12,Dico desiderano adesso.,0.0
+stress_v2,capiscono_none,Dico capiscono adesso.,it,1,,{},wav/stress_v2__capiscono_none.wav,1.72,2.1,1.224,3.12,Bicco capiscono adesso.,0.095
+stress_v2,capiscono_grave,Dico capìscono adesso.,it,1,,{},wav/stress_v2__capiscono_grave.wav,1.8,2.2,1.221,3.12,Vi cocapiscono adesso.,0.143
+stress_v2,scrivono_none,Dico scrivono adesso.,it,1,,{},wav/stress_v2__scrivono_none.wav,1.56,2.0,1.283,3.12,Vi coscrivono adesso!,0.15
+stress_v2,scrivono_grave,Dico scrìvono adesso.,it,1,,{},wav/stress_v2__scrivono_grave.wav,1.6,2.11,1.32,3.12,Dico scrivono adesso.,0.0
+stress_v2,farmacia_none,Dico farmacia adesso.,it,1,,{},wav/stress_v2__farmacia_none.wav,1.72,2.21,1.286,3.12,Bicofarmacia adesso.,0.1
+stress_v2,farmacia_grave,Dico farmacìa adesso.,it,1,,{},wav/stress_v2__farmacia_grave.wav,1.72,2.2,1.279,3.12,Dico farmacia adesso.,0.0
+stress_v2,psicologia_none,Dico psicologia adesso.,it,1,,{},wav/stress_v2__psicologia_none.wav,1.6,2.02,1.264,3.12,Dico psicologia adesso.,0.0
+stress_v2,psicologia_grave,Dico psicologìa adesso.,it,1,,{},wav/stress_v2__psicologia_grave.wav,1.6,2.13,1.332,3.12,Dico psicologia adesso.,0.0
+stress_v2,Brindisi_none,Dico Brindisi adesso.,it,1,,{},wav/stress_v2__Brindisi_none.wav,1.8,2.25,1.251,3.12,Vi coprindisi adesso!,0.2
+stress_v2,Brindisi_grave,Dico Brìndisi adesso.,it,1,,{},wav/stress_v2__Brindisi_grave.wav,1.6,2.11,1.316,3.12,dico brindisi adesso,0.0
+stress_v2,famiglia_none,Dico famiglia adesso.,it,1,,{},wav/stress_v2__famiglia_none.wav,1.52,1.97,1.297,3.12,Biccofamiglia adesso.,0.15
+stress_v2,famiglia_grave,Dico famìglia adesso.,it,1,,{},wav/stress_v2__famiglia_grave.wav,1.52,2.03,1.335,3.12,Biccofamiglia adesso?,0.15
+stress_v2,subito_none,Dico subito adesso.,it,1,,{},wav/stress_v2__subito_none.wav,1.44,1.93,1.338,3.12,Dico subito adesso.,0.0
+stress_v2,subito_grave,Dico sùbito adesso.,it,1,,{},wav/stress_v2__subito_grave.wav,1.52,1.97,1.299,3.12,Dico subito adesso.,0.0
+cpu,short,Quanto costa questo libro?,it,7,,{},wav/cpu__short.wav,1.76,18.31,10.401,,Quanto costa questo libro?,0.0
+cpu,long,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",it,7,,{},wav/cpu__long.wav,3.44,27.52,8.0,,"Mi piace la musica, ma non mi piacciono i film dell'orrore.",0.0
+cpu,he_short,"שלום, מה שלומך?",he,7,,{},wav/cpu__he_short.wav,1.4,16.61,11.861,,"שלום, משלום.",0.308
