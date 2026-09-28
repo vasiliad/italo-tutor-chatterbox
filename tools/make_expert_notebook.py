@@ -41,9 +41,9 @@ code(r"""
 !cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --limit 3
 """)
 code(r"""
-# Полная экспертиза: по одному вопросу, не чаще 20 в минуту (лимит Live API — 30), по приоритету.
+# Полная экспертиза: не чаще 20 вопросов в минуту на ключ (ключи из разных проектов — лимиты у каждого свои), по приоритету.
 # Продолжает с места остановки: ответы прошлых запусков берутся из репозитория (expert_results.csv).
-!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --per-min 20
+!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --per-min 20 --per-key
 """)
 code(r"""
 import pandas as pd
