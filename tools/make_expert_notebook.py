@@ -23,8 +23,13 @@ for name in ["GEMINI_API_KEY"] + [f"GEMINI_API_KEY_{i}" for i in range(2, 10)]:
         keys.append(sc.get_secret(name).strip())
     except Exception:
         pass
+# Запуски через API секретов не видят — тогда ключи из приватного Dataset «gemini-keys»
+# (файл keys.txt, по ключу в строке; подключается скриптом kaggle_api.py автоматически)
+if not keys:
+    for f in glob.glob("/kaggle/input/**/keys.txt", recursive=True):
+        keys += [k.strip() for k in open(f).read().split() if k.strip()]
 print("ключей:", len(keys))
-assert keys, "Нет секрета GEMINI_API_KEY"
+assert keys, "Нет ключей: ни секрета GEMINI_API_KEY, ни Dataset gemini-keys/keys.txt"
 os.makedirs(os.path.expanduser("~/key"), exist_ok=True)
 open(os.path.expanduser("~/key/key"), "w").write("\n".join(keys))
 
