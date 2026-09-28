@@ -1,0 +1,555 @@
+diff --git a/lib/core/audio/mic_check.dart b/lib/core/audio/mic_check.dart
+new file mode 100644
+index 0000000..a5cc3ae
+--- /dev/null
++++ b/lib/core/audio/mic_check.dart
+@@ -0,0 +1,131 @@
++import 'dart:async';
++import 'dart:io';
++
++import 'package:path/path.dart' as p;
++import 'package:record/record.dart';
++
++/// Итог проверки микрофона при запуске.
++enum MicResult {
++  ok,
++
++  /// Доступ к микрофону не выдан (macOS: Конфиденциальность → Микрофон).
++  denied,
++
++  /// Доступ есть, но голоса не слышно (выключен, не тот вход, слишком тихо).
++  silent,
++
++  /// Микрофона нет или запись не запускается.
++  unavailable,
++}
++
++class MicReport {
++  MicReport(this.result, {this.peakDbfs, this.detail});
++  final MicResult result;
++
++  /// Самый громкий момент за время проверки, dBFS (0 — предел, −160 — тишина).
++  final double? peakDbfs;
++  final String? detail;
++}
++
++/// Порог «голос слышен»: обычная речь в полуметре от встроенного микрофона
++/// даёт −35…−15 dBFS, тишина в комнате — ниже −50.
++const micVoiceThresholdDbfs = -42.0;
++
++/// То, что проверке нужно от микрофона (для тестов — подделка).
++abstract interface class MicProbe {
++  /// Есть ли доступ; при [request] — спросить систему (первый запуск).
++  Future<bool> hasPermission({bool request = true});
++
++  /// Послушать [duration] и вернуть самый громкий уровень, dBFS.
++  Future<double> peakLevel(Duration duration);
++}
++
++/// Проверка: доступ → «скажите Ciao!» → уровень сигнала.
++class MicCheck {
++  MicCheck(this.probe, {this.listenFor = const Duration(seconds: 3)});
++  final MicProbe probe;
++  final Duration listenFor;
++
++  /// [onListening] вызывается, когда пора говорить (показать «Скажите Ciao!»).
++  Future<MicReport> run({void Function()? onListening}) async {
++    try {
++      if (!await probe.hasPermission()) return MicReport(MicResult.denied);
++      onListening?.call();
++      final peak = await probe.peakLevel(listenFor);
++      return MicReport(
++        peak >= micVoiceThresholdDbfs ? MicResult.ok : MicResult.silent,
++        peakDbfs: peak,
++      );
++    } catch (e) {
++      return MicReport(MicResult.unavailable, detail: '$e');
++    }
++  }
++}
++
++/// Настоящий микрофон через пакет record: пишем во временный файл и каждые
++/// 100 мс спрашиваем уровень.
++class RecordMicProbe implements MicProbe {
++  @override
++  Future<bool> hasPermission({bool request = true}) async {
++    final r = AudioRecorder();
++    try {
++      return await r.hasPermission(request: request);
++    } finally {
++      await r.dispose();
++    }
++  }
++
++  @override
++  Future<double> peakLevel(Duration duration) async {
++    final r = AudioRecorder();
++    final path = p.join(Directory.systemTemp.path,
++        'italo_mic_check_${DateTime.now().millisecondsSinceEpoch}.wav');
++    var peak = -160.0;
++    try {
++      await r.start(const RecordConfig(encoder: AudioEncoder.wav), path: path);
++      final end = DateTime.now().add(duration);
++      while (DateTime.now().isBefore(end)) {
++        await Future<void>.delayed(const Duration(milliseconds: 100));
++        final a = await r.getAmplitude();
++        if (a.current.isFinite && a.current > peak) peak = a.current;
++      }
++      await r.stop();
++    } finally {
++      await r.dispose();
++      final f = File(path);
++      if (await f.exists()) await f.delete();
++    }
++    return peak;
++  }
++}
++
++/// Открыть системные настройки доступа к микрофону (где это возможно).
++Future<bool> openMicPrivacySettings() async {
++  try {
++    if (Platform.isMacOS) {
++      final r = await Process.run('open', [
++        'x-apple.systempreferences:com.apple.preference.security?Privacy_Microphone'
++      ]);
++      return r.exitCode == 0;
++    }
++    if (Platform.isWindows) {
++      final r = await Process.run('cmd', ['/c', 'start', 'ms-settings:privacy-microphone']);
++      return r.exitCode == 0;
++    }
++  } catch (_) {}
++  return false;
++}
++
++/// Подсказка, как выдать доступ, — по-русски, для ученицы.
++String micPermissionHelp() {
++  if (Platform.isMacOS) {
++    return 'Откройте «Системные настройки» → «Конфиденциальность и безопасность» → '
++        '«Микрофон» и включите italo_tutor. Потом нажмите «Проверить снова».';
++  }
++  if (Platform.isWindows) {
++    return 'Откройте «Параметры» → «Конфиденциальность» → «Микрофон» и разрешите '
++        'доступ приложениям. Потом нажмите «Проверить снова».';
++  }
++  return 'Разрешите программе доступ к микрофону в настройках системы и '
++      'проверьте, что микрофон подключён и не выключен.';
++}
+diff --git a/lib/features/live_tutor/presentation/live_session_screen.dart b/lib/features/live_tutor/presentation/live_session_screen.dart
+index 8444230..69773ad 100644
+--- a/lib/features/live_tutor/presentation/live_session_screen.dart
++++ b/lib/features/live_tutor/presentation/live_session_screen.dart
+@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:record/record.dart';
+ 
+ import '../../../core/gemini/gemini_live_client.dart';
++import '../../../core/audio/mic_check.dart';
+ import '../../../core/gemini/paolo_connector.dart';
+ import '../../../core/gemini/paolo_persona.dart';
+ import '../../../core/providers.dart';
+@@ -125,7 +126,17 @@ class _LiveSessionScreenState extends ConsumerState<LiveSessionScreen> {
+ 
+   Future<void> _startRecording() async {
+     if (_client == null) return;
+-    if (!await _recorder.hasPermission()) return;
++    if (!await _recorder.hasPermission()) {
++      if (mounted) {
++        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
++          duration: const Duration(seconds: 10),
++          content: Text('Нет доступа к микрофону. ${micPermissionHelp()}'),
++          action: SnackBarAction(
++              label: 'Открыть настройки', onPressed: openMicPrivacySettings),
++        ));
++      }
++      return;
++    }
+     setState(() => _recording = true);
+     final stream = await _recorder.startStream(
+       const RecordConfig(encoder: AudioEncoder.pcm16bits, sampleRate: 16000, numChannels: 1),
+diff --git a/lib/features/startup/startup_check.dart b/lib/features/startup/startup_check.dart
+index d654907..9c0983e 100644
+--- a/lib/features/startup/startup_check.dart
++++ b/lib/features/startup/startup_check.dart
+@@ -1,17 +1,18 @@
+ import 'dart:async';
+ 
++import '../../core/audio/mic_check.dart';
+ import '../../core/gemini/gemini_live_client.dart';
+ import '../../core/gemini/paolo_connector.dart';
+ import '../../core/keys/key_manager.dart';
+ import '../../core/vpn/vpn_service.dart';
+ 
+-enum StartupStep { vpn, paolo, speed }
++enum StartupStep { vpn, paolo, speed, mic }
+ 
+ enum StepStatus { pending, running, ok, failed }
+ 
+-/// Итог проверки. Для каждого сбоя у Пауло есть заранее записанное
+-/// извинение (assets/audio/paolo_offline_*.wav).
+-enum StartupOutcome { ok, vpnFailed, keysFailed, tooSlow }
++/// Итог проверки. Для сбоев связи у Пауло есть заранее записанное
++/// извинение (assets/audio/paolo_offline_*.wav); про микрофон — текстом.
++enum StartupOutcome { ok, vpnFailed, keysFailed, tooSlow, micDenied, micSilent, micUnavailable }
+ 
+ class StartupReport {
+   StartupReport(this.outcome, {this.detail, this.firstAudioMs, this.country});
+@@ -27,13 +28,16 @@ class StartupReport {
+ const firstAudioOkMs = 1500;
+ const firstAudioMaxMs = 2500;
+ 
+-/// Проверка при запуске: VPN → Пауло (ключи) → скорость речи.
++/// Проверка при запуске: VPN → Пауло (ключи) → скорость речи → микрофон.
+ class StartupCheck {
+-  StartupCheck({required this.vpn, required this.keys});
++  StartupCheck({required this.vpn, required this.keys, this.mic});
+ 
+   final VpnService vpn;
+   final KeyManager keys;
+ 
++  /// null — шаг микрофона пропускается (тесты, платформы без записи).
++  final MicCheck? mic;
++
+   Future<StartupReport> run(
+     void Function(StartupStep step, StepStatus status, String? note) onStep,
+   ) async {
+@@ -75,11 +79,12 @@ class StartupCheck {
+       final ok = ms <= firstAudioMaxMs;
+       onStep(StartupStep.speed, ok ? StepStatus.ok : StepStatus.failed,
+           'ответ через $ms мс');
+-      return StartupReport(
+-        ok ? StartupOutcome.ok : StartupOutcome.tooSlow,
+-        firstAudioMs: ms,
+-        country: country,
+-      );
++      if (!ok) {
++        return StartupReport(StartupOutcome.tooSlow,
++            firstAudioMs: ms, country: country);
++      }
++      final micOutcome = await _checkMic(onStep);
++      return StartupReport(micOutcome, firstAudioMs: ms, country: country);
+     } catch (e) {
+       onStep(StartupStep.speed, StepStatus.failed, '$e');
+       return StartupReport(StartupOutcome.tooSlow, detail: '$e');
+@@ -88,6 +93,37 @@ class StartupCheck {
+     }
+   }
+ 
++  /// 4. Микрофон: доступ → «скажите Ciao!» → уровень голоса.
++  Future<StartupOutcome> _checkMic(
++    void Function(StartupStep step, StepStatus status, String? note) onStep,
++  ) async {
++    final mic = this.mic;
++    if (mic == null) {
++      onStep(StartupStep.mic, StepStatus.ok, 'пропущено');
++      return StartupOutcome.ok;
++    }
++    onStep(StartupStep.mic, StepStatus.running, 'доступ к микрофону…');
++    final r = await mic.run(
++      onListening: () =>
++          onStep(StartupStep.mic, StepStatus.running, 'Скажите громко: «Ciao!»'),
++    );
++    final level = r.peakDbfs == null ? '' : ' (${r.peakDbfs!.round()} dB)';
++    switch (r.result) {
++      case MicResult.ok:
++        onStep(StartupStep.mic, StepStatus.ok, 'слышно$level');
++        return StartupOutcome.ok;
++      case MicResult.denied:
++        onStep(StartupStep.mic, StepStatus.failed, 'нет доступа к микрофону');
++        return StartupOutcome.micDenied;
++      case MicResult.silent:
++        onStep(StartupStep.mic, StepStatus.failed, 'голоса не слышно$level');
++        return StartupOutcome.micSilent;
++      case MicResult.unavailable:
++        onStep(StartupStep.mic, StepStatus.failed, 'микрофон не работает: ${r.detail}');
++        return StartupOutcome.micUnavailable;
++    }
++  }
++
+   Future<int> _firstAudioMs(GeminiLiveClient client) async {
+     final sw = Stopwatch()..start();
+     final first = client.events
+diff --git a/lib/features/startup/startup_screen.dart b/lib/features/startup/startup_screen.dart
+index d6aaaa4..9e8be54 100644
+--- a/lib/features/startup/startup_screen.dart
++++ b/lib/features/startup/startup_screen.dart
+@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
+ import 'package:flutter_riverpod/flutter_riverpod.dart';
+ import 'package:go_router/go_router.dart';
+ 
++import '../../core/audio/mic_check.dart';
+ import '../../core/providers.dart';
+ import '../../core/vpn/vpn_service.dart';
+ import 'startup_check.dart';
+@@ -27,9 +28,26 @@ class _StartupScreenState extends ConsumerState<StartupScreen> {
+     StartupStep.vpn: 'Защищённый канал (VPN)',
+     StartupStep.paolo: 'Связь с Пауло',
+     StartupStep.speed: 'Скорость для живой речи',
++    StartupStep.mic: 'Микрофон',
+   };
+ 
+-  static const _apology = {
++  static const _micOutcomes = {
++    StartupOutcome.micDenied,
++    StartupOutcome.micSilent,
++    StartupOutcome.micUnavailable,
++  };
++
++  static final _apology = <StartupOutcome, (String?, String)>{
++    StartupOutcome.micDenied: (null, 'Пауло вас не услышит: у программы нет доступа к микрофону. ${micPermissionHelp()}'),
++    StartupOutcome.micSilent: (
++      null,
++      'Пауло не слышит вашего голоса. Проверьте, что микрофон включён и выбран в системе, '
++          'подвиньтесь ближе и нажмите «Проверить снова».'
++    ),
++    StartupOutcome.micUnavailable: (
++      null,
++      'Микрофон не работает или не подключён. Подключите его и нажмите «Проверить снова».'
++    ),
+     StartupOutcome.vpnFailed: (
+       'audio/paolo_offline_vpn.wav',
+       'Нет связи с Пауло: не удалось включить VPN. Проверьте интернет и запустите снова.'
+@@ -64,7 +82,11 @@ class _StartupScreenState extends ConsumerState<StartupScreen> {
+       }
+     });
+     final keys = await ref.read(keyManagerProvider.future);
+-    final check = StartupCheck(vpn: ref.read(vpnServiceProvider), keys: keys);
++    final check = StartupCheck(
++      vpn: ref.read(vpnServiceProvider),
++      keys: keys,
++      mic: MicCheck(RecordMicProbe()),
++    );
+     final report = await check.run((step, status, note) {
+       if (mounted) setState(() => _status[step] = (status, note));
+     });
+@@ -72,14 +94,18 @@ class _StartupScreenState extends ConsumerState<StartupScreen> {
+     setState(() => _report = report);
+ 
+     if (report.outcome == StartupOutcome.ok) {
+-      ref.read(vpnProxyProvider.notifier).state = VpnService.proxyAddress;
+-      context.go('/flashcards');
++      _startLessons();
+     } else {
+       final (asset, _) = _apology[report.outcome]!;
+-      await _player.play(AssetSource(asset));
++      if (asset != null) await _player.play(AssetSource(asset));
+     }
+   }
+ 
++  void _startLessons() {
++    ref.read(vpnProxyProvider.notifier).state = VpnService.proxyAddress;
++    context.go('/flashcards');
++  }
++
+   @override
+   Widget build(BuildContext context) {
+     final report = _report;
+@@ -109,15 +135,31 @@ class _StartupScreenState extends ConsumerState<StartupScreen> {
+                   const SizedBox(height: 24),
+                   Text(_apology[report.outcome]!.$2, textAlign: TextAlign.center),
+                   const SizedBox(height: 16),
++                  if (report.outcome == StartupOutcome.micDenied) ...[
++                    FilledButton.icon(
++                      icon: const Icon(Icons.mic),
++                      label: const Text('Открыть настройки микрофона'),
++                      onPressed: openMicPrivacySettings,
++                    ),
++                    const SizedBox(height: 8),
++                  ],
+                   FilledButton.icon(
+                     icon: const Icon(Icons.refresh),
+-                    label: const Text('Попробовать снова'),
++                    label: Text(_micOutcomes.contains(report.outcome)
++                        ? 'Проверить снова'
++                        : 'Попробовать снова'),
+                     onPressed: _run,
+                   ),
+-                  TextButton(
+-                    onPressed: () => context.push('/settings'),
+-                    child: const Text('Настройки ключей'),
+-                  ),
++                  if (_micOutcomes.contains(report.outcome))
++                    TextButton(
++                      onPressed: _startLessons,
++                      child: const Text('Продолжить без микрофона'),
++                    )
++                  else
++                    TextButton(
++                      onPressed: () => context.push('/settings'),
++                      child: const Text('Настройки ключей'),
++                    ),
+                 ],
+               ],
+             ),
+diff --git a/macos/Podfile b/macos/Podfile
+new file mode 100644
+index 0000000..d48e1ff
+--- /dev/null
++++ b/macos/Podfile
+@@ -0,0 +1,46 @@
++# Xcode 27 не принимает deployment target ниже 12.0 (проверено на Mac mini, 2026-09-28).
++platform :osx, '12.0'
++
++# CocoaPods analytics sends network stats synchronously affecting flutter build latency.
++ENV['COCOAPODS_DISABLE_STATS'] = 'true'
++
++project 'Runner', {
++  'Debug' => :debug,
++  'Profile' => :release,
++  'Release' => :release,
++}
++
++def flutter_root
++  generated_xcode_build_settings_path = File.expand_path(File.join('..', 'Flutter', 'ephemeral', 'Flutter-Generated.xcconfig'), __FILE__)
++  unless File.exist?(generated_xcode_build_settings_path)
++    raise "#{generated_xcode_build_settings_path} must exist. If you're running pod install manually, make sure \"flutter pub get\" is executed first"
++  end
++
++  File.foreach(generated_xcode_build_settings_path) do |line|
++    matches = line.match(/FLUTTER_ROOT\=(.*)/)
++    return matches[1].strip if matches
++  end
++  raise "FLUTTER_ROOT not found in #{generated_xcode_build_settings_path}. Try deleting Flutter-Generated.xcconfig, then run \"flutter pub get\""
++end
++
++require File.expand_path(File.join('packages', 'flutter_tools', 'bin', 'podhelper'), flutter_root)
++
++flutter_macos_podfile_setup
++
++target 'Runner' do
++  use_frameworks!
++
++  flutter_install_all_macos_pods File.dirname(File.realpath(__FILE__))
++  target 'RunnerTests' do
++    inherit! :search_paths
++  end
++end
++
++post_install do |installer|
++  installer.pods_project.targets.each do |target|
++    flutter_additional_macos_build_settings(target)
++    target.build_configurations.each do |config|
++      config.build_settings['MACOSX_DEPLOYMENT_TARGET'] = '12.0'
++    end
++  end
++end
+diff --git a/macos/Runner.xcodeproj/project.pbxproj b/macos/Runner.xcodeproj/project.pbxproj
+index 98ba3b8..f08b5e2 100644
+--- a/macos/Runner.xcodeproj/project.pbxproj
++++ b/macos/Runner.xcodeproj/project.pbxproj
+@@ -461,7 +461,7 @@
+ 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+ 				GCC_WARN_UNUSED_FUNCTION = YES;
+ 				GCC_WARN_UNUSED_VARIABLE = YES;
+-				MACOSX_DEPLOYMENT_TARGET = 10.15;
++				MACOSX_DEPLOYMENT_TARGET = 12.0;
+ 				MTL_ENABLE_DEBUG_INFO = NO;
+ 				SDKROOT = macosx;
+ 				SWIFT_COMPILATION_MODE = wholemodule;
+@@ -543,7 +543,7 @@
+ 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+ 				GCC_WARN_UNUSED_FUNCTION = YES;
+ 				GCC_WARN_UNUSED_VARIABLE = YES;
+-				MACOSX_DEPLOYMENT_TARGET = 10.15;
++				MACOSX_DEPLOYMENT_TARGET = 12.0;
+ 				MTL_ENABLE_DEBUG_INFO = YES;
+ 				ONLY_ACTIVE_ARCH = YES;
+ 				SDKROOT = macosx;
+@@ -593,7 +593,7 @@
+ 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+ 				GCC_WARN_UNUSED_FUNCTION = YES;
+ 				GCC_WARN_UNUSED_VARIABLE = YES;
+-				MACOSX_DEPLOYMENT_TARGET = 10.15;
++				MACOSX_DEPLOYMENT_TARGET = 12.0;
+ 				MTL_ENABLE_DEBUG_INFO = NO;
+ 				SDKROOT = macosx;
+ 				SWIFT_COMPILATION_MODE = wholemodule;
+diff --git a/macos/Runner/DebugProfile.entitlements b/macos/Runner/DebugProfile.entitlements
+index 7d7b4dc..4ddce95 100644
+--- a/macos/Runner/DebugProfile.entitlements
++++ b/macos/Runner/DebugProfile.entitlements
+@@ -2,8 +2,10 @@
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+ <dict>
++	<!-- Песочница выключена: программа запускается с флешки, стартует встроенный
++	     VPN (vpn/xray рядом с exe) и хранит ключи в italo_tutor.conf рядом с собой. -->
+ 	<key>com.apple.security.app-sandbox</key>
+-	<true/>
++	<false/>
+ 	<key>com.apple.security.cs.allow-jit</key>
+ 	<true/>
+ 	<key>com.apple.security.device.audio-input</key>
+diff --git a/macos/Runner/Release.entitlements b/macos/Runner/Release.entitlements
+index afafa97..57dcd6c 100644
+--- a/macos/Runner/Release.entitlements
++++ b/macos/Runner/Release.entitlements
+@@ -2,8 +2,10 @@
+ <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+ <plist version="1.0">
+ <dict>
++	<!-- Песочница выключена: программа запускается с флешки, стартует встроенный
++	     VPN (vpn/xray рядом с exe) и хранит ключи в italo_tutor.conf рядом с собой. -->
+ 	<key>com.apple.security.app-sandbox</key>
+-	<true/>
++	<false/>
+ 	<key>com.apple.security.device.audio-input</key>
+ 	<true/>
+ 	<key>com.apple.security.network.client</key>
+diff --git a/test/mic_check_test.dart b/test/mic_check_test.dart
+new file mode 100644
+index 0000000..df34cdf
+--- /dev/null
++++ b/test/mic_check_test.dart
+@@ -0,0 +1,52 @@
++import 'package:flutter_test/flutter_test.dart';
++import 'package:italo_tutor/core/audio/mic_check.dart';
++
++class FakeMic implements MicProbe {
++  FakeMic({this.permission = true, this.peak = -20, this.error});
++  final bool permission;
++  final double peak;
++  final Object? error;
++  bool listened = false;
++
++  @override
++  Future<bool> hasPermission({bool request = true}) async => permission;
++
++  @override
++  Future<double> peakLevel(Duration duration) async {
++    listened = true;
++    if (error != null) throw error!;
++    return peak;
++  }
++}
++
++void main() {
++  test('голос слышен — ok, уровень в отчёте', () async {
++    var prompted = false;
++    final r = await MicCheck(FakeMic(peak: -18)).run(onListening: () => prompted = true);
++    expect(r.result, MicResult.ok);
++    expect(r.peakDbfs, -18);
++    expect(prompted, isTrue);
++  });
++
++  test('нет доступа — denied, слушать не пытаемся', () async {
++    final mic = FakeMic(permission: false);
++    final r = await MicCheck(mic).run();
++    expect(r.result, MicResult.denied);
++    expect(mic.listened, isFalse);
++  });
++
++  test('тишина ниже порога — silent', () async {
++    final r = await MicCheck(FakeMic(peak: micVoiceThresholdDbfs - 10)).run();
++    expect(r.result, MicResult.silent);
++  });
++
++  test('запись не запускается — unavailable с причиной', () async {
++    final r = await MicCheck(FakeMic(error: StateError('no input device'))).run();
++    expect(r.result, MicResult.unavailable);
++    expect(r.detail, contains('no input device'));
++  });
++
++  test('подсказка про доступ не пустая', () {
++    expect(micPermissionHelp(), isNotEmpty);
++  });
++}
