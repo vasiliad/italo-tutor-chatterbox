@@ -22,13 +22,15 @@ md(r"""
 
 code(r"""
 # 1. Установка. Коммит закреплён: 5de7a54 (v3 multilingual + Nano).
-# Пакет тянет torch==2.6.0 и transformers==5.2.0: на Kaggle это займёт несколько минут.
-!pip install -q "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git@5de7a54" jiwer
+# Без зависимостей пакета: он требует numpy<2 и torch 2.6, а библиотеки Kaggle собраны под numpy 2 —
+# понижение ломает всё («numpy.dtype size changed»). Проверено: с numpy 2, torch 2.14, transformers 5.17 работает.
+!pip install -q --no-deps "chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git@5de7a54"
+!pip install -q s3tokenizer "conformer==0.3.2" "diffusers==0.29.0" resemble-perth pyloudnorm omegaconf einops soundfile jiwer
 # Необязательно: русская расстановка ударений, которую Chatterbox вызывает сам для language_id="ru".
 !pip install -q russian-text-stresser || echo "russian-text-stresser не установился — тест 5в пропустим"
 # Иврит: огласовки (никуд) через Dicta. Chatterbox вызывает Dicta() без пути к модели — это падает,
 # и текст уходит без огласовок. Поэтому ставим сами и вызываем явно.
-!pip install -q dicta-onnx && wget -q -nc -P /kaggle/working https://github.com/thewh1teagle/dicta-onnx/releases/download/model-files-v1.0/dicta-1.0.int8.onnx || echo "Dicta не установилась — вариант he_dicta пропустим"
+!pip install -q dicta-onnx && wget -q -nc -P /tmp https://github.com/thewh1teagle/dicta-onnx/releases/download/model-files-v1.0/dicta-1.0.int8.onnx || echo "Dicta не установилась — вариант he_dicta пропустим"
 # Образцы голоса Паоло и свежая версия задачи — из публичного репозитория
 !rm -rf /kaggle/working/task && git clone -q --depth 1 https://github.com/vasiliad/italo-tutor-chatterbox /kaggle/working/task && ls /kaggle/working/task/refs
 """)
@@ -36,7 +38,12 @@ code(r"""
 code(r"""
 # 2. Общие функции
 import os, glob, time, json, re, unicodedata, gc
-import numpy as np, torch, torchaudio as ta, pandas as pd
+import numpy as np, torch, pandas as pd, soundfile as sf
+
+class ta:  # torchaudio.save в новых версиях требует torchcodec; пишем WAV 16 бит через soundfile
+    @staticmethod
+    def save(path, wav, sr):
+        sf.write(path, np.asarray(wav, dtype=np.float32).reshape(-1), sr, subtype="PCM_16")
 
 import platform
 def pick_device():
@@ -202,7 +209,7 @@ import chatterbox.models.tokenizers.tokenizer as cbtok
 cbtok.add_hebrew_diacritics = lambda text: text   # огласовки подаём сами, чтобы сравнивать варианты
 try:
     from dicta_onnx import Dicta
-    DICTA = Dicta("/kaggle/working/dicta-1.0.int8.onnx")
+    DICTA = Dicta("/tmp/dicta-1.0.int8.onnx")
 except Exception as e:
     DICTA = None; print("Dicta недоступна:", e)
 
