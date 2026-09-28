@@ -1,0 +1,1073 @@
+[
+ {
+  "id": "it_context__ancora_ancora",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "ancóra — ещё",
+  "note": "",
+  "inputs": {
+   "plain": "Vorrei ancora un caffè.",
+   "accent": "Vorrei ancóra un caffè.",
+   "ipa": "vorɾˈɛi ankˈora ʊn kaffˈɛ",
+   "ipa_word": [
+    "ancora",
+    "ankˈora"
+   ]
+  }
+ },
+ {
+  "id": "it_context__ancora_ancora2",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "àncora — якорь",
+  "note": "",
+  "inputs": {
+   "plain": "La nave getta l'ancora in porto.",
+   "accent": "La nave getta l'àncora in porto.",
+   "ipa": "la nˈave dʒˈɛtːa lˈankora in pˈɔrto",
+   "ipa_word": [
+    "ancora",
+    "ˈankora"
+   ]
+  }
+ },
+ {
+  "id": "it_context__principi_principles",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "princìpi — принципы",
+  "note": "",
+  "inputs": {
+   "plain": "I principi della fisica sono semplici.",
+   "accent": "I princìpi della fìsica sono sèmplici.",
+   "ipa": "i printʃˈipɪ dˌella fˈizika sˌono sˈɛmplitʃɪ",
+   "ipa_word": [
+    "principi",
+    "printʃˈipɪ"
+   ]
+  }
+ },
+ {
+  "id": "it_context__principi_princes",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "prìncipi — принцы",
+  "note": "",
+  "inputs": {
+   "plain": "Il re e la regina hanno due figli: sono principi.",
+   "accent": "Il re e la regina hanno due figli: sono prìncipi.",
+   "ipa": "il rˈɛ e la redʒˈina ˌanno dˈue fˈiʎɪ sˌono prˈintʃipɪ",
+   "ipa_word": [
+    "principi",
+    "prˈintʃipɪ"
+   ]
+  }
+ },
+ {
+  "id": "it_context__capitano_captain",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "capitàno — капитан",
+  "note": "",
+  "inputs": {
+   "plain": "Il capitano parla con i marinai.",
+   "accent": "Il capitàno parla con i marinài.",
+   "ipa": "il kapitˈano pˈarla kon i marinˈaɪ",
+   "ipa_word": [
+    "capitano",
+    "kapitˈano"
+   ]
+  }
+ },
+ {
+  "id": "it_context__capitano_happen",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "càpitano — случаются",
+  "note": "",
+  "inputs": {
+   "plain": "Queste cose capitano spesso.",
+   "accent": "Queste cose càpitano spesso.",
+   "ipa": "kwˌeste kˈɔze kˈapitano spˈesso",
+   "ipa_word": [
+    "capitano",
+    "kˈapitano"
+   ]
+  }
+ },
+ {
+  "id": "it_context__subito_soon",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "sùbito — сразу",
+  "note": "",
+  "inputs": {
+   "plain": "Vieni subito qui!",
+   "accent": "Vieni sùbito qui!",
+   "ipa": "vjˈɛnɪ sˈubito kwˈi",
+   "ipa_word": [
+    "subito",
+    "sˈubito"
+   ]
+  }
+ },
+ {
+  "id": "it_context__subito_suffered",
+  "section": "it_context",
+  "lang": "it",
+  "expected": "subìto — пострадал",
+  "note": "",
+  "inputs": {
+   "plain": "Ha subito un furto ieri sera.",
+   "accent": "Ha subìto un furto ieri sera.",
+   "ipa": "a sʊbˈito ʊn fˈurto jˈɛrɪ sˈera",
+   "ipa_word": [
+    "subito",
+    "sʊbˈito"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__ancora_якорь",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "àncora",
+  "note": "якорь",
+  "inputs": {
+   "plain": "Dico ancora adesso.",
+   "accent": "Dico àncora adesso.",
+   "ipa": "dˈiko ˈankora adˈɛsso",
+   "ipa_word": [
+    "ancora",
+    "ˈankora"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__ancora_ещё",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "ancóra",
+  "note": "ещё",
+  "inputs": {
+   "plain": "Dico ancora adesso.",
+   "accent": "Dico ancóra adesso.",
+   "ipa": "dˈiko ankˈora adˈɛsso",
+   "ipa_word": [
+    "ancora",
+    "ankˈora"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__principi_принцы",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "prìncipi",
+  "note": "принцы",
+  "inputs": {
+   "plain": "Dico principi adesso.",
+   "accent": "Dico prìncipi adesso.",
+   "ipa": "dˈiko prˈintʃipɪ adˈɛsso",
+   "ipa_word": [
+    "principi",
+    "prˈintʃipɪ"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__principi_принципы",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "princìpi",
+  "note": "принципы",
+  "inputs": {
+   "plain": "Dico principi adesso.",
+   "accent": "Dico princìpi adesso.",
+   "ipa": "dˈiko printʃˈipɪ adˈɛsso",
+   "ipa_word": [
+    "principi",
+    "printʃˈipɪ"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__capitano_случаются",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "càpitano",
+  "note": "случаются",
+  "inputs": {
+   "plain": "Dico capitano adesso.",
+   "accent": "Dico càpitano adesso.",
+   "ipa": "dˈiko kˈapitano adˈɛsso",
+   "ipa_word": [
+    "capitano",
+    "kˈapitano"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__capitano_капитан",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "capitàno",
+  "note": "капитан",
+  "inputs": {
+   "plain": "Dico capitano adesso.",
+   "accent": "Dico capitàno adesso.",
+   "ipa": "dˈiko kapitˈano adˈɛsso",
+   "ipa_word": [
+    "capitano",
+    "kapitˈano"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__subito_сразу",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "sùbito",
+  "note": "сразу",
+  "inputs": {
+   "plain": "Dico subito adesso.",
+   "accent": "Dico sùbito adesso.",
+   "ipa": "dˈiko sˈubito adˈɛsso",
+   "ipa_word": [
+    "subito",
+    "sˈubito"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__subito_пострадал",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "subìto",
+  "note": "пострадал",
+  "inputs": {
+   "plain": "Dico subito adesso.",
+   "accent": "Dico subìto adesso.",
+   "ipa": "dˈiko sʊbˈito adˈɛsso",
+   "ipa_word": [
+    "subito",
+    "sʊbˈito"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__indice_указатель",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "ìndice",
+  "note": "указатель — ударение на 1-м",
+  "inputs": {
+   "plain": "Dico indice adesso.",
+   "accent": "Dico ìndice adesso.",
+   "ipa": "dˈiko ˈinditʃe adˈɛsso",
+   "ipa_word": [
+    "indice",
+    "ˈinditʃe"
+   ]
+  }
+ },
+ {
+  "id": "it_solo__arbitro_судья",
+  "section": "it_solo",
+  "lang": "it",
+  "expected": "àrbitro",
+  "note": "судья — ударение на 1-м",
+  "inputs": {
+   "plain": "Dico arbitro adesso.",
+   "accent": "Dico àrbitro adesso.",
+   "ipa": "dˈiko ˈarbitro adˈɛsso",
+   "ipa_word": [
+    "arbitro",
+    "ˈarbitro"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__telefonano",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "telèfonano",
+  "note": "",
+  "inputs": {
+   "plain": "Dico telefonano adesso.",
+   "accent": "Dico telèfonano adesso.",
+   "ipa": "dˈiko telˈɛfonano adˈɛsso",
+   "ipa_word": [
+    "telefonano",
+    "telˈɛfonano"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__desiderano",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "desìderano",
+  "note": "",
+  "inputs": {
+   "plain": "Dico desiderano adesso.",
+   "accent": "Dico desìderano adesso.",
+   "ipa": "dˈiko dezˈiderˌano adˈɛsso",
+   "ipa_word": [
+    "desiderano",
+    "dezˈiderˌano"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__capiscono",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "capìscono",
+  "note": "",
+  "inputs": {
+   "plain": "Dico capiscono adesso.",
+   "accent": "Dico capìscono adesso.",
+   "ipa": "dˈiko kapˈiskono adˈɛsso",
+   "ipa_word": [
+    "capiscono",
+    "kapˈiskono"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__scrivono",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "scrìvono",
+  "note": "",
+  "inputs": {
+   "plain": "Dico scrivono adesso.",
+   "accent": "Dico scrìvono adesso.",
+   "ipa": "dˈiko skrˈivono adˈɛsso",
+   "ipa_word": [
+    "scrivono",
+    "skrˈivono"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__farmacia",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "farmacìa",
+  "note": "",
+  "inputs": {
+   "plain": "Dico farmacia adesso.",
+   "accent": "Dico farmacìa adesso.",
+   "ipa": "dˈiko farmatʃˈia adˈɛsso",
+   "ipa_word": [
+    "farmacia",
+    "farmatʃˈia"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__psicologia",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "psicologìa",
+  "note": "",
+  "inputs": {
+   "plain": "Dico psicologia adesso.",
+   "accent": "Dico psicologìa adesso.",
+   "ipa": "dˈiko psikolodʒˈia adˈɛsso",
+   "ipa_word": [
+    "psicologia",
+    "psikolodʒˈia"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__brindisi",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "Brìndisi",
+  "note": "",
+  "inputs": {
+   "plain": "Dico Brindisi adesso.",
+   "accent": "Dico Brìndisi adesso.",
+   "ipa": "dˈiko brˈindizɪ adˈɛsso",
+   "ipa_word": [
+    "Brindisi",
+    "brˈindizɪ"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__zucchero",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "zùcchero",
+  "note": "",
+  "inputs": {
+   "plain": "Dico zucchero adesso.",
+   "accent": "Dico zùcchero adesso.",
+   "ipa": "dˈiko dzˈukːero adˈɛsso",
+   "ipa_word": [
+    "zucchero",
+    "dzˈukːero"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__tavolo",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "tàvolo",
+  "note": "",
+  "inputs": {
+   "plain": "Dico tavolo adesso.",
+   "accent": "Dico tàvolo adesso.",
+   "ipa": "dˈiko tˈavolo adˈɛsso",
+   "ipa_word": [
+    "tavolo",
+    "tˈavolo"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__piroscafo",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "piròscafo",
+  "note": "",
+  "inputs": {
+   "plain": "Dico piroscafo adesso.",
+   "accent": "Dico piròscafo adesso.",
+   "ipa": "dˈiko pirˈɔskafo adˈɛsso",
+   "ipa_word": [
+    "piroscafo",
+    "pirˈɔskafo"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__leggere",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "leggère",
+  "note": "",
+  "inputs": {
+   "plain": "Dico leggere adesso.",
+   "accent": "Dico leggère adesso.",
+   "ipa": "dˈiko ledʒːˈɛre adˈɛsso",
+   "ipa_word": [
+    "leggere",
+    "ledʒːˈɛre"
+   ]
+  }
+ },
+ {
+  "id": "it_stress__leggere_2",
+  "section": "it_stress",
+  "lang": "it",
+  "expected": "lèggere",
+  "note": "",
+  "inputs": {
+   "plain": "Dico leggere adesso.",
+   "accent": "Dico lèggere adesso.",
+   "ipa": "dˈiko lˈɛdʒːere adˈɛsso",
+   "ipa_word": [
+    "leggere",
+    "lˈɛdʒːere"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__caro_carro__caro",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "caro / carro",
+  "inputs": {
+   "plain": "Dico caro adesso.",
+   "accent": "Dico caro adesso.",
+   "ipa": "dˈiko kˈaro adˈɛsso",
+   "ipa_len": "dˈiko kˈaro adˈɛsːo",
+   "ipa_word": [
+    "caro",
+    "kˈaro"
+   ],
+   "ipa_len_word": [
+    "caro",
+    "kˈaro"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__caro_carro__carro",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "caro / carro",
+  "inputs": {
+   "plain": "Dico carro adesso.",
+   "accent": "Dico carro adesso.",
+   "ipa": "dˈiko kˈarɾo adˈɛsso",
+   "ipa_len": "dˈiko kˈarːo adˈɛsːo",
+   "ipa_word": [
+    "carro",
+    "kˈarɾo"
+   ],
+   "ipa_len_word": [
+    "carro",
+    "kˈarːo"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__pala_palla__pala",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "pala / palla",
+  "inputs": {
+   "plain": "Dico pala adesso.",
+   "accent": "Dico pala adesso.",
+   "ipa": "dˈiko pˈala adˈɛsso",
+   "ipa_len": "dˈiko pˈala adˈɛsːo",
+   "ipa_word": [
+    "pala",
+    "pˈala"
+   ],
+   "ipa_len_word": [
+    "pala",
+    "pˈala"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__pala_palla__palla",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "pala / palla",
+  "inputs": {
+   "plain": "Dico palla adesso.",
+   "accent": "Dico palla adesso.",
+   "ipa": "dˈiko pˈalla adˈɛsso",
+   "ipa_len": "dˈiko pˈalːa adˈɛsːo",
+   "ipa_word": [
+    "palla",
+    "pˈalla"
+   ],
+   "ipa_len_word": [
+    "palla",
+    "pˈalːa"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__sete_sette__sete",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "sete / sette",
+  "inputs": {
+   "plain": "Dico sete adesso.",
+   "accent": "Dico séte adesso.",
+   "ipa": "dˈiko sˈete adˈɛsso",
+   "ipa_len": "dˈiko sˈete adˈɛsːo",
+   "ipa_word": [
+    "sete",
+    "sˈete"
+   ],
+   "ipa_len_word": [
+    "sete",
+    "sˈete"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__sete_sette__sette",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "sete / sette",
+  "inputs": {
+   "plain": "Dico sette adesso.",
+   "accent": "Dico sètte adesso.",
+   "ipa": "dˈiko sˈɛtːe adˈɛsso",
+   "ipa_len": "dˈiko sˈɛtːe adˈɛsːo",
+   "ipa_word": [
+    "sette",
+    "sˈɛtːe"
+   ],
+   "ipa_len_word": [
+    "sette",
+    "sˈɛtːe"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__capello_cappello__capello",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "capello / cappello",
+  "inputs": {
+   "plain": "Dico capello adesso.",
+   "accent": "Dico capéllo adesso.",
+   "ipa": "dˈiko kapˈello adˈɛsso",
+   "ipa_len": "dˈiko kapˈelːo adˈɛsːo",
+   "ipa_word": [
+    "capello",
+    "kapˈello"
+   ],
+   "ipa_len_word": [
+    "capello",
+    "kapˈelːo"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__capello_cappello__cappello",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "capello / cappello",
+  "inputs": {
+   "plain": "Dico cappello adesso.",
+   "accent": "Dico cappèllo adesso.",
+   "ipa": "dˈiko kapːˈɛllo adˈɛsso",
+   "ipa_len": "dˈiko kapːˈɛlːo adˈɛsːo",
+   "ipa_word": [
+    "cappello",
+    "kapːˈɛllo"
+   ],
+   "ipa_len_word": [
+    "cappello",
+    "kapːˈɛlːo"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__fato_fatto__fato",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "fato / fatto",
+  "inputs": {
+   "plain": "Dico fato adesso.",
+   "accent": "Dico fàto adesso.",
+   "ipa": "dˈiko fˈato adˈɛsso",
+   "ipa_len": "dˈiko fˈato adˈɛsːo",
+   "ipa_word": [
+    "fato",
+    "fˈato"
+   ],
+   "ipa_len_word": [
+    "fato",
+    "fˈato"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__fato_fatto__fatto",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "fato / fatto",
+  "inputs": {
+   "plain": "Dico fatto adesso.",
+   "accent": "Dico fàtto adesso.",
+   "ipa": "dˈiko fˈatːo adˈɛsso",
+   "ipa_len": "dˈiko fˈatːo adˈɛsːo",
+   "ipa_word": [
+    "fatto",
+    "fˈatːo"
+   ],
+   "ipa_len_word": [
+    "fatto",
+    "fˈatːo"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__papa_pappa__papa",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "papa / pappa",
+  "inputs": {
+   "plain": "Dico papa adesso.",
+   "accent": "Dico pàpa adesso.",
+   "ipa": "dˈiko pˈapa adˈɛsso",
+   "ipa_len": "dˈiko pˈapa adˈɛsːo",
+   "ipa_word": [
+    "papa",
+    "pˈapa"
+   ],
+   "ipa_len_word": [
+    "papa",
+    "pˈapa"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__papa_pappa__pappa",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "papa / pappa",
+  "inputs": {
+   "plain": "Dico pappa adesso.",
+   "accent": "Dico pàppa adesso.",
+   "ipa": "dˈiko pˈapːa adˈɛsso",
+   "ipa_len": "dˈiko pˈapːa adˈɛsːo",
+   "ipa_word": [
+    "pappa",
+    "pˈapːa"
+   ],
+   "ipa_len_word": [
+    "pappa",
+    "pˈapːa"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__nono_nonno__nono",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "single",
+  "note": "nono / nonno",
+  "inputs": {
+   "plain": "Dico nono adesso.",
+   "accent": "Dico nòno adesso.",
+   "ipa": "dˈiko nˈɔno adˈɛsso",
+   "ipa_len": "dˈiko nˈɔno adˈɛsːo",
+   "ipa_word": [
+    "nono",
+    "nˈɔno"
+   ],
+   "ipa_len_word": [
+    "nono",
+    "nˈɔno"
+   ]
+  }
+ },
+ {
+  "id": "it_gem__nono_nonno__nonno",
+  "section": "it_gem",
+  "lang": "it",
+  "expected": "double",
+  "note": "nono / nonno",
+  "inputs": {
+   "plain": "Dico nonno adesso.",
+   "accent": "Dico nònno adesso.",
+   "ipa": "dˈiko nˈɔnno adˈɛsso",
+   "ipa_len": "dˈiko nˈɔnːo adˈɛsːo",
+   "ipa_word": [
+    "nonno",
+    "nˈɔnno"
+   ],
+   "ipa_len_word": [
+    "nonno",
+    "nˈɔnːo"
+   ]
+  }
+ },
+ {
+  "id": "it_a1__00",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Ciao, mi chiamo Paolo. Come ti chiami?",
+   "accent": "Ciào, mi chiàmo Pàolo. Come ti chiàmi?",
+   "ipa": "tʃˈao mɪ kjˈamo pˈaolo kˌome tɪ kjˈamɪ"
+  }
+ },
+ {
+  "id": "it_a1__01",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Piacere! Sono russa, di Mosca.",
+   "accent": "Piacére! Sono russa, di Mosca.",
+   "ipa": "pjatʃˈere sˌono rˈussa dɪ mˈoska"
+  }
+ },
+ {
+  "id": "it_a1__02",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Vorrei un caffè e un cornetto, per favore.",
+   "accent": "Vorrèi un caffè e un cornétto, per favóre.",
+   "ipa": "vorɾˈɛj ʊn kaffˈɛ e ʊn kornˈetːo per favˈore"
+  }
+ },
+ {
+  "id": "it_a1__03",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Quanto costa questo libro?",
+   "accent": "Quanto còsta questo libro?",
+   "ipa": "kwˈanto kˈɔsta kwˌesto lˈibro"
+  }
+ },
+ {
+  "id": "it_a1__04",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Dov'è la stazione? È lontana da qui?",
+   "accent": "Dov'è la stazióne? È lontàna da qui?",
+   "ipa": "dovˈɛ la statsjˈone e lontˈana da kwˈi"
+  }
+ },
+ {
+  "id": "it_a1__05",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "C'è una farmacia vicino all'albergo?",
+   "accent": "C'è una farmacìa vicino all'albèrgo?",
+   "ipa": "tʃe ˌʊna farmatʃˈia vitʃˈino allalbˈɛrɡo"
+  }
+ },
+ {
+  "id": "it_a1__06",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Ho ventitré anni e abito a Mosca.",
+   "accent": "Ho ventitré anni e àbito a Mosca.",
+   "ipa": "o ventitrˈe ˈannɪ e ˈabito a mˈoska"
+  }
+ },
+ {
+  "id": "it_a1__07",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Ieri ho mangiato la pizza con i miei amici.",
+   "accent": "Ièri ho mangiàto la pizza con i miei amìci.",
+   "ipa": "jˈɛrɪ o mandʒˈato la pˈitsːa kon i mjˌɛi amˈitʃɪ"
+  }
+ },
+ {
+  "id": "it_a1__08",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Scusi, a che ora parte il treno per Firenze?",
+   "accent": "Scusi, a che óra parte il treno per Firènze?",
+   "ipa": "skˈuzɪ a ke ˈora pˈarte il trˈɛno per firˈɛntse"
+  }
+ },
+ {
+  "id": "it_a1__09",
+  "section": "it_a1",
+  "lang": "it",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Domani andiamo al mare, se non piove.",
+   "accent": "Domàni andiàmo al mare, se non piòve.",
+   "ipa": "domˈanɪ andjˈamo al mˈare se non pjˈɔve"
+  }
+ },
+ {
+  "id": "ru__zamok_castle",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "за́мок — крепость",
+  "note": "",
+  "inputs": {
+   "plain": "Это старый замок.",
+   "accent": "Это старый за́мок.",
+   "ipa_word": [
+    "замок",
+    "ˈzamək"
+   ]
+  }
+ },
+ {
+  "id": "ru__zamok_lock",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "замо́к — на двери",
+  "note": "",
+  "inputs": {
+   "plain": "Это старый замок.",
+   "accent": "Это старый замо́к.",
+   "ipa_word": [
+    "замок",
+    "zɐˈmok"
+   ]
+  }
+ },
+ {
+  "id": "ru__plachu_cry",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "пла́чу — от слёз",
+  "note": "",
+  "inputs": {
+   "plain": "Я плачу, когда слушаю эту песню.",
+   "accent": "Я пла́чу, когда слушаю эту песню.",
+   "ipa_word": [
+    "плачу",
+    "ˈplat͡ɕʊ"
+   ]
+  }
+ },
+ {
+  "id": "ru__plachu_pay",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "плачу́ — деньги",
+  "note": "",
+  "inputs": {
+   "plain": "Я плачу за кофе.",
+   "accent": "Я плачу́ за кофе.",
+   "ipa_word": [
+    "плачу",
+    "plɐˈt͡ɕu"
+   ]
+  }
+ },
+ {
+  "id": "ru__muka_pain",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "му́ка — страдание",
+  "note": "",
+  "inputs": {
+   "plain": "Это была настоящая мука.",
+   "accent": "Это была настоящая му́ка.",
+   "ipa_word": [
+    "мука",
+    "ˈmukə"
+   ]
+  }
+ },
+ {
+  "id": "ru__muka_flour",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "муку́ — для теста",
+  "note": "",
+  "inputs": {
+   "plain": "Купи муку для пиццы.",
+   "accent": "Купи муку́ для пиццы.",
+   "ipa_word": [
+    "муку",
+    "mʊˈku"
+   ]
+  }
+ },
+ {
+  "id": "ru__phrase",
+  "section": "ru",
+  "lang": "ru",
+  "expected": "",
+  "note": "",
+  "inputs": {
+   "plain": "Сегодня мы говорим о прошедшем времени. Это совсем не сложно."
+  }
+ },
+ {
+  "id": "he__boker_morning",
+  "section": "he",
+  "lang": "he",
+  "expected": "бóкер — утро",
+  "note": "",
+  "inputs": {
+   "plain": "בוקר טוב!",
+   "niqqud": "בֹּקֶר טוֹב!"
+  }
+ },
+ {
+  "id": "he__boker_cowboy",
+  "section": "he",
+  "lang": "he",
+  "expected": "бокéр — ковбой",
+  "note": "",
+  "inputs": {
+   "plain": "הבוקר רכב על סוס.",
+   "niqqud": "הַבּוֹקֵר רָכַב עַל סוּס."
+  }
+ },
+ {
+  "id": "he__okhel_food",
+  "section": "he",
+  "lang": "he",
+  "expected": "óхель — еда",
+  "note": "",
+  "inputs": {
+   "plain": "האוכל על השולחן.",
+   "niqqud": "הָאֹכֶל עַל הַשֻּׁלְחָן."
+  }
+ },
+ {
+  "id": "he__okhel_eats",
+  "section": "he",
+  "lang": "he",
+  "expected": "охéль — ест",
+  "note": "",
+  "inputs": {
+   "plain": "הוא אוכל לחם.",
+   "niqqud": "הוּא אוֹכֵל לֶחֶם."
+  }
+ },
+ {
+  "id": "he__sefer_book",
+  "section": "he",
+  "lang": "he",
+  "expected": "сэ́фер — книга",
+  "note": "",
+  "inputs": {
+   "plain": "אני קורא ספר.",
+   "niqqud": "אֲנִי קוֹרֵא סֵפֶר."
+  }
+ },
+ {
+  "id": "he__sapar_barber",
+  "section": "he",
+  "lang": "he",
+  "expected": "сапáр — парикмахер",
+  "note": "",
+  "inputs": {
+   "plain": "הספר גזר לי את השיער.",
+   "niqqud": "הַסַּפָּר גָּזַר לִי אֶת הַשֵּׂעָר."
+  }
+ },
+ {
+  "id": "he__shalom",
+  "section": "he",
+  "lang": "he",
+  "expected": "шломéх — к женщине",
+  "note": "",
+  "inputs": {
+   "plain": "שלום, מה שלומך?",
+   "niqqud": "שָׁלוֹם, מַה שְּׁלוֹמֵךְ?"
+  }
+ }
+]
