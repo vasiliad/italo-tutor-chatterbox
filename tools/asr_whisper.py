@@ -36,10 +36,18 @@ def main(root):
     model = WhisperForConditionalGeneration.from_pretrained(MODEL, dtype=dtype).to(dev).eval()
     path = f"{root}/results.csv"
     rows = list(csv.DictReader(open(path)))
+    fields = list(rows[0].keys()) + [k for k in ("asr", "cer") if k not in rows[0]]
+
+    def save():
+        with open(path, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=fields)
+            w.writeheader()
+            w.writerows(rows)
+
     t0 = time.time()
     for i, r in enumerate(rows):
-        if r["name"] == "_reference":
-            continue
+        if r["name"] == "_reference" or r.get("asr"):
+            continue  # уже распознано в прошлый запуск
         y, _ = librosa.load(f"{root}/{r['file']}", sr=16000)
         feats = proc(y, sampling_rate=16000, return_tensors="pt").input_features.to(dev, dtype)
         with torch.inference_mode():
@@ -48,11 +56,9 @@ def main(root):
         ref = norm(r["text"].replace(" | ", " "))
         r["cer"] = round(jiwer.cer(ref, norm(r["asr"])), 3) if ref else ""
         print(f"{i + 1}/{len(rows)} {time.time() - t0:.0f}s [{r['section']}] {r['name']}: {r['asr']!r} CER {r['cer']}", flush=True)
-    fields = list(rows[0].keys()) + [k for k in ("asr", "cer") if k not in rows[0]]
-    with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=fields)
-        w.writeheader()
-        w.writerows(rows)
+        if i % 20 == 0:
+            save()  # прерванный запуск продолжится с этого места
+    save()
 
 
 if __name__ == "__main__":
