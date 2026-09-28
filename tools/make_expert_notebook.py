@@ -16,9 +16,17 @@ code(r"""
 code(r"""
 import os, glob, shutil, subprocess, sys
 from kaggle_secrets import UserSecretsClient
-key = UserSecretsClient().get_secret("GEMINI_API_KEY")
+# Ключи: секреты GEMINI_API_KEY, GEMINI_API_KEY_2 … _9 (каждый отдельным секретом с галочкой)
+keys, sc = [], UserSecretsClient()
+for name in ["GEMINI_API_KEY"] + [f"GEMINI_API_KEY_{i}" for i in range(2, 10)]:
+    try:
+        keys.append(sc.get_secret(name).strip())
+    except Exception:
+        pass
+print("ключей:", len(keys))
+assert keys, "Нет секрета GEMINI_API_KEY"
 os.makedirs(os.path.expanduser("~/key"), exist_ok=True)
-open(os.path.expanduser("~/key/key"), "w").write(key)
+open(os.path.expanduser("~/key/key"), "w").write("\n".join(keys))
 
 # Записи: подключённый Input или последний прогон в репозитории (results/<дата>_<версия>/)
 src = glob.glob("/kaggle/input/**/results.csv", recursive=True) or \
@@ -30,11 +38,12 @@ shutil.copytree(os.path.dirname(src[0]), ROOT, dirs_exist_ok=True)
 """)
 code(r"""
 # Сначала проверка связи: 3 задания
-!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --limit 3 --jobs 1
+!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --limit 3
 """)
 code(r"""
-# Полная экспертиза
-!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --jobs 3
+# Полная экспертиза: по одному вопросу, не чаще 20 в минуту (лимит Live API — 30), по приоритету.
+# Продолжает с места остановки: ответы прошлых запусков берутся из репозитория (expert_results.csv).
+!cd /kaggle/working/task/tools/expert && python3 expert_listen.py --root /kaggle/working/chatterbox_eval --per-min 20
 """)
 code(r"""
 import pandas as pd

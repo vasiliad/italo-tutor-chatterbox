@@ -7,7 +7,11 @@
 Для обычных фраз — оценка произношения 1–5. Ответ сравнивается с задуманным.
 
   python3 tools/expert_listen.py --root ../italo-tutor-chatterbox/kaggle_output/chatterbox_eval \
-      [--only it_context,he_context] [--limit 5] [--jobs 3]
+      [--only it_context,he_context] [--limit 5] [--per-min 20]
+
+Вопросы идут строго по одному, не чаще --per-min в минуту, по приоритету (омографы и ударения —
+первыми). На ограничение частоты — пауза минута и повтор. Ответы сохраняются каждые 10 вопросов;
+повторный запуск спрашивает только то, на что ещё нет ответа.
 
 --root — папка с results.csv и wav/ из ноутбука Kaggle. Итог: expert_results.csv и expert_summary.md там же.
 """
@@ -29,6 +33,8 @@ from paolo_listen import listen  # noqa: E402
 
 HERE = os.path.dirname(__file__)
 EXPERTS = {
+    # Тетрадь-память Паоло в слепой проверке не подключаем (--memory включает): с ней он «вспоминает»
+    # правильные ответы («как мы обсуждали») вместо того, чтобы слушать.
     "paolo": dict(system=os.path.join(HERE, "paolo_system.txt"), voice="Algenib",
                   memory=next((p for p in [os.path.join(HERE, "..", "docs", "paolo", "memory.md"),
                                            os.path.join(HERE, "paolo_memory.md")] if os.path.exists(p)), None)),
@@ -40,6 +46,18 @@ FORMAT_CHOICE = ("Ответь строго так: «Ответ: <номер в
                  "Если не можешь различить — скажи «Ответ: ноль».")
 FORMAT_RATE = ("Ответь строго так: «Оценка: <число от 1 до 5>», где 5 — как у носителя, 1 — непонятно; "
                "потом коротко перечисли ошибки произношения (ударения, звуки, акцент), если есть.")
+
+def stressed(w):
+    """telèfonano -> «telÈfonano»: ударная гласная заглавной, чтобы номер варианта не путали со слогом."""
+    d = unicodedata.normalize("NFD", w)
+    out, i = "", 0
+    while i < len(d):
+        if i + 1 < len(d) and d[i + 1] in "\u0300\u0301":
+            out += unicodedata.normalize("NFC", d[i].upper() + d[i + 1]); i += 2
+        else:
+            out += d[i]; i += 1
+    return f"«{out}»"
+
 
 def plain(s):
     return unicodedata.normalize("NFC", "".join(c for c in unicodedata.normalize("NFD", s)
@@ -113,12 +131,13 @@ def build_task(r):
             return None
         target = target.lower()
         opts = [target, IT_WRONG[target]]
-        gl = lambda w: f" ({IT_GLOSS[w]})" if w in IT_GLOSS else ""
+        gl = lambda w: f" — ударная гласная {stressed(w)}" + (f", «{IT_GLOSS[w]}»" if w in IT_GLOSS else "")
         mark = "none" if "none" in parts else "mark"
         expected = None if (mark == "none" and target in IT_HOMOGRAPHS) else 0
         where = "в середине фразы" if "frame" in parts or sec == "stress_v2" else ""
         return choice_task("paolo", f"Как прочитано итальянское слово «{plain(target)}» {where}? "
-                                    "Какой слог ударный?", [o + gl(o) for o in opts], expected)
+                                    "Какой слог ударный? Сначала реши, какую гласную ты слышишь ударной, "
+                                    "потом найди вариант с этой гласной.", [o + gl(o) for o in opts], expected)
     if sec == "it_context":
         target = parts[1].lower()
         return choice_task("paolo", f"Какое слово прозвучало во фразе — как оно произнесено?",
@@ -187,16 +206,43 @@ def load_16k(path):
     return list((np.clip(y, -1, 1) * 32767).astype(np.int16))
 
 
-async def run_one(task, audio, keys, sem, timeout):
+RATE = ("exceeded your current quota", "RESOURCE_EXHAUSTED", "rate limit", "1011")
+PRIORITY = ["it_context", "he_context", "stress", "geminates", "it_ambiguous", "he_ambiguous", "he_stress",
+            "ru", "stress_v2", "it_a1", "he_basic", "clone", "slow", "mix", "ru_repeat"]
+
+
+class Pacer:
+    """Не чаще N запросов в минуту: между началами запросов не меньше 60/N секунд."""
+    def __init__(self, per_min):
+        self.gap, self.last = 60.0 / per_min, 0.0
+
+    async def wait(self):
+        loop = asyncio.get_running_loop()
+        delay = self.last + self.gap - loop.time()
+        if delay > 0:
+            await asyncio.sleep(delay)
+        self.last = loop.time()
+
+
+async def run_one(task, audio, keys, pacer, timeout, use_memory, backoff=65, tries=3):
+    """Спрашивает эксперта. На «слишком часто» (1011 / quota) ждёт минуту и повторяет; потом — следующий ключ."""
     ex = EXPERTS[task["expert"]]
-    system = with_memory(open(ex["system"]).read(), ex["memory"])
-    async with sem:
-        for key in keys:
+    system = open(ex["system"]).read()
+    if use_memory:
+        system = with_memory(system, ex["memory"])
+    err = ""
+    for key in keys:
+        for attempt in range(tries):
+            await pacer.wait()
             try:
                 return await listen(key, system, ex["voice"], audio, task["question"], timeout)
             except Exception as e:
                 err = str(e)[:300]
-        return f"[ошибка: {err}]"
+                if not any(q.lower() in err.lower() for q in RATE):
+                    break  # другая ошибка — к следующему ключу
+                print(f"[ограничение частоты, жду {backoff} с]", file=sys.stderr)
+                await asyncio.sleep(backoff)
+    return f"[ошибка: {err}]"
 
 
 async def main():
@@ -204,7 +250,8 @@ async def main():
     ap.add_argument("--root", required=True)
     ap.add_argument("--only", default="")
     ap.add_argument("--limit", type=int, default=0)
-    ap.add_argument("--jobs", type=int, default=3)
+    ap.add_argument("--per-min", type=float, default=20, help="не чаще стольких запросов в минуту (лимит 30)")
+    ap.add_argument("--memory", action="store_true", help="подключить тетрадь-память Паоло")
     ap.add_argument("--keys", default="~/key/key")
     ap.add_argument("--timeout", type=float, default=120)
     ap.add_argument("--seed", type=int, default=0)
@@ -220,29 +267,53 @@ async def main():
         t = build_task(r)
         if t:
             jobs.append((r, t))
+
+
+    keys = load_keys(a.keys)
+    print(f"ключей: {len(keys)}", file=sys.stderr)
+    jobs.sort(key=lambda j: PRIORITY.index(j[0]["section"]) if j[0]["section"] in PRIORITY else 99)
     if a.limit:
         jobs = jobs[:a.limit]
     print(f"заданий: {len(jobs)}", file=sys.stderr)
+    pacer = Pacer(a.per_min)
 
-    keys = load_keys(a.keys)
-    sem = asyncio.Semaphore(a.jobs)
+    # Продолжение: удачные ответы прошлых запусков сохраняем и не спрашиваем заново
+    path = os.path.join(a.root, "expert_results.csv")
+    done = {}
+    if os.path.exists(path):
+        for o in csv.DictReader(open(path)):
+            if not o["transcript"].startswith("["):
+                done[(o["section"], o["name"])] = o
+    print(f"уже есть ответов: {len(done)}", file=sys.stderr)
 
-    async def go(r, t):
+    out = []
+
+    def save():
+        with open(path, "w", newline="") as f:
+            w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
+            w.writeheader()
+            w.writerows(out + [done[k] for k in done if k not in {(o["section"], o["name"]) for o in out}])
+
+    for n, (r, t) in enumerate(jobs, 1):
+        if (r["section"], r["name"]) in done:
+            out.append(done[(r["section"], r["name"])])
+            continue
         audio = load_16k(os.path.join(a.root, r["file"]))
-        ans = await run_one(t, audio, keys, sem, a.timeout)
+        ans = await run_one(t, audio, keys, pacer, a.timeout, a.memory)
         got = parse(t["kind"], ans)
         ok = "" if t["expected"] is None or got is None else int(got == t["expected"])
-        print(f"[{r['section']}] {r['name']}: {got} (ожидали {t['expected']}) {ans[:120]!r}", file=sys.stderr)
-        return {**{k: r[k] for k in ("section", "name", "text", "lang", "tag", "file")},
-                "expert": t["expert"], "kind": t["kind"], "choices": t["choices"],
-                "expected": t["expected"], "answer": got, "correct": ok, "transcript": ans}
-
-    out = await asyncio.gather(*(go(r, t) for r, t in jobs))
-    path = os.path.join(a.root, "expert_results.csv")
-    with open(path, "w", newline="") as f:
-        w = csv.DictWriter(f, fieldnames=list(out[0].keys()))
-        w.writeheader()
-        w.writerows(out)
+        print(f"{n}/{len(jobs)} [{r['section']}] {r['name']}: {got} (ожидали {t['expected']}) {ans[:120]!r}",
+              file=sys.stderr, flush=True)
+        out.append({**{k: r[k] for k in ("section", "name", "text", "lang", "tag", "file")},
+                    "expert": t["expert"], "kind": t["kind"], "choices": t["choices"],
+                    "expected": t["expected"], "answer": got, "correct": ok, "transcript": ans})
+        if n % 10 == 0:
+            save()  # чтобы прерванный запуск не терял ответы
+    save()
+    for o in out:  # строки из CSV прошлого запуска — привести типы
+        o["correct"] = int(o["correct"]) if str(o["correct"]) in ("0", "1") else ""
+        o["answer"] = int(o["answer"]) if str(o["answer"]).isdigit() else ""
+    print(f"ответов: {sum(1 for o in out if not str(o['transcript']).startswith('['))} из {len(out)}", file=sys.stderr)
 
     agg = defaultdict(lambda: {"n": 0, "ok": 0, "judged": 0, "rates": []})
     for o in out:
