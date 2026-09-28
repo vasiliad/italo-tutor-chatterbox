@@ -26,6 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TASKS = {  # задача -> (ноутбук, slug на Kaggle, GPU, входы — другие ноутбуки)
     "eval": ("chatterbox_eval.ipynb", "italo-tutor-chatterbox-eval", True, []),
     "expert": ("expert_review.ipynb", "italo-tutor-chatterbox-expert", False, []),
+    "expert38": ("expert_review_38.ipynb", "italo-tutor-chatterbox-expert38", False, []),
 }
 TASK = "eval"
 
@@ -88,7 +89,7 @@ def main():
         if user:
             body["slug"] = f"{user}/{slug}"
             body["kernelDataSources"] = [f"{user}/{k}" for k in sources]
-            if TASK == "expert":  # ключи Gemini: API-запуски не видят Kaggle Secrets
+            if TASK.startswith("expert"):  # ключи Gemini: API-запуски не видят Kaggle Secrets
                 body["datasetDataSources"] = [f"{user}/key-google"]
         res = call("kernels.KernelsApiService", "SaveKernel", body)
         print(json.dumps(res, indent=1, ensure_ascii=False))
