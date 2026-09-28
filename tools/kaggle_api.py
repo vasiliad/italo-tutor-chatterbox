@@ -89,7 +89,7 @@ def main():
             body["slug"] = f"{user}/{slug}"
             body["kernelDataSources"] = [f"{user}/{k}" for k in sources]
             if TASK == "expert":  # ключи Gemini: API-запуски не видят Kaggle Secrets
-                body["datasetDataSources"] = [f"{user}/gemini-keys"]
+                body["datasetDataSources"] = [f"{user}/key-google"]
         res = call("kernels.KernelsApiService", "SaveKernel", body)
         print(json.dumps(res, indent=1, ensure_ascii=False))
         if res.get("error"):
