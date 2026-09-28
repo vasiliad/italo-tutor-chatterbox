@@ -41,3 +41,14 @@ Xcode 27.0 (27A266a), Flutter 3.35.5 (поставлен отдельно в ~/f
 и `italo_vpn.json` (в `vpn/` или `~/key/`) — на Mac их нет. Сам Mac до Gemini достаёт напрямую (выход DE,
 generativelanguage.googleapis.com отвечает 403 «нужен ключ»). Спросил владельца: положить конфиг туннеля
 (xray поставлю из Homebrew) или временно пропускать туннель при не-RU выходе (локально, без коммита). Жду.
+
+### №3 — обновление 2: встроенный VPN на Mac работает
+По указанию владельца всё встраивается в программу (сценарий флешки), поля ввода — только на замену.
+- В `italo_tutor.app/Contents/MacOS/vpn/`: `xray` 26.3.27 (darwin/arm64, из Homebrew) и `italo_vpn.json`,
+  собранный из клиента `italo-tutor` в `xray-ivrit` на lama2 (VLESS+Reality, 132.226.200.117:443, HTTP-прокси 127.0.0.1:10809).
+  Проверка: выход через туннель — 132.226.200.117, DE; generativelanguage.googleapis.com отвечает 403 (нужен ключ) — связь есть.
+  Приложение само поднимает xray при запуске.
+- Пакет переподписан ad-hoc (`codesign --force --deep -s -`), при этом entitlements (в т.ч. App Sandbox) сняты.
+  Для флешки sandbox всё равно мешает (запуск xray, запись keys/conf рядом с exe) — предлагаю выключить его в
+  `macos/Runner/Release.entitlements` и сделать скрипт упаковки `vpn/` + `keys.txt` в .app.
+- Ключи Gemini: нужен `keys.txt` в `Contents/MacOS/` (или `~/key/key`). На Mac их нет — спросил владельца, откуда взять.
