@@ -1,0 +1,13 @@
+{"note": "Реплики ученицы для боевого прогона. lang — на каком языке она говорит; err — типичная ошибка (для судьи).",
+ "turns": [
+  {"text": "Привет, Паоло! Я готова к уроку.", "lang": "ru"},
+  {"text": "Ciao! Mi chiamo Anna. Io sono russa.", "lang": "it"},
+  {"text": "Io sono di Mosca. E tu, di dove sei?", "lang": "it"},
+  {"text": "Uno, due, tre, quatro, cinque.", "lang": "it", "err": "quatro вместо quattro"},
+  {"text": "Sei, sette, otto, nove, dieci.", "lang": "it"},
+  {"text": "Я не понимаю, как сказать «я хочу кофе».", "lang": "ru"},
+  {"text": "Vorrei un caffè, per favore.", "lang": "it"},
+  {"text": "Quanto costa il caffè?", "lang": "it"},
+  {"text": "Io ho venti anno.", "lang": "it", "err": "anno вместо anni"},
+  {"text": "Спасибо, Паоло! Grazie, a domani!", "lang": "ru"}
+ ]}

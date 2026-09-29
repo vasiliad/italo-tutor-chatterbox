@@ -266,3 +266,32 @@ Kokoro и Piper (контроль ударения по фонемам), Qwen3-T
    `mlx-community/Qwen3-TTS-*`) — только RTF на 5 фразах it_a1, для сравнения с MPS.
 5. Результаты: `mac_bench_tts/results.md` и meta.csv/run.json (без WAV) — закоммитить; 3–5 WAV на модель
    (it_a1) — в `mac_bench_tts/wav/`. Кратко — в outbox.
+
+## №14 — офлайн-урок «в бою»: все варианты мозг × голос (2026-09-29)
+Владелец: «стоит проверить в бою все варианты». Итоги №13 — голос; исследования (в italo-tutor):
+`docs/research/local_brain_2026.md` и `docs/research/offline_speech_stack_2026.md`. Код — `offline/` здесь.
+- **Уши:** Parakeet v3 (sherpa-onnx).
+- **Мозг:** Qwen3.5-9B, Gemma 4 E4B, Gemma 4 12B (mlx-lm, 4 бита).
+- **Голос:** Qwen3-TTS 1.7B MLX 8 бит, либо Kokoro (it, im_nicola) + Piper ru (dmitri) через sherpa-onnx.
+- Ударения it — словарём приложения `assets/lexicon/it_stress.tsv.gz`. Русское ударение Piper — пересборкой
+  espeak-ng: `italo-tutor/tools/offline/espeak_ru_stress.sh`.
+
+1. `git pull` в обоих репо. Затем `bash offline/setup.sh` — ≈ 20 ГБ, venv `~/offline_env`, модели `~/offline_models`.
+   Переменная `ITALO_TUTOR` — путь к клону italo-tutor, если он не в `~/italo-tutor`.
+2. **API не проверены на Mac, поправить при запуске:**
+   - `mlx_audio` `generate(voice=…, lang_code=…)` у Qwen3-TTS — сверить с `tts_eval/mlx_bench.py`, как в №13;
+   - `sherpa_onnx` Python: `OfflineTtsKokoroModelConfig` (lang='it', sid 36 = im_nicola) и
+     `OfflineRecognizer.from_transducer(model_type="nemo_transducer")`;
+   - `apply_chat_template(enable_thinking=False)` у Gemma.
+
+   Правки — в коммит.
+3. **Бой:** `bash offline/battle.sh`.
+   - 6 уроков по сценарию `offline/scenario_a1.json` (10 реплик ученицы, 2 с ошибками); сеть на это время можно
+     отключить. Реплики ученицы озвучивает Kokoro/Piper женским голосом, они идут через уши.
+   - Потом судит Паоло: `offline/judge.py`, gemini-3.8-live, ≤ 20/мин на ключ, ключи `~/key/key`.
+4. **Итог:** `offline/battle.md` + `runs/*/log.jsonl` + `runs/judge.csv` — закоммитить. WAV по 2 реплики на
+   сочетание (одна с исправлением ошибки) — в `offline/runs/<прогон>/wav/`, остальные не коммитить.
+   Кратко — в outbox: задержка до первого звука, ток/с, память, оценки Паоло, замечания.
+5. **Живой урок для владельца** (он сам выбирает сочетание, нужна гарнитура):
+   `~/offline_env/bin/python offline/lesson.py --brain <…> --voice <…> --live`
+   Enter — говорить, Enter — закончить, «стоп» — конец урока.
