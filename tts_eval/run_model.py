@@ -31,6 +31,8 @@ def peak_gpu_gb():
         import torch
         if torch.cuda.is_available():
             return round(torch.cuda.max_memory_allocated() / 2**30, 2)
+        if torch.backends.mps.is_available():
+            return round(torch.mps.driver_allocated_memory() / 2**30, 2)
     except Exception:
         pass
     return None
@@ -42,16 +44,19 @@ def main():
     ap.add_argument("--out", default="out")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--device", default=None)
+    ap.add_argument("--sections", default="", help="только эти разделы через запятую (для замера на Mac)")
     a = ap.parse_args()
     mod = importlib.import_module(f"models.{a.model}")
-    device = a.device
+    device = a.device or ("cpu" if os.environ.get("FORCE_CPU") else None)
     if not device:
         try:
             import torch
-            device = "cuda" if torch.cuda.is_available() else "cpu"
+            device = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
         except ImportError:
             device = "cpu"
     items = json.load(open(os.path.join(HERE, "testset.json")))
+    if a.sections:
+        items = [x for x in items if x["section"] in a.sections.split(",")]
     if a.limit:
         items = items[:a.limit]
     out = os.path.join(a.out, a.model)
@@ -98,7 +103,7 @@ def main():
             n += 1
             print(f"[{a.model}] {it['id']} {v}: {row['audio_s']} с за {row['gen_s']} с {row['error']}", flush=True)
     f.close()
-    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2**20
+    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (2**30 if sys.platform == "darwin" else 2**20)
     json.dump(dict(model=a.model, device=device, load_s=round(load_s, 1), peak_rss_gb=round(rss, 2),
                    peak_gpu_gb=peak_gpu_gb(), new_rows=n), open(os.path.join(out, "run.json"), "w"))
     print(f"[{a.model}] готово: {n} записей, RSS {rss:.1f} ГБ, GPU {peak_gpu_gb()} ГБ", flush=True)

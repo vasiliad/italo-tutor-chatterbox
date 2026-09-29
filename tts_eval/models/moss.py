@@ -25,6 +25,8 @@ def load(device):
     dtype = torch.float32 if os.environ.get("MOSS_DTYPE") == "fp32" else torch.float16
     proc = AutoProcessor.from_pretrained(REPO, trust_remote_code=True)
     codec_dev = "cuda:1" if torch.cuda.device_count() > 1 else device
+    if os.environ.get("MOSS_CODEC_CPU"):
+        codec_dev = "cpu"
     proc.audio_tokenizer = proc.audio_tokenizer.to(codec_dev)
     model = AutoModel.from_pretrained(REPO, trust_remote_code=True, attn_implementation="sdpa",
                                       torch_dtype=dtype).to(device).eval()

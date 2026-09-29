@@ -252,3 +252,17 @@ Volare — убрать «mi piace» из фокуса; Grande, grande, grande �
 Almeno tu — проверить фокус «si»; Il cielo in una stanza — скорее A2, чем A1. Добавить стабильные `id`; поле `incipit_it`
 пустое везде — убрать или оставить пустым осознанно. Цель «петь как Челентано»: его песен две (A1 Azzurro, B1 via Gluck) —
 на A2 добавить одну из «Una carezza in un pugno» (1968) / «Storia d'amore» (1969) (сверить метаданные).
+
+## №13 — замер локальных TTS на Mac mini (2026-09-29)
+Владелец: «делай». Итоги Kaggle — `results/2026-09-29_local_tts/README.md`. Кандидаты для офлайн-озвучки:
+Kokoro и Piper (контроль ударения по фонемам), MOSS v1.5 (4B, it/ru/he, клон), Qwen3-TTS 1.7B/0.6B, MOSS v1.0 (1.7B).
+1. `git pull` в italo-tutor-chatterbox, затем `bash tts_eval/mac_bench.sh` (Python 3.11; espeak-ng из brew;
+   ≈25 ГБ места, venv в ~/tts_envs). Можно по частям: `bash tts_eval/mac_bench.sh kokoro piper`, потом `qwen3`, потом `moss`.
+2. Что мерить: RTF (медиана, без первой фразы), пик RAM процесса, память MPS. **Главный вопрос: влезет ли модель
+   в Mac на 16 ГБ** вместе с приложением. Пик RAM выше 10 ГБ — отметить.
+3. Если MOSS v1.5 на MPS падает (bf16-кодек, нехватка памяти), повторить с `MOSS_CODEC_CPU=1`:
+   `MOSS_CODEC_CPU=1 bash tts_eval/mac_bench.sh moss`. Если падает и тогда, записать ошибку.
+4. Если есть время: Kokoro и Qwen3 через mlx-audio (`pip install mlx-audio`; модели `prince-canuma/Kokoro-82M`,
+   `mlx-community/Qwen3-TTS-*`) — только RTF на 5 фразах it_a1, для сравнения с MPS.
+5. Результаты: `mac_bench_tts/results.md` и meta.csv/run.json (без WAV) — закоммитить; 3–5 WAV на модель
+   (it_a1) — в `mac_bench_tts/wav/`. Кратко — в outbox.
