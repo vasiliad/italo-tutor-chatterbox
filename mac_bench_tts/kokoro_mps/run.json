@@ -1,0 +1,1 @@
+{"model": "kokoro", "device": "mps", "load_s": 79.2, "peak_rss_gb": 2.47, "peak_gpu_gb": 1.27, "new_rows": 54}

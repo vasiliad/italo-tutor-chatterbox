@@ -1,0 +1,1 @@
+{"model": "qwen3", "device": "mps", "load_s": 380.7, "peak_rss_gb": 4.67, "peak_gpu_gb": 5.88, "new_rows": 49}

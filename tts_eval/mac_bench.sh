@@ -19,7 +19,8 @@ run() {  # имя venv | pip-пакеты | адаптер | имя прогон
   rm -rf "$OUT/$model"
   env "$@" /usr/bin/time -l "$ENVS/$venv/bin/python" tts_eval/run_model.py "$model" --out "$OUT" --sections $SECTIONS \
       2> >(grep -E "maximum resident|Error|error" >&2)
-  [ -d "$OUT/$model" ] && rm -rf "$OUT/$name" && mv "$OUT/$model" "$OUT/$name"
+  # имя прогона = имя модели (piper) — переносить некуда, иначе rm стёр бы сам результат
+  [ "$name" != "$model" ] && [ -d "$OUT/$model" ] && rm -rf "$OUT/$name" && mv "$OUT/$model" "$OUT/$name"
 }
 
 want() { [ $# -eq 0 ] || [[ " $ARGS " == *" $1 "* ]]; }

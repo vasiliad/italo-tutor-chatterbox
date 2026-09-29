@@ -1,0 +1,45 @@
+{
+ "repo": "mlx-community/Qwen3-TTS-12Hz-0.6B-CustomVoice-8bit",
+ "load_s": 301.9,
+ "rtf_median": 0.243,
+ "rtf_max": 0.291,
+ "peak_rss_gb": 2.58,
+ "rows": [
+  {
+   "id": "it_a1__00",
+   "audio_s": 5.52,
+   "gen_s": 1.55,
+   "rtf": 0.28
+  },
+  {
+   "id": "it_a1__01",
+   "audio_s": 3.12,
+   "gen_s": 0.76,
+   "rtf": 0.244
+  },
+  {
+   "id": "it_a1__02",
+   "audio_s": 6.32,
+   "gen_s": 1.51,
+   "rtf": 0.239
+  },
+  {
+   "id": "it_a1__03",
+   "audio_s": 2.56,
+   "gen_s": 0.75,
+   "rtf": 0.291
+  },
+  {
+   "id": "it_a1__04",
+   "audio_s": 8.56,
+   "gen_s": 2.03,
+   "rtf": 0.237
+  },
+  {
+   "id": "it_a1__05",
+   "audio_s": 4.64,
+   "gen_s": 1.13,
+   "rtf": 0.243
+  }
+ ]
+}

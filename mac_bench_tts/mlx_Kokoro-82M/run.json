@@ -1,0 +1,45 @@
+{
+ "repo": "prince-canuma/Kokoro-82M",
+ "load_s": 0.8,
+ "rtf_median": 0.044,
+ "rtf_max": 0.056,
+ "peak_rss_gb": 0.44,
+ "rows": [
+  {
+   "id": "it_a1__00",
+   "audio_s": 2.83,
+   "gen_s": 3.47,
+   "rtf": 1.229
+  },
+  {
+   "id": "it_a1__01",
+   "audio_s": 2.62,
+   "gen_s": 0.13,
+   "rtf": 0.048
+  },
+  {
+   "id": "it_a1__02",
+   "audio_s": 3.25,
+   "gen_s": 0.18,
+   "rtf": 0.056
+  },
+  {
+   "id": "it_a1__03",
+   "audio_s": 2.48,
+   "gen_s": 0.11,
+   "rtf": 0.044
+  },
+  {
+   "id": "it_a1__04",
+   "audio_s": 2.92,
+   "gen_s": 0.11,
+   "rtf": 0.038
+  },
+  {
+   "id": "it_a1__05",
+   "audio_s": 2.95,
+   "gen_s": 0.11,
+   "rtf": 0.038
+  }
+ ]
+}
