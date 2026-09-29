@@ -17,6 +17,7 @@ import csv
 import json
 import os
 import random
+import re
 import sys
 import unicodedata
 from collections import defaultdict
@@ -56,10 +57,20 @@ SYLLABLE = {"àncora": 1, "ancóra": 2, "prìncipi": 1, "princìpi": 2, "càpita
             "subìto": 2, "ìndice": 1, "àrbitro": 1, "telèfonano": 2, "desìderano": 2, "capìscono": 2, "scrìvono": 1,
             "farmacìa": 3, "psicologìa": 4, "brìndisi": 1, "zùcchero": 1, "tàvolo": 1, "piròscafo": 2,
             "leggère": 2, "lèggere": 1}
-SYL_Q = ("Ты услышишь фразу из трёх слов: «Dico … adesso». Слушай только среднее слово. Какой по счёту слог в нём "
-         "ударный, если считать с начала слова: 1, 2, 3 или 4? Слово я не называю — суди только по звуку. "
-         "Ответь строго так: «Ответ: <номер слога>», потом одной фразой — что ты услышал. "
-         "Если не можешь различить — «Ответ: ноль».")
+RU_SYL = {"castle": 1, "lock": 2, "cry": 1, "pay": 2, "pain": 1, "flour": 2}
+BLIND_END = (" Слово я не называю — суди только по звуку. Ответь строго так: «Ответ: <номер>», потом одной фразой — "
+             "что ты услышал. Если не можешь различить — «Ответ: ноль».")
+
+
+def syl_q(where):
+    return (f"Слушай {where}. Какой по счёту слог в нём ударный, если считать с начала слова: 1, 2, 3 или 4?" + BLIND_END)
+
+
+def word_pos(item):
+    """Номер слова (с 1) в обычном тексте, где стоит проверяемое слово (l'ancora — одно слово)."""
+    w = item["inputs"]["ipa_word"][0].lower()
+    toks = item["inputs"]["plain"].lower().split()
+    return next(i for i, t in enumerate(toks, 1) if re.search(rf"(?<!\w){re.escape(w)}(?!\w)", t))
 PRIORITY = ["it_solo", "it_stress", "it_context", "it_gem", "ru", "he", "it_a1"]
 RATE_VARIANTS = {"plain", "clone"}  # фразы A1 — оценка только для обычного текста и клона
 
@@ -77,14 +88,35 @@ def accented_target(item):
     return item["expected"].split(" — ")[0].lower()
 
 
+def blind(item, variant):
+    """Слепой режим: всё слушает Паоло, варианты-слова не показываем (иначе он выбирает частое слово)."""
+    sec = item["section"]
+    task = lambda q, exp, ch: dict(expert="paolo", kind="choice", question=INTRO + q, choices=ch, expected=exp, order=None)
+    if sec in ("it_solo", "it_stress"):
+        return task(syl_q("только среднее слово во фразе «Dico … adesso»"), SYLLABLE[accented_target(item)], "слог")
+    if sec == "it_context":
+        n = word_pos(item)
+        return task(syl_q(f"итальянскую фразу; нас интересует слово номер {n}, если считать слова с начала фразы"),
+                    SYLLABLE[accented_target(item)], f"слог, слово {n}")
+    if sec == "it_gem":
+        return task("Слушай только среднее слово во фразе «Dico … adesso». Есть ли в нём двойная (долгая, удвоенная) "
+                    "согласная? Вариант 1 — нет, все согласные короткие. Вариант 2 — да, есть долгая согласная." + BLIND_END,
+                    1 if item["expected"] == "single" else 2, "1 одинарная | 2 двойная")
+    if sec == "ru" and "ipa_word" in item["inputs"]:
+        n = word_pos(item)
+        return task(syl_q(f"русскую фразу; нас интересует слово номер {n}, если считать слова с начала фразы"),
+                    RU_SYL[item["id"].rsplit("_", 1)[-1]], f"слог, слово {n}")
+    if sec == "ru":
+        return rate_task("paolo", "Русская фраза. Оцени произношение, особенно ударения и акцент.")
+    if sec == "it_a1":
+        return rate_task("paolo", "Итальянская фраза. Оцени произношение.")
+    return None  # иврит — не к Паоло
+
+
 def build(item, variant, syllable=False):
     sec = item["section"]
     if syllable:
-        if sec not in ("it_solo", "it_stress"):
-            return None
-        t = accented_target(item)
-        return dict(expert="paolo", kind="choice", question=INTRO + SYL_Q, choices="слог 1–4",
-                    expected=SYLLABLE[t], order=None)
+        return blind(item, variant)
     if sec in ("it_solo", "it_stress", "it_context"):
         t = accented_target(item)
         if t not in WRONG:
@@ -127,7 +159,8 @@ async def main():
     ap.add_argument("--model", default=MODEL)
     ap.add_argument("--timeout", type=float, default=120)
     ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--syllable", action="store_true", help="вопрос «какой слог ударный», слово не показываем")
+    ap.add_argument("--syllable", action="store_true",
+                    help="слепой режим: все записи, только Паоло; номер ударного слога / есть ли долгая согласная, слов не показываем")
     a = ap.parse_args()
     random.seed(a.seed)
     items = {x["id"]: x for x in json.load(open(os.path.join(HERE, "testset.json")))}
@@ -138,8 +171,8 @@ async def main():
         if not os.path.exists(p):
             continue
         for r in csv.DictReader(open(p)):
-            if r["variant"] in ("ipa", "ipa_len") and f.startswith("moss"):
-                continue  # фраза целиком в IPA у MOSS неразборчива
+            if r["variant"] in ("ipa", "ipa_len") and f.startswith("moss") and not a.syllable:
+                continue  # фраза целиком в IPA у MOSS неразборчива (в слепом режиме слушаем всё)
             t = build(items[r["id"]], r["variant"], a.syllable)
             if t:
                 jobs.append((f, r, t))
