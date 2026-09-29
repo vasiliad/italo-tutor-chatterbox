@@ -255,7 +255,7 @@ Almeno tu — проверить фокус «si»; Il cielo in una stanza — �
 
 ## №13 — замер локальных TTS на Mac mini (2026-09-29)
 Владелец: «делай». Итоги Kaggle — `results/2026-09-29_local_tts/README.md`. Кандидаты для офлайн-озвучки:
-Kokoro и Piper (контроль ударения по фонемам), MOSS v1.5 (4B, it/ru/he, клон), Qwen3-TTS 1.7B/0.6B, MOSS v1.0 (1.7B).
+Kokoro и Piper (контроль ударения по фонемам), Qwen3-TTS 1.7B/0.6B, MOSS v1.5 и v1.0. Клон голоса не нужен (владелец 29.09).
 1. `git pull` в italo-tutor-chatterbox, затем `bash tts_eval/mac_bench.sh` (Python 3.11; espeak-ng из brew;
    ≈25 ГБ места, venv в ~/tts_envs). Можно по частям: `bash tts_eval/mac_bench.sh kokoro piper`, потом `qwen3`, потом `moss`.
 2. Что мерить: RTF (медиана, без первой фразы), пик RAM процесса, память MPS. **Главный вопрос: влезет ли модель
