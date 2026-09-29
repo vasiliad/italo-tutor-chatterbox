@@ -38,9 +38,10 @@ print({m: len(glob.glob(f"{OUT}/{m}/*.wav")) for m in os.listdir(OUT) if os.path
              "!cd /kaggle/working/task && python3 tts_eval/expert_tts.py --out /kaggle/working/out --per-min 20 --syllable"),
     ("code", '''res = "/kaggle/working/expert_out"
 os.makedirs(res, exist_ok=True)
-for f in glob.glob(f"{OUT}/expert_tts.*"):
+for f in glob.glob(f"{OUT}/expert_tts*"):
     shutil.copy(f, res)
-print(open(f"{res}/expert_tts.md").read())
+for f in glob.glob(f"{res}/*.md"):
+    print(open(f).read())
 shutil.rmtree(OUT); shutil.rmtree("/kaggle/working/task", ignore_errors=True)
 os.remove(os.path.expanduser("~/key/key"))'''),
 ]
