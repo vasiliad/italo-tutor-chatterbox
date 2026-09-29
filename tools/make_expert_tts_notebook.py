@@ -33,8 +33,9 @@ for z in glob.glob(f"{base}/wav_*.zip"):
         name = info.filename if info.flag_bits & 0x800 else info.filename.encode("cp437").decode("utf-8")
         open(f"{OUT}/{m}/{name}", "wb").write(zipfile.ZipFile(z).read(info))
 print({m: len(glob.glob(f"{OUT}/{m}/*.wav")) for m in os.listdir(OUT) if os.path.isdir(f"{OUT}/{m}")})'''),
-    ("code", "# проверка связи: 3 задания\n!cd /kaggle/working/task && python3 tts_eval/expert_tts.py --out /kaggle/working/out --limit 3"),
-    ("code", "!cd /kaggle/working/task && python3 tts_eval/expert_tts.py --out /kaggle/working/out --per-min 20"),
+    ("code", "# проверка связи: 3 задания\n!cd /kaggle/working/task && python3 tts_eval/expert_tts.py --out /kaggle/working/out --limit 3 --syllable"),
+    ("code", "# слепой режим: слово не называем, Паоло говорит номер ударного слога\n"
+             "!cd /kaggle/working/task && python3 tts_eval/expert_tts.py --out /kaggle/working/out --per-min 20 --syllable"),
     ("code", '''res = "/kaggle/working/expert_out"
 os.makedirs(res, exist_ok=True)
 for f in glob.glob(f"{OUT}/expert_tts.*"):

@@ -23,7 +23,7 @@ from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "tools", "expert"))
-from expert_listen import Pacer, choice_task, load_16k, parse, rate_task, run_one, stressed  # noqa: E402
+from expert_listen import INTRO, Pacer, choice_task, load_16k, parse, rate_task, run_one, stressed  # noqa: E402
 from paolo import load_keys  # noqa: E402
 
 MODEL = "models/gemini-3.8-live"
@@ -51,6 +51,15 @@ HE = {"boker": ("בֹּקֶר, бóкер — утро", "בּוֹקֵר, бок
       "shalom": ("шломéх — обращение к женщине", "шломхá — обращение к мужчине")}
 HE_EXP = {"boker_morning": 0, "boker_cowboy": 1, "okhel_food": 0, "okhel_eats": 1, "sefer_book": 0,
           "sapar_barber": 1, "shalom": 0}
+# номер ударного слога с начала слова (режим --syllable: слово не показываем — нет подсказки «частым словом»)
+SYLLABLE = {"àncora": 1, "ancóra": 2, "prìncipi": 1, "princìpi": 2, "càpitano": 1, "capitàno": 3, "sùbito": 1,
+            "subìto": 2, "ìndice": 1, "àrbitro": 1, "telèfonano": 2, "desìderano": 2, "capìscono": 2, "scrìvono": 1,
+            "farmacìa": 3, "psicologìa": 4, "brìndisi": 1, "zùcchero": 1, "tàvolo": 1, "piròscafo": 2,
+            "leggère": 2, "lèggere": 1}
+SYL_Q = ("Ты услышишь фразу из трёх слов: «Dico … adesso». Слушай только среднее слово. Какой по счёту слог в нём "
+         "ударный, если считать с начала слова: 1, 2, 3 или 4? Слово я не называю — суди только по звуку. "
+         "Ответь строго так: «Ответ: <номер слога>», потом одной фразой — что ты услышал. "
+         "Если не можешь различить — «Ответ: ноль».")
 PRIORITY = ["it_solo", "it_stress", "it_context", "it_gem", "ru", "he", "it_a1"]
 RATE_VARIANTS = {"plain", "clone"}  # фразы A1 — оценка только для обычного текста и клона
 
@@ -68,8 +77,14 @@ def accented_target(item):
     return item["expected"].split(" — ")[0].lower()
 
 
-def build(item, variant):
+def build(item, variant, syllable=False):
     sec = item["section"]
+    if syllable:
+        if sec not in ("it_solo", "it_stress"):
+            return None
+        t = accented_target(item)
+        return dict(expert="paolo", kind="choice", question=INTRO + SYL_Q, choices="слог 1–4",
+                    expected=SYLLABLE[t], order=None)
     if sec in ("it_solo", "it_stress", "it_context"):
         t = accented_target(item)
         if t not in WRONG:
@@ -112,6 +127,7 @@ async def main():
     ap.add_argument("--model", default=MODEL)
     ap.add_argument("--timeout", type=float, default=120)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--syllable", action="store_true", help="вопрос «какой слог ударный», слово не показываем")
     a = ap.parse_args()
     random.seed(a.seed)
     items = {x["id"]: x for x in json.load(open(os.path.join(HERE, "testset.json")))}
@@ -124,7 +140,7 @@ async def main():
         for r in csv.DictReader(open(p)):
             if r["variant"] in ("ipa", "ipa_len") and f.startswith("moss"):
                 continue  # фраза целиком в IPA у MOSS неразборчива
-            t = build(items[r["id"]], r["variant"])
+            t = build(items[r["id"]], r["variant"], a.syllable)
             if t:
                 jobs.append((f, r, t))
     # по приоритету раздела, внутри — модели вперемешку (частичный итог сравним по моделям)
@@ -133,7 +149,8 @@ async def main():
     if a.limit:
         jobs = jobs[:a.limit]
 
-    path = os.path.join(a.out, "expert_tts.csv")
+    tag = "_syllable" if a.syllable else ""
+    path = os.path.join(a.out, f"expert_tts{tag}.csv")
     fields = ["model", "id", "section", "lang", "variant", "cer", "expert", "kind", "choices", "expected",
               "answer", "correct", "transcript"]
     done = {}
@@ -178,10 +195,10 @@ async def main():
 
     await asyncio.gather(*(worker(i) for i in range(len(keys))))
     save()
-    summarize(list(results.values()), a.out, a.model)
+    summarize(list(results.values()), a.out, a.model, tag)
 
 
-def summarize(rows, out, model):
+def summarize(rows, out, model, tag=""):
     agg = defaultdict(lambda: {"n": 0, "ok": 0, "judged": 0, "rates": [], "free": defaultdict(int)})
     for o in rows:
         g = agg[(o["model"], o["section"], o["variant"])]
@@ -211,7 +228,7 @@ def summarize(rows, out, model):
     md += ["\n## По разделам\n", "| модель | раздел | вариант | n | верно / с эталоном |", "|---|---|---|---|---|"]
     for (m, sec, v), g in sorted(agg.items()):
         md.append(f"| {m} | {sec} | {v} | {g['n']} | {g['ok']}/{g['judged']} |")
-    open(os.path.join(out, "expert_tts.md"), "w").write("\n".join(md) + "\n")
+    open(os.path.join(out, f"expert_tts{tag}.md"), "w").write("\n".join(md) + "\n")
     print("\n".join(md[:4 + 2 + 40]))
 
 
