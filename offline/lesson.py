@@ -39,6 +39,7 @@ BRAINS = {
     "gemma4-12b": "mlx-community/gemma-4-12B-it-4bit",
 }
 QWEN_TTS = "mlx-community/Qwen3-TTS-12Hz-1.7B-CustomVoice-8bit"
+WHISPER_PROCESSOR = "openai/whisper-large-v3-turbo"
 QWEN_SPEAKER = os.environ.get("QWEN_SPEAKER", "Ryan")
 CYR = re.compile(r"[А-Яа-яЁё]")
 
@@ -338,6 +339,10 @@ class Ears:
         else:
             from mlx_audio.stt.utils import load
             self.model = load(EARS[name])
+            if name == "whisper-turbo" and getattr(self.model, "_processor", None) is None:
+                # в mlx-community/whisper-large-v3-turbo нет токенизатора — берём у openai (setup.sh докачивает)
+                from transformers import WhisperProcessor
+                self.model._processor = WhisperProcessor.from_pretrained(WHISPER_PROCESSOR)
 
     def hear(self, y16k):
         t0 = time.time()

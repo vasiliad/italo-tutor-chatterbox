@@ -17,6 +17,8 @@ for r in mlx-community/Qwen3.5-9B-4bit lmstudio-community/gemma-4-E4B-it-MLX-4bi
          mlx-community/Qwen3-ASR-1.7B-8bit mlx-community/whisper-large-v3-turbo; do
   "$E/python" -c "from huggingface_hub import snapshot_download as s; s('$r')"
 done
+# токенизатор Whisper (в mlx-community-версии его нет) — только конфиги и словарь, без весов
+"$E/python" -c "from huggingface_hub import snapshot_download as s; s('openai/whisper-large-v3-turbo', allow_patterns=['*.json','*.txt'])"
 # sherpa-onnx: Kokoro, Piper ru (Паоло — dmitri, ученица — irina), Parakeet v3
 REL=https://github.com/k2-fsa/sherpa-onnx/releases/download
 for a in tts-models/kokoro-int8-multi-lang-v1_0 tts-models/vits-piper-ru_RU-dmitri-medium \
