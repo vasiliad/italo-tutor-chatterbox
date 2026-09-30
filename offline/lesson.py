@@ -78,7 +78,7 @@ class Brain:
         from mlx_lm import stream_generate
         from mlx_lm.sample_utils import make_sampler
         self.history.append({"role": "user", "content": student_text})
-        msgs = [{"role": "system", "content": self.system}] + self.history[-16:]
+        msgs = [{"role": "system", "content": self.system}] + self._window()
         try:  # Qwen3.5: без «размышлений» в диалоге
             prompt = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False, enable_thinking=False)
         except TypeError:
@@ -117,6 +117,84 @@ class Brain:
         self.history.append({"role": "assistant", "content": clean})
         stats.update(teacher=clean, llm_first_tok_s=round(first or llm_s, 2), llm_first_sentence_s=first_sent,
                      llm_total_s=round(llm_s, 2), llm_tok_s=round(ntok / max(llm_s, 1e-3), 1))
+
+
+class ServerBrain(Brain):
+    """Мозг через llama-server (llama.cpp) — для Windows/без видеокарты: GGUF на процессоре.
+    llama-server держит KV-кэш диалога (cache_prompt), так что каждая реплика досчитывает только новые токены.
+      llama-server -m gemma-4-E4B_q4_0-it.gguf -c 8192 -t <ядра> --port 8088
+    --brain server[:http://127.0.0.1:8088]"""
+
+    def __init__(self, url):
+        self.name, self.repo, self.url = "server", url, url.rstrip("/")
+        self.system = open(os.path.join(HERE, "paolo_offline_system.txt")).read()
+        self.history = []
+        self._warmup()
+
+    def _warmup(self):
+        """Инструкция Паоло (~800 токенов) на процессоре считается ~20 с — считаем её до урока,
+        дальше llama-server берёт её из кэша."""
+        import urllib.request
+        body = json.dumps(dict(messages=[{"role": "system", "content": self.system}, {"role": "user", "content": "Ciao"}],
+                               max_tokens=1, cache_prompt=True, chat_template_kwargs={"enable_thinking": False})).encode()
+        t0 = time.time()
+        urllib.request.urlopen(urllib.request.Request(self.url + "/v1/chat/completions", body,
+                                                      {"Content-Type": "application/json"})).read()
+        print(f"мозг прогрет: {time.time() - t0:.1f} с", file=sys.stderr)
+
+    def reply_stream(self, student_text, stats):
+        import urllib.request
+        self.history.append({"role": "user", "content": student_text})
+        msgs = [{"role": "system", "content": self.system}] + self._window()
+        body = json.dumps(dict(messages=msgs, stream=True, max_tokens=220, temperature=0.7, top_p=0.8,
+                               cache_prompt=True, chat_template_kwargs={"enable_thinking": False})).encode()
+        req = urllib.request.Request(self.url + "/v1/chat/completions", body, {"Content-Type": "application/json"})
+        t0, first, first_sent, text, ntok, sent, pause = time.time(), None, None, "", 0, 0, 0.0
+        with urllib.request.urlopen(req) as resp:
+            for line in resp:
+                line = line.decode().strip()
+                if not line.startswith("data: ") or line == "data: [DONE]":
+                    continue
+                d = json.loads(line[6:])
+                delta = (d.get("choices") or [{}])[0].get("delta", {}).get("content") or ""
+                if not delta:
+                    continue
+                if first is None:
+                    first = time.time() - t0
+                text += delta
+                ntok += 1
+                clean = _clean(text)
+                m = None
+                for m in SENT_END.finditer(clean, sent):
+                    pass
+                if m is not None and m.end() > sent:
+                    chunk, sent = clean[sent:m.end()].strip(), m.end()
+                    if chunk:
+                        if first_sent is None:
+                            first_sent = round(time.time() - t0, 2)
+                        tp = time.time()
+                        yield chunk  # сервер продолжает генерацию, пока мы озвучиваем
+                        pause += time.time() - tp
+        clean = _clean(text)
+        if clean[sent:].strip():
+            if first_sent is None:
+                first_sent = round(time.time() - t0, 2)
+            yield clean[sent:].strip()
+        self.history.append({"role": "assistant", "content": clean})
+        total = time.time() - t0
+        stats.update(teacher=clean, llm_first_tok_s=round(first or total, 2), llm_first_sentence_s=first_sent,
+                     llm_total_s=round(total, 2), llm_tok_s=round(ntok / max(total - pause, 1e-3), 1))
+
+
+def _window(self):
+    """История для мозга. Не сдвигаем окно на каждой реплике: сдвиг меняет начало промпта, и llama.cpp
+    пересчитывает весь разговор заново (на процессоре — 15+ с). Обрезаем редко и сразу половину."""
+    if len(self.history) > 48:
+        del self.history[:24]
+    return self.history
+
+
+Brain._window = _window
 
 
 SENT_END = re.compile(r"[.!?…]+[»\"')]*(?=\s)|\n+")
@@ -177,17 +255,22 @@ class SherpaVoices:
 
     def __init__(self, male=True):
         import sherpa_onnx as so
-        k = os.path.join(MODELS, "kokoro-int8-multi-lang-v1_0")
+        # fp32 на x86 втрое быстрее int8 (RTF 0.43 против 1.25 на 4 ядрах Xeon) — если скачан, берём его
+        k = os.path.join(MODELS, "kokoro-multi-lang-v1_0")
+        kmodel = "model.onnx"
+        if not os.path.exists(os.path.join(k, kmodel)):
+            k, kmodel = os.path.join(MODELS, "kokoro-int8-multi-lang-v1_0"), "model.int8.onnx"
+        th = int(os.environ.get("TTS_THREADS", "4"))
         ru = "dmitri" if male else "irina"
         self.sid = 36 if male else 35  # kokoro v1_0: 35 if_sara, 36 im_nicola
         p = os.path.join(MODELS, f"vits-piper-ru_RU-{ru}-medium")
         self.it = so.OfflineTts(so.OfflineTtsConfig(model=so.OfflineTtsModelConfig(
-            kokoro=so.OfflineTtsKokoroModelConfig(model=f"{k}/model.int8.onnx", voices=f"{k}/voices.bin",
+            kokoro=so.OfflineTtsKokoroModelConfig(model=f"{k}/{kmodel}", voices=f"{k}/voices.bin",
                                                   tokens=f"{k}/tokens.txt", data_dir=f"{k}/espeak-ng-data", lang="it"),
-            num_threads=4)))
+            num_threads=th)))
         self.ru = so.OfflineTts(so.OfflineTtsConfig(model=so.OfflineTtsModelConfig(
             vits=so.OfflineTtsVitsModelConfig(model=f"{p}/ru_RU-{ru}-medium.onnx", tokens=f"{p}/tokens.txt",
-                                              data_dir=f"{p}/espeak-ng-data"), num_threads=4)))
+                                              data_dir=f"{p}/espeak-ng-data"), num_threads=th)))
 
     def say(self, lang, text):
         if lang == "it":
@@ -332,7 +415,7 @@ def speak(voice, text, sr_out=24000):
 # ---------------------------------------------------------------- урок
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--brain", choices=BRAINS, required=True)
+    ap.add_argument("--brain", required=True, help=f"{' | '.join(BRAINS)} | server[:URL] (llama-server, Windows)")
     ap.add_argument("--voice", choices=["qwen3tts", "kokoro-piper"], required=True)
     ap.add_argument("--ears", choices=EARS, default="parakeet")
     g = ap.add_mutually_exclusive_group(required=True)
@@ -342,13 +425,18 @@ def main():
     ap.add_argument("--tag", default="", help="метка прогона в имени папки")
     a = ap.parse_args()
 
-    run = os.path.join(HERE, "runs", "__".join([a.brain, a.voice, a.ears] + ([a.tag] if a.tag else [])
+    run = os.path.join(HERE, "runs", "__".join([a.brain.split(":")[0], a.voice, a.ears] + ([a.tag] if a.tag else [])
                                                + [time.strftime("%m%d-%H%M")]))
     os.makedirs(os.path.join(run, "wav"), exist_ok=True)
     t = time.time()
     ears, stress = Ears(a.ears), Stress()
     voice = QwenVoice() if a.voice == "qwen3tts" else SherpaVoices()
-    brain = Brain(a.brain)
+    if a.brain.startswith("server"):
+        brain = ServerBrain(a.brain.partition(":")[2] or "http://127.0.0.1:8088")
+    elif a.brain in BRAINS:
+        brain = Brain(a.brain)
+    else:
+        sys.exit(f"неизвестный мозг: {a.brain}")
     student_voice = SherpaVoices(male=False) if a.scenario else None  # «ученица» в сценарии: Kokoro it / Piper ru
     player = Player(not a.no_play)
     load_s = round(time.time() - t, 1)
@@ -399,8 +487,12 @@ def main():
         print(f"  [уши {asr_s} с · мозг до 1-го предложения {st.get('llm_first_sentence_s')} с, всего {st.get('llm_total_s')} с "
               f"({st.get('llm_tok_s')} ток/с) · голос {rec['tts_s']} с · до первого звука {first_audio} с]")
     player.wait()
-    import resource
-    log.write(json.dumps(dict(event="end", peak_rss_gb=round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2**30, 2)),
+    try:  # на Windows нет resource
+        import resource
+        peak = round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / (2**30 if sys.platform == "darwin" else 2**20), 2)
+    except ImportError:
+        peak = None
+    log.write(json.dumps(dict(event="end", peak_rss_gb=peak),
                          ensure_ascii=False) + "\n")
     print(f"готово: {run}")
 
