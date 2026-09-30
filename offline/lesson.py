@@ -233,6 +233,17 @@ class Stress:
         return unicodedata.normalize("NFC", re.sub(r"[A-Za-zÀ-ÿ]+", fix, text))
 
 
+FEM = [(r"\b([Bb])ravo\b", r"\1rava"), (r"\b([Bb])ravissimo\b", r"\1ravissima"),
+       (r"\b([Bb])envenuto\b", r"\1envenuta"), (r"\b([Ss])ei pronto\b", r"\1ei pronta")]
+
+
+def to_feminine(text):
+    """Ученица — девушка: Bravo → Brava и т.п. (мозг путает род, хоть это и есть в инструкции)."""
+    for a, b in FEM:
+        text = re.sub(a, b, text)
+    return text
+
+
 def split_lang(text):
     """Куски по языку: кириллица → ru, остальное → it. Знаки препинания держатся со своим куском."""
     parts, cur, lang = [], "", None
@@ -446,6 +457,9 @@ def main():
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--live", action="store_true")
     g.add_argument("--scenario")
+    g.add_argument("--student", choices=["gemini"], help="ученицу играет Gemini (текст + голос с акцентом), нужна сеть")
+    ap.add_argument("--turns", type=int, default=12, help="реплик ученицы в режиме --student")
+    ap.add_argument("--judge", action="store_true", help="после урока Паоло (Gemini REST) оценивает реплики и урок")
     ap.add_argument("--no-play", action="store_true", help="не проигрывать звук (сценарий в фоне)")
     ap.add_argument("--tag", default="", help="метка прогона в имени папки")
     a = ap.parse_args()
@@ -463,6 +477,10 @@ def main():
     else:
         sys.exit(f"неизвестный мозг: {a.brain}")
     student_voice = SherpaVoices(male=False) if a.scenario else None  # «ученица» в сценарии: Kokoro it / Piper ru
+    gstudent = None
+    if a.student:
+        from gemini_student import GeminiStudent
+        gstudent = GeminiStudent()
     player = Player(not a.no_play)
     load_s = round(time.time() - t, 1)
     log = open(os.path.join(run, "log.jsonl"), "w")
@@ -470,10 +488,22 @@ def main():
     print(f"загрузка {load_s} с; урок: {run}")
 
     turns = json.load(open(a.scenario))["turns"] if a.scenario else None
-    n, sr_out = 0, 24000
+    n, sr_out, last_teacher, all_turns = 0, 24000, None, []
     while True:
         n += 1
-        if turns is not None:
+        intended_error = None
+        if gstudent is not None:
+            if n > a.turns:
+                break
+            try:
+                d = gstudent.reply(last_teacher)
+                y, sr = gstudent.speak(d["say"])
+            except Exception as e:  # лимиты Gemini — урок обрываем, оценку того, что есть, всё равно делаем
+                print(f"[ученица-Gemini недоступна: {e} — урок окончен на реплике {n - 1}]", flush=True)
+                break
+            y16 = resample(y, sr, 16000)
+            said, intended_error = d["say"], d.get("error")
+        elif turns is not None:
             if n > len(turns):
                 break
             tu = turns[n - 1]
@@ -487,12 +517,13 @@ def main():
         sf.write(os.path.join(run, "wav", f"{n:02d}_student.wav"), y16, 16000)
         t_end = time.time()  # ученица закончила говорить
         heard, asr_s = ears.hear(y16)
-        print(f"\nУченица{' (сценарий)' if said else ''}: {heard}")
+        print(f"\nУченица{' (сценарий)' if said else ''}: {heard}" + (f"   [сказала: {said}]" if said and said != heard else "")
+              + (f"   [ошибка: {intended_error}]" if intended_error else ""))
         if turns is None and re.search(r"\bстоп\b", heard.lower()):
             break
         st, audio, sents, first_audio, tts_s = {}, [], [], None, 0.0
         for sent in brain.reply_stream(heard or "(тишина — ученица ничего не сказала)", st):
-            marked = stress.mark(sent)
+            marked = stress.mark(to_feminine(sent))
             t1 = time.time()
             y = speak(voice, marked, sr_out)
             tts_s += time.time() - t1
@@ -504,11 +535,13 @@ def main():
             print(f"Паоло: {marked}", flush=True)
         wav = np.concatenate(audio) if audio else np.zeros(1, np.float32)
         sf.write(os.path.join(run, "wav", f"{n:02d}_teacher.wav"), wav, sr_out)
-        rec = dict(event="turn", n=n, student_said=said, heard=heard, asr_s=asr_s, marked=" ".join(sents),
+        last_teacher = st.get("teacher") or " ".join(sents)
+        rec = dict(event="turn", n=n, student_said=said, intended_error=intended_error, heard=heard, asr_s=asr_s, marked=" ".join(sents),
                    sentences=len(sents), tts_s=round(tts_s, 2), audio_s=round(len(wav) / sr_out, 2),
                    reply_latency_s=first_audio, **st)
         log.write(json.dumps(rec, ensure_ascii=False) + "\n")
         log.flush()
+        all_turns.append(rec)
         print(f"  [уши {asr_s} с · мозг до 1-го предложения {st.get('llm_first_sentence_s')} с, всего {st.get('llm_total_s')} с "
               f"({st.get('llm_tok_s')} ток/с) · голос {rec['tts_s']} с · до первого звука {first_audio} с]")
     player.wait()
@@ -519,6 +552,24 @@ def main():
         peak = None
     log.write(json.dumps(dict(event="end", peak_rss_gb=peak),
                          ensure_ascii=False) + "\n")
+    if a.judge and all_turns:
+        from gemini_student import judge_lesson, judge_turn
+        scores = []
+        for t in all_turns:
+            try:
+                j = judge_turn(t["student_said"] or t["heard"], t.get("intended_error"),
+                               open(os.path.join(run, "wav", f"{t['n']:02d}_teacher.wav"), "rb").read())
+            except Exception as e:
+                j = {"score": None, "comment": f"[судья недоступен: {e}]"}
+            j["n"] = t["n"]
+            scores.append(j)
+            print(f"Паоло-судья #{t['n']}: {j.get('score')} {j.get('comment', '')}", flush=True)
+        try:
+            lesson = judge_lesson(all_turns)
+        except Exception as e:
+            lesson = {"score": None, "comment": f"[судья недоступен: {e}]"}
+        print(f"Урок целиком: {json.dumps(lesson, ensure_ascii=False)}")
+        json.dump(dict(turns=scores, lesson=lesson), open(os.path.join(run, "judge.json"), "w"), ensure_ascii=False, indent=1)
     print(f"готово: {run}")
 
 
