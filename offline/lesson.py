@@ -43,9 +43,29 @@ CYR = re.compile(r"[А-Яа-яЁё]")
 # ---------------------------------------------------------------- мозг
 class Brain:
     def __init__(self, name):
-        from mlx_lm import load
+        from pathlib import Path
+        from huggingface_hub import snapshot_download
+        from mlx_lm.utils import load_model, load_tokenizer
         self.name, self.repo = name, BRAINS[name]
-        self.model, self.tok = load(self.repo)
+        path = Path(snapshot_download(self.repo))
+        self.vlm = None
+        try:
+            # Gemma 4: в весах lmstudio есть k/v последних слоёв, а mlx-lm делит KV между ними — лишние
+            # веса отбрасываем (strict=False), иначе «parameters not in model»
+            self.model, _ = load_model(path, strict=False)
+            self.tok = load_tokenizer(path)
+        except ValueError as e:
+            # Gemma 4 12B — тип gemma4_unified: в mlx-lm 0.31 его нет, есть в mlx-vlm
+            if "not supported" not in str(e):
+                raise
+            from mlx_vlm import load as vlm_load
+            self.model, self.vlm = vlm_load(str(path))
+            self.tok = self.vlm.tokenizer if hasattr(self.vlm, "tokenizer") else self.vlm
+        # Gemma 4 заканчивает реплику токеном <turn|>, которого нет среди eos — без этого пишет до max_tokens
+        if self.vlm is None:
+            for t in ("<turn|>", "<end_of_turn>"):
+                if t in self.tok.get_vocab():
+                    self.tok.add_eos_token(t)
         self.system = open(os.path.join(HERE, "paolo_offline_system.txt")).read()
         self.history = []
 
@@ -59,12 +79,18 @@ class Brain:
         except TypeError:
             prompt = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
         t0, first, text, ntok = time.time(), None, "", 0
-        for r in stream_generate(self.model, self.tok, prompt, max_tokens=220, sampler=make_sampler(temp=0.7, top_p=0.8)):
+        if self.vlm is not None:
+            from mlx_vlm import stream_generate as vlm_stream
+            gen = vlm_stream(self.model, self.vlm, prompt, max_tokens=220, temperature=0.7, top_p=0.8)
+        else:
+            gen = stream_generate(self.model, self.tok, prompt, max_tokens=220, sampler=make_sampler(temp=0.7, top_p=0.8))
+        for r in gen:
             if first is None:
                 first = time.time() - t0
             text += r.text
             ntok += 1
-        text = re.sub(r"<think>.*?</think>", "", text, flags=re.S).strip()
+        text = re.sub(r"<think>.*?</think>", "", text, flags=re.S)
+        text = re.sub(r"<turn\|>|<end_of_turn>|<\|?[a-z_]+\|?>", "", text).strip()
         self.history.append({"role": "assistant", "content": text})
         dt = time.time() - t0
         return text, dict(llm_first_s=round(first or dt, 2), llm_total_s=round(dt, 2), llm_tok_s=round(ntok / max(dt, 1e-3), 1))
