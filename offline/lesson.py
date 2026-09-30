@@ -320,7 +320,12 @@ EARS = {
     "qwen3asr-0.6b": "mlx-community/Qwen3-ASR-0.6B-8bit",
     "qwen3asr-1.7b": "mlx-community/Qwen3-ASR-1.7B-8bit",
     "whisper-turbo": "mlx-community/whisper-large-v3-turbo",
+    # Windows/без видеокарты: Qwen3-ASR GGUF в отдельном llama-server (ASR_URL, по умолчанию :8089)
+    #   llama-server -m Qwen3-ASR-0.6B-Q8_0.gguf --mmproj mmproj-Qwen3-ASR-0.6B-Q8_0.gguf -c 4096 --port 8089
+    # 4 ядра Xeon: 0.6B — 1.0 с/фраза, 33/39 буквально; 1.7B — 2.2 с, 34/39 (Parakeet: 0.3 с, 21/39)
+    "server-asr": None,
 }
+ASR_CONTEXT = "Paolo, Паоло, Anna. Урок итальянского: ученица может ошибаться — quatro, anno. Пиши дословно, как сказано."
 # подсказки распознаванию: имя учителя и слова урока (Qwen3-ASR и Whisper их понимают)
 HOTWORDS = ["Paolo", "Паоло", "Anna", "vorrei", "caffè", "per favore", "quanto costa", "mi chiamo"]
 
@@ -330,7 +335,9 @@ class Ears:
 
     def __init__(self, name="parakeet"):
         self.name = name
-        if name == "parakeet":
+        if name == "server-asr":
+            self.url = os.environ.get("ASR_URL", "http://127.0.0.1:8089").rstrip("/")
+        elif name == "parakeet":
             import sherpa_onnx as so
             d = os.path.join(MODELS, "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8")
             self.rec = so.OfflineRecognizer.from_transducer(
@@ -346,7 +353,20 @@ class Ears:
 
     def hear(self, y16k):
         t0 = time.time()
-        if self.name == "parakeet":
+        if self.name == "server-asr":
+            import base64
+            import io
+            import urllib.request
+            buf = io.BytesIO()
+            sf.write(buf, y16k, 16000, format="WAV")
+            msgs = [{"role": "system", "content": ASR_CONTEXT},
+                    {"role": "user", "content": [{"type": "input_audio", "input_audio": {
+                        "data": base64.b64encode(buf.getvalue()).decode(), "format": "wav"}}]}]
+            body = json.dumps(dict(messages=msgs, temperature=0, max_tokens=160)).encode()
+            r = json.load(urllib.request.urlopen(urllib.request.Request(
+                self.url + "/v1/chat/completions", body, {"Content-Type": "application/json"})))
+            text = r["choices"][0]["message"]["content"].split("<asr_text>")[-1]
+        elif self.name == "parakeet":
             s = self.rec.create_stream()
             s.accept_waveform(16000, y16k)
             self.rec.decode_stream(s)
