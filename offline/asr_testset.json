@@ -1,0 +1,23 @@
+{"note": "Фразы ученицы для выбора ушей. keep — слова, которые обязаны дойти до учителя буквально (ошибки ученицы, имена); числа словами.",
+ "items": [
+  {"text": "Привет, Паоло! Я готова к уроку.", "keep": ["Паоло"]},
+  {"text": "Ciao! Mi chiamo Anna. Io sono russa.", "keep": ["Anna"]},
+  {"text": "Io sono di Mosca. E tu, di dove sei?", "keep": []},
+  {"text": "Uno, due, tre, quatro, cinque.", "keep": ["uno", "tre", "quatro", "cinque"]},
+  {"text": "Sei, sette, otto, nove, dieci.", "keep": ["sei", "sette", "otto", "nove", "dieci"]},
+  {"text": "Io ho venti anno.", "keep": ["ho", "venti", "anno"]},
+  {"text": "Io sono venti anni.", "keep": ["sono", "venti", "anni"]},
+  {"text": "Vorrei un caffè, per favore.", "keep": ["vorrei", "caffè"]},
+  {"text": "Vorrei una caffè.", "keep": ["una", "caffè"]},
+  {"text": "Quanto costa il caffè?", "keep": ["quanto", "costa"]},
+  {"text": "Quanto costano due cornetti?", "keep": ["due", "cornetti"]},
+  {"text": "Io parlo un poco italiano.", "keep": ["poco"]},
+  {"text": "Lei è italiana? No, io sono russo.", "keep": ["russo"]},
+  {"text": "Я не понимаю, как сказать «я хочу кофе».", "keep": ["кофе"]},
+  {"text": "Паоло, повтори, пожалуйста, медленнее.", "keep": ["Паоло"]},
+  {"text": "Как будет по-итальянски «сколько стоит»?", "keep": ["сколько"]},
+  {"text": "Спасибо, Паоло! Grazie, a domani!", "keep": ["Паоло", "grazie", "domani"]},
+  {"text": "Grazie mille! Это было очень полезно.", "keep": ["grazie", "mille"]},
+  {"text": "Buongiorno, professore. Come sta?", "keep": ["buongiorno", "sta"]},
+  {"text": "Mi piace molto la pizza e il gelato.", "keep": ["piace", "gelato"]}
+ ]}

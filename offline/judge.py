@@ -69,19 +69,24 @@ async def main():
     md = ["# Офлайн-урок «в бою»: сводка\n",
           "Оценка — Паоло (gemini-3.8-live) вслепую, 1–5. Задержка — от конца реплики ученицы до первого звука ответа "
           "(распознавание + мозг целиком + первый кусок голоса).\n",
-          "| мозг | голос | оценка Паоло | задержка, с (медиана / макс) | мозг, ток/с | ошибки распознавания | пик RAM, ГБ |",
-          "|---|---|---|---|---|---|---|"]
+          "Прогоны без уши/метки в имени — первый бой (уши parakeet, ответ целиком, старая инструкция).\n",
+          "| мозг | голос | уши | метка | оценка Паоло | до первого звука, с (медиана / макс) | мозг, ток/с | "
+          "ошибки распознавания | пик RAM, ГБ |",
+          "|---|---|---|---|---|---|---|---|---|"]
     for lp in runs:
         run = os.path.basename(os.path.dirname(lp))
         recs = list(map(json.loads, open(lp)))
         turns = [r for r in recs if r.get("event") == "turn"]
         end = next((r for r in recs if r.get("event") == "end"), {})
         sc = [int(v["score"]) for (rr, _), v in results.items() if rr == run and str(v["score"]).isdigit()]
-        lat = [t["reply_latency_s"] for t in turns]
+        lat = [t["reply_latency_s"] for t in turns if t.get("reply_latency_s") is not None]
         words = lambda s: re.sub(r"[^\w]+", " ", s.lower()).split()
         asr_bad = sum(1 for t in turns if t.get("student_said") and words(t["student_said"]) != words(t["heard"]))
-        b, v = run.split("__")[:2]
-        md.append(f"| {b} | {v} | {round(st.mean(sc), 2) if sc else '—'} ({len(sc)}) | "
+        parts = run.split("__")[:-1]  # последний кусок — время
+        b, v = parts[:2]
+        e = parts[2] if len(parts) > 2 else "parakeet"
+        tag = parts[3] if len(parts) > 3 else "v1"
+        md.append(f"| {b} | {v} | {e} | {tag} | {round(st.mean(sc), 2) if sc else '—'} ({len(sc)}) | "
                   f"{round(st.median(lat), 1) if lat else '—'} / {max(lat) if lat else '—'} | "
                   f"{round(st.median([t['llm_tok_s'] for t in turns]), 1) if turns else '—'} | {asr_bad}/{len(turns)} | "
                   f"{end.get('peak_rss_gb', '—')} |")

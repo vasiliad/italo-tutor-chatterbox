@@ -4,13 +4,16 @@
 Компоненты переключаются флагами — так сравниваем варианты на одном и том же уроке:
   --brain  qwen35-9b | gemma4-e4b | gemma4-12b            (mlx-lm, 4 бита)
   --voice  qwen3tts | kokoro-piper                          (mlx-audio 8 бит | sherpa-onnx: Kokoro it + Piper ru)
-  --ears   parakeet                                         (sherpa-onnx, Parakeet TDT 0.6B v3 int8, it+ru)
+  --ears   parakeet | nemotron | qwen3asr-0.6b | qwen3asr-1.7b | whisper-turbo
+           (Parakeet — sherpa-onnx int8; остальные — mlx-audio STT; язык везде определяется сам)
+Голос начинает говорить с первого готового предложения, пока мозг дописывает остальное (Player в фоне).
 
 Режимы:
   --live                 — урок с микрофона: Enter — начать говорить, Enter — закончить; «стоп» — конец урока.
-  --scenario FILE.json   — реплики ученицы из сценария: озвучиваются Piper (it/ru) и идут через те же уши,
+  --scenario FILE.json   — реплики ученицы из сценария: озвучиваются Kokoro (it) / Piper (ru) и идут через те же уши,
                            как если бы она говорила в микрофон; одинаковый урок для всех сочетаний.
-Итог: runs/<brain>__<voice>__<время>/ — log.jsonl (текст, задержки по этапам), wav/NN_teacher.wav, NN_student.wav.
+Итог: runs/<brain>__<voice>__<ears>[__<tag>]__<время>/ — log.jsonl (текст, задержки по этапам),
+wav/NN_teacher.wav, NN_student.wav. reply_latency_s — от конца речи ученицы до первого звука учителя.
 
   python offline/lesson.py --brain qwen35-9b --voice kokoro-piper --scenario offline/scenario_a1.json
   python offline/lesson.py --brain gemma4-12b --voice qwen3tts --live
@@ -69,7 +72,9 @@ class Brain:
         self.system = open(os.path.join(HERE, "paolo_offline_system.txt")).read()
         self.history = []
 
-    def reply(self, student_text):
+    def reply_stream(self, student_text, stats):
+        """Реплика по предложениям: каждое готовое предложение отдаётся сразу — голос начинает говорить,
+        пока мозг дописывает остальное. В stats — задержки мозга; полный текст — в историю."""
         from mlx_lm import stream_generate
         from mlx_lm.sample_utils import make_sampler
         self.history.append({"role": "user", "content": student_text})
@@ -78,22 +83,48 @@ class Brain:
             prompt = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False, enable_thinking=False)
         except TypeError:
             prompt = self.tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
-        t0, first, text, ntok = time.time(), None, "", 0
+        t0, first, first_sent, text, ntok, sent = time.time(), None, None, "", 0, 0
         if self.vlm is not None:
             from mlx_vlm import stream_generate as vlm_stream
             gen = vlm_stream(self.model, self.vlm, prompt, max_tokens=220, temperature=0.7, top_p=0.8)
         else:
             gen = stream_generate(self.model, self.tok, prompt, max_tokens=220, sampler=make_sampler(temp=0.7, top_p=0.8))
+        llm_s = 0.0  # чистое время мозга (без пауз на озвучку)
+        t_last = time.time()
         for r in gen:
+            llm_s += time.time() - t_last
             if first is None:
                 first = time.time() - t0
             text += r.text
             ntok += 1
-        text = re.sub(r"<think>.*?</think>", "", text, flags=re.S)
-        text = re.sub(r"<turn\|>|<end_of_turn>|<\|?[a-z_]+\|?>", "", text).strip()
-        self.history.append({"role": "assistant", "content": text})
-        dt = time.time() - t0
-        return text, dict(llm_first_s=round(first or dt, 2), llm_total_s=round(dt, 2), llm_tok_s=round(ntok / max(dt, 1e-3), 1))
+            clean = _clean(text)
+            m = None
+            for m in SENT_END.finditer(clean, sent):
+                pass
+            if m is not None and m.end() > sent and "<think>" not in text.split("</think>")[-1]:
+                chunk, sent = clean[sent:m.end()].strip(), m.end()
+                if chunk:
+                    if first_sent is None:
+                        first_sent = round(time.time() - t0, 2)
+                    yield chunk
+            t_last = time.time()
+        llm_s += time.time() - t_last
+        clean = _clean(text)
+        if clean[sent:].strip():
+            if first_sent is None:
+                first_sent = round(time.time() - t0, 2)
+            yield clean[sent:].strip()
+        self.history.append({"role": "assistant", "content": clean})
+        stats.update(teacher=clean, llm_first_tok_s=round(first or llm_s, 2), llm_first_sentence_s=first_sent,
+                     llm_total_s=round(llm_s, 2), llm_tok_s=round(ntok / max(llm_s, 1e-3), 1))
+
+
+SENT_END = re.compile(r"[.!?…]+[»\"')]*(?=\s)|\n+")
+
+
+def _clean(text):
+    text = re.sub(r"<think>.*?</think>", "", text, flags=re.S)
+    return re.sub(r"<turn\|>|<end_of_turn>|<\|?[a-z_]+\|?>", "", text).lstrip()
 
 
 # ---------------------------------------------------------------- ударения (итальянский)
@@ -197,22 +228,53 @@ def resample(y, sr, to):
 
 
 # ---------------------------------------------------------------- уши
-class Ears:
-    """Parakeet TDT 0.6B v3 int8 (sherpa-onnx): 25 языков, it и ru автоматически."""
+EARS = {
+    # Parakeet v3 (sherpa-onnx): числа пишет цифрами — «quatro» превращается в «4», ошибку не видно
+    "parakeet": None,
+    # остальные — mlx-audio STT
+    "nemotron": "mlx-community/nemotron-3.5-asr-streaming-0.6b",
+    "qwen3asr-0.6b": "mlx-community/Qwen3-ASR-0.6B-8bit",
+    "qwen3asr-1.7b": "mlx-community/Qwen3-ASR-1.7B-8bit",
+    "whisper-turbo": "mlx-community/whisper-large-v3-turbo",
+}
+# подсказки распознаванию: имя учителя и слова урока (Qwen3-ASR и Whisper их понимают)
+HOTWORDS = ["Paolo", "Паоло", "Anna", "vorrei", "caffè", "per favore", "quanto costa", "mi chiamo"]
 
-    def __init__(self):
-        import sherpa_onnx as so
-        d = os.path.join(MODELS, "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8")
-        self.rec = so.OfflineRecognizer.from_transducer(
-            encoder=f"{d}/encoder.int8.onnx", decoder=f"{d}/decoder.int8.onnx", joiner=f"{d}/joiner.int8.onnx",
-            tokens=f"{d}/tokens.txt", model_type="nemo_transducer", num_threads=4)
+
+class Ears:
+    """Уши на выбор (--ears). Язык — автоопределение: ученица говорит то по-итальянски, то по-русски."""
+
+    def __init__(self, name="parakeet"):
+        self.name = name
+        if name == "parakeet":
+            import sherpa_onnx as so
+            d = os.path.join(MODELS, "sherpa-onnx-nemo-parakeet-tdt-0.6b-v3-int8")
+            self.rec = so.OfflineRecognizer.from_transducer(
+                encoder=f"{d}/encoder.int8.onnx", decoder=f"{d}/decoder.int8.onnx", joiner=f"{d}/joiner.int8.onnx",
+                tokens=f"{d}/tokens.txt", model_type="nemo_transducer", num_threads=4)
+        else:
+            from mlx_audio.stt.utils import load
+            self.model = load(EARS[name])
 
     def hear(self, y16k):
         t0 = time.time()
-        s = self.rec.create_stream()
-        s.accept_waveform(16000, y16k)
-        self.rec.decode_stream(s)
-        return s.result.text.strip(), round(time.time() - t0, 2)
+        if self.name == "parakeet":
+            s = self.rec.create_stream()
+            s.accept_waveform(16000, y16k)
+            self.rec.decode_stream(s)
+            text = s.result.text
+        else:
+            import mlx.core as mx
+            y = mx.array(y16k.astype(np.float32))
+            if self.name == "nemotron":
+                r = self.model.generate(y, language="auto")
+            elif self.name.startswith("qwen3asr"):
+                r = self.model.generate(y, hotwords=HOTWORDS)
+            else:  # whisper: без условия на прошлый текст — меньше «додумывания»
+                r = self.model.generate(y, condition_on_previous_text=False, temperature=0.0,
+                                        initial_prompt="Paolo, Anna. Ciao! Привет, Паоло.")
+            text = getattr(r, "text", None) or str(r)
+        return text.strip(), round(time.time() - t0, 2)
 
 
 def record_until_enter():
@@ -227,13 +289,44 @@ def record_until_enter():
     return np.concatenate(buf)[:, 0] if buf else np.zeros(1600, np.float32)
 
 
-def play(y, sr):
-    try:
+class Player:
+    """Проигрывает куски по очереди в фоне: первое предложение звучит, пока готовятся следующие."""
+
+    def __init__(self, enabled):
+        import queue
+        import threading
+        self.q = queue.Queue()
+        self.enabled = enabled
+        if enabled:
+            threading.Thread(target=self._run, daemon=True).start()
+
+    def _run(self):
         import sounddevice as sd
-        sd.play(y, sr)
-        sd.wait()
-    except Exception as e:
-        print(f"[нет воспроизведения: {e}]", file=sys.stderr)
+        while True:
+            y, sr = self.q.get()
+            try:
+                sd.play(y, sr)
+                sd.wait()
+            except Exception as e:
+                print(f"[нет воспроизведения: {e}]", file=sys.stderr)
+            self.q.task_done()
+
+    def put(self, y, sr):
+        if self.enabled:
+            self.q.put((y, sr))
+
+    def wait(self):
+        if self.enabled:
+            self.q.join()
+
+
+def speak(voice, text, sr_out=24000):
+    """Текст с кусками на разных языках → один звук (каждый кусок своим голосом)."""
+    parts = []
+    for lang, chunk in split_lang(text):
+        y, sr = voice.say(lang, chunk)
+        parts += [resample(y, sr, sr_out), np.zeros(int(0.12 * sr_out), np.float32)]
+    return np.concatenate(parts) if parts else np.zeros(1, np.float32)
 
 
 # ---------------------------------------------------------------- урок
@@ -241,66 +334,71 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--brain", choices=BRAINS, required=True)
     ap.add_argument("--voice", choices=["qwen3tts", "kokoro-piper"], required=True)
-    ap.add_argument("--ears", choices=["parakeet"], default="parakeet")
+    ap.add_argument("--ears", choices=EARS, default="parakeet")
     g = ap.add_mutually_exclusive_group(required=True)
     g.add_argument("--live", action="store_true")
     g.add_argument("--scenario")
     ap.add_argument("--no-play", action="store_true", help="не проигрывать звук (сценарий в фоне)")
+    ap.add_argument("--tag", default="", help="метка прогона в имени папки")
     a = ap.parse_args()
 
-    run = os.path.join(HERE, "runs", f"{a.brain}__{a.voice}__{time.strftime('%m%d-%H%M')}")
+    run = os.path.join(HERE, "runs", "__".join([a.brain, a.voice, a.ears] + ([a.tag] if a.tag else [])
+                                               + [time.strftime("%m%d-%H%M")]))
     os.makedirs(os.path.join(run, "wav"), exist_ok=True)
     t = time.time()
-    ears, stress = Ears(), Stress()
+    ears, stress = Ears(a.ears), Stress()
     voice = QwenVoice() if a.voice == "qwen3tts" else SherpaVoices()
     brain = Brain(a.brain)
     student_voice = SherpaVoices(male=False) if a.scenario else None  # «ученица» в сценарии: Kokoro it / Piper ru
+    player = Player(not a.no_play)
     load_s = round(time.time() - t, 1)
     log = open(os.path.join(run, "log.jsonl"), "w")
     log.write(json.dumps(dict(event="start", brain=brain.repo, voice=a.voice, ears=a.ears, load_s=load_s), ensure_ascii=False) + "\n")
     print(f"загрузка {load_s} с; урок: {run}")
 
     turns = json.load(open(a.scenario))["turns"] if a.scenario else None
-    n = 0
+    n, sr_out = 0, 24000
     while True:
         n += 1
         if turns is not None:
             if n > len(turns):
                 break
             tu = turns[n - 1]
-            y, sr = student_voice.say(tu["lang"], tu["text"])
-            y16 = resample(y, sr, 16000)
+            # смешанную реплику каждый язык говорит своим голосом (раньше Piper ru читал и итальянский кусок)
+            y16 = resample(speak(student_voice, tu["text"]), sr_out, 16000)
             said = tu["text"]
         else:
+            player.wait()
             y16 = record_until_enter()
             said = None
         sf.write(os.path.join(run, "wav", f"{n:02d}_student.wav"), y16, 16000)
+        t_end = time.time()  # ученица закончила говорить
         heard, asr_s = ears.hear(y16)
         print(f"\nУченица{' (сценарий)' if said else ''}: {heard}")
         if turns is None and re.search(r"\bстоп\b", heard.lower()):
             break
-        text, st = brain.reply(heard or "(тишина — ученица ничего не сказала)")
-        marked = stress.mark(text)
-        t1, audio, sr_out = time.time(), [], 24000
-        first_audio = None
-        for lang, chunk in split_lang(marked):
-            y, sr = voice.say(lang, chunk)
+        st, audio, sents, first_audio, tts_s = {}, [], [], None, 0.0
+        for sent in brain.reply_stream(heard or "(тишина — ученица ничего не сказала)", st):
+            marked = stress.mark(sent)
+            t1 = time.time()
+            y = speak(voice, marked, sr_out)
+            tts_s += time.time() - t1
             if first_audio is None:
-                first_audio = round(time.time() - t1, 2)
-            audio.append(resample(y, sr, sr_out))
-            audio.append(np.zeros(int(0.15 * sr_out), np.float32))
+                first_audio = round(time.time() - t_end, 2)  # от конца речи ученицы до первого звука
+            player.put(y, sr_out)
+            audio.append(y)
+            sents.append(marked)
+            print(f"Паоло: {marked}", flush=True)
         wav = np.concatenate(audio) if audio else np.zeros(1, np.float32)
-        tts_s = round(time.time() - t1, 2)
         sf.write(os.path.join(run, "wav", f"{n:02d}_teacher.wav"), wav, sr_out)
-        rec = dict(event="turn", n=n, student_said=said, heard=heard, asr_s=asr_s, teacher=text, marked=marked,
-                   tts_first_chunk_s=first_audio, tts_s=tts_s, audio_s=round(len(wav) / sr_out, 2),
-                   reply_latency_s=round(asr_s + st["llm_total_s"] + (first_audio or 0), 2), **st)
+        rec = dict(event="turn", n=n, student_said=said, heard=heard, asr_s=asr_s, marked=" ".join(sents),
+                   sentences=len(sents), tts_s=round(tts_s, 2), audio_s=round(len(wav) / sr_out, 2),
+                   reply_latency_s=first_audio, **st)
         log.write(json.dumps(rec, ensure_ascii=False) + "\n")
         log.flush()
-        print(f"Паоло: {marked}\n  [ASR {asr_s} с · LLM {st['llm_total_s']} с ({st['llm_tok_s']} ток/с) · "
-              f"голос {tts_s} с · до первого звука ≈ {rec['reply_latency_s']} с]")
-        if not a.no_play:
-            play(wav, sr_out)
+        print(f"  [уши {asr_s} с · мозг до 1-го предложения {st.get('llm_first_sentence_s')} с, всего {st.get('llm_total_s')} с "
+              f"({st.get('llm_tok_s')} ток/с) · голос {rec['tts_s']} с · до первого звука {first_audio} с]")
+    player.wait()
     import resource
     log.write(json.dumps(dict(event="end", peak_rss_gb=round(resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 2**30, 2)),
                          ensure_ascii=False) + "\n")
